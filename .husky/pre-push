@@ -4,6 +4,6 @@
 BASE=main
 HEAD=HEAD
 
-npx nx workspace-lint
+npx lint-staged
 npx nx affected --head=$HEAD --base=$BASE --target=prettier
 npx nx affected --head=$HEAD --base=$BASE --target=lint
