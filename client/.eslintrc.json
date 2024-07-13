@@ -1,5 +1,6 @@
 {
-  "extends": "airbnb-base",
+  "extends": ["next", "next/core-web-vitals", "airbnb-base"],
+  "ignorePatterns": ["!**/*", ".next/**/*"],
   "rules": {
     "linebreak-style": 0
   }
