@@ -1,8 +1,8 @@
 {
   "run": {
     "command": "nx affected --head=HEAD --base=main --target=lint",
-    "startTime": "2024-07-13T13:25:01.907Z",
-    "endTime": "2024-07-13T13:25:01.911Z",
+    "startTime": "2024-07-13T13:33:06.037Z",
+    "endTime": "2024-07-13T13:33:06.042Z",
     "inner": false
   },
   "tasks": []

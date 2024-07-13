@@ -87,4 +87,7 @@ psd
 thumb
 sketch
 
+# Nx cache folder
+.nx/
+
 # End of https://www.toptal.com/developers/gitignore/api/macos,react,nextjs
