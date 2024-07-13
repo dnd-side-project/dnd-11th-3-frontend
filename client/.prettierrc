@@ -1,0 +1,17 @@
+{
+  "semi": false,
+  "singleQuote": true,
+  "tabWidth": 3,
+  "trailingComma": "all",
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "importOrderParserPlugins": ["typescript", "jsx", "decorators-legacy"],
+  "importOrder": [
+    "react*",
+    "next*",
+    "<THIRD_PARTY_MODULES>",
+    "^@lib/(.*)$",
+    "^[../]",
+    "^[./]"
+  ]
+}
