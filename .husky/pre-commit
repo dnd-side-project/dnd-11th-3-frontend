@@ -4,7 +4,7 @@
 npx lint-staged
 
 echo "being formatted..."
-DIFFS=(`npx nx format:write --base=main`)
+DIFFS=(`npx nx format:write --base=develop`)
 
 if [ ${#DIFFS[@]} -eq 0 ]; then
   echo "All formatted."
