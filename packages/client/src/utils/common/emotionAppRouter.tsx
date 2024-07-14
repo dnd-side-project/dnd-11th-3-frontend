@@ -31,13 +31,16 @@ export default function AppRouterCacheProvider(
    const { options, CacheProvider = DefaultCacheProvider, children } = props
 
    const [registry] = React.useState(() => {
-      const cache = createCache({ ...options, key: options?.key ?? 'cds' })
+      const cache = createCache({
+         ...options,
+         key: options?.key ?? 'design-system',
+      })
       cache.compat = true
       const prevInsert = cache.insert
       let inserted: { name: string; isGlobal: boolean }[] = []
       cache.insert = (...args) => {
          if (options?.enableCssLayer) {
-            args[1].styles = `@layer cds {${args[1].styles}}`
+            args[1].styles = `@layer design-system {${args[1].styles}}`
          }
          const [selector, serialized] = args
          if (cache.inserted[serialized.name] === undefined) {
