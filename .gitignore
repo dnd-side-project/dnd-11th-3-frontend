@@ -113,3 +113,7 @@ sketch
 .nx/
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,react,nextjs
+
+
+.nx/cache
+.nx/workspace-data

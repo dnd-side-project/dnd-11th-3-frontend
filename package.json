@@ -1,9 +1,10 @@
 {
   "devDependencies": {
-    "husky": "^9.0.11"
+    "husky": "^9.0.11",
+    "nx": "19.4.3"
   },
   "repository": {
-      "type": "git",
-      "url": "https://github.com/dnd-side-project/dnd-11th-3-frontend"
-   }
+    "type": "git",
+    "url": "https://github.com/dnd-side-project/dnd-11th-3-frontend"
+  }
 }
