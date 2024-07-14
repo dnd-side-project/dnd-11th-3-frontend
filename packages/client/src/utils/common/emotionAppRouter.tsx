@@ -1,13 +1,14 @@
 'use client'
-import * as React from 'react'
-import createCache from '@emotion/cache'
-import { useServerInsertedHTML } from 'next/navigation'
-import { CacheProvider as DefaultCacheProvider } from '@emotion/react'
 import type {
    EmotionCache,
    Options as OptionsOfCreateCache,
 } from '@emotion/cache'
+import createCache from '@emotion/cache'
+import { CacheProvider as DefaultCacheProvider } from '@emotion/react'
+import { useServerInsertedHTML } from 'next/navigation'
+import * as React from 'react'
 
+// copied MUI https://github.com/mui/material-ui/blob/master/packages/mui-material-nextjs/src/v13-appRouter/appRouterV13.tsx
 export type AppRouterCacheProviderProps = {
    /** These are the options passed to createCache() from 'import createCache from "@emotion/cache"' */
    options?: Partial<OptionsOfCreateCache> & {
@@ -18,18 +19,15 @@ export type AppRouterCacheProviderProps = {
       enableCssLayer?: boolean
    }
    /** By default <CacheProvider /> from 'import { CacheProvider } from "@emotion/react"' */
-   CacheProvider?: (props: {
-      value: EmotionCache
-      children: React.ReactNode
-   }) => React.JSX.Element | null
+   CacheProvider?: React.Provider<EmotionCache>
    children: React.ReactNode
 }
 
-export default function AppRouterCacheProvider(
-   props: AppRouterCacheProviderProps,
-) {
-   const { options, CacheProvider = DefaultCacheProvider, children } = props
-
+export default function AppRouterCacheProvider({
+   options,
+   CacheProvider = DefaultCacheProvider,
+   children,
+}: AppRouterCacheProviderProps) {
    const [registry] = React.useState(() => {
       const cache = createCache({
          ...options,
@@ -108,5 +106,3 @@ export default function AppRouterCacheProvider(
 
    return <CacheProvider value={registry.cache}>{children}</CacheProvider>
 }
-
-// https://github.com/mui/material-ui/blob/master/packages/mui-material-nextjs/src/v13-appRouter/appRouterV13.tsx
