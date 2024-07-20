@@ -2,22 +2,3 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 npx lint-staged
-
-echo "being formatted..."
-DIFFS=(`npx nx format:write --base=develop`)
-
-if [ ${#DIFFS[@]} -eq 0 ]; then
-  echo "All formatted."
-else
-  echo "The following files were not formatted and will be formatted automatically:"
-fi
-for FILE in "${DIFFS[@]}"
-do
-  CHANGED=`git diff $FILE`
-  if [[ $CHANGED ]]; then
-    echo ""
-    echo "* $FILE"
-    git diff --color=always -U0 $FILE | grep '^\e\[[^m]*m[-+]' | grep -Ev '(--- a/|\+\+\+ b/)'
-    git add $FILE
-  fi
-done
