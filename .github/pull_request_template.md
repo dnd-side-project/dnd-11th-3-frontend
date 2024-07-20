@@ -28,6 +28,7 @@
 ### 📌 Checklist
 
 -  [ ] 추가된 기능 혹은 해결한 bug를 크롬 시크릿 모드에서도 테스트 해보았습니다.
+-  [ ] squash and merge로 설정되었나요?
 
 ### ⏰ TODOS
 
