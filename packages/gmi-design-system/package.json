@@ -19,6 +19,7 @@
   ],
   "sideEffects": false,
   "dependencies": {
+    "@vanilla-extract/css": "^1.15.3",
     "react-hot-toast": "2.4.1",
     "typescript-eslint": "^7.16.1"
   },
