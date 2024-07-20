@@ -11,7 +11,7 @@
       "react*",
       "next*",
       "<THIRD_PARTY_MODULES>",
-      "^@lib/(.*)$",
+      "^@gmi-design-system/(.*)$",
       "^[../]",
       "^[./]"
    ]
