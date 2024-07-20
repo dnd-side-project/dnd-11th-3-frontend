@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import AppRouterCacheProvider from '../utils/common/emotionAppRouter'
+
 import ReactQueryClientProviders from '../utils/common/reactQueryProviders'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -33,13 +33,7 @@ export default function RootLayout({
       <html lang="en">
          <head></head>
          <body className={inter.className}>
-            <ReactQueryClientProviders>
-               <AppRouterCacheProvider
-                  options={{ key: 'design-system', enableCssLayer: true }}
-               >
-                  {children}
-               </AppRouterCacheProvider>
-            </ReactQueryClientProviders>
+            <ReactQueryClientProviders>{children}</ReactQueryClientProviders>
          </body>
       </html>
    )
