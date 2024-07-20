@@ -1,6 +1,14 @@
-# dnd-11th-3-frontend
+# 공무인: 공무원 인수인계 Q&A 플랫폼
 
 [Web Repo] 원클릭 공무원 인수인계 Q&amp;A 서비스, 익명성을 보장 받는 질의응답으로 커피값을 벌어봐요!
+
+## Architecture
+
+<img src="./gmi_archtecture.png">
+
+## Tech Stck
+
+-  ...
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
@@ -28,8 +36,8 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+-  [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+-  [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
