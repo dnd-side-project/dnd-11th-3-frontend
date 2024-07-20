@@ -15,13 +15,7 @@ export default defineConfig({
     sourcemap: true,
     emptyOutDir: true,
     rollupOptions: {
-      external: [
-        'react',
-        'react-dom',
-        '@emotion/react',
-        '@emotion/styled',
-        '@emotion/react/jsx-runtime',
-      ],
+      external: ['react', 'react-dom'],
       output: [
         {
           format: 'cjs',
@@ -39,7 +33,6 @@ export default defineConfig({
   },
   plugins: [
     react({
-      jsxImportSource: '@emotion/react',
       jsxRuntime: 'automatic',
     }),
     dts({ tsconfigPath: './tsconfig.build.json' }),
