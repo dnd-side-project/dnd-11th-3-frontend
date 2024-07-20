@@ -1,9 +1,0 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
-
-BASE=main
-HEAD=HEAD
-
-npx lint-staged
-npx nx affected --head=$HEAD --base=$BASE --target=prettier
-npx nx affected --head=$HEAD --base=$BASE --target=lint
