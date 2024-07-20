@@ -9,7 +9,8 @@
   ],
   "devDependencies": {
     "husky": "^9.0.11",
-    "nx": "19.4.3"
+    "nx": "19.4.3",
+    "@nrwl/cli": "latest"
   },
   "repository": {
     "type": "git",
