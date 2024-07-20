@@ -1,4 +1,13 @@
 {
+  "name": "gong-mu-in",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/client",
+    "packages/design-system",
+    "packages/gmi-design-system"
+  ],
   "devDependencies": {
     "husky": "^9.0.11",
     "nx": "19.4.3"
