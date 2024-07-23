@@ -1,6 +1,28 @@
 # Created by https://www.toptal.com/developers/gitignore/api/macos,react,nextjs
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,react,nextjs
 
+# compiled output
+dist
+tmp
+/out-tsc
+
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
 ### macOS ###
 # General
 .DS_Store
@@ -45,7 +67,7 @@ Temporary Items
 /coverage
 
 # next.js
-/.next/
+.next
 /out/
 
 # production
@@ -90,4 +112,6 @@ sketch
 # Nx cache folder
 .nx/
 
-# End of https://www.toptal.com/developers/gitignore/api/macos,react,nextjs
+.nx/cache
+.nx/workspace-data
+

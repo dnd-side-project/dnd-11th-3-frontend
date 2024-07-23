@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "target": "es2015",
+    "module": "esnext",
+    "useDefineForClassFields": true,
+    "lib": ["es2017", "dom"],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": false,
+    "outDir": "dist",
+    "baseUrl": ".",
+    "jsx": "preserve",
+    "incremental": true,
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true
+  },
+  "include": ["src", "eslint.config.js"],
+  "exclude": ["**/dist/**, **/node_modules"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}
