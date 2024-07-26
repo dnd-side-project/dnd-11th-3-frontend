@@ -7,7 +7,8 @@
       "dev": "next dev",
       "build": "next build",
       "start": "next start",
-      "lint": "next lint"
+      "lint": "next lint",
+      "postinstall": "node node_modules/esbuild/install.js"
    },
    "dependencies": {
       "@tanstack/react-query": "^5.51.1",
@@ -15,7 +16,8 @@
       "next": "^14.2.5",
       "react": "^18",
       "react-dom": "^18",
-      "react-hook-form": "^7.52.1"
+      "react-hook-form": "^7.52.1",
+      "@nx/nx-linux-x64-gnu": "latest"
    },
    "devDependencies": {
       "@tanstack/eslint-plugin-query": "^5.51.1",
