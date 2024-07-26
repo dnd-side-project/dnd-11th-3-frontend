@@ -31,6 +31,7 @@
          "warn",
          { "extensions": [".ts", ".tsx"] }
       ],
-      "no-useless-catch": "off" // 불필요한 catch 못쓰게 하는 기능 끔
+      "no-useless-catch": "off", // 불필요한 catch 못쓰게 하는 기능 끔
+      "no-console": "error"
    }
 }
