@@ -7,7 +7,8 @@
       "dev": "next dev",
       "build": "next build",
       "start": "next start",
-      "lint": "next lint"
+      "format": "prettier --cache --write .",
+      "lint": "next lint --cache ."
    },
    "dependencies": {
       "@tanstack/react-query": "^5.51.1",
@@ -41,7 +42,7 @@
       "typescript": "^5"
    },
    "lint-staged": {
-      "*.{js,jsx,ts,tsx}": [
+      "*.{js,jsx,ts,tsx,css,scss}": [
          "prettier --write",
          "eslint --fix"
       ]
