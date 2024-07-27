@@ -9,6 +9,10 @@
   ],
   "devDependencies": {
     "@nrwl/cli": "latest",
+    "@typescript-eslint/eslint-plugin": "^7.17.0",
+    "@typescript-eslint/parser": "^7.17.0",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^14.2.5",
     "husky": "^8.0.0",
     "lint-staged": "^15.2.7",
     "nx": "19.4.3"
@@ -19,5 +23,9 @@
   },
   "scripts": {
     "prepare": "husky install"
+  },
+  "dependencies": {
+    "D": "^1.0.0",
+    "eslint-plugin-import": "^2.29.1"
   }
 }
