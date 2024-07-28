@@ -9,14 +9,13 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, './src/index.ts'),
-
       name: 'gmi-design-system',
       fileName: 'index',
     },
     sourcemap: true,
     emptyOutDir: true,
     rollupOptions: {
-      external: ['react', 'react-dom', '@emotion/hash'],
+      external: ['react', 'react-dom'],
       output: [
         {
           format: 'cjs',
