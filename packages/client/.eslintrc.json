@@ -31,8 +31,6 @@
          "warn",
          { "extensions": [".ts", ".tsx"] }
       ],
-      "no-useless-catch": "off", // 불필요한 catch 못쓰게 하는 기능 끔
-      "react/no-unescaped-entities": "off",
-      "@next/next/no-page-custom-font": "off"
+      "no-useless-catch": "off" // 불필요한 catch 못쓰게 하는 기능 끔
    }
 }
