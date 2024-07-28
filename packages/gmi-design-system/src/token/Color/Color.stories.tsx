@@ -6,7 +6,7 @@ export default {
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/tN7Q8dJZqVsjo2FWflOKfu/CDS(Corca-Design-System)?type=design&node-id=435-16999&mode=design&t=90XgbxcTRUn2ydEs-4',
+      url: '',
     },
   },
 }
