@@ -25,7 +25,6 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "D": "^1.0.0",
     "eslint-plugin-import": "^2.29.1"
   }
 }
