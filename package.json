@@ -8,12 +8,21 @@
     "packages/gmi-design-system"
   ],
   "devDependencies": {
-    "husky": "^9.0.11",
-    "nx": "19.4.3",
-    "@nrwl/cli": "latest"
+    "@nrwl/cli": "latest",
+    "@typescript-eslint/eslint-plugin": "^7.17.0",
+    "@typescript-eslint/parser": "^7.17.0",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^14.2.5",
+    "eslint-plugin-import": "^2.29.1",
+    "husky": "^8.0.0",
+    "lint-staged": "^15.2.7",
+    "nx": "19.4.3"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/dnd-side-project/dnd-11th-3-frontend"
+  },
+  "scripts": {
+    "prepare": "husky install && chmod +x .husky/pre-commit"
   }
 }
