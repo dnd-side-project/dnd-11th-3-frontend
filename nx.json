@@ -5,7 +5,22 @@
     "default": {
       "runner": "nx/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "lint"]
+        "cacheableOperations": ["build", "lint", "build-storybook"]
+      }
+    }
+  },
+  "generators": {
+    "@nrwl/react": {
+      "application": {
+        "babel": false,
+        "style": "scss",
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/next": {
+      "application": {
+        "style": "scss",
+        "linter": "eslint"
       }
     }
   }
