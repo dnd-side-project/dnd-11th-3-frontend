@@ -12,7 +12,7 @@
   "generators": {
     "@nrwl/react": {
       "application": {
-        "babel": true,
+        "babel": false,
         "style": "scss",
         "linter": "eslint"
       }
