@@ -8,6 +8,10 @@
     "packages/gmi-design-system"
   ],
   "devDependencies": {
+    "husky": "^9.0.11",
+    "nx": "15.3.0",
+    "@nrwl/cli": "latest",
+    "glob": "latest",
     "@nrwl/cli": "latest",
     "@typescript-eslint/eslint-plugin": "^7.17.0",
     "@typescript-eslint/parser": "^7.17.0",
@@ -15,8 +19,7 @@
     "eslint-config-next": "^14.2.5",
     "eslint-plugin-import": "^2.29.1",
     "husky": "^8.0.0",
-    "lint-staged": "^15.2.7",
-    "nx": "19.4.3"
+    "lint-staged": "^15.2.7"
   },
   "repository": {
     "type": "git",
