@@ -25,7 +25,7 @@
     "experimentalDecorators": true,
     "importHelpers": true
   },
-  "include": ["src", "eslint.config.js"],
+  "include": ["src/**/*", "eslint.config.js"],
   "exclude": ["**/dist/**, **/node_modules"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
