@@ -4,7 +4,7 @@ import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
 import dts from 'vite-plugin-dts'
 import react from '@vitejs/plugin-react'
 import { viteStaticCopy } from 'vite-plugin-static-copy'
-
+import config from './.storybook/main'
 export default defineConfig({
   build: {
     lib: {
@@ -44,6 +44,6 @@ export default defineConfig({
         },
       ],
     }),
-    vanillaExtractPlugin(),
+    vanillaExtractPlugin(config),
   ],
 })

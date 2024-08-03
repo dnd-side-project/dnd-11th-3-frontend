@@ -12,8 +12,8 @@ const config = {
   addons: [
     '@storybook/addon-storysource',
     '@storybook/addon-designs',
-    '@storybook/addon-links',
     '@storybook/addon-essentials',
+    '@storybook/preset-create-react-app',
   ],
   typescript: {
     reactDocgen: 'react-docgen-typescript',
@@ -25,6 +25,9 @@ const config = {
   async viteFinal(config) {
     config.plugins.push(vanillaExtractPlugin())
     return config
+  },
+  features: {
+    storyStoreV7: true,
   },
 }
 
