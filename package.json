@@ -24,6 +24,6 @@
     "url": "https://github.com/dnd-side-project/dnd-11th-3-frontend"
   },
   "scripts": {
-    "prepare": "husky install && chmod +x .husky/pre-commit"
+    "prepare": "if [ \"$NETLIFY\" != \"true\" ]; then husky install && chmod +x .husky/pre-commit; fi"
   }
 }
