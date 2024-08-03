@@ -15,7 +15,7 @@
     "isolatedModules": true,
     "noEmit": false,
     "outDir": "dist",
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "jsx": "preserve",
     "incremental": true,
     "sourceMap": true,
@@ -23,7 +23,7 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "importHelpers": true
+    "importHelpers": true,
   },
   "include": ["src/**/*", "eslint.config.js"],
   "exclude": ["**/dist/**, **/node_modules"],
