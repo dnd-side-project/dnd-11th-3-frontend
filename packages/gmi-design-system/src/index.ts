@@ -1,3 +1,3 @@
-export * from './component'
-export * from './icon'
-export * from './token'
+export * from './components'
+export * from './icons'
+export * from './tokens'
