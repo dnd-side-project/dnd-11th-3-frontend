@@ -58,7 +58,7 @@
     "storybook": "^8.2.6",
     "typescript": "^5.5.3",
     "typescript-eslint": "^7.16.1",
-    "vite": "^5.3.4",
+    "vite": "^5.3.5",
     "vite-plugin-dts": "^3.9.1",
     "vite-plugin-static-copy": "^1.0.6"
   },
