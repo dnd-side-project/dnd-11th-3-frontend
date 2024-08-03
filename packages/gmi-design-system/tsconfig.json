@@ -15,7 +15,7 @@
     "isolatedModules": true,
     "noEmit": false,
     "outDir": "dist",
-    "baseUrl": ".",
+    "baseUrl": "./src",
     "jsx": "preserve",
     "incremental": true,
     "sourceMap": true,
