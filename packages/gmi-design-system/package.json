@@ -69,7 +69,7 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint ./src",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "storybook build"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
