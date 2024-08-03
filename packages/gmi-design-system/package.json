@@ -68,8 +68,7 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint ./src",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "postinstall": "husky install"
+    "build-storybook": "storybook build"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
