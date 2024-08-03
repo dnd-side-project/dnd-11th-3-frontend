@@ -1,5 +1,5 @@
 [build]
-  command = "npm run build-storybook"
+  command = "vite build storybook-static"
   publish = "storybook-static"
 
 [build.environment]
