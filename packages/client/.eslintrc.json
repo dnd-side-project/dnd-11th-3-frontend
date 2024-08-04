@@ -4,7 +4,8 @@
    "plugins": ["@typescript-eslint", "prettier"],
    "parserOptions": {
       "project": ["./tsconfig.json"],
-      "createDefaultProgram": true
+      "createDefaultProgram": true,
+      "extraFileExtensions": [".css"]
    },
    "env": {
       // 전역객체를 eslint가 인식하는 구간
@@ -12,7 +13,13 @@
       "node": true,
       "es6": true
    },
-   "ignorePatterns": ["node_modules/", "!**/*", ".next/**/*", "*/package.json"], // eslint 미적용될 폴더나 파일 명시
+   "ignorePatterns": [
+      "node_modules/",
+      "!**/*",
+      ".next/**/*",
+      "*/package.json",
+      "**/*.css"
+   ], // eslint 미적용될 폴더나 파일 명시
    "extends": [
       "next",
       "next/core-web-vitals",

@@ -26,7 +26,8 @@
          }
       ],
       "paths": {
-         "@/*": ["./client/src/*"],
+         "@/app/*": ["./client/app/*"],
+         "@/src/*": ["./client/src/*"],
          "@gmi-design-system/*": ["./gmi-design-system/*"]
       }
    },
