@@ -1,3 +1,0 @@
-### icons
-
-Folder for icons
