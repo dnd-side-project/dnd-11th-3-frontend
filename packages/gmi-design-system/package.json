@@ -84,7 +84,8 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint ./src",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "gen-icon": "svgr --out-dir ./src/icon/default --index-template ./tool/svgrIndexTemplate.cjs -- ./src/icon/asset"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
