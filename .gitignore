@@ -115,3 +115,7 @@ sketch
 .nx/cache
 .nx/workspace-data
 
+
+### StorybookJs ###
+storybook-static/
+

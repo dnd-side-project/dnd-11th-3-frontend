@@ -4,11 +4,17 @@ import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
 import dts from 'vite-plugin-dts'
 import react from '@vitejs/plugin-react'
 import { viteStaticCopy } from 'vite-plugin-static-copy'
+import config from './.storybook/main'
+
+// tsconfg setting is not working
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import packageJson from './package.json'
 
 export default defineConfig({
   build: {
     lib: {
-      entry: resolve(__dirname, './src/index.ts'),
+      entry: convertExportsToEntries(packageJson.exports),
       name: 'gmi-design-system',
       fileName: 'index',
     },
@@ -44,6 +50,17 @@ export default defineConfig({
         },
       ],
     }),
-    vanillaExtractPlugin(),
+    vanillaExtractPlugin(config),
   ],
 })
+
+function convertExportsToEntries(exports: object) {
+  const entries: Record<string, string> = {}
+  for (const key in exports) {
+    if (/^\.\S+[^/]+\.[^/]+$/.test(key)) continue // Ignore regular expression patterns that end with *.*
+    const entryPath = key === '.' ? './src/index.ts' : `src/${key}/index.ts`
+    const formattedKey = key === '.' ? 'index' : `${key.slice(2)}/index`
+    entries[formattedKey] = resolve(__dirname, entryPath)
+  }
+  return entries
+}
