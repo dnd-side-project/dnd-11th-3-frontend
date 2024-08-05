@@ -176,3 +176,6 @@ export const TYPO: TypoType = {
     }),
   },
 }
+
+export const typoWrapper = style({ display: 'flex', marginBottom: '20px' })
+export const typoBox = style({ display: 'flex', flexDirection: 'column', margin: '10px' })
