@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css'
-import { COLOR } from './Color'
+import { COLOR } from './color'
 
 export const colorContainer = style({ padding: '1rem' })
 export const colorWrapper = style({ display: 'flex', gap: '15px', marginBottom: '30px' })
