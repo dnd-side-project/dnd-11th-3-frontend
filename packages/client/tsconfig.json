@@ -26,9 +26,7 @@
          }
       ],
       "paths": {
-         "@/app/*": ["./client/app/*"],
-         "@/src/*": ["./client/src/*"],
-         "@gmi-design-system/*": ["./gmi-design-system/*"]
+         "@gmi-design-system/*": ["../gmi-design-system/*"]
       }
    },
    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
