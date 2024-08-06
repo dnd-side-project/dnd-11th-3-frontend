@@ -1,4 +1,4 @@
-import { COLOR } from '@gmi-design-system/src'
+import { COLOR } from '@gmi-design-system'
 
 export default function Signin() {
    return (

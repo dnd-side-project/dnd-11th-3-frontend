@@ -26,10 +26,15 @@
          }
       ],
       "paths": {
-         "@gmi-design-system/*": ["../gmi-design-system/*"]
-      },
-      "rootDirs": [".", "./"]
+         "@gmi-design-system/*": ["../gmi-design-system/src/*"]
+      }
    },
-   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+   "include": [
+      "next-env.d.ts",
+      "**/*.ts",
+      "**/*.tsx",
+      ".next/types/**/*.ts",
+      "../gmi-design-system/src/**/*"
+   ],
    "exclude": ["node_modules", ".next", "dist"]
 }
