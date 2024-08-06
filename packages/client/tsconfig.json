@@ -2,6 +2,7 @@
    "compileOnSave": true,
    "compilerOptions": {
       "rootDir": ".",
+      "baseUrl": ".",
       "sourceMap": true,
       "declaration": false,
       "moduleResolution": "node",
