@@ -19,7 +19,7 @@ export const TEXT_STYLE_WEIGHT = {
 } as const
 
 type TextStyle = {
-  [key in keyof typeof TEXT_STYLE_WEIGHT]?: string
+  [key in keyof typeof TEXT_STYLE_WEIGHT]: string
 }
 
 type TypoType = {
