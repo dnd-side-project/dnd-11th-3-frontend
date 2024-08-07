@@ -1,4 +1,4 @@
-import { TYPO, typoBox, typoWrapper } from '../typo/typography.css'
+import { TYPO, typoBox, typoWrapper } from './typography.css'
 
 export default {
   title: 'Foundation/Pretendard',
