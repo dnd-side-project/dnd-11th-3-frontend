@@ -2,6 +2,7 @@
    "compileOnSave": true,
    "compilerOptions": {
       "rootDir": ".",
+      "baseUrl": ".",
       "sourceMap": true,
       "declaration": false,
       "moduleResolution": "node",
@@ -26,10 +27,15 @@
          }
       ],
       "paths": {
-         "@/*": ["./client/src/*"],
-         "@gmi-design-system/*": ["./gmi-design-system/*"]
+         "@gmi-design-system/*": ["../gmi-design-system/src/*"]
       }
    },
-   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-   "exclude": ["node_modules"]
+   "include": [
+      "next-env.d.ts",
+      "**/*.ts",
+      "**/*.tsx",
+      ".next/types/**/*.ts",
+      "../gmi-design-system/src/**/*"
+   ],
+   "exclude": ["node_modules", ".next", "dist"]
 }
