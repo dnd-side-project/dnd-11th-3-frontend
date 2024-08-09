@@ -30,6 +30,7 @@ export const BackButton = style({
 })
 
 export const HeaderTitle = style({
+   // TODO: 디자인시스템 적용하기
    // color:
    // font-style:
    cursor: 'default',
