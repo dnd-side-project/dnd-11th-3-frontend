@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import BackIcon from '@/icon/components/header/back.svg'
+import BackIcon from '@public/svgs/components/header/back.svg'
 import { BackButton, HeaderTitle, HeaderWrapper } from './Header.css'
 
 interface HProps {

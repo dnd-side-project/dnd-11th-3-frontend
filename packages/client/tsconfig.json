@@ -28,7 +28,8 @@
       ],
       "paths": {
          "@gmi-design-system/*": ["../gmi-design-system/src/*"],
-         "@/*": ["src/*"]
+         "@/*": ["src/*"],
+         "@public/*": ["public/*"]
       }
    },
    "include": [
