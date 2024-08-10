@@ -1,7 +1,12 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
-import { headerWrappewrStyle } from './header.css'
+import { IconArrowLeft } from '@gmi-design-system/icon'
+import {
+   arrowButtonWrappewrStyle,
+   headerTitleWrappewrStyle,
+   headerWrappewrStyle,
+} from './header.css'
 
 interface Props {
    title?: string
@@ -11,10 +16,15 @@ export function Header({ title }: Props) {
    const router = useRouter()
    return (
       <div className={headerWrappewrStyle}>
-         <button type="button" onClick={() => router.back()}>
-            Back
+         <button
+            className={arrowButtonWrappewrStyle}
+            type="button"
+            onClick={() => router.back()}
+            aria-label="Go back"
+         >
+            <IconArrowLeft />
          </button>
-         <h1>{title}</h1>
+         <h1 className={headerTitleWrappewrStyle}>{title}</h1>
       </div>
    )
 }
