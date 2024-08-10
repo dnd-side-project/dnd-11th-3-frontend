@@ -1,1 +1,1 @@
-export const component = 'component'
+export { TextInput } from './TextInput/TextInput'
