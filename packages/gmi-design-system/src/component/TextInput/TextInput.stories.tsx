@@ -16,6 +16,12 @@ export function TextInputComponent() {
       }}
     >
       <TextInput label="Label" description="Description" placeholder="Placeholder" />
+      <TextInput
+        variant="filled"
+        label="Variant Filled"
+        description="Description"
+        placeholder="Placeholder"
+      />
       <TextInput label="Without description" placeholder="Placeholder" />
       <TextInput label="With Icon" placeholder="Placeholder" icon={<IconBookmark />} />
       <TextInput

@@ -1,6 +1,7 @@
 import { style } from '@vanilla-extract/css'
 import { recipe } from '@vanilla-extract/recipes'
 import { color } from 'src/token/Color/color'
+import { INPUT_BG_COLOR, INPUT_COLOR } from './TextInput'
 
 export const textInputLabelStyle = style({
   marginBottom: '17px',
@@ -16,7 +17,6 @@ export const textInputLabelContainerStyle = style({
   height: 'fit-content',
   margin: 0,
   padding: 0,
-
   display: 'flex',
   flexDirection: 'column',
 })
@@ -43,7 +43,16 @@ export const textInputWrapperStyle = recipe({
       default: {
         border: '1px solid #e0e0e0',
       },
-      disabled: { border: `1px solid ${color['gray-800']}`, backgroundColor: color['gray-900'] },
+      filled: {
+        color: color['gray-100'],
+        backgroundColor: INPUT_BG_COLOR.filled,
+        border: `1px solid ${color['gray-800']}`,
+      },
+      disabled: {
+        cursor: 'not-allowed',
+        border: `1px solid ${color['gray-800']}`,
+        backgroundColor: INPUT_BG_COLOR.disabled,
+      },
       error: { border: `1px solid ${color['error']}` },
     },
   },
@@ -56,7 +65,7 @@ export const textInputWrapperStyle = recipe({
 export const textInputStyle = recipe({
   base: {
     width: '100%',
-    color: color['gray-100'],
+    color: INPUT_COLOR.default,
     '::placeholder': {
       color: color['gray-500'],
     },
@@ -64,9 +73,16 @@ export const textInputStyle = recipe({
 
   variants: {
     color: {
-      default: { color: color['gray-100'] },
-      disabled: { backgroundColor: color['gray-900'] },
-      error: { color: color['error'] },
+      default: { backgroundColor: INPUT_BG_COLOR.default },
+      filled: {
+        backgroundColor: INPUT_BG_COLOR.filled,
+      },
+      disabled: {
+        cursor: 'not-allowed',
+        color: INPUT_COLOR.disabled,
+        backgroundColor: INPUT_BG_COLOR.disabled,
+      },
+      error: { color: INPUT_COLOR.error },
     },
   },
 
@@ -86,6 +102,7 @@ export const textMetaStyle = recipe({
   variants: {
     color: {
       default: { color: color['gray-400'] },
+      filled: { color: color['gray-400'] },
       disabled: { color: color['gray-400'] },
       error: { color: color['error'] },
     },
