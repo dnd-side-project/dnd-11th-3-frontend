@@ -40,12 +40,10 @@ export function Select({
   onSelect,
   selected,
   pressAndClose = true,
-  width = '100%',
+  width = 350,
   inputProps,
-  // ...props
 }: SelectProps) {
   const [opened, setOpened] = useState(false)
-  // const ref = useRef(null)
 
   return (
     <AriaSelect
@@ -59,8 +57,30 @@ export function Select({
         selected={selected}
         onClick={() => setOpened(prev => !prev)}
       />
-      <Popover isOpen={disabled ? false : opened}>
-        <ListBox>
+      <Popover
+        isOpen={disabled ? false : opened}
+        style={{
+          width: width,
+        }}
+      >
+        <ListBox
+          style={{
+            width: width,
+            minWidth: '140px',
+            height: 'fit-content',
+            padding: '8px',
+
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+
+            borderRadius: '8px',
+            boxShadow: '0px 0px 4px 0px rgba(0, 0, 0, 0.25)',
+            backgroundColor: 'white',
+            overflow: 'hidden',
+          }}
+        >
           {items.map(({ id, label }) => (
             <CustomListBoxItem
               key={id}
@@ -83,6 +103,10 @@ export function Select({
   )
 }
 
+/**
+ *
+ * @desc Input for single select
+ */
 function SelectInput({
   disabled,
   inputProps,
@@ -121,17 +145,20 @@ function SelectInput({
       >
         <div
           className={textInputWrapperStyle({
-            color: disabled ? 'disabled' : inputProps?.errorMessage ? 'error' : 'default',
+            color: disabled ? 'disabled' : inputProps?.errorMessage ? 'error' : inputProps?.variant,
           })}
         >
           <input
             className={textInputStyle({
-              color: disabled ? 'disabled' : inputProps?.errorMessage ? 'error' : 'default',
+              color: disabled
+                ? 'disabled'
+                : inputProps?.errorMessage
+                  ? 'error'
+                  : inputProps?.variant,
             })}
             readOnly
             value={selected ? selected.label : ''}
             {...inputProps}
-            // ref={ref}
           />
           {inputProps?.icon}
         </div>
@@ -149,6 +176,10 @@ function SelectInput({
   )
 }
 
+/**
+ *
+ * @desc Box Item for single select
+ */
 function CustomListBoxItem({
   id,
   label,
@@ -164,11 +195,10 @@ function CustomListBoxItem({
       style={{
         width: '100%',
         height: '37px',
-
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
         cursor: 'pointer',
+
+        fontSize: '12px', //TODO: refactor with font
+        fontWeight: '600',
       }}
     >
       <div className={selectItemWrapper}> {label}</div>

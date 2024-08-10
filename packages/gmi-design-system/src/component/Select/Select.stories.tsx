@@ -49,6 +49,15 @@ export function SelectComponent() {
         selected={selectedWithIcon}
         items={[{ label: 'Option 1', id: '1' }]}
       />
+      <Select
+        inputProps={{
+          icon: <IconSearch />,
+          variant: 'filled',
+        }}
+        onSelect={item => setSelectedWithIcon(item as { label: string; id: string })}
+        selected={selectedWithIcon}
+        items={[{ label: 'Option 1', id: '1' }]}
+      />
     </div>
   )
 }

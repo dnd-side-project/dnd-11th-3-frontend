@@ -48,8 +48,11 @@ export const selectItemWrapper = style({
   height: '100%',
   padding: '8px 16px',
 
-  fontSize: '12px',
-  fontWeight: '600',
+  display: 'flex',
+  justifyContent: 'flex-start',
+  alignItems: 'center',
+
+  borderRadius: '8px',
   backgroundColor: color['white'],
   color: color['gray-100'],
   ':hover': {
