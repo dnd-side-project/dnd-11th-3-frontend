@@ -1,3 +1,4 @@
+import { IconBookmark } from '../../icon'
 import { TextInput } from './TextInput'
 
 export default {
@@ -16,6 +17,7 @@ export function TextInputComponent() {
     >
       <TextInput label="Label" description="Description" placeholder="Placeholder" />
       <TextInput label="Without description" placeholder="Placeholder" />
+      <TextInput label="With Icon" placeholder="Placeholder" icon={<IconBookmark />} />
       <TextInput
         label="Error"
         description="Description"
