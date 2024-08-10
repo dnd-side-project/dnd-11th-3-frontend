@@ -14,7 +14,6 @@ const config = {
     '@storybook/addon-designs',
     '@storybook/addon-essentials',
     '@storybook/preset-create-react-app',
-    'storybook-addon-aria-live',
   ],
   typescript: {
     reactDocgen: 'react-docgen-typescript',
@@ -23,10 +22,11 @@ const config = {
   core: {
     builder: '@storybook/builder-vite',
   },
-  async viteFinal(config) {
-    config.plugins.push(vanillaExtractPlugin())
-    return config
-  },
+  plugins: [new vanillaExtractPlugin()],
+  // async viteFinal(config) {
+  //   config.plugins.push(vanillaExtractPlugin())
+  //   return config
+  // },
 }
 
 export default config
