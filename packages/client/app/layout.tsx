@@ -1,11 +1,9 @@
 import React from 'react'
 import type { Metadata, Viewport } from 'next'
-import { Inter } from 'next/font/google'
+
 import './globals.css'
-
+import '@gmi-design-system/global.css'
 import ReactQueryClientProviders from '../src/apps/provider/reactQueryProviders'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
    title: 'temp app client',
@@ -33,8 +31,13 @@ export default function RootLayout({
    return (
       <html lang="en">
          <head />
-         <body className={inter.className}>
-            <ReactQueryClientProviders>{children}</ReactQueryClientProviders>
+         <body>
+            <div className="mobile-layout">
+               <ReactQueryClientProviders>
+                  {children}
+                  안녕
+               </ReactQueryClientProviders>
+            </div>
          </body>
       </html>
    )
