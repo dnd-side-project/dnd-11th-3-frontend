@@ -27,7 +27,13 @@
          }
       ],
       "paths": {
-         "@gmi-design-system/*": ["../gmi-design-system/src/*"]
+         "@gmi-design-system/*": ["../gmi-design-system/src/*"],
+         "@apps/*": ["./src/apps/*"],
+         "@entities/*": ["./src/entities/*"],
+         "@features/*": ["./src/features/*"],
+         "@pages/*": ["./src/pages/*"],
+         "@shared/*": ["./src/shared/*"],
+         "@widgets/*": ["./src/widgets/*"]
       }
    },
    "include": [
