@@ -6,10 +6,10 @@ import '@gmi-design-system/global.css'
 import ReactQueryClientProviders from '../src/apps/provider/reactQueryProviders'
 
 export const metadata: Metadata = {
-   title: 'temp app client',
-   description: 'this service is for korea public officials',
+   title: 'GongMuIn',
+   description: 'The Platform is for Korea public officials',
    appleWebApp: {
-      title: 'temp app client',
+      title: 'GongMuIn app client',
       statusBarStyle: 'default',
    },
 }
@@ -33,10 +33,7 @@ export default function RootLayout({
          <head />
          <body>
             <div className="mobile-layout">
-               <ReactQueryClientProviders>
-                  {children}
-                  안녕
-               </ReactQueryClientProviders>
+               <ReactQueryClientProviders>{children}</ReactQueryClientProviders>
             </div>
          </body>
       </html>
