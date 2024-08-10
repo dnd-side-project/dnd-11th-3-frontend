@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Select } from './Select'
+import { IconSearch } from '../../icon'
 
 export default {
   title: 'Component/Select - Source',
@@ -10,7 +11,11 @@ export function SelectComponent() {
     label: string
     id: string
   }>({ label: '', id: '' })
-  const [searchValue, setSearchValue] = useState('')
+  const [selectedWithIcon, setSelectedWithIcon] = useState<{
+    label: string
+    id: string
+  }>({ label: '', id: '' })
+
   return (
     <div
       style={{
@@ -21,8 +26,6 @@ export function SelectComponent() {
       }}
     >
       <Select
-        variant="filled"
-        size="large"
         onSelect={item => setSelected(item as { label: string; id: string })}
         selected={selected}
         items={[
@@ -32,20 +35,19 @@ export function SelectComponent() {
         ]}
       />
       <Select
-        searchable
-        search={{
-          value: searchValue,
-          onChange: setSearchValue,
-        }}
-        variant="filled"
-        size="large"
+        disabled
         onSelect={item => setSelected(item as { label: string; id: string })}
-        selected={selected}
-        items={[
-          { label: 'Option 1', id: '1' },
-          { label: 'Option 2', id: '2' },
-          { label: 'Option 3', id: '3' },
-        ]}
+        selected={null}
+        items={[{ label: 'Option 1', id: '1' }]}
+      />
+
+      <Select
+        inputProps={{
+          icon: <IconSearch />,
+        }}
+        onSelect={item => setSelectedWithIcon(item as { label: string; id: string })}
+        selected={selectedWithIcon}
+        items={[{ label: 'Option 1', id: '1' }]}
       />
     </div>
   )

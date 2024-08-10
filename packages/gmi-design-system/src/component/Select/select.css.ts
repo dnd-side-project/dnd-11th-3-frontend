@@ -42,3 +42,18 @@ export const iconWrapperStyle = style({
   justifyContent: 'center',
   alignItems: 'center',
 })
+
+export const selectItemWrapper = style({
+  width: '100%',
+  height: '100%',
+  padding: '8px 16px',
+
+  fontSize: '12px',
+  fontWeight: '600',
+  backgroundColor: color['white'],
+  color: color['gray-100'],
+  ':hover': {
+    backgroundColor: color['primary-background'],
+    color: color['primary-dark'],
+  },
+})
