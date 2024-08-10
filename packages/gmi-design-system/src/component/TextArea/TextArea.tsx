@@ -1,38 +1,39 @@
-import { forwardRef } from 'react'
+import { CSSProperties, forwardRef } from 'react'
 import {
-  textInputStyle,
-  textInputLabelContainerStyle,
-  textInputLabelStyle,
-  textInputWrapperStyle,
+  textAreaStyle,
+  textAreaLabelContainerStyle,
+  textAreaLabelStyle,
+  textAreaWrapperStyle,
   textMetaStyle,
-} from './textInput.css'
+} from './textarea.css'
 
-export interface TextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   label?: string
   description?: string
   errorMessage?: string
-  icon?: React.ReactNode
+  height?: CSSProperties['height']
 }
 
-export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
-  ({ label, description, errorMessage, icon, ...props }, ref) => {
-    const Icon = icon
+export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
+  ({ label, description, errorMessage, height, ...props }, ref) => {
     return (
-      <div className={textInputLabelContainerStyle}>
-        <div className={textInputLabelStyle}>{label}</div>
+      <div className={textAreaLabelContainerStyle}>
+        <div className={textAreaLabelStyle}>{label}</div>
         <div
-          className={textInputWrapperStyle({
+          style={{
+            height: height ?? 'auto',
+          }}
+          className={textAreaWrapperStyle({
             color: props.disabled ? 'disabled' : errorMessage ? 'error' : 'default',
           })}
         >
-          <input
-            className={textInputStyle({
+          <textarea
+            className={textAreaStyle({
               color: props.disabled ? 'disabled' : errorMessage ? 'error' : 'default',
             })}
             {...props}
             ref={ref}
           />
-          {Icon}
         </div>
         {(errorMessage || description) && (
           <div
