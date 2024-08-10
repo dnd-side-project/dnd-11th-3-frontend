@@ -23,10 +23,6 @@ const config = {
     builder: '@storybook/builder-vite',
   },
   plugins: [new vanillaExtractPlugin()],
-  // async viteFinal(config) {
-  //   config.plugins.push(vanillaExtractPlugin())
-  //   return config
-  // },
 }
 
 export default config
