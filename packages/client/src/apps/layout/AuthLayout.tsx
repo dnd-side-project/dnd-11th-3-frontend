@@ -1,8 +1,8 @@
 'use client'
 
-import React, { useMemo } from 'react'
-import { usePathname } from 'next/navigation'
 import { WITHOUT_COMMON_HEADER } from '@shared/model/navMetaData'
+import { usePathname } from 'next/navigation'
+import React, { useMemo } from 'react'
 import { Header } from './Header'
 
 interface Props {

@@ -1,16 +1,17 @@
 'use client'
 
+import { useRouter } from 'next/navigation'
 import { headerWrappewrStyle } from './header.css'
 
 interface Props {
    title?: string
-   onBack: () => void
 }
 
-export function Header({ title, onBack }: Props) {
+export function Header({ title }: Props) {
+   const router = useRouter()
    return (
       <div className={headerWrappewrStyle}>
-         <button type="button" onClick={onBack}>
+         <button type="button" onClick={() => router.back()}>
             Back
          </button>
          <h1>{title}</h1>
