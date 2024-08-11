@@ -9,6 +9,7 @@ import Blue from '@gmi-design-system/component/Recommend/home/Blue.svg'
 import Orange from '@gmi-design-system/component/Recommend/home/Orange.svg'
 import Image from 'next/image'
 import { useScrollHandler } from '@features/useScrollHandler'
+import { IconBookmark, IconLikesDefault } from '@gmi-design-system/icon'
 import * as styles from './index.css'
 import { useClientSideRender } from './useClientSideRender'
 
@@ -183,11 +184,14 @@ export default function Home() {
                               <span>{el.date}</span>
                            </div>
                            <div className={styles.QuestionDetailBox}>
-                              <div className={styles.QuestionIconBox} />
+                              <div className={styles.QuestionIconBox}>
+                                 <IconBookmark />
+                              </div>
                               <div className={styles.QuestionIconTxtBox}>
                                  {el.bookmark}
                               </div>
                               <div className={styles.QuestionIconBox} />
+                              <IconLikesDefault />
                               <div className={styles.QuestionIconTxtBox}>
                                  {el.likes}
                               </div>
