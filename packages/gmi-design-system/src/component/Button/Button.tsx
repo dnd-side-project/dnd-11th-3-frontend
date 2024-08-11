@@ -1,6 +1,6 @@
 import { cloneElement, ReactElement } from 'react'
 import { IconProps } from '../../icon'
-import { color } from '../../token/color/color'
+import { color } from '../../token/Color/color'
 import { buttonStyle, iconWrapperStyle } from './button.css'
 export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant: 'filled' | 'outlined'

@@ -1,2 +1,2 @@
-export { color } from './color/color'
+export { color } from './Color/color'
 export { typo } from './typo/typography.css'
