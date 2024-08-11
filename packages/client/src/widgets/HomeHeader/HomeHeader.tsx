@@ -1,8 +1,12 @@
 'use client'
 
 import React, { useState } from 'react'
-import { IconArrowDown, IconBookmark } from '@gmi-design-system/icon'
-
+import {
+   IconAlarm,
+   IconArrowDown,
+   IconArrowUp,
+   IconBookmark,
+} from '@gmi-design-system/icon'
 import {
    categoryDownBtn,
    categoryFilterTitle,
@@ -17,11 +21,13 @@ import {
 
 export function HomeHeader() {
    const [isExpand, setIsExpand] = useState<boolean>(false)
+
    const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
       if (event.key === 'Enter' || event.key === ' ') {
          setIsExpand(!isExpand)
       }
    }
+
    return (
       <div className={homeheaderWrapper}>
          <div className={homelogoBox}>logo</div>
@@ -38,7 +44,7 @@ export function HomeHeader() {
                className={categoryDownBtn}
                aria-label="expand category"
             >
-               {isExpand ? 'up' : <IconArrowDown />}
+               {isExpand ? <IconArrowUp /> : <IconArrowDown />}
             </button>
          </div>
          {isExpand && (
@@ -48,11 +54,12 @@ export function HomeHeader() {
             </div>
          )}
          <div className={headerButtonWrapper}>
-            {/**  TODO: svg */}
             <div className={headerIconBox}>
                <IconBookmark />
             </div>
-            <div className={headerIconBox}>알림</div>
+            <div className={headerIconBox}>
+               <IconAlarm />
+            </div>
          </div>
       </div>
    )
