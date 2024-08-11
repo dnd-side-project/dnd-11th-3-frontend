@@ -29,7 +29,7 @@ export const MoreBox = style({
 
 export const RecommendContentBox = style({
    width: '100%',
-   marginTop: '10px',
+   marginTop: '20px',
    display: 'flex',
    flexDirection: 'column',
 })
@@ -43,4 +43,5 @@ export const Line = style({
    height: '4px',
    width: '100%',
    border: 'none',
+   margin: '30px 0',
 })
