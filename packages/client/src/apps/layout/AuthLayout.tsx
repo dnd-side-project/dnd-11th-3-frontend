@@ -1,6 +1,6 @@
 'use client'
 
-import { WITHOUT_COMMON_HEADER } from '@shared/model/navMetaData'
+import { COMMON_HEADER_META_DATA } from '@shared/model/navMetaData'
 import { usePathname } from 'next/navigation'
 import React, { useMemo } from 'react'
 import { Header } from './Header'
@@ -12,14 +12,16 @@ interface Props {
 export function AuthLayout({ children }: Props) {
    const pathname = usePathname()
 
-   const showHeader = useMemo(
-      () => !WITHOUT_COMMON_HEADER.includes(pathname),
+   const headerTitle = useMemo(
+      () =>
+         COMMON_HEADER_META_DATA.find(({ url }) => pathname?.startsWith(url))
+            ?.title || null,
       [pathname],
    )
 
    return (
       <div>
-         {showHeader && <Header title="TODO 타이틀 상수 이용" />}
+         {!!headerTitle && <Header title={headerTitle} />}
          {children}
          {/* <BottomNavigation /> */}
       </div>

@@ -1,2 +1,2 @@
 export { PageURL } from './pageURL'
-export { WITHOUT_COMMON_HEADER } from './navData'
+export { COMMON_HEADER_META_DATA } from './navData'
