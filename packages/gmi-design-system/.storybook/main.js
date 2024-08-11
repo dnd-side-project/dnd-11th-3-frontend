@@ -5,10 +5,10 @@ import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
 
 const config = {
   framework: {
-    name: '@storybook/react-vite',
+    name: '@storybook/react',
     options: {},
   },
-  stories: ['../**/*.stories.@(js|jsx|ts|tsx)'],
+  stories: ['../src/**/*.mdx', '../**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
     '@storybook/addon-storysource',
     '@storybook/addon-designs',
@@ -20,8 +20,17 @@ const config = {
   },
   docs: {},
   core: {
-    builder: '@storybook/builder-vite',
+    builder: {
+      name: '@storybook/builder-webpack5',
+      options: {
+        fsCache: true,
+        lazyCompilation: true,
+      },
+    },
   },
+  // core: {
+  //   builder: '@storybook/builder-vite',
+  // },
   plugins: [new vanillaExtractPlugin()],
 }
 
