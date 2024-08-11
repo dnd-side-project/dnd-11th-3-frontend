@@ -358,4 +358,5 @@ video {
    width: 390px;
    background-color: white;
    position: relative;
+   overflow: auto;
 }
