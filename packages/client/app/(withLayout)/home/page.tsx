@@ -13,6 +13,63 @@ import { useClientSideRender } from './useClientSideRender'
 
 const Slider = dynamic(() => import('react-slick'), { ssr: false })
 
+const data = [
+   {
+      tag: '법원경비관리',
+      reward: '2000',
+      title: '서류 처리 관련 질문',
+      content: '안녕ㅎ아세요',
+      date: '2024',
+      bookmark: 23,
+      likes: 2,
+   },
+   {
+      tag: '법원경비관리',
+      reward: '2000',
+      title: '서류 처리 관련 질문',
+      content: '안녕ㅎ아세요',
+      date: '2024',
+      bookmark: 23,
+      likes: 2,
+   },
+   {
+      tag: '법원경비관리',
+      reward: '2000',
+      title: '서류 처리 관련 질문',
+      content: '안녕ㅎ아세요',
+      date: '2024',
+      bookmark: 23,
+      likes: 2,
+   },
+   {
+      tag: '법원경비관리',
+      reward: '2000',
+      title: '서류 처리 관련 질문',
+      content: '안녕ㅎ아세요',
+      date: '2024',
+      bookmark: 23,
+      likes: 2,
+   },
+   {
+      tag: '법원경비관리',
+      reward: '2000',
+      title: '서류 처리 관련 질문',
+      content: '안녕ㅎ아세요',
+      date: '2024',
+      bookmark: 23,
+      likes: 2,
+   },
+   {
+      tag: '법원경비관리',
+      reward: '2000',
+      title: '서류 처리 관련 질문',
+      content: '안녕ㅎ아세요',
+      date: '2024',
+      bookmark: 23,
+      likes: 2,
+   },
+]
+
 export default function Home() {
    const isClient = useClientSideRender()
 
@@ -30,7 +87,7 @@ export default function Home() {
             <HomeHeader />
             <div className={styles.RecommendWrapper}>
                <div className={styles.RecommendHeaderBox}>
-                  <span className={styles.RecommendTitle}>추천 질문</span>
+                  <div className={styles.RecommendTitle}>추천 질문</div>
                   <div className={styles.MoreBox}>
                      <Button size="small" variant="outlined">
                         더보기
@@ -81,6 +138,61 @@ export default function Home() {
             )}
          </div>
          <hr className={styles.Line} />
+         <div className={styles.HomeWrapper}>
+            <div className={styles.QuestionListsWrapper}>
+               <div
+                  id="nav-section"
+                  className={styles.QuestionListHeaderWrapper}
+               >
+                  <div className={styles.QuestionHeaderTitle}>
+                     <span>질문 리스트</span>
+                  </div>
+                  <div className={styles.QuestionFilterBox}>
+                     {/** TODO: 디자인시스템 작성필요 */}
+                     <Button size="small" variant="outlined">
+                        더보기
+                     </Button>
+                     <Button size="small" variant="outlined">
+                        더보기
+                     </Button>
+                     <Button size="small" variant="outlined">
+                        더보기
+                     </Button>
+                  </div>
+               </div>
+            </div>
+            {data.map((el) => {
+               return (
+                  <div className={styles.QuestionWrapper}>
+                     <div className={styles.QuestionTagWrapper}>
+                        {/** TODO: 디자인시스템 작성 필요 */}
+                        {el.tag} {el.reward}
+                     </div>
+                     <div className={styles.QuestionTitleBox}>
+                        <span>{el.title}</span>
+                     </div>
+                     <div className={styles.QuestionContentBox}>
+                        {el.content}
+                     </div>
+                     <div className={styles.QuestionBottomWrapper}>
+                        <div className={styles.QuestionDateBox}>
+                           <span>{el.date}</span>
+                        </div>
+                        <div className={styles.QuestionDetailBox}>
+                           <div className={styles.QuestionIconBox} />
+                           <div className={styles.QuestionIconTxtBox}>
+                              {el.bookmark}
+                           </div>
+                           <div className={styles.QuestionIconBox} />
+                           <div className={styles.QuestionIconTxtBox}>
+                              {el.likes}
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               )
+            })}
+         </div>
       </>
    )
 }
