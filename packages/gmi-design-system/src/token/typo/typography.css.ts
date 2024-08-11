@@ -26,7 +26,7 @@ type TypoType = {
   [key in keyof typeof TEXT_STYLE_SIZE]: TextStyle
 }
 
-export const TYPO: TypoType = {
+export const typo: TypoType = {
   [TEXT_STYLE_SIZE.h1]: {
     [TEXT_STYLE_WEIGHT.Lg]: style({
       ...pretendardLight,
