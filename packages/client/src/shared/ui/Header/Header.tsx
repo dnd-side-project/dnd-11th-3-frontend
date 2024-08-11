@@ -5,7 +5,7 @@ import { IconArrowLeft } from '@gmi-design-system/icon'
 import {
    arrowButtonWrappewrStyle,
    headerTitleWrappewrStyle,
-   headerWrappewrStyle,
+   headerWrapperStyle,
 } from './header.css'
 
 interface Props {
@@ -15,7 +15,7 @@ interface Props {
 export function Header({ title }: Props) {
    const router = useRouter()
    return (
-      <div className={headerWrappewrStyle}>
+      <div className={headerWrapperStyle}>
          <button
             className={arrowButtonWrappewrStyle}
             type="button"
