@@ -4,7 +4,7 @@ import type { IconProps } from '../shared/props'
 const IconSearch = (
   {
     title = 'IconSearch',
-    titleId = 'GDS-IconIconSearch',
+    titleId = 'GDS-IconSearch',
     size = 20,
     color = '#2A2A2A',
     ...props

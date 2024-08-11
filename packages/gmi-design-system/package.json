@@ -88,7 +88,9 @@
     "lint": "eslint ./src",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "gen-icon": "svgr --out-dir ./src/icon/default --index-template ./tool/svgrIndexTemplate.cjs -- ./src/icon/asset"
+    "svgr-icon": "svgr --out-dir ./src/icon/default -- ./src/icon/prepare",
+    "refactor-icon": "node refactorIcons.cjs",
+    "auto-icon": "svgr --out-dir ./src/icon/default -- ./src/icon/prepare && npm run refactor-icon"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
