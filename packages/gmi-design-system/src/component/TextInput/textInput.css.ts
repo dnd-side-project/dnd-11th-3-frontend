@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css'
 import { recipe } from '@vanilla-extract/recipes'
-import { color } from 'src/token/Color/color'
+import { color } from 'src/token/color/color'
 import { INPUT_BG_COLOR, INPUT_COLOR } from './TextInput'
 
 export const textInputLabelStyle = style({
