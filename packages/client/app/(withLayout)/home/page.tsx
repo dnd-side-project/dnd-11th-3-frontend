@@ -2,12 +2,13 @@
 
 import { HomeHeader } from '@widgets/HomeHeader/HomeHeader'
 import { Button } from '@gmi-design-system/component/Button/Button'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import dynamic from 'next/dynamic'
 import Green from '@gmi-design-system/component/Recommend/home/Green.svg'
 import Blue from '@gmi-design-system/component/Recommend/home/Blue.svg'
 import Orange from '@gmi-design-system/component/Recommend/home/Orange.svg'
 import Image from 'next/image'
+import { useScrollHandler } from '@features/useScrollHandler'
 import * as styles from './index.css'
 import { useClientSideRender } from './useClientSideRender'
 
@@ -82,21 +83,7 @@ export default function Home() {
    }
 
    const [fixed, setFixed] = useState<boolean>(false)
-
-   useEffect(() => {
-      const navbar = document.getElementById('nav-section')
-      const navOffset = navbar?.offsetTop || 0
-
-      const handleScroll = () => {
-         setFixed(window.scrollY >= navOffset)
-      }
-
-      window.addEventListener('scroll', handleScroll)
-
-      return () => {
-         window.removeEventListener('scroll', handleScroll)
-      }
-   }, [])
+   useScrollHandler(setFixed, 'nav-section')
 
    return (
       <>
@@ -157,8 +144,7 @@ export default function Home() {
          <hr className={styles.Line} />
          <div className={styles.HomeWrapper}>
             <div
-               id="nav-section"
-               className={`${styles.QuestionListsWrapper} ${fixed ? styles.fixedNav : ''}`}
+               className={`${styles.QuestionListsWrapper} ${fixed && styles.fixedNav}`}
             >
                <div className={styles.QuestionListHeaderWrapper}>
                   <div className={styles.QuestionHeaderTitle}>
@@ -178,37 +164,39 @@ export default function Home() {
                   </div>
                </div>
             </div>
-            {data.map((el) => {
-               return (
-                  <div className={styles.QuestionWrapper}>
-                     <div className={styles.QuestionTagWrapper}>
-                        {/** TODO: 디자인시스템 작성 필요 */}
-                        {el.tag} {el.reward}
-                     </div>
-                     <div className={styles.QuestionTitleBox}>
-                        <span>{el.title}</span>
-                     </div>
-                     <div className={styles.QuestionContentBox}>
-                        {el.content}
-                     </div>
-                     <div className={styles.QuestionBottomWrapper}>
-                        <div className={styles.QuestionDateBox}>
-                           <span>{el.date}</span>
+            <div id="nav-section">
+               {data.map((el) => {
+                  return (
+                     <div className={styles.QuestionWrapper}>
+                        <div className={styles.QuestionTagWrapper}>
+                           {/** TODO: 디자인시스템 작성 필요 */}
+                           {el.tag} {el.reward}
                         </div>
-                        <div className={styles.QuestionDetailBox}>
-                           <div className={styles.QuestionIconBox} />
-                           <div className={styles.QuestionIconTxtBox}>
-                              {el.bookmark}
+                        <div className={styles.QuestionTitleBox}>
+                           <span>{el.title}</span>
+                        </div>
+                        <div className={styles.QuestionContentBox}>
+                           {el.content}
+                        </div>
+                        <div className={styles.QuestionBottomWrapper}>
+                           <div className={styles.QuestionDateBox}>
+                              <span>{el.date}</span>
                            </div>
-                           <div className={styles.QuestionIconBox} />
-                           <div className={styles.QuestionIconTxtBox}>
-                              {el.likes}
+                           <div className={styles.QuestionDetailBox}>
+                              <div className={styles.QuestionIconBox} />
+                              <div className={styles.QuestionIconTxtBox}>
+                                 {el.bookmark}
+                              </div>
+                              <div className={styles.QuestionIconBox} />
+                              <div className={styles.QuestionIconTxtBox}>
+                                 {el.likes}
+                              </div>
                            </div>
                         </div>
                      </div>
-                  </div>
-               )
-            })}
+                  )
+               })}
+            </div>
          </div>
       </>
    )
