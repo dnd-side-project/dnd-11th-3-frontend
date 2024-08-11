@@ -1,7 +1,7 @@
 /**
  * @type {import('@storybook/react-vite').StorybookConfig} StorybookConfig
  */
-import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
+import { vanillaExtractPlugin } from '@vanilla-extract/webpack-plugin'
 
 const config = {
   framework: {
