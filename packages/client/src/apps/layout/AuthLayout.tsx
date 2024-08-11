@@ -1,6 +1,6 @@
 'use client'
 
-import { COMMON_HEADER_META_DATA } from '@shared/model/navMetaData'
+import { COMMON_HEADER_META_DATA } from '@shared/model/layout'
 import { usePathname } from 'next/navigation'
 import React, { useMemo } from 'react'
 import { Header } from './Header'

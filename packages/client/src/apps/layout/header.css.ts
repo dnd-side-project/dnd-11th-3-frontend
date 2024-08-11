@@ -1,21 +1,22 @@
 import { style } from '@vanilla-extract/css'
 
 export const headerWrappewrStyle = style({
-   width: '100%',
-   minWidth: '390px',
+   width: '390px',
    display: 'flex',
-   justifyContent: 'flex-start',
+   // justifyContent: 'center',
    alignItems: 'center',
    padding: '0 16px',
 
    height: '60px',
    backgroundColor: '#fff',
+   position: 'fixed',
 })
 
 const LEFT_ARROW_WIDTH = 30
 export const arrowButtonWrappewrStyle = style({
    width: LEFT_ARROW_WIDTH,
    height: 30,
+   left: 0,
 
    display: 'flex',
    justifyContent: 'left',
@@ -29,8 +30,9 @@ export const arrowButtonWrappewrStyle = style({
 })
 
 export const headerTitleWrappewrStyle = style({
-   width: '100%',
+   width: 430 - LEFT_ARROW_WIDTH,
    marginRight: LEFT_ARROW_WIDTH,
+   textAlign: 'center',
 
    display: 'flex',
    justifyContent: 'center',
