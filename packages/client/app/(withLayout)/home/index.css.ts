@@ -116,5 +116,9 @@ export const QuestionIconTxtBox = style({
 export const fixedNav = style({
    position: 'fixed',
    top: 0,
-   width: '100%',
+   zIndex: 999,
+   backgroundColor: '#FFf',
+   width: '358px',
+   display: 'flex',
+   justifyContent: 'center',
 })

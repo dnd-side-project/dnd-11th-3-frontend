@@ -2,7 +2,7 @@
 
 import { HomeHeader } from '@widgets/HomeHeader/HomeHeader'
 import { Button } from '@gmi-design-system/component/Button/Button'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import dynamic from 'next/dynamic'
 import Green from '@gmi-design-system/component/Recommend/home/Green.svg'
 import Blue from '@gmi-design-system/component/Recommend/home/Blue.svg'
@@ -81,6 +81,23 @@ export default function Home() {
       swipeToSlide: true,
    }
 
+   const [fixed, setFixed] = useState<boolean>(false)
+
+   useEffect(() => {
+      const navbar = document.getElementById('nav-section')
+      const navOffset = navbar?.offsetTop || 0
+
+      const handleScroll = () => {
+         setFixed(window.scrollY >= navOffset)
+      }
+
+      window.addEventListener('scroll', handleScroll)
+
+      return () => {
+         window.removeEventListener('scroll', handleScroll)
+      }
+   }, [])
+
    return (
       <>
          <div className={styles.HomeWrapper}>
@@ -139,11 +156,11 @@ export default function Home() {
          </div>
          <hr className={styles.Line} />
          <div className={styles.HomeWrapper}>
-            <div className={styles.QuestionListsWrapper}>
-               <div
-                  id="nav-section"
-                  className={styles.QuestionListHeaderWrapper}
-               >
+            <div
+               id="nav-section"
+               className={`${styles.QuestionListsWrapper} ${fixed ? styles.fixedNav : ''}`}
+            >
+               <div className={styles.QuestionListHeaderWrapper}>
                   <div className={styles.QuestionHeaderTitle}>
                      <span>질문 리스트</span>
                   </div>
