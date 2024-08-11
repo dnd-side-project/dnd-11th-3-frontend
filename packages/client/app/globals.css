@@ -357,4 +357,5 @@ video {
    max-height: 844px;
    width: 390px;
    background-color: white;
+   position: relative;
 }
