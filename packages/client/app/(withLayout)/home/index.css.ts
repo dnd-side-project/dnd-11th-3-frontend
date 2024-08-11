@@ -30,6 +30,8 @@ export const MoreBox = style({
 export const RecommendContentBox = style({
    width: '100%',
    marginTop: '10px',
+   display: 'flex',
+   flexDirection: 'column',
 })
 
 export const RecommendItem = style({
