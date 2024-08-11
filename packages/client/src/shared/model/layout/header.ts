@@ -14,7 +14,7 @@ export const COMMON_HEADER_META_DATA: {
       | string
 }[] = [
    {
-      title: '회원가입',
+      title: '회원가입', // TODO: delete if not needed
       url: PageURL.SIGNUP,
    },
    {

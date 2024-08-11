@@ -4,6 +4,7 @@ import { COMMON_HEADER_META_DATA } from '@shared/model/layout'
 import { usePathname } from 'next/navigation'
 import React, { useMemo } from 'react'
 import { Header } from './Header'
+import { NavBar } from './NavBar'
 
 interface Props {
    children: React.ReactNode
@@ -23,7 +24,7 @@ export function AuthLayout({ children }: Props) {
       <div>
          {!!headerTitle && <Header title={headerTitle} />}
          {children}
-         {/* <BottomNavigation /> */}
+         <NavBar />
       </div>
    )
 }

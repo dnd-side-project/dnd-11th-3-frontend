@@ -9,7 +9,8 @@ export const headerWrappewrStyle = style({
 
    height: '60px',
    backgroundColor: '#fff',
-   position: 'fixed',
+   position: 'sticky',
+   top: 0,
 })
 
 const LEFT_ARROW_WIDTH = 30
