@@ -25,6 +25,7 @@ export function AuthLayout({ children }: Props) {
          {!!headerTitle && <Header title={headerTitle} />}
          {children}
          <NavBar />
+         {/* TODO: fix NavBar to hide in some pages(기획 물어보기!!!) */}
       </div>
    )
 }
