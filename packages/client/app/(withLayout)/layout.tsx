@@ -1,5 +1,5 @@
 import React from 'react'
-import { AuthLayout } from '../../src/apps/layout'
+import { AuthLayout } from '../../src/apps/layout/ui'
 
 interface Props {
    children: React.ReactNode

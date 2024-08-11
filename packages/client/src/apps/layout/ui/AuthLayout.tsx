@@ -1,10 +1,9 @@
 'use client'
 
-import { COMMON_HEADER_META_DATA } from '@shared/model/layout'
+import { COMMON_HEADER_META_DATA } from '@shared/model'
 import { usePathname } from 'next/navigation'
 import React, { useMemo } from 'react'
-import { Header } from './Header'
-import { NavBar } from './NavBar'
+import { Header, NavBar } from '@shared/ui/index'
 
 interface Props {
    children: React.ReactNode
