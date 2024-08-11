@@ -52,6 +52,9 @@ export default defineConfig({
     }),
     vanillaExtractPlugin(config),
   ],
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
+  },
 })
 
 function convertExportsToEntries(exports: object) {

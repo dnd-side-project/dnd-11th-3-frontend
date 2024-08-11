@@ -1,7 +1,7 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
-import { IconArrowLeft } from '@gmi-design-system/icon'
+import { IconArrowLeft } from 'gmi-design-system'
 import {
    arrowButtonWrappewrStyle,
    headerTitleWrappewrStyle,
@@ -24,7 +24,7 @@ export function Header({ title }: Props) {
          >
             <IconArrowLeft />
          </button>
-         <h1 className={headerTitleWrappewrStyle}>{title}</h1>
+         <div className={headerTitleWrappewrStyle}>{title}</div>
       </div>
    )
 }
