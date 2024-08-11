@@ -1,3 +1,11 @@
+import { HomeHeader } from '@widgets/HomeHeader/HomeHeader'
+import { HomeWrapper } from './index.css'
+
 export default function Home() {
-   return <main>home(질문목록 페이지/로그인 직후 진입)</main>
+   return (
+      <div className={HomeWrapper}>
+         <HomeHeader />
+         <main />
+      </div>
+   )
 }
