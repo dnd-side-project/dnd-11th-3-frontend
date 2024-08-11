@@ -1,3 +1,4 @@
+import { color } from '@gmi-design-system/token'
 import { style } from '@vanilla-extract/css'
 
 export const HomeWrapper = style({
@@ -33,4 +34,11 @@ export const RecommendContentBox = style({
 
 export const RecommendItem = style({
    padding: '0 16px',
+})
+
+export const Line = style({
+   backgroundColor: color['gray-900'],
+   height: '4px',
+   width: '100%',
+   border: 'none',
 })

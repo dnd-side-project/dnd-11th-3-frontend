@@ -68,6 +68,7 @@ export default function Home() {
                </div>
             )}
          </div>
+         <hr className={styles.Line} />
       </>
    )
 }
