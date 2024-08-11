@@ -1,23 +1,29 @@
 import { style } from '@vanilla-extract/css'
 
 export const homeheaderWrapper = style({
-   width: '390px',
+   width: '358px',
    display: 'flex',
    alignItems: 'center',
-   padding: '0 16px',
 
    height: '60px',
-   position: 'sticky',
    top: 0,
 })
 
-export const homelogoBox = style({})
+export const homelogoBox = style({
+   marginRight: '12px',
+})
 
-export const categoryWrapper = style({})
+export const categoryWrapper = style({
+   display: 'flex',
+})
 
 export const categoryTitle = style({})
 
-export const categoryDownBtn = style({})
+export const categoryDownBtn = style({
+   display: 'flex',
+   justifyContent: 'center',
+   alignItems: 'center',
+})
 
 export const categoryFilterWrapper = style({
    position: 'absolute',

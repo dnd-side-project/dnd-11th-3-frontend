@@ -6,6 +6,7 @@ import {
    IconArrowDown,
    IconArrowUp,
    IconBookmark,
+   IconLogo,
 } from '@gmi-design-system/icon'
 import {
    categoryDownBtn,
@@ -30,7 +31,9 @@ export function HomeHeader() {
 
    return (
       <div className={homeheaderWrapper}>
-         <div className={homelogoBox}>logo</div>
+         <div className={homelogoBox}>
+            <IconLogo />
+         </div>
          <div
             className={categoryWrapper}
             onClick={() => setIsExpand(!isExpand)}
