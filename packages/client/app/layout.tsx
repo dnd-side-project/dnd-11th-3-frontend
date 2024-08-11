@@ -1,17 +1,15 @@
 import React from 'react'
 import type { Metadata, Viewport } from 'next'
-import { Inter } from 'next/font/google'
-import './globals.css'
 
+import './globals.css'
+import '@gmi-design-system/global.css'
 import ReactQueryClientProviders from '../src/apps/provider/reactQueryProviders'
 
-const inter = Inter({ subsets: ['latin'] })
-
 export const metadata: Metadata = {
-   title: 'temp app client',
-   description: 'this service is for korea public officials',
+   title: 'GongMuIn',
+   description: 'The Platform is for Korea public officials',
    appleWebApp: {
-      title: 'temp app client',
+      title: 'GongMuIn app client',
       statusBarStyle: 'default',
    },
 }
@@ -33,8 +31,10 @@ export default function RootLayout({
    return (
       <html lang="en">
          <head />
-         <body className={inter.className}>
-            <ReactQueryClientProviders>{children}</ReactQueryClientProviders>
+         <body>
+            <div className="mobile-layout">
+               <ReactQueryClientProviders>{children}</ReactQueryClientProviders>
+            </div>
          </body>
       </html>
    )
