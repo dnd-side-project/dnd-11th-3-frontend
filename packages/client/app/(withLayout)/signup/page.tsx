@@ -8,16 +8,17 @@ import { ChangeEvent, useState } from 'react'
 import * as styles from './index.css'
 
 export type EssentialDataType = SignUpType & {
-   authCode: string
+   isAuth: boolean
 }
 
 export default function Signup() {
+   const [authCode, setAuthCode] = useState<string>('')
    const [essentialData, setEssentialData] = useState<EssentialDataType>({
       officialEmail: '',
       nickname: '',
       jobGroup: '',
       jobCategory: '',
-      authCode: '',
+      isAuth: true,
    })
 
    const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -27,6 +28,17 @@ export default function Signup() {
          [name]: value,
       }))
    }
+
+   const handleOnChangeAuthCode = (e: ChangeEvent<HTMLInputElement>) => {
+      setAuthCode(e.target.value)
+   }
+
+   const isFormComplete =
+      essentialData.officialEmail.length > 0 &&
+      essentialData.nickname.length > 0 &&
+      essentialData.jobGroup.length > 0 &&
+      essentialData.jobCategory.length > 0 &&
+      essentialData.isAuth
 
    return (
       <div className={styles.Wrapper}>
@@ -45,22 +57,28 @@ export default function Signup() {
                value={essentialData.officialEmail}
                onChange={handleOnChange}
             />
-            <Button size="small" variant="disabled">
+            <Button
+               size="small"
+               variant={`${essentialData.officialEmail.length > 0 ? 'filled' : 'disabled'}`}
+            >
                인증
             </Button>
          </div>
          <div className={styles.InputBtnWrapper}>
             {/* <TextInput
                label="Label"
-               description="Description"
+               description="공무원 인증이 완료되었습니다."
                placeholder="Placeholder"
             /> */}
             <input
                name="authCode"
-               value={essentialData.authCode}
-               onChange={handleOnChange}
-            />{' '}
-            <Button size="small" variant="disabled">
+               value={authCode}
+               onChange={handleOnChangeAuthCode}
+            />
+            <Button
+               size="small"
+               variant={`${authCode.length > 0 ? 'filled' : 'disabled'}`}
+            >
                확인
             </Button>
          </div>
@@ -75,13 +93,16 @@ export default function Signup() {
                name="nickname"
                value={essentialData.nickname}
                onChange={handleOnChange}
-            />{' '}
-            <Button size="small" variant="disabled">
+            />
+            <Button
+               size="small"
+               variant={`${essentialData.nickname.length > 0 ? 'filled' : 'disabled'}`}
+            >
                중복확인
             </Button>
          </div>
          <div className={styles.Title}>직군</div>
-         {/** TODO: select */}
+         {/** TODO: select 디자인시스템 적용 */}
          {/* <Select
             inputProps={{
                icon: <IconSearch />,
@@ -105,7 +126,11 @@ export default function Signup() {
             onChange={handleOnChange}
          />
          <div className={styles.FinalBtnBox}>
-            <Button type="button" size="medium" variant="disabled">
+            <Button
+               type="button"
+               size="medium"
+               variant={isFormComplete ? 'filled' : 'disabled'}
+            >
                가입하기
             </Button>
          </div>
