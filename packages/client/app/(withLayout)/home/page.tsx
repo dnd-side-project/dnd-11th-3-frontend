@@ -10,6 +10,7 @@ import Orange from '@gmi-design-system/component/Recommend/home/Orange.svg'
 import Image from 'next/image'
 import { useScrollHandler } from '@features/useScrollHandler'
 import Question from '@shared/ui/QuestionList/Question'
+import { IconArrowRight } from '@gmi-design-system/icon'
 import * as styles from './index.css'
 import { useClientSideRender } from './useClientSideRender'
 import './slider.css'
@@ -79,8 +80,13 @@ export default function Home() {
    const settings = {
       className: 'center',
       infinite: true,
-      slidesToShow: 2,
+      slidesToShow: 1,
       swipeToSlide: true,
+      nextArrow: (
+         <div className={styles.ArrowBox}>
+            <IconArrowRight />
+         </div>
+      ),
    }
 
    const [fixed, setFixed] = useState<boolean>(false)
@@ -120,6 +126,7 @@ export default function Home() {
                         infinite={settings.infinite}
                         slidesToShow={settings.slidesToShow}
                         swipeToSlide={settings.swipeToSlide}
+                        nextArrow={settings.nextArrow}
                      >
                         {/** TODO: 데이터 형식으로 변경하기 */}
                         <div className={styles.RecommendItem}>

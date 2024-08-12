@@ -80,3 +80,8 @@ export const fixedNav = style({
    justifyContent: 'center',
    paddingTop: '20px',
 })
+
+export const ArrowBox = style({
+   color: color['primary-main'],
+   marginRight: '30px',
+})
