@@ -34,11 +34,10 @@ export const RecommendContentBox = style({
    marginTop: '20px',
    display: 'flex',
    flexDirection: 'column',
-})
-
-export const RecommendItem = style({
    padding: '0 16px',
 })
+
+export const RecommendItem = style({})
 
 export const Line = style({
    backgroundColor: color['gray-900'],

@@ -12,6 +12,7 @@ import { useScrollHandler } from '@features/useScrollHandler'
 import Question from '@shared/ui/QuestionList/Question'
 import * as styles from './index.css'
 import { useClientSideRender } from './useClientSideRender'
+import './slider.css'
 
 const Slider = dynamic(() => import('react-slick'), { ssr: false })
 
@@ -78,7 +79,6 @@ export default function Home() {
    const settings = {
       className: 'center',
       infinite: true,
-      centerPadding: '60px',
       slidesToShow: 2,
       swipeToSlide: true,
    }
@@ -118,7 +118,6 @@ export default function Home() {
                      <Slider
                         className={settings.className}
                         infinite={settings.infinite}
-                        centerPadding={settings.centerPadding}
                         slidesToShow={settings.slidesToShow}
                         swipeToSlide={settings.swipeToSlide}
                      >
