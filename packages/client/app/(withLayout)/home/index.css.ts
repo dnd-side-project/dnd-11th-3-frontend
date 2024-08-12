@@ -21,6 +21,8 @@ export const RecommendHeaderBox = style({
 
 export const RecommendTitle = style({
    marginRight: 'auto',
+   display: 'flex',
+   alignItems: 'center',
 })
 export const MoreBox = style({
    marginLeft: 'auto',
@@ -57,7 +59,9 @@ export const QuestionListHeaderWrapper = style({
    position: 'relative',
 })
 
-export const QuestionHeaderTitle = style({})
+export const QuestionHeaderTitle = style({
+   marginBottom: '16px',
+})
 
 export const QuestionFilterBox = style({ display: 'flex' })
 
@@ -75,4 +79,5 @@ export const fixedNav = style({
    width: '358px',
    display: 'flex',
    justifyContent: 'center',
+   paddingTop: '20px',
 })

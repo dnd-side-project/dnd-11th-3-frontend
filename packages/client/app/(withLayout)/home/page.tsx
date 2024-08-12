@@ -122,6 +122,7 @@ export default function Home() {
                         slidesToShow={settings.slidesToShow}
                         swipeToSlide={settings.swipeToSlide}
                      >
+                        {/** TODO: 데이터 형식으로 변경하기 */}
                         <div className={styles.RecommendItem}>
                            <Image src={Orange} alt="orange title" />
                         </div>
