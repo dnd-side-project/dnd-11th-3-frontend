@@ -10,7 +10,7 @@ export function Color() {
       <h1>Main color</h1>
       <div className={colorWrapper}>
         <h4>Primary </h4>
-        <div className={colorBox}></div>
+        <div className={colorBox} />
       </div>
     </div>
   )

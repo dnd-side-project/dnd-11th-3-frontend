@@ -23,7 +23,7 @@ export const textAreaLabelContainerStyle = style({
 
 export const textAreaDescriptionStyle = style({
   fontSize: '0.8rem',
-  color: color['error'],
+  color: color.error,
   marginTop: '5px',
 })
 
@@ -40,8 +40,11 @@ export const textAreaWrapperStyle = recipe({
   variants: {
     color: {
       default: { border: '1px solid #e0e0e0' },
-      disabled: { border: `1px solid ${color['gray-800']}`, backgroundColor: color['gray-900'] },
-      error: { border: `1px solid ${color['error']}` },
+      disabled: {
+        border: `1px solid ${color['gray-800']}`,
+        backgroundColor: color['gray-900'],
+      },
+      error: { border: `1px solid ${color.error}` },
     },
   },
 
@@ -64,7 +67,7 @@ export const textAreaStyle = recipe({
     color: {
       default: { color: color['gray-100'] },
       disabled: { backgroundColor: color['gray-900'] },
-      error: { color: color['error'] },
+      error: { color: color.error },
     },
   },
 
@@ -85,7 +88,7 @@ export const textMetaStyle = recipe({
     color: {
       default: { color: color['gray-400'] },
       disabled: { color: color['gray-400'] },
-      error: { color: color['error'] },
+      error: { color: color.error },
     },
   },
 

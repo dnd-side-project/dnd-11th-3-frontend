@@ -2,6 +2,7 @@ import { cloneElement, ReactElement } from 'react'
 import { IconProps } from '../../icon'
 import { color } from '../../token/Color/color'
 import { buttonStyle, iconWrapperStyle } from './button.css'
+
 export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant: 'filled' | 'outlined'
   size: 'small' | 'medium' | 'large'
@@ -14,7 +15,11 @@ export function Button({ children, size, disabled, icon, variant, ...props }: Pr
   const Icon = icon
   return (
     <button
-      className={buttonStyle({ size, variant: disabled ? 'disabled' : variant })}
+      type="button"
+      className={buttonStyle({
+        size,
+        variant: disabled ? 'disabled' : variant,
+      })}
       disabled={disabled}
       {...props}
     >
@@ -22,11 +27,11 @@ export function Button({ children, size, disabled, icon, variant, ...props }: Pr
       {!!Icon && (
         <div className={iconWrapperStyle}>
           {cloneElement(icon, {
-            //TODO: refactor not to use cloneElement
+            // TODO: refactor not to use cloneElement
             color: disabled
               ? color['gray-400']
               : variant === 'filled'
-                ? color['white']
+                ? color.white
                 : color['gray-200'],
             size: size === 'small' ? 16 : size === 'medium' ? 18 : 22,
           })}

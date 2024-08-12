@@ -17,7 +17,7 @@ export interface TextInputProps extends React.InputHTMLAttributes<HTMLInputEleme
 }
 
 export const INPUT_BG_COLOR = {
-  default: color['white'],
+  default: color.white,
   filled: color['gray-000'],
   disabled: color['gray-900'],
 }
@@ -25,7 +25,7 @@ export const INPUT_COLOR = {
   default: color['gray-100'],
   filled: color['gray-100'],
   disabled: color['gray-500'],
-  error: color['error'],
+  error: color.error,
 }
 
 export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
@@ -47,7 +47,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
             ref={ref}
           />
           {!!Icon &&
-            //TODO: refactor not to use cloneElement
+            // TODO: refactor not to use cloneElement
             cloneElement(Icon, {
               color: props.disabled
                 ? INPUT_COLOR.disabled
