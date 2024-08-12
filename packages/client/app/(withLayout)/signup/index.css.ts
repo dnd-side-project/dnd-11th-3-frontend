@@ -4,7 +4,7 @@ export const Wrapper = style({
    display: 'flex',
    flexDirection: 'column',
    padding: '16px',
-   height: '780px',
+   height: '100%',
 })
 
 export const Title = style({
