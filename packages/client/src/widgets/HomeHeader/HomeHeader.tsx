@@ -3,22 +3,12 @@
 import React, { useState } from 'react'
 import {
    IconAlarm,
-   IconArrowDown,
-   IconArrowUp,
+   // IconArrowDown,
+   // IconArrowUp,
    IconBookmark,
    IconLogo,
 } from '@gmi-design-system/icon'
-import {
-   categoryDownBtn,
-   categoryFilterTitle,
-   categoryFilterWrapper,
-   categoryTitle,
-   categoryWrapper,
-   headerButtonWrapper,
-   headerIconBox,
-   homeheaderWrapper,
-   homelogoBox,
-} from './HomeHeader.css'
+import * as styles from './HomeHeader.css'
 
 export function HomeHeader() {
    const [isExpand, setIsExpand] = useState<boolean>(false)
@@ -30,37 +20,37 @@ export function HomeHeader() {
    }
 
    return (
-      <div className={homeheaderWrapper}>
-         <div className={homelogoBox}>
+      <div className={styles.homeheaderWrapper}>
+         <div className={styles.homelogoBox}>
             <IconLogo />
          </div>
          <div
-            className={categoryWrapper}
+            className={styles.categoryWrapper}
             onClick={() => setIsExpand(!isExpand)}
             onKeyDown={handleKeyDown}
             role="button"
             tabIndex={0}
          >
-            <span className={categoryTitle}>전체</span>
+            <span className={styles.categoryTitle}>전체</span>
             <button
                type="button"
-               className={categoryDownBtn}
+               className={styles.categoryDownBtn}
                aria-label="expand category"
             >
-               {isExpand ? <IconArrowUp /> : <IconArrowDown />}
+               {/* {isExpand ? <IconArrowUp /> : <IconArrowDown />} */}
             </button>
          </div>
          {isExpand && (
-            <div className={categoryFilterWrapper}>
-               <div className={categoryFilterTitle}>전체</div>
-               <div className={categoryFilterTitle}>유저직군</div>
+            <div className={styles.categoryFilterWrapper}>
+               <div className={styles.categoryFilterTitle}>전체</div>
+               <div className={styles.categoryFilterTitle}>유저직군</div>
             </div>
          )}
-         <div className={headerButtonWrapper}>
-            <div className={headerIconBox}>
+         <div className={styles.headerButtonWrapper}>
+            <div className={styles.headerIconBox}>
                <IconBookmark />
             </div>
-            <div className={headerIconBox}>
+            <div className={styles.headerIconBox}>
                <IconAlarm />
             </div>
          </div>
