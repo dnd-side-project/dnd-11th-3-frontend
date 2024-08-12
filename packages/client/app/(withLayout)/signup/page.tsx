@@ -1,8 +1,6 @@
 'use client'
 
 import { Button } from '@gmi-design-system/component/Button/Button'
-// import { Select } from '@gmi-design-system/component/Select/Select'
-// import { TextInput } from '@gmi-design-system/component/TextInput/TextInput'
 import { SignUpType } from '@entities/@types/signup'
 import { ChangeEvent, useState } from 'react'
 import { color } from '@gmi-design-system/token'
@@ -50,11 +48,7 @@ export default function Signup() {
             className={styles.InputBtnWrapper}
             style={{ marginBottom: '16px' }}
          >
-            {/* <TextInput
-               label="Label"
-               description="Description"
-               placeholder="Placeholder"
-            /> */}
+            {/** TODO: input 디자인시스템 적용 */}
             <input
                name="officialEmail"
                value={essentialData.officialEmail}
@@ -69,11 +63,8 @@ export default function Signup() {
             </Button>
          </div>
          <div className={styles.InputBtnWrapper}>
-            {/* <TextInput
-               label="Label"
-               description="공무원 인증이 완료되었습니다."
-               placeholder="Placeholder"
-            /> */}
+            {/** TODO: input 디자인시스템 적용 */}
+
             <input
                name="authCode"
                value={authCode}
@@ -91,11 +82,7 @@ export default function Signup() {
             닉네임<span style={{ color: color.error }}>*</span>
          </span>
          <div className={styles.InputBtnWrapper}>
-            {/* <TextInput
-               label="Label"
-               description="2 - 12자 이내로 입력해주세요"
-               placeholder="Placeholder"
-            /> */}
+            {/** TODO: input 디자인시스템 적용 */}
             <input
                name="nickname"
                value={essentialData.nickname}
@@ -117,17 +104,6 @@ export default function Signup() {
                직군<span style={{ color: color.error }}>*</span>
             </span>
             {/** TODO: select 디자인시스템 적용 */}
-            {/* <Select
-            inputProps={{
-               icon: <IconSearch />,
-               variant: 'filled',
-            }}
-            onSelect={(item) =>
-               setSelectedWithIcon(item as { label: string; id: string })
-            }
-            selected={selectedWithIcon}
-            items={[{ label: 'Option 1', id: '1' }]}
-         /> */}
             <input
                name="jobGroup"
                value={essentialData.jobGroup}
@@ -137,7 +113,7 @@ export default function Signup() {
          <span className={styles.Title}>
             직렬<span style={{ color: color.error }}>*</span>
          </span>
-         {/** TODO: select */}
+         {/** TODO: select 디자인시스템 적용 */}
          <input
             name="jobCategory"
             value={essentialData.jobCategory}
