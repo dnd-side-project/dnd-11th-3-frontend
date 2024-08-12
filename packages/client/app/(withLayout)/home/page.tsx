@@ -109,44 +109,32 @@ export default function Home() {
          </div>
          <div className={styles.RecommendContentBox}>
             {isClient && (
-               <>
-                  <link
-                     rel="stylesheet"
-                     type="text/css"
-                     href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
-                  />
-                  <link
-                     rel="stylesheet"
-                     type="text/css"
-                     href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
-                  />
-                  <div className="slider-container">
-                     <Slider
-                        className={settings.className}
-                        infinite={settings.infinite}
-                        slidesToShow={settings.slidesToShow}
-                        swipeToSlide={settings.swipeToSlide}
-                        nextArrow={settings.nextArrow}
-                     >
-                        {/** TODO: 데이터 형식으로 변경하기 */}
-                        <div className={styles.RecommendItem}>
-                           <Image src={Orange} alt="orange title" />
-                        </div>
-                        <div className={styles.RecommendItem}>
-                           <Image src={Blue} alt="orange title" />
-                        </div>
-                        <div className={styles.RecommendItem}>
-                           <Image src={Green} alt="orange title" />
-                        </div>
-                        <div className={styles.RecommendItem}>
-                           <Image src={Orange} alt="orange title" />
-                        </div>
-                        <div className={styles.RecommendItem}>
-                           <Image src={Green} alt="orange title" />
-                        </div>
-                     </Slider>
-                  </div>
-               </>
+               <div className="slider-container">
+                  <Slider
+                     className={settings.className}
+                     infinite={settings.infinite}
+                     slidesToShow={settings.slidesToShow}
+                     swipeToSlide={settings.swipeToSlide}
+                     nextArrow={settings.nextArrow}
+                  >
+                     {/** TODO: 데이터 형식으로 변경하기 */}
+                     <div className={styles.RecommendItem}>
+                        <Image src={Orange} alt="orange title" />
+                     </div>
+                     <div className={styles.RecommendItem}>
+                        <Image src={Blue} alt="orange title" />
+                     </div>
+                     <div className={styles.RecommendItem}>
+                        <Image src={Green} alt="orange title" />
+                     </div>
+                     <div className={styles.RecommendItem}>
+                        <Image src={Orange} alt="orange title" />
+                     </div>
+                     <div className={styles.RecommendItem}>
+                        <Image src={Green} alt="orange title" />
+                     </div>
+                  </Slider>
+               </div>
             )}
          </div>
          <hr className={styles.Line} />
