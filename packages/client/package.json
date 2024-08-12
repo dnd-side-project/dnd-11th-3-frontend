@@ -6,7 +6,9 @@
    "scripts": {
       "dev": "next dev",
       "build": "next build",
-      "start": "next start"
+      "start": "next start",
+      "gen-icon": "svgr --out-dir ./src/design-system/icon/default -- ./src/design-system/icon/prepare && npm run refactor-icon",
+      "gen-design-system": "node copyFolderSync.cjs"
    },
    "dependencies": {
       "@tanstack/react-query": "^5.51.1",

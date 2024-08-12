@@ -1,7 +1,7 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
-import { IconArrowLeft } from '@gmi-design-system/icon'
+import { IconArrowLeft } from 'src/design-system/icon'
 import {
    arrowButtonWrappewrStyle,
    headerTitleWrappewrStyle,

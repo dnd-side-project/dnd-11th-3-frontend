@@ -32,15 +32,12 @@
          "@entities/*": ["./src/entities/*"],
          "@features/*": ["./src/features/*"],
          "@shared/*": ["./src/shared/*"],
-         "@widgets/*": ["./src/widgets/*"]
+         "@widgets/*": ["./src/widgets/*"],
+         "@gds/component": ["./src/design-system/component/index.ts"],
+         "@gds/token": ["./src/design-system/token/index.ts"],
+         "@gds/icon": ["./src/design-system/icon/index.ts"]
       }
    },
-   "include": [
-      "next-env.d.ts",
-      "**/*.ts",
-      "**/*.tsx",
-      ".next/types/**/*.ts",
-      "../gmi-design-system/src/**/*"
-   ],
+   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
    "exclude": ["node_modules", ".next", "dist"]
 }

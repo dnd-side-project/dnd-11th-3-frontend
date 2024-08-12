@@ -41,11 +41,12 @@
       "no-useless-catch": "off", // 불필요한 catch 못쓰게 하는 기능 끔
       "import/prefer-default-export": "off",
       "import/no-extraneous-dependencies": "off",
-      "react/require-default-props": [
-         "error",
-         {
-            "ignoreFunctionalComponents": true
-         }
-      ]
+      "react/jsx-props-no-spreading": "off",
+      "no-undef": "off", // no-undef 규칙 비활성화
+      "no-nested-ternary": "off", // no-nested-ternary 규칙 비활성화
+      "react/no-unused-prop-types": "off", // react/no-unused-prop-types 규칙 비활성화
+      "@typescript-eslint/no-use-before-define": "off", // @typescript-eslint/no-use-before-define 규칙 비활성화
+      "react/require-default-props": "off", // react/require-default-props 규칙 비활성화
+      "import/no-cycle": "off" // import/no-cycle 규칙 비활성화
    }
 }
