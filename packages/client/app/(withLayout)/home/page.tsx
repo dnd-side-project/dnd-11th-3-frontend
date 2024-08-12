@@ -9,7 +9,7 @@ import Blue from '@gmi-design-system/component/Recommend/home/Blue.svg'
 import Orange from '@gmi-design-system/component/Recommend/home/Orange.svg'
 import Image from 'next/image'
 import { useScrollHandler } from '@features/useScrollHandler'
-import { IconBookmark, IconLikesDefault } from '@gmi-design-system/icon'
+import Question from '@shared/ui/QuestionList/Question'
 import * as styles from './index.css'
 import { useClientSideRender } from './useClientSideRender'
 
@@ -167,38 +167,7 @@ export default function Home() {
             </div>
             <div id="nav-section" className={styles.QuestionsWrapper}>
                {data.map((el) => {
-                  return (
-                     <div className={styles.QuestionWrapper}>
-                        <div className={styles.QuestionTagWrapper}>
-                           {/** TODO: 디자인시스템 작성 필요 */}
-                           {el.tag} {el.reward}
-                        </div>
-                        <div className={styles.QuestionTitleBox}>
-                           <span>{el.title}</span>
-                        </div>
-                        <div className={styles.QuestionContentBox}>
-                           {el.content}
-                        </div>
-                        <div className={styles.QuestionBottomWrapper}>
-                           <div className={styles.QuestionDateBox}>
-                              <span>{el.date}</span>
-                           </div>
-                           <div className={styles.QuestionDetailBox}>
-                              <div className={styles.QuestionIconBox}>
-                                 <IconBookmark />
-                              </div>
-                              <div className={styles.QuestionIconTxtBox}>
-                                 {el.bookmark}
-                              </div>
-                              <div className={styles.QuestionIconBox} />
-                              <IconLikesDefault />
-                              <div className={styles.QuestionIconTxtBox}>
-                                 {el.likes}
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  )
+                  return <Question data={el} />
                })}
             </div>
          </div>
