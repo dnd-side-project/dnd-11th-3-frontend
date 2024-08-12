@@ -18,6 +18,8 @@
       "react-hook-form": "^7.52.1"
    },
    "devDependencies": {
+      "@svgr/cli": "^8.1.0",
+      "@svgr/core": "^8.1.0",
       "@tanstack/eslint-plugin-query": "^5.51.1",
       "@types/node": "^20",
       "@types/react": "^18.3.3",
