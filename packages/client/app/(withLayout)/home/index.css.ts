@@ -64,6 +64,7 @@ export const QuestionFilterBox = style({ display: 'flex' })
 export const QuestionsWrapper = style({
    display: 'flex',
    flexDirection: 'column',
+   marginBottom: '85px',
 })
 
 export const QuestionWrapper = style({

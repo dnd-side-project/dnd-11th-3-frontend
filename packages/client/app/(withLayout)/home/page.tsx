@@ -165,7 +165,7 @@ export default function Home() {
                   </div>
                </div>
             </div>
-            <div id="nav-section">
+            <div id="nav-section" className={styles.QuestionsWrapper}>
                {data.map((el) => {
                   return (
                      <div className={styles.QuestionWrapper}>
