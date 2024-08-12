@@ -143,7 +143,7 @@ export default function Home() {
             )}
          </div>
          <hr className={styles.Line} />
-         <div className={styles.HomeWrapper}>
+         <div id="nav-section" className={styles.HomeWrapper}>
             <div
                className={`${styles.QuestionListsWrapper} ${fixed && styles.fixedNav}`}
             >
@@ -165,7 +165,7 @@ export default function Home() {
                   </div>
                </div>
             </div>
-            <div id="nav-section" className={styles.QuestionsWrapper}>
+            <div className={styles.QuestionsWrapper}>
                {data.map((el) => {
                   return <Question data={el} />
                })}
