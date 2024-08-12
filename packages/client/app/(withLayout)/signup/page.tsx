@@ -5,6 +5,7 @@ import { Button } from '@gmi-design-system/component/Button/Button'
 // import { TextInput } from '@gmi-design-system/component/TextInput/TextInput'
 import { SignUpType } from '@entities/@types/signup'
 import { ChangeEvent, useState } from 'react'
+import { color } from '@gmi-design-system/token'
 import * as styles from './index.css'
 
 export type EssentialDataType = SignUpType & {
@@ -42,7 +43,9 @@ export default function Signup() {
 
    return (
       <div className={styles.Wrapper}>
-         <div className={styles.Title}>공무원 이메일 인증</div>
+         <span className={styles.Title}>
+            공무원 이메일 인증<span style={{ color: color.error }}>*</span>
+         </span>
          <div
             className={styles.InputBtnWrapper}
             style={{ marginBottom: '16px' }}
@@ -84,7 +87,9 @@ export default function Signup() {
                확인
             </Button>
          </div>
-         <div className={styles.Title}>닉네임</div>
+         <span className={styles.Title}>
+            닉네임<span style={{ color: color.error }}>*</span>
+         </span>
          <div className={styles.InputBtnWrapper}>
             {/* <TextInput
                label="Label"
@@ -104,9 +109,15 @@ export default function Signup() {
                중복확인
             </Button>
          </div>
-         <div className={styles.Title}>직군</div>
-         {/** TODO: select 디자인시스템 적용 */}
-         {/* <Select
+         <div
+            className={styles.InputBtnWrapper}
+            style={{ flexDirection: 'column' }}
+         >
+            <span className={styles.Title}>
+               직군<span style={{ color: color.error }}>*</span>
+            </span>
+            {/** TODO: select 디자인시스템 적용 */}
+            {/* <Select
             inputProps={{
                icon: <IconSearch />,
                variant: 'filled',
@@ -117,12 +128,16 @@ export default function Signup() {
             selected={selectedWithIcon}
             items={[{ label: 'Option 1', id: '1' }]}
          /> */}
-         <input
-            name="jobGroup"
-            value={essentialData.jobGroup}
-            onChange={handleOnChange}
-         />
-         <div className={styles.Title}>직렬</div> {/** TODO: select */}
+            <input
+               name="jobGroup"
+               value={essentialData.jobGroup}
+               onChange={handleOnChange}
+            />
+         </div>
+         <span className={styles.Title}>
+            직렬<span style={{ color: color.error }}>*</span>
+         </span>
+         {/** TODO: select */}
          <input
             name="jobCategory"
             value={essentialData.jobCategory}
