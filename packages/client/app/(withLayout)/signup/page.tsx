@@ -58,6 +58,7 @@ export default function Signup() {
                onChange={handleOnChange}
             />
             <Button
+               style={{ width: '58px', marginLeft: '8px' }}
                size="small"
                variant={`${essentialData.officialEmail.length > 0 ? 'filled' : 'disabled'}`}
             >
@@ -76,6 +77,7 @@ export default function Signup() {
                onChange={handleOnChangeAuthCode}
             />
             <Button
+               style={{ width: '58px', marginLeft: '8px' }}
                size="small"
                variant={`${authCode.length > 0 ? 'filled' : 'disabled'}`}
             >
@@ -95,6 +97,7 @@ export default function Signup() {
                onChange={handleOnChange}
             />
             <Button
+               style={{ width: '86px', marginLeft: '8px' }}
                size="small"
                variant={`${essentialData.nickname.length > 0 ? 'filled' : 'disabled'}`}
             >
