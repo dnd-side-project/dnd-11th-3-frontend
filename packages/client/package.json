@@ -54,8 +54,5 @@
    "repository": {
       "type": "git",
       "url": "https://github.com/dnd-side-project/dnd-11th-3-frontend"
-   },
-   "sideEffects": [
-      "./src/design-system/*"
-   ]
+   }
 }
