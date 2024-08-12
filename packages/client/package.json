@@ -12,6 +12,7 @@
    },
    "dependencies": {
       "@tanstack/react-query": "^5.51.1",
+      "@vanilla-extract/recipes": "^0.5.3",
       "axios": "^1.7.2",
       "jotai": "^2.9.0",
       "next": "^14.2.5",
@@ -53,5 +54,8 @@
    "repository": {
       "type": "git",
       "url": "https://github.com/dnd-side-project/dnd-11th-3-frontend"
-   }
+   },
+   "sideEffects": [
+      "./src/design-system/*"
+   ]
 }

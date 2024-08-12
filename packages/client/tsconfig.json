@@ -27,7 +27,6 @@
          }
       ],
       "paths": {
-         "@gmi-design-system/*": ["../gmi-design-system/src/*"],
          "@apps/*": ["./src/apps/*"],
          "@entities/*": ["./src/entities/*"],
          "@features/*": ["./src/features/*"],
@@ -36,7 +35,8 @@
          "@gds/component": ["./src/design-system/component/index.ts"],
          "@gds/token": ["./src/design-system/token/index.ts"],
          "@gds/icon": ["./src/design-system/icon/index.ts"]
-      }
+      },
+      "forceConsistentCasingInFileNames": true
    },
    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
    "exclude": ["node_modules", ".next", "dist"]

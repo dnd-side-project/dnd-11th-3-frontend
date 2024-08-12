@@ -3,7 +3,8 @@ import { IconProps } from '../../icon'
 import { color } from '../../token/Color/color'
 import { buttonStyle, iconWrapperStyle } from './button.css'
 
-export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps
+   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
    variant: 'filled' | 'outlined'
    size: 'small' | 'medium' | 'large'
    children?: React.ReactNode
@@ -18,7 +19,7 @@ export function Button({
    icon,
    variant,
    ...props
-}: Props) {
+}: ButtonProps) {
    const Icon = icon
    return (
       <button
