@@ -2,7 +2,7 @@
 
 import { Button } from '@gds/component'
 import { SignUpType } from '@entities/@types/signup'
-import { ChangeEvent, useState } from 'react'
+import React, { ChangeEvent, useState } from 'react'
 import { color } from '@gds/token'
 import * as styles from './index.css'
 
