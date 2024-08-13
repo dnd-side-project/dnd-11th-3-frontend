@@ -7,13 +7,13 @@ import dynamic from 'next/dynamic'
 import Green from '@gmi-design-system/component/Recommend/home/Green.svg'
 import Blue from '@gmi-design-system/component/Recommend/home/Blue.svg'
 import Orange from '@gmi-design-system/component/Recommend/home/Orange.svg'
-import Image from 'next/image'
 import { useScrollHandler } from '@features/useScrollHandler'
 import Question from '@shared/ui/QuestionList/Question'
 import { IconArrowRight } from '@gmi-design-system/icon'
-import * as styles from './index.css'
+import HomeRecommend from '@gmi-design-system/component/Recommend/home/HomeRecommend'
 import { useClientSideRender } from './useClientSideRender'
 import './slider.css'
+import * as styles from './index.css'
 
 const Slider = dynamic(() => import('react-slick'), { ssr: false })
 
@@ -118,21 +118,27 @@ export default function Home() {
                      nextArrow={settings.nextArrow}
                   >
                      {/** TODO: 데이터 형식으로 변경하기 */}
-                     <div className={styles.RecommendItem}>
-                        <Image src={Orange} alt="orange title" />
-                     </div>
-                     <div className={styles.RecommendItem}>
-                        <Image src={Blue} alt="orange title" />
-                     </div>
-                     <div className={styles.RecommendItem}>
-                        <Image src={Green} alt="orange title" />
-                     </div>
-                     <div className={styles.RecommendItem}>
-                        <Image src={Orange} alt="orange title" />
-                     </div>
-                     <div className={styles.RecommendItem}>
-                        <Image src={Green} alt="orange title" />
-                     </div>
+                     <HomeRecommend
+                        src={Blue}
+                        coin="2000"
+                        title="ddd"
+                        bookmark={20}
+                        likes={4}
+                     />
+                     <HomeRecommend
+                        src={Green}
+                        coin="2000"
+                        title="ddd"
+                        bookmark={20}
+                        likes={4}
+                     />
+                     <HomeRecommend
+                        src={Orange}
+                        coin="2000"
+                        title="ddd"
+                        bookmark={20}
+                        likes={4}
+                     />
                   </Slider>
                </div>
             )}

@@ -37,7 +37,17 @@ export const RecommendContentBox = style({
    padding: '0 16px',
 })
 
-export const RecommendItem = style({})
+export const RecommendItem = style({
+   width: '300px',
+   height: '174px',
+   position: 'relative',
+})
+
+export const overlay = style({
+   position: 'absolute',
+   top: 0,
+   left: 0,
+})
 
 export const Line = style({
    backgroundColor: color['gray-900'],
