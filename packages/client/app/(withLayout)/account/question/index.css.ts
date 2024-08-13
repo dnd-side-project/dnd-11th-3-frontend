@@ -11,4 +11,5 @@ export const ListWrapper = style({
    flexDirection: 'column',
    justifyContent: 'center',
    alignItems: 'center',
+   width: '100%',
 })

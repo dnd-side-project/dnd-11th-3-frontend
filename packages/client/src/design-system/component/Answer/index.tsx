@@ -9,17 +9,19 @@ interface AnswerProps {
 
 function AnswerBox({ text, date }: AnswerProps) {
    return (
-      <div className={styles.Wrapper}>
-         <div className={styles.TopWrapper}>
-            <div className={styles.IconBox}>
-               <IconEnter />
+      <div className={styles.BottomLine}>
+         <div className={styles.Wrapper}>
+            <div className={styles.TopWrapper}>
+               <div className={styles.IconBox}>
+                  <IconEnter />
+               </div>
+               <div className={styles.TxtBox}>
+                  <span>{text}</span>
+               </div>
             </div>
-            <div className={styles.TxtBox}>
-               <span>{text}</span>
+            <div className={styles.BottomWrapper}>
+               <span>{date}</span>
             </div>
-         </div>
-         <div className={styles.BottomWrapper}>
-            <span>{date}</span>
          </div>
       </div>
    )
