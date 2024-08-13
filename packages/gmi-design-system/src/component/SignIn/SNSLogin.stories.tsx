@@ -6,7 +6,7 @@ export default {
 
 export function LoginButton() {
   return (
-    <div>
+    <div style={{ width: '358px' }}>
       <div>
         <SNSLogin SNS="카카오" type="시작하기" />
       </div>
