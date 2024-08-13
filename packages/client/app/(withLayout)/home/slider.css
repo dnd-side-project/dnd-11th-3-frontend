@@ -1,0 +1,16 @@
+.slider-container {
+   /* 슬라이더 컨테이너 스타일 */
+   width: 328px;
+}
+
+.slick-list {
+   width: 328px; /* 슬라이드 항목의 총 너비 */
+}
+
+.slider-content {
+   width: 328px; /* 각 슬라이드의 너비 */
+}
+
+.slick-next:before {
+   display: none;
+}
