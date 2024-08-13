@@ -30,7 +30,7 @@ export const buttonStyle = recipe({
     variant: {
       filled: {
         backgroundColor: color['primary-main'],
-        color: color['white'],
+        color: color.white,
       },
       outlined: {
         border: `1px solid ${color['gray-800']}`,

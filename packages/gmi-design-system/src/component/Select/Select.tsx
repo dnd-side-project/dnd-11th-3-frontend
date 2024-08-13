@@ -23,7 +23,6 @@ export interface SelectItemType {
 }
 
 export interface SelectProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onSelect'> {
-  children?: React.ReactNode
   disabled?: boolean
   items: { label: string; id: Key }[]
   onSelect: ({ id, label }: SelectItemType) => void
@@ -48,7 +47,7 @@ export function Select({
   return (
     <AriaSelect
       style={{
-        width: width,
+        width,
       }}
     >
       <SelectInput
@@ -60,12 +59,12 @@ export function Select({
       <Popover
         isOpen={disabled ? false : opened}
         style={{
-          width: width,
+          width,
         }}
       >
         <ListBox
           style={{
-            width: width,
+            width,
             minWidth: '140px',
             height: 'fit-content',
             padding: '8px',
@@ -125,7 +124,7 @@ function SelectInput({
         ref={ref}
         onPress={onClick}
         style={{
-          //TODO: refactor not to use style
+          // TODO: refactor not to use style
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -134,7 +133,7 @@ function SelectInput({
           width: '100%',
           height: 'fit-content',
           border: 'none',
-          backgroundColor: disabled //TODO: refactor to use variant
+          backgroundColor: disabled // TODO: refactor to use variant
             ? INPUT_BG_COLOR.disabled
             : inputProps?.variant === 'filled'
               ? INPUT_BG_COLOR.filled
@@ -197,7 +196,7 @@ function CustomListBoxItem({
         height: '37px',
         cursor: 'pointer',
 
-        fontSize: '12px', //TODO: refactor with font
+        fontSize: '12px', // TODO: refactor with font
         fontWeight: '600',
       }}
     >

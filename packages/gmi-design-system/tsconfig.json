@@ -23,7 +23,7 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "importHelpers": true,
+    "importHelpers": true
   },
   "include": ["src/**/*", "eslint.config.js"],
   "exclude": ["**/dist/**, **/node_modules"],

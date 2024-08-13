@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css'
 
-export const headerWrappewrStyle = style({
+export const headerWrapperStyle = style({
    width: '390px',
    display: 'flex',
    // justifyContent: 'center',

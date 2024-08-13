@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css'
 import { recipe } from '@vanilla-extract/recipes'
-import { color } from 'src/token/Color/color'
+import { color } from '../../token/Color/color'
 import { INPUT_BG_COLOR, INPUT_COLOR } from './TextInput'
 
 export const textInputLabelStyle = style({
@@ -23,7 +23,7 @@ export const textInputLabelContainerStyle = style({
 
 export const textInputDescriptionStyle = style({
   fontSize: '0.8rem',
-  color: color['error'],
+  color: color.error,
   marginTop: '5px',
 })
 
@@ -53,7 +53,7 @@ export const textInputWrapperStyle = recipe({
         border: `1px solid ${color['gray-800']}`,
         backgroundColor: INPUT_BG_COLOR.disabled,
       },
-      error: { border: `1px solid ${color['error']}` },
+      error: { border: `1px solid ${color.error}` },
     },
   },
 
@@ -104,7 +104,7 @@ export const textMetaStyle = recipe({
       default: { color: color['gray-400'] },
       filled: { color: color['gray-400'] },
       disabled: { color: color['gray-400'] },
-      error: { color: color['error'] },
+      error: { color: color.error },
     },
   },
 

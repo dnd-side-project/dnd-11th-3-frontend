@@ -16,7 +16,7 @@ export const selectStyle = recipe({
     variant: {
       filled: {
         backgroundColor: color['primary-main'],
-        color: color['white'],
+        color: color.white,
       },
       outlined: {
         border: `1px solid ${color['gray-800']}`,
@@ -53,7 +53,7 @@ export const selectItemWrapper = style({
   alignItems: 'center',
 
   borderRadius: '8px',
-  backgroundColor: color['white'],
+  backgroundColor: color.white,
   color: color['gray-100'],
   ':hover': {
     backgroundColor: color['primary-background'],

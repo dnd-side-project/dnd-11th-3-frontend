@@ -6,10 +6,13 @@
    "scripts": {
       "dev": "next dev",
       "build": "next build",
-      "start": "next start"
+      "start": "next start",
+      "gen-icon": "svgr --out-dir ./src/design-system/icon/default -- ./src/design-system/icon/prepare && npm run refactor-icon",
+      "gen-design-system": "node copyFolderSync.cjs"
    },
    "dependencies": {
       "@tanstack/react-query": "^5.51.1",
+      "@vanilla-extract/recipes": "^0.5.3",
       "axios": "^1.7.2",
       "jotai": "^2.9.0",
       "next": "^14.2.5",
@@ -18,6 +21,8 @@
       "react-hook-form": "^7.52.1"
    },
    "devDependencies": {
+      "@svgr/cli": "^8.1.0",
+      "@svgr/core": "^8.1.0",
       "@tanstack/eslint-plugin-query": "^5.51.1",
       "@types/node": "^20",
       "@types/react": "^18.3.3",
