@@ -3,7 +3,7 @@ import { style } from '@vanilla-extract/css'
 export const Wrapper = style({
    display: 'flex',
    flexDirection: 'column',
-   padding: '16px',
+   padding: '0 16px 16px 16px',
 })
 
 export const ListWrapper = style({

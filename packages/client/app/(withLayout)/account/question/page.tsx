@@ -5,7 +5,7 @@ import Tab from 'src/design-system/component/Tab'
 import AnswerBox from 'src/design-system/component/Answer'
 import Question from '@shared/ui/QuestionList/Question'
 import { QuestionData } from 'app/(withLayout)/home/page'
-import * as styles from './index.css'
+import * as styles from '../index.css'
 
 function AccountQuestion() {
    const [tabState, setTabState] = useState<'write' | 'answer'>('write')
