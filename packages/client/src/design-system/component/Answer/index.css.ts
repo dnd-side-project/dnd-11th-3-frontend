@@ -29,4 +29,5 @@ export const TxtBox = style({ marginLeft: '8px' })
 export const BottomWrapper = style({
    display: 'flex',
    marginLeft: 'auto',
+   marginTop: '8px',
 })
