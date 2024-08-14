@@ -1,6 +1,7 @@
 import React from 'react'
 import * as styles from './index.css'
 import Image from 'next/image'
+import Credit from '../../Tag/Credit'
 
 interface HomeRecommendProps {
   src: string
@@ -15,7 +16,9 @@ const HomeRecommend = ({ src, coin, title, bookmark, likes }: HomeRecommendProps
     <div className={styles.RecommendItem}>
       <Image src={src} alt="recommend Image" />
       <div className={styles.overlay}>
-        <div className={styles.CoinBox}>{coin}</div>
+        <div className={styles.CoinBox}>
+          <Credit coin={coin} />
+        </div>
         <span>{title}</span>
         <div className={styles.DetailWrapper}>
           <div className={styles.IconBox}></div>
