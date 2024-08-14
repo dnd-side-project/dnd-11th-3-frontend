@@ -8,7 +8,7 @@ export const Wrapper = style({
 export const TextWrapper = style({
    display: 'flex',
    flexDirection: 'column',
-   marginTop: '160px',
+   marginTop: '120px',
    marginLeft: '28px',
 })
 

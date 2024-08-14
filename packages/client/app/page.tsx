@@ -1,4 +1,6 @@
 import SNSLogin from '@gmi-design-system/component/SignIn/SNSLogin'
+import Image from 'next/image'
+import BackGroundImage from './Background.svg'
 import * as styles from './signin.css'
 
 export default function Signin() {
@@ -6,13 +8,7 @@ export default function Signin() {
       <div className={styles.Wrapper}>
          <div className={styles.TextWrapper}>
             <div className={styles.TitleTxt}>
-               <span>공무원 업무습득</span>
-               <span>Q&A 서비스</span>
-            </div>
-            <div className={styles.TitleTxt}>
-               <span>어렵고 헷갈렸던 업무를</span>
-               <span>이제 공무인과 함께</span>
-               <span>차근차근 해결해 나가요!</span>
+               <Image src={BackGroundImage} alt="background image" />
             </div>
          </div>
          <div className={styles.LoginBtnWrapper}>
