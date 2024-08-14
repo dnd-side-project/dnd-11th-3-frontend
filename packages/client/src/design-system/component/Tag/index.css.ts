@@ -1,0 +1,28 @@
+import { style } from '@vanilla-extract/css'
+import { color } from '../../token/Color/color'
+
+export const TextSpan = style({
+   display: 'flex',
+   justifyContent: 'center',
+   alignItems: 'center',
+})
+
+export const IconBox = style({
+   display: 'flex',
+   justifyContent: 'center',
+   alignItems: 'center',
+   marginLeft: '2px',
+})
+
+export const JobListBox = style({
+   display: 'flex',
+   justifyContent: 'center',
+   alignItems: 'center',
+   fontSize: '11px',
+   fontWeight: '600',
+   borderRadius: '2px',
+   color: color['secondary-dark'],
+   lineHeight: '100%',
+   border: `1px solid ${color['gray-800']}`,
+   padding: '0 4px ',
+})

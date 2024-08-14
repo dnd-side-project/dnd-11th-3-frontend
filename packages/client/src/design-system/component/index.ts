@@ -8,5 +8,8 @@
 export { Button } from './Button/Button'
 export type { ButtonProps } from './Button/Button'
 
+export { JobListTag } from './Tag/JobListTag'
+export type { JobListProps } from './Tag/JobListTag'
+
 // export { Select } from './Select/Select'
 // export type { SelectProps } from './Select/Select'
