@@ -2,7 +2,7 @@ import React from 'react'
 import type { Metadata, Viewport } from 'next'
 
 import './globals.css'
-import '@gmi-design-system/global.css'
+import 'gmi-design-system/global.css'
 import ReactQueryClientProviders from '../src/apps/provider/reactQueryProviders'
 
 export const metadata: Metadata = {

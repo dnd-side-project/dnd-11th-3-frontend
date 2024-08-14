@@ -23,7 +23,8 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "importHelpers": true
+    "importHelpers": true,
+    "types": ["vite/client", "vite-plugin-svgr/client"]
   },
   "include": ["src/**/*", "eslint.config.js"],
   "exclude": ["**/dist/**, **/node_modules"],

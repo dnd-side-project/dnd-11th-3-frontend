@@ -7,3 +7,6 @@ export type { TextAreaProps } from './TextArea/TextArea'
 
 export { Button } from './Button/Button'
 export type { ButtonProps } from './Button/Button'
+
+export { default as HomeRecommend, type HomeRecommendProps } from './Recommend/home/HomeRecommend'
+export * from './Recommend/home/icons'

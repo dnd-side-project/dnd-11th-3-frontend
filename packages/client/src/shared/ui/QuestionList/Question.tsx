@@ -1,5 +1,5 @@
 import React from 'react'
-import { IconBookmark, IconLikesDefault } from '@gmi-design-system/icon'
+import { IconBookmark, IconLikesDefault } from 'gmi-design-system'
 
 import * as styles from './Question.css'
 

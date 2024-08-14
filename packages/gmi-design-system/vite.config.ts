@@ -4,37 +4,26 @@ import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
 import dts from 'vite-plugin-dts'
 import react from '@vitejs/plugin-react'
 import { viteStaticCopy } from 'vite-plugin-static-copy'
-import config from './.storybook/main'
-
-// tsconfg setting is not working
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import packageJson from './package.json'
+import svgr from 'vite-plugin-svgr'
 
 export default defineConfig({
   build: {
     lib: {
-      entry: convertExportsToEntries(packageJson.exports),
+      entry: {
+        index: resolve(__dirname, 'src/index.ts'),
+      },
+      formats: ['es', 'cjs'],
       name: 'gmi-design-system',
-      fileName: 'index',
+      fileName: (format, entryName) => `${entryName}.${format === 'es' ? 'mjs' : 'js'}`,
     },
-    sourcemap: true,
-    emptyOutDir: true,
     rollupOptions: {
       external: ['react', 'react-dom'],
-      output: [
-        {
-          format: 'cjs',
-          preserveModulesRoot: 'src',
-          entryFileNames: '[name].js',
+      output: {
+        globals: {
+          react: 'React',
+          'react-dom': 'ReactDOM',
         },
-        {
-          format: 'es',
-          preserveModules: true,
-          preserveModulesRoot: 'src',
-          entryFileNames: '[name].mjs',
-        },
-      ],
+      },
     },
   },
   plugins: [
@@ -50,17 +39,7 @@ export default defineConfig({
         },
       ],
     }),
-    vanillaExtractPlugin(config),
+    svgr(),
+    vanillaExtractPlugin(),
   ],
 })
-
-function convertExportsToEntries(exports: object) {
-  const entries: Record<string, string> = {}
-  for (const key in exports) {
-    if (/^\.\S+[^/]+\.[^/]+$/.test(key)) continue // Ignore regular expression patterns that end with *.*
-    const entryPath = key === '.' ? './src/index.ts' : `src/${key}/index.ts`
-    const formattedKey = key === '.' ? 'index' : `${key.slice(2)}/index`
-    entries[formattedKey] = resolve(__dirname, entryPath)
-  }
-  return entries
-}

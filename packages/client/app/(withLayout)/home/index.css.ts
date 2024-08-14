@@ -1,5 +1,5 @@
-import { color } from '@gmi-design-system/token'
 import { style } from '@vanilla-extract/css'
+import { color } from 'gmi-design-system'
 
 export const HomeWrapper = style({
    display: 'flex',

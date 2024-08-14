@@ -7,15 +7,15 @@ import {
   ListBoxItem,
   Popover,
 } from 'react-aria-components'
-import { INPUT_BG_COLOR, TextInputProps } from '../TextInput/TextInput'
+import { selectItemWrapper } from './select.css'
+import { INPUT_BG_COLOR, TextInputProps } from '../../component/TextInput/TextInput'
 import {
   textInputLabelContainerStyle,
   textInputLabelStyle,
   textInputStyle,
   textInputWrapperStyle,
   textMetaStyle,
-} from '../TextInput/textInput.css'
-import { selectItemWrapper } from './select.css'
+} from '../../component/TextInput/textInput.css'
 
 export interface SelectItemType {
   label: string

@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css'
 import { recipe } from '@vanilla-extract/recipes'
-import { color } from 'src/token/Color/color'
+import { color } from '../../token/Color/color'
 
 export const selectStyle = recipe({
   base: {

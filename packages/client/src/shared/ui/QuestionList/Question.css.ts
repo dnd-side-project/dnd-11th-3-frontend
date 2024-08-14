@@ -1,4 +1,4 @@
-import { color } from '@gmi-design-system/token'
+import { color } from 'gmi-design-system'
 import { style } from '@vanilla-extract/css'
 
 export const QuestionWrapper = style({

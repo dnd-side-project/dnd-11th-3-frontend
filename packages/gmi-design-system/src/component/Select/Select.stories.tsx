@@ -1,10 +1,20 @@
+import type { Meta } from '@storybook/react'
+
 import { useState } from 'react'
 import { Select } from './Select'
 import { IconSearch } from '../../icon'
 
-export default {
+const meta = {
   title: 'Component/Select - Source',
-}
+  component: Select,
+  parameters: {
+    layout: 'centered',
+  },
+  args: {},
+  tags: ['autodocs'],
+} satisfies Meta<typeof Select>
+
+export default meta
 
 export function SelectComponent() {
   const [selected, setSelected] = useState<{

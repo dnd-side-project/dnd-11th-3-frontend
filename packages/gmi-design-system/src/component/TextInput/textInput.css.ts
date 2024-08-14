@@ -1,7 +1,6 @@
 import { style } from '@vanilla-extract/css'
 import { recipe } from '@vanilla-extract/recipes'
 import { color } from '../../token/Color/color'
-import { INPUT_BG_COLOR, INPUT_COLOR } from './TextInput'
 
 export const textInputLabelStyle = style({
   marginBottom: '17px',
@@ -45,13 +44,13 @@ export const textInputWrapperStyle = recipe({
       },
       filled: {
         color: color['gray-100'],
-        backgroundColor: INPUT_BG_COLOR.filled,
+        backgroundColor: color['gray-000'],
         border: `1px solid ${color['gray-800']}`,
       },
       disabled: {
         cursor: 'not-allowed',
         border: `1px solid ${color['gray-800']}`,
-        backgroundColor: INPUT_BG_COLOR.disabled,
+        backgroundColor: color['gray-900'],
       },
       error: { border: `1px solid ${color.error}` },
     },
@@ -65,7 +64,7 @@ export const textInputWrapperStyle = recipe({
 export const textInputStyle = recipe({
   base: {
     width: '100%',
-    color: INPUT_COLOR.default,
+    color: color['gray-100'],
     '::placeholder': {
       color: color['gray-500'],
     },
@@ -73,16 +72,16 @@ export const textInputStyle = recipe({
 
   variants: {
     color: {
-      default: { backgroundColor: INPUT_BG_COLOR.default },
+      default: { backgroundColor: color.white },
       filled: {
-        backgroundColor: INPUT_BG_COLOR.filled,
+        backgroundColor: color['gray-000'],
       },
       disabled: {
         cursor: 'not-allowed',
-        color: INPUT_COLOR.disabled,
-        backgroundColor: INPUT_BG_COLOR.disabled,
+        color: color['gray-500'],
+        backgroundColor: color['gray-900'],
       },
-      error: { color: INPUT_COLOR.error },
+      error: { color: color.error },
     },
   },
 

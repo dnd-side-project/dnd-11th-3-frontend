@@ -1,16 +1,19 @@
 'use client'
 
+import {
+   BlueIcon,
+   Button,
+   GreenIcon,
+   HomeRecommend,
+   IconArrowRight,
+   OrangeIcon,
+} from 'gmi-design-system'
+
 import { HomeHeader } from '@widgets/HomeHeader/HomeHeader'
-import { Button } from '@gmi-design-system/component/Button/Button'
 import React, { useState } from 'react'
 import dynamic from 'next/dynamic'
-import Green from '@gmi-design-system/component/Recommend/home/Green.svg'
-import Blue from '@gmi-design-system/component/Recommend/home/Blue.svg'
-import Orange from '@gmi-design-system/component/Recommend/home/Orange.svg'
 import { useScrollHandler } from '@features/useScrollHandler'
 import Question from '@shared/ui/QuestionList/Question'
-import { IconArrowRight } from '@gmi-design-system/icon'
-import HomeRecommend from '@gmi-design-system/component/Recommend/home/HomeRecommend'
 import { useClientSideRender } from './useClientSideRender'
 import './slider.css'
 import * as styles from './index.css'
@@ -119,21 +122,21 @@ export default function Home() {
                   >
                      {/** TODO: 데이터 형식으로 변경하기 */}
                      <HomeRecommend
-                        src={Blue}
+                        src={BlueIcon}
                         coin="2000"
                         title="ddd"
                         bookmark={20}
                         likes={4}
                      />
                      <HomeRecommend
-                        src={Green}
+                        src={GreenIcon}
                         coin="2000"
                         title="ddd"
                         bookmark={20}
                         likes={4}
                      />
                      <HomeRecommend
-                        src={Orange}
+                        src={OrangeIcon}
                         coin="2000"
                         title="ddd"
                         bookmark={20}

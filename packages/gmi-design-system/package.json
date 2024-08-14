@@ -9,18 +9,7 @@
       "import": "./dist/index.mjs",
       "types": "./dist/index.d.ts"
     },
-    "./icon": {
-      "require": "./dist/icon/index.js",
-      "import": "./dist/icon/index.mjs",
-      "types": "./dist/icon/index.d.ts"
-    },
-    "./component": {
-      "require": "./dist/component/index.js",
-      "import": "./dist/component/index.mjs",
-      "types": "./dist/component/index.d.ts"
-    },
-    "./global.css": "./dist/global.css",
-    "./package.json": "./package.json"
+    "./global.css": "./dist/global.css"
   },
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -34,6 +23,7 @@
     "react-hot-toast": "2.4.1"
   },
   "peerDependencies": {
+    "next": "^14.2.5",
     "react": "^18.3.1",
     "react-dom": "^18"
   },
@@ -42,16 +32,16 @@
     "@eslint/js": "^9.8.0",
     "@storybook/addon-designs": "^8.0.3",
     "@storybook/addon-essentials": "^8.2.6",
+    "@storybook/addon-interactions": "^8.2.6",
     "@storybook/addon-links": "^8.2.6",
     "@storybook/addon-storysource": "^8.2.6",
-    "@storybook/builder-vite": "^8.2.6",
+    "@storybook/addon-styling-webpack": "^1.0.0",
     "@storybook/cli": "^8.2.6",
-    "@storybook/nextjs": "^8.2.8",
-    "@storybook/preset-create-react-app": "^8.2.7",
+    "@storybook/nextjs": "^8.2.6",
     "@storybook/react": "^8.2.6",
-    "@storybook/react-vite": "^8.2.6",
     "@svgr/cli": "^8.1.0",
     "@svgr/core": "^8.1.0",
+    "@svgr/webpack": "^8.1.0",
     "@types/node": "^20.14.10",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
@@ -60,7 +50,9 @@
     "@vanilla-extract/css": "^1.15.3",
     "@vanilla-extract/recipes": "^0.5.3",
     "@vanilla-extract/vite-plugin": "^4.0.13",
+    "@vanilla-extract/webpack-plugin": "^2.3.11",
     "@vitejs/plugin-react": "^4.3.1",
+    "css-loader": "^7.1.2",
     "eslint": "^8.57.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^18.0.0",
@@ -73,17 +65,21 @@
     "eslint-plugin-storybook": "^0.8.0",
     "husky": "^9.1.4",
     "lint-staged": "^15.2.7",
+    "mini-css-extract-plugin": "^2.9.0",
     "prettier": "^3.3.2",
     "storybook": "^8.2.6",
+    "style-loader": "^4.0.0",
     "svgo": "^3.3.2",
+    "tsconfig-paths-webpack-plugin": "^4.1.0",
     "typescript": "^5.5.3",
     "typescript-eslint": "^7.16.1",
     "vite": "^5.3.5",
     "vite-plugin-dts": "^3.9.1",
-    "vite-plugin-static-copy": "^1.0.6"
+    "vite-plugin-static-copy": "^1.0.6",
+    "vite-plugin-svgr": "^4.2.0"
   },
   "scripts": {
-    "build": "tsc --noEmit && vite build",
+    "build": "vite build",
     "typecheck": "tsc --noEmit",
     "lint": "eslint ./src",
     "storybook": "storybook dev -p 6006",

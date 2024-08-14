@@ -6,7 +6,7 @@ import {
   textInputWrapperStyle,
   textMetaStyle,
 } from './textInput.css'
-import { color } from '../../token'
+import { color } from '../../token/Color/color'
 
 export interface TextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string
