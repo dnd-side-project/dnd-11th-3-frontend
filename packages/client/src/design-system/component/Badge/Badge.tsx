@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react'
-import { badgeWrapper } from './index.css'
+import { badgeWrapper } from './badge.css'
 
 export interface BadgeProps {
    variant: 'primary' | 'secondary' | 'outlined'

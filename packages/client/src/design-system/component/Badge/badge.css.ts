@@ -22,7 +22,7 @@ export const badgeWrapper = recipe({
          },
          secondary: {
             color: color.white,
-            backgroundColor: color['secondary-dark'],
+            backgroundColor: color['secondary-main'],
          },
          outlined: {
             color: '#F4811B',

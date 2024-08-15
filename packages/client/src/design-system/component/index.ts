@@ -31,3 +31,6 @@ export type { NumberInputProps } from './NumberInput/NumberInput'
 
 export { Badge } from './Badge/Badge'
 export type { BadgeProps } from './Badge/Badge'
+
+export { Divider } from './Divider/Divider'
+export type { DividerProps } from './Divider/Divider'
