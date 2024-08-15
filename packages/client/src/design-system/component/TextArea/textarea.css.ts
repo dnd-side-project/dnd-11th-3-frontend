@@ -61,6 +61,8 @@ export const textAreaStyle = recipe({
       resize: 'none',
       '::placeholder': {
          color: color['gray-500'],
+         fontSize: 16,
+         fontWeight: 500,
       },
    },
 

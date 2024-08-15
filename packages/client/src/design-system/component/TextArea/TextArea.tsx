@@ -24,7 +24,7 @@ export function TextArea({
 }: TextAreaProps) {
    return (
       <div className={textAreaLabelContainerStyle}>
-         <div className={textAreaLabelStyle}>{label}</div>
+         {label && <div className={textAreaLabelStyle}>{label}</div>}
          <div
             style={{
                height: height ?? 'auto',
