@@ -1,10 +1,11 @@
-import { PropsWithChildren } from 'react'
+import { PropsWithChildren, useRef } from 'react'
 import {
    Tooltip as AriaTooltip,
    OverlayArrow,
    TooltipTrigger,
 } from 'react-aria-components'
-
+// import { useTooltipTrigger } from 'react-aria'
+import { useTooltipTriggerState } from 'react-stately'
 // import { tooltipWrapperStyle } from './tooltip.css'
 
 export interface TooltipProps
@@ -22,6 +23,9 @@ export function Tooltip({
    // variant = 'default',
    // ...props
 }: PropsWithChildren<TooltipProps>) {
+   // let state = useTooltipTriggerState()
+   // let ref = useRef(null)
+   // let { triggerProps, tooltipProps } = useTooltipTrigger(props, state, ref)
    return (
       <TooltipTrigger>
          <AriaTooltip>
