@@ -12,6 +12,6 @@ export const navbarWrapperStyle = style({
    padding: '9px 70px 25px 70px',
    backgroundColor: '#fff',
    borderTop: '1px solid #E7E7E7',
-   position: 'fixed',
+   position: 'absolute',
    bottom: 0,
 })

@@ -1,6 +1,6 @@
 {
   "name": "gmi-design-system",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "design system for gmi(gong-mu-in)",
   "type": "module",
   "exports": {

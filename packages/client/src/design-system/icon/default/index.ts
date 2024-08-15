@@ -1,3 +1,4 @@
+export { IconAddPhoto } from './IconAddPhoto'
 export { IconArrowDown } from './IconArrowDown'
 export { IconArrowLeft } from './IconArrowLeft'
 export { IconBookmark } from './IconBookmark'

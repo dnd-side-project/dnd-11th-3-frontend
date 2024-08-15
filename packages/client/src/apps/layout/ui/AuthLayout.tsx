@@ -1,6 +1,6 @@
 'use client'
 
-import { COMMON_HEADER_META_DATA } from '@shared/model'
+import { COMMON_HEADER_META_DATA, PageURL } from '@shared/model'
 import { usePathname } from 'next/navigation'
 import React, { useMemo } from 'react'
 import { Header, NavBar } from '@shared/ui/index'
@@ -19,12 +19,16 @@ export function AuthLayout({ children }: Props) {
       [pathname],
    )
 
+   const showBottomNavBar = useMemo(() => {
+      const PAGES: string[] = [PageURL.ACCOUNT, PageURL.HOME]
+      return PAGES.includes(pathname)
+   }, [pathname])
+
    return (
       <div>
          {!!headerTitle && <Header title={headerTitle} />}
          {children}
-         <NavBar />
-         {/* TODO: fix NavBar to hide in some pages(기획 물어보기!!!) */}
+         {showBottomNavBar && <NavBar />}
       </div>
    )
 }

@@ -1,8 +1,5 @@
-export { IconAlarm } from './IconAlarm'
 export { IconArrowDown } from './IconArrowDown'
 export { IconArrowLeft } from './IconArrowLeft'
-export { IconArrowRight } from './IconArrowRight'
-export { IconArrowUp } from './IconArrowUp'
 export { IconBookmark } from './IconBookmark'
 export { IconHuman } from './IconHuman'
 export { IconLikesDefault } from './IconLikesDefault'

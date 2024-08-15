@@ -25,8 +25,5 @@
   },
   "scripts": {
     "prepare": "if [ \"$NETLIFY\" != \"true\" ]; then husky install && chmod +x .husky/pre-commit; fi"
-  },
-  "dependencies": {
-    "react-slick": "^0.30.2"
   }
 }
