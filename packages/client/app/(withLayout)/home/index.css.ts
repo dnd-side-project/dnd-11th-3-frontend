@@ -83,7 +83,7 @@ export const QuestionFilterBox = style({ display: 'flex' })
 export const QuestionsWrapper = style({
    display: 'flex',
    flexDirection: 'column',
-   marginBottom: '85px',
+   height: '340px',
 })
 
 export const fixedNav = style({
