@@ -1,5 +1,5 @@
-import { Header } from '@shared/ui'
+import { QuestionDetailInformation } from '@widgets/QuestionDetailInformation/'
 
 export default function QuestionDetailPage() {
-   return <Header title="질문 상세" />
+   return <QuestionDetailInformation />
 }
