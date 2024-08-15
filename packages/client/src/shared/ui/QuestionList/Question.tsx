@@ -23,8 +23,12 @@ function Question({ data }: Props) {
          <div className={styles.QuestionTagWrapper}>
             {/** TODO: 디자인시스템 작성 필요 */}
             <JobListTag name={data.tag} />
-            <AdoptTag />
-            <CreditTag coin={data.reward} />
+            <div className={styles.TagBox}>
+               <AdoptTag />
+            </div>
+            <div className={styles.TagBox}>
+               <CreditTag coin={data.reward} />
+            </div>
          </div>
          <div className={styles.QuestionTitleBox}>
             <span>{data.title}</span>
