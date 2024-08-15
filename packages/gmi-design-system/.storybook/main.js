@@ -22,13 +22,7 @@ const config = {
   core: {
     builder: '@storybook/builder-vite',
   },
-  async viteFinal(config) {
-    config.plugins.push(vanillaExtractPlugin())
-    return config
-  },
-  features: {
-    storyStoreV7: true,
-  },
+  plugins: [new vanillaExtractPlugin()],
 }
 
 export default config

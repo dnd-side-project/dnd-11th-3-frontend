@@ -1,0 +1,52 @@
+import React from 'react'
+import type { Metadata, Viewport } from 'next'
+
+import './globals.css'
+import './design-system-globals.css'
+import ReactQueryClientProviders from '../src/apps/provider/reactQueryProviders'
+
+export const metadata: Metadata = {
+   title: 'GongMuIn',
+   description: 'The Platform is for Korea public officials',
+   appleWebApp: {
+      title: 'GongMuIn app client',
+      statusBarStyle: 'default',
+   },
+}
+export const viewport: Viewport = {
+   width: 'device-width',
+   height: 'device-height',
+   initialScale: 1,
+   minimumScale: 1,
+   maximumScale: 1,
+   interactiveWidget: 'resizes-content',
+   viewportFit: 'contain',
+}
+
+export default function RootLayout({
+   children,
+}: Readonly<{
+   children: React.ReactNode
+}>) {
+   return (
+      <html lang="en">
+         <head>
+            <link
+               rel="stylesheet"
+               type="text/css"
+               href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+            />
+            <link
+               rel="stylesheet"
+               type="text/css"
+               href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
+            />
+         </head>
+         <body>
+            <div className="mobile-layout">
+               <ReactQueryClientProviders>{children}</ReactQueryClientProviders>
+            </div>
+         </body>
+      </html>
+   )
+}

@@ -1,0 +1,49 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css');
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css');
+
+body,
+input,
+pre,
+textarea,
+input,
+button {
+   margin: 0;
+   font-family:
+      'Pretendard Variable',
+      Pretendard,
+      -apple-system,
+      BlinkMacSystemFont,
+      system-ui,
+      Roboto,
+      sans-serif;
+
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+   color: #2a2a2a;
+   border: none;
+}
+
+img {
+   /* For responsive images that adjust & adapt */
+   height: auto;
+   max-width: 100%;
+
+   /* This isn't needed, but as a user, I get frustrated when I highlight text and the image gets highlighted too */
+   user-select: none;
+}
+
+* {
+   margin: 0;
+   padding: 0;
+   border: 0;
+   outline: none;
+   box-sizing: border-box;
+   text-decoration: none;
+   scrollbar-width: none;
+   -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+   display: none; /* Chrome, Safari, Opera*/
+}

@@ -2,7 +2,7 @@
 export default {
   typescript: true,
   replaceAttrValues: {
-    '#2A2A2A': 'currentColor',
+    '#2A2A2A': '{color}',
   },
   ref: true,
   jsxRuntime: 'automatic',
@@ -55,7 +55,7 @@ export default {
             value: {
               type: 'AssignmentPattern',
               left: { type: 'Identifier', name: 'titleId' },
-              right: { type: 'StringLiteral', value: `GDS-Icon${variables.componentName}` },
+              right: { type: 'StringLiteral', value: `GDS-${variables.componentName}` },
             },
             computed: false,
             shorthand: true,

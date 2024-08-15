@@ -9,15 +9,15 @@
   ],
   "devDependencies": {
     "@nrwl/cli": "latest",
-    "nx": "15.3.0",
-    "glob": "latest",
     "@typescript-eslint/eslint-plugin": "^7.17.0",
     "@typescript-eslint/parser": "^7.17.0",
     "eslint": "^8.57.0",
     "eslint-config-next": "^14.2.5",
     "eslint-plugin-import": "^2.29.1",
+    "glob": "latest",
     "husky": "^9.0.11",
-    "lint-staged": "^15.2.7"
+    "lint-staged": "^15.2.7",
+    "nx": "15.3.0"
   },
   "repository": {
     "type": "git",
