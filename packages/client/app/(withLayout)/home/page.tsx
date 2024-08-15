@@ -11,7 +11,9 @@ import { useScrollHandler } from '@features/useScrollHandler'
 import Question from '@shared/ui/QuestionList/Question'
 import { IconArrowRight } from '@gmi-design-system/icon'
 import HomeRecommend from '@gmi-design-system/component/Recommend/home/HomeRecommend'
+import { JobGreenTag } from '@gds/component'
 import { useClientSideRender } from './useClientSideRender'
+
 import './slider.css'
 import * as styles from './index.css'
 
@@ -154,15 +156,7 @@ export default function Home() {
                   </div>
                   <div className={styles.QuestionFilterBox}>
                      {/** TODO: 디자인시스템 작성필요 */}
-                     <Button size="small" variant="outlined">
-                        더보기
-                     </Button>
-                     <Button size="small" variant="outlined">
-                        더보기
-                     </Button>
-                     <Button size="small" variant="outlined">
-                        더보기
-                     </Button>
+                     <JobGreenTag name="더보기" />
                   </div>
                </div>
             </div>
