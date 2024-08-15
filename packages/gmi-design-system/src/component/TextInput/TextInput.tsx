@@ -1,4 +1,4 @@
-import { cloneElement, ReactElement } from 'react'
+import { cloneElement, ReactElement, ReactNode } from 'react'
 
 import {
   textInputLabelContainerStyle,
@@ -10,7 +10,7 @@ import {
 } from './textInput.css'
 
 export interface TextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  label?: string
+  label?: ReactNode
   description?: string
   errorMessage?: string
   icon?: ReactElement

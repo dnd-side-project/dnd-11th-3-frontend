@@ -1,6 +1,13 @@
 'use client'
 
-import { Button, TextArea, TextInput, IconButton, Select } from '@gds/component'
+import {
+   Button,
+   TextArea,
+   TextInput,
+   IconButton,
+   Select,
+   NumberInput,
+} from '@gds/component'
 import { IconAddPhoto, IconSearch } from '@gds/icon'
 import { pageWrapper } from './questionCreateInputs.css'
 
@@ -14,21 +21,32 @@ export function QuestionCreateInputs() {
 소속이나 개인정보를 특정할 수 있는 내용에 대해서는 주의해 주세요!"
             height={258}
          />
-         <IconButton
+         <IconButton // TODO: add Image Upload logic
             variant="outlined"
             size="large"
             icon={<IconAddPhoto size={32} />}
          />
-         <Select
+         <Select // TODO: add Search Select and remove the default select
             items={[{ label: 'TODO', id: 'TODO' }]}
             selected={null}
             onSelect={() => alert('TODO')}
             inputProps={{
-               icon: <IconSearch />,
+               icon: <IconSearch size={20} />,
                placeholder: '해당 직군을 입력해주세요',
+               label: '직군 선택',
             }}
          />
+         <NumberInput
+            label={<>보상 크레딧 설정</>}
+            value={1000}
+            onChange={(e) => console.log(e.target.value)}
+            onUpClick={() => console.log('Up')}
+            onDownClick={() => console.log('Up')}
+            variant="gradient"
+            subTitle="크레딧"
+         />
          <Button
+            type="submit"
             variant="filled"
             size="large"
             onClick={() => {

@@ -1,4 +1,4 @@
-import { CSSProperties } from 'react'
+import { CSSProperties, ReactNode } from 'react'
 import {
   textAreaStyle,
   textAreaLabelContainerStyle,
@@ -8,7 +8,7 @@ import {
 } from './textarea.css'
 
 export interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
-  label?: string
+  label?: ReactNode
   description?: string
   errorMessage?: string
   height?: CSSProperties['height']
@@ -17,7 +17,7 @@ export interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextArea
 export function TextArea({ label, description, errorMessage, height, ...props }: TextAreaProps) {
   return (
     <div className={textAreaLabelContainerStyle}>
-      <div className={textAreaLabelStyle}>{label}</div>
+      {label && <div className={textAreaLabelStyle}>{label}</div>}
       <div
         style={{
           height: height ?? 'auto',

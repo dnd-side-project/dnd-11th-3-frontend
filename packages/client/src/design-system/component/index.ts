@@ -25,3 +25,6 @@ export { FloatButton } from './FloatButton/index'
 
 export { IconButton } from './IconButton/IconButton'
 export type { IconButtonProps } from './IconButton/IconButton'
+
+export { NumberInput } from './NumberInput/NumberInput'
+export type { NumberInputProps } from './NumberInput/NumberInput'
