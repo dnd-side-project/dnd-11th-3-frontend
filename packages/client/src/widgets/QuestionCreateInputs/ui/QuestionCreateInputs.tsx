@@ -1,7 +1,7 @@
 'use client'
 
-import { Button, TextArea, TextInput, IconButton } from '@gds/component'
-import { IconAddPhoto } from '@gds/icon'
+import { Button, TextArea, TextInput, IconButton, Select } from '@gds/component'
+import { IconAddPhoto, IconSearch } from '@gds/icon'
 import { pageWrapper } from './questionCreateInputs.css'
 
 export function QuestionCreateInputs() {
@@ -14,8 +14,20 @@ export function QuestionCreateInputs() {
 소속이나 개인정보를 특정할 수 있는 내용에 대해서는 주의해 주세요!"
             height={258}
          />
-         <IconButton variant="outlined" size="large" icon={<IconAddPhoto />} />
-
+         <IconButton
+            variant="outlined"
+            size="large"
+            icon={<IconAddPhoto size={32} />}
+         />
+         <Select
+            items={[{ label: 'TODO', id: 'TODO' }]}
+            selected={null}
+            onSelect={() => alert('TODO')}
+            inputProps={{
+               icon: <IconSearch />,
+               placeholder: '해당 직군을 입력해주세요',
+            }}
+         />
          <Button
             variant="filled"
             size="large"
@@ -23,7 +35,7 @@ export function QuestionCreateInputs() {
                console.log('Submit')
             }}
          >
-            Submit
+            질문 게시하기
          </Button>
       </div>
    )
