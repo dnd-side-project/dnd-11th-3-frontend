@@ -49,7 +49,7 @@ html,
    ); /* 6 */
    -webkit-tap-highlight-color: transparent; /* 7 */
    font-style: normal;
-   background-color: rgb(251, 251, 251); /* TODO: fix */
+   background-color: rgb(244, 244, 244); /* TODO: fix */
 }
 
 /*
@@ -356,7 +356,7 @@ video {
    height: 844px;
    max-height: 844px;
    width: 390px;
-   background-color: white;
+   background-color: rgb(255, 255, 255); /* TODO: fix */
 
    position: relative;
    overflow: auto;
