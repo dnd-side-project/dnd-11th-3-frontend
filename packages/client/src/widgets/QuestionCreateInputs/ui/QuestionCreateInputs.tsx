@@ -1,6 +1,6 @@
 'use client'
 
-import { Button, TextArea } from '@gds/component'
+import { Button, TextArea } from '@gmi-design-system'
 import { pageWrapper } from './questionCreateInputs.css'
 
 export function QuestionCreateInputs() {
