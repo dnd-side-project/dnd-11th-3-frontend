@@ -1,6 +1,13 @@
 'use client'
 
-import { Button, TextArea, TextInput, IconButton, Select } from '@gds/component'
+import {
+   Button,
+   TextArea,
+   TextInput,
+   IconButton,
+   Select,
+   NumberInput,
+} from '@gds/component'
 import { IconAddPhoto, IconSearch } from '@gds/icon'
 import { pageWrapper } from './questionCreateInputs.css'
 
@@ -28,6 +35,15 @@ export function QuestionCreateInputs() {
                placeholder: '해당 직군을 입력해주세요',
                label: '직군 선택',
             }}
+         />
+         <NumberInput
+            label={<>보상 크레딧 설정</>}
+            value={1000}
+            onChange={(e) => console.log(e.target.value)}
+            onUpClick={() => console.log('Up')}
+            onDownClick={() => console.log('Up')}
+            variant="gradient"
+            subTitle="크레딧"
          />
          <Button
             type="submit"
