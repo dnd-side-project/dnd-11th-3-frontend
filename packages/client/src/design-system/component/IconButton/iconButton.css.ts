@@ -22,9 +22,9 @@ export const iconButtonWrapperStyle = recipe({
 
    variants: {
       size: {
-         small: { padding: '8px 7px', fontSize: '14px', height: '32px' },
-         medium: { padding: '15px 13px', fontSize: '16px', height: '49px' },
-         large: { padding: '18px 16px', fontSize: '18px', height: '60px' },
+         small: { padding: '8px', fontSize: '14px', height: '32px' },
+         medium: { padding: '15px', fontSize: '16px', height: '49px' },
+         large: { padding: '17px', fontSize: '18px', height: '60px' },
       },
       variant: {
          default: {
