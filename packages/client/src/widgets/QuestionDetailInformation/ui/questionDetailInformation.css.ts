@@ -26,3 +26,5 @@ export const profileWrapper = style({
    fontSize: 14,
    fontWeight: 600,
 })
+
+export const typoWrapper = style({ display: 'flex', flexDirection: 'column' })

@@ -2,7 +2,7 @@
 
 import { Badge, Divider } from '@gds/component'
 import { IconCredit, IconCharacter } from '@gds/icon'
-import { color } from '@gds/token'
+import { color, Typo } from '@gds/token'
 import { Header } from '@shared/ui'
 
 import { useParams } from 'next/navigation'
@@ -12,6 +12,7 @@ import {
    pageWrapper,
    profileImageWrapper,
    profileWrapper,
+   typoWrapper,
 } from './questionDetailInformation.css'
 
 export function QuestionDetailInformation() {
@@ -25,6 +26,8 @@ export function QuestionDetailInformation() {
                0000
                <IconCredit color={color['secondary-main']} size={10} />
             </Badge>
+            <div className={Typo.h1.lg}>질문 제목</div>
+            <div className={Typo.body1.md}>질문 내용들</div>
             <Image
                src="https://fakeimg.pl/600x400"
                alt="QuestionDetailInformation"
@@ -49,9 +52,9 @@ function ProfileContents({
             <div className={profileImageWrapper}>
                <IconCharacter color={color['secondary-main']} size={48} />
             </div>
-            <div>
-               {title}
-               <p>{description}</p>
+            <div className={typoWrapper}>
+               <strong className={Typo.body1.sb}>{title}</strong>
+               <strong className={Typo.body2.md}>{description}</strong>
                {/* TODO: fix description font style */}
             </div>
          </div>
