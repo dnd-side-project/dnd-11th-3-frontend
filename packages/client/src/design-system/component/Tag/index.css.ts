@@ -40,3 +40,15 @@ export const JobGreenTagBox = style({
    backgroundColor: color['primary-background'],
    padding: '6px ',
 })
+export const AdoptTagBox = style({
+   display: 'flex',
+   justifyContent: 'center',
+   alignItems: 'center',
+   fontSize: '11px',
+   fontWeight: '600',
+   borderRadius: '2px',
+   color: color.white,
+   backgroundColor: color['primary-main'],
+   lineHeight: '100%',
+   padding: '4px ',
+})

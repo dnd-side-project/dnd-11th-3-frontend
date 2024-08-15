@@ -1,6 +1,6 @@
 import React from 'react'
 import { IconBookmark, IconLikesDefault } from '@gmi-design-system/icon'
-import { JobListTag } from '@gds/component'
+import { AdoptTag, JobListTag } from '@gds/component'
 import * as styles from './Question.css'
 
 export interface QuestionData {
@@ -23,6 +23,7 @@ function Question({ data }: Props) {
          <div className={styles.QuestionTagWrapper}>
             {/** TODO: 디자인시스템 작성 필요 */}
             <JobListTag name={data.tag} />
+            <AdoptTag />
             {data.reward}
          </div>
          <div className={styles.QuestionTitleBox}>

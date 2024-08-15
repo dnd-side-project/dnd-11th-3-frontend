@@ -1,4 +1,3 @@
-import React from 'react'
 import { CreditBox, IconBox, TextSpan } from './index.css'
 import { IconOrangeCredit } from '../../icon/default/IconOrangeCredit'
 

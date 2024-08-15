@@ -13,5 +13,7 @@ export type { JobListProps } from './Tag/JobListTag'
 
 export { JobGreenTag } from './Tag/JobGreenTag'
 
+export { AdoptTag } from './Tag/AdoptTag'
+
 // export { Select } from './Select/Select'
 // export type { SelectProps } from './Select/Select'
