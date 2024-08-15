@@ -7,6 +7,7 @@
       "dev": "next dev",
       "build": "next build",
       "start": "next start",
+      "refactor-icon": "node refactorIcons.cjs",
       "gen-icon": "svgr --out-dir ./src/design-system/icon/default -- ./src/design-system/icon/prepare && npm run refactor-icon",
       "gen-design-system": "node copyFolderSync.cjs"
    },

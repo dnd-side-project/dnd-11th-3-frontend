@@ -1,6 +1,7 @@
 'use client'
 
-import { Button, TextArea, TextInput } from '@gds/component'
+import { Button, TextArea, TextInput, IconButton } from '@gds/component'
+import { IconAddPhoto } from '@gds/icon'
 import { pageWrapper } from './questionCreateInputs.css'
 
 export function QuestionCreateInputs() {
@@ -13,8 +14,8 @@ export function QuestionCreateInputs() {
 소속이나 개인정보를 특정할 수 있는 내용에 대해서는 주의해 주세요!"
             height={258}
          />
+         <IconButton variant="outlined" size="large" icon={<IconAddPhoto />} />
 
-         <TextArea />
          <Button
             variant="filled"
             size="large"

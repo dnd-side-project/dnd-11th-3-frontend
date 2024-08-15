@@ -10,3 +10,6 @@ export type { ButtonProps } from './Button/Button'
 
 export { Select } from './Select/Select'
 export type { SelectProps } from './Select/Select'
+
+export { IconButton } from './IconButton/IconButton'
+export type { IconButtonProps } from './IconButton/IconButton'
