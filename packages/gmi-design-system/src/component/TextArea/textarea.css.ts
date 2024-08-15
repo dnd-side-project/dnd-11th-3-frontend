@@ -56,11 +56,16 @@ export const textAreaWrapperStyle = recipe({
 export const textAreaStyle = recipe({
   base: {
     width: '100%',
-    color: color['gray-100'],
     border: 'none',
     resize: 'none',
+
+    color: color['gray-100'],
+    fontSize: 16,
+    fontWeight: 500,
     '::placeholder': {
       color: color['gray-500'],
+      fontSize: 16,
+      fontWeight: 500,
     },
   },
 
