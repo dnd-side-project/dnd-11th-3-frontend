@@ -2,31 +2,49 @@ import { postMail, postAuthCode } from '@features/signup/CheckMail'
 import { EssentialDataType } from '@entities/@types'
 import { postCheckNickname, postMemberInfo } from '@features/signup/Member'
 
-export const handleOnClickCheckMail = (officialEmail: string) => {
+export const handleOnClickCheckMail = (
+   officialEmail: string,
+   setEmailState: (emailState: 'before' | 'available' | 'duplicated') => void,
+) => {
    if (officialEmail.length > 0) {
-      postMail(officialEmail)
+      postMail(officialEmail, setEmailState)
    }
 }
 
 export const handleOnClickCheckAuthCode = (
    officialEmail: string,
    authCode: string,
-   setIsAuth: (isAuth: boolean) => void,
+   setAuthState: (authState: 'before' | 'available' | 'error') => void,
 ) => {
    if (authCode.length > 0) {
-      postAuthCode(officialEmail, authCode).then((res) => {
-         setIsAuth(res?.data.result)
-      })
+      if (
+         postAuthCode(officialEmail, authCode).then((res) => {
+            if (res?.data.result) {
+               setAuthState('available')
+            } else {
+               setAuthState('error')
+            }
+         })
+      ) {
+         setAuthState('error')
+      }
    }
 }
 
 export const handleOnClickCheckNickname = (
    nickname: string,
-   setIsDuplicated: (isDuplicated: boolean) => void,
+   setNickNameState: (
+      nicknameState: 'before' | 'available' | 'duplicated',
+   ) => void,
 ) => {
    if (nickname.length > 0) {
       postCheckNickname(nickname).then((res) => {
-         setIsDuplicated(!res?.data.result)
+         const isDuplicated = res?.data.isDuplicated
+         if (isDuplicated) {
+            setNickNameState('duplicated')
+         } else {
+            setNickNameState('available')
+         }
       })
    }
 }
