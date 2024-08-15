@@ -15,5 +15,8 @@ export { JobGreenTag } from './Tag/JobGreenTag'
 
 export { AdoptTag } from './Tag/AdoptTag'
 
+export { CreditTag } from './Tag/CreditTag'
+export type { CreditProps } from './Tag/CreditTag'
+
 // export { Select } from './Select/Select'
 // export type { SelectProps } from './Select/Select'
