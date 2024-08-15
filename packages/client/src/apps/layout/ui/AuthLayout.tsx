@@ -2,7 +2,7 @@
 
 import { COMMON_HEADER_META_DATA, PageURL } from '@shared/model'
 import { usePathname } from 'next/navigation'
-import React, { useMemo } from 'react'
+import { useMemo } from 'react'
 import { Header, NavBar } from '@shared/ui/index'
 
 interface Props {
