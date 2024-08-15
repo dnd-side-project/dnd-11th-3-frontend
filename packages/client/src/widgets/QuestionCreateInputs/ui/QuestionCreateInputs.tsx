@@ -26,9 +26,11 @@ export function QuestionCreateInputs() {
             inputProps={{
                icon: <IconSearch />,
                placeholder: '해당 직군을 입력해주세요',
+               label: '직군 선택',
             }}
          />
          <Button
+            type="submit"
             variant="filled"
             size="large"
             onClick={() => {

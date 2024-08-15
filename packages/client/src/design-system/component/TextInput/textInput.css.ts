@@ -75,9 +75,12 @@ export const textInputWrapperStyle = recipe({
 
 export const textInputStyle = recipe({
    base: {
-      // width: '100%',
+      width: '100%',
       color: INPUT_COLOR.default,
       border: 'none',
+
+      fontSize: 16,
+      fontWeight: 500,
       '::placeholder': {
          color: color['gray-500'],
          fontSize: 16,
