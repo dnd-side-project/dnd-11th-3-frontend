@@ -10,76 +10,45 @@ export const badgeWrapper = recipe({
       width: 'fit-content',
       gap: '2px',
 
-      fontSize: '11px',
-      fontWeight: '600',
       borderRadius: '2px',
       lineHeight: '100%',
    },
 
    variants: {
       variant: {
-         filled: {
+         primary: {
             color: color.white,
+            backgroundColor: color['primary-main'],
+         },
+         secondary: {
+            color: color.white,
+            backgroundColor: color['secondary-dark'],
          },
          outlined: {
             color: '#F4811B',
             border: `1px solid ${color['gray-800']}`,
          },
       },
+      size: {
+         small: {
+            padding: '4px',
+            fontSize: '11px',
+            fontWeight: '600',
+         },
+         medium: {
+            padding: '6px 12px',
+            fontSize: '16px',
+            fontWeight: '700',
+         },
+         large: {
+            padding: '8px 16px',
+            fontSize: '20px',
+            fontWeight: '800',
+         },
+      },
    },
    defaultVariants: {
-      variant: 'filled',
+      variant: 'primary',
+      size: 'small',
    },
-})
-
-export const TextSpan = style({
-   display: 'flex',
-   justifyContent: 'center',
-   alignItems: 'center',
-})
-
-export const IconBox = style({
-   display: 'flex',
-   justifyContent: 'center',
-   alignItems: 'center',
-   marginLeft: '2px',
-})
-
-export const JobListBox = style({
-   display: 'flex',
-   justifyContent: 'center',
-   alignItems: 'center',
-   fontSize: '11px',
-   fontWeight: '600',
-   borderRadius: '2px',
-   color: color['secondary-dark'],
-   lineHeight: '100%',
-   border: `1px solid ${color['gray-800']}`,
-   padding: '0 4px ',
-})
-
-export const JobGreenTagBox = style({
-   display: 'flex',
-   justifyContent: 'center',
-   alignItems: 'center',
-   fontSize: '12px',
-   fontWeight: '600',
-   borderRadius: '8px',
-   color: color['primary-dark'],
-   lineHeight: '100%',
-   border: `1px solid ${color['primary-light']}`,
-   backgroundColor: color['primary-background'],
-   padding: '6px ',
-})
-export const AdoptTagBox = style({
-   display: 'flex',
-   justifyContent: 'center',
-   alignItems: 'center',
-   fontSize: '11px',
-   fontWeight: '600',
-   borderRadius: '2px',
-   color: color.white,
-   backgroundColor: color['primary-main'],
-   lineHeight: '100%',
-   padding: '4px ',
 })

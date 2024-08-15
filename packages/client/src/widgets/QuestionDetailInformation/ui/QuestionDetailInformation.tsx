@@ -2,6 +2,7 @@
 
 import { Header } from '@shared/ui'
 import { useParams, usePathname, useRouter } from 'next/navigation'
+import { Badge } from '@gds/component'
 import { pageWrapper } from './questionDetailInformation.css'
 
 export function QuestionDetailInformation() {
@@ -9,7 +10,11 @@ export function QuestionDetailInformation() {
    return (
       <>
          <Header title={params.id} />
-         <div className={pageWrapper} />
+         <div className={pageWrapper}>
+            <Badge size="small" variant="secondary">
+               법원경비관리
+            </Badge>
+         </div>
       </>
    )
 }

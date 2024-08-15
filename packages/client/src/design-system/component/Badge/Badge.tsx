@@ -1,16 +1,21 @@
-import { IconCredit } from '@gds/icon'
-import { badgeWrapper, CreditBox, IconBox, TextSpan } from './index.css'
+import { PropsWithChildren } from 'react'
+import { badgeWrapper } from './index.css'
 
 export interface BadgeProps {
-   variant: 'filled' | 'outlined'
-   // color: CSSProperties
+   variant: 'primary' | 'secondary' | 'outlined'
+   size: 'small' | 'medium' | 'large'
 }
 
-export function Badge({ variant, children }: PropsWithChildren<BadgeProps>) {
+export function Badge({
+   variant,
+   children,
+   size,
+}: PropsWithChildren<BadgeProps>) {
    return (
       <div
          className={badgeWrapper({
             variant,
+            size,
          })}
       >
          {children}
