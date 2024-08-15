@@ -1,7 +1,18 @@
 import { style } from '@vanilla-extract/css'
 import { recipe } from '@vanilla-extract/recipes'
 import { color } from '../../token/Color/color'
-import { INPUT_BG_COLOR, INPUT_COLOR } from './TextInput'
+
+export const INPUT_BG_COLOR = {
+   default: color.white,
+   filled: color['gray-000'],
+   disabled: color['gray-900'],
+}
+export const INPUT_COLOR = {
+   default: color['gray-100'],
+   filled: color['gray-100'],
+   disabled: color['gray-500'],
+   error: color.error,
+}
 
 export const textInputLabelStyle = style({
    marginBottom: '17px',
@@ -66,6 +77,7 @@ export const textInputStyle = recipe({
    base: {
       width: '100%',
       color: INPUT_COLOR.default,
+      border: 'none',
       '::placeholder': {
          color: color['gray-500'],
       },

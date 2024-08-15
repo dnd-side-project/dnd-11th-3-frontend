@@ -13,17 +13,16 @@
    "dependencies": {
       "@tanstack/react-query": "^5.51.1",
       "@vanilla-extract/recipes": "^0.5.3",
-      "@types/react-slick": "^0.23.13",
       "axios": "^1.7.2",
       "jotai": "^2.9.0",
       "next": "^14.2.5",
       "react": "^18",
       "react-dom": "^18",
-      "react-hook-form": "^7.52.1",
-      "react-slick": "^0.30.2",
-      "slick-carousel": "^1.8.1"
+      "react-hook-form": "^7.52.1"
    },
    "devDependencies": {
+      "react-slick": "^0.30.2",
+      "slick-carousel": "^1.8.1",
       "@svgr/cli": "^8.1.0",
       "@svgr/core": "^8.1.0",
       "@tanstack/eslint-plugin-query": "^5.51.1",
