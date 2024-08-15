@@ -1,4 +1,4 @@
-import { color } from '@gmi-design-system/token'
+import { color } from '@gds/token'
 import { style } from '@vanilla-extract/css'
 
 export const HomeWrapper = style({
@@ -23,6 +23,9 @@ export const RecommendTitle = style({
    marginRight: 'auto',
    display: 'flex',
    alignItems: 'center',
+   fontSize: '18px',
+   fontWeight: '600',
+   color: color['gray-100'],
 })
 export const MoreBox = style({
    marginLeft: 'auto',
@@ -70,6 +73,9 @@ export const QuestionListHeaderWrapper = style({
 
 export const QuestionHeaderTitle = style({
    marginBottom: '16px',
+   fontSize: '18px',
+   fontWeight: '600',
+   color: color['gray-100'],
 })
 
 export const QuestionFilterBox = style({ display: 'flex' })
@@ -77,7 +83,7 @@ export const QuestionFilterBox = style({ display: 'flex' })
 export const QuestionsWrapper = style({
    display: 'flex',
    flexDirection: 'column',
-   marginBottom: '85px',
+   height: '340px',
 })
 
 export const fixedNav = style({
