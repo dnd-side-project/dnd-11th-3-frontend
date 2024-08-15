@@ -1,4 +1,5 @@
-import { CSSProperties } from 'react'
+import { CSSProperties, ReactNode } from 'react'
+
 import {
    textAreaStyle,
    textAreaLabelContainerStyle,
@@ -9,7 +10,7 @@ import {
 
 export interface TextAreaProps
    extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
-   label?: string
+   label?: ReactNode
    description?: string
    errorMessage?: string
    height?: CSSProperties['height']
