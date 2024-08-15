@@ -24,7 +24,7 @@ export function QuestionCreateInputs() {
             selected={null}
             onSelect={() => alert('TODO')}
             inputProps={{
-               icon: <IconSearch />,
+               icon: <IconSearch size={20} />,
                placeholder: '해당 직군을 입력해주세요',
                label: '직군 선택',
             }}
