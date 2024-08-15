@@ -1,13 +1,18 @@
 'use client'
 
-import { Header } from '@shared/ui'
-import { useParams, usePathname, useRouter } from 'next/navigation'
 import { Badge, Divider } from '@gds/component'
-import { IconCredit } from '@gds/icon'
+import { IconCredit, IconCharacter } from '@gds/icon'
 import { color } from '@gds/token'
+import { Header } from '@shared/ui'
+
+import { useParams } from 'next/navigation'
 import { ReactNode } from 'react'
 import Image from 'next/image'
-import { pageWrapper } from './questionDetailInformation.css'
+import {
+   pageWrapper,
+   profileImageWrapper,
+   profileWrapper,
+} from './questionDetailInformation.css'
 
 export function QuestionDetailInformation() {
    const params = useParams()
@@ -15,12 +20,17 @@ export function QuestionDetailInformation() {
       <>
          <Header title={params.id} />
          <div className={pageWrapper}>
-            {/* <ProfileContents /> */}
+            <ProfileContents title="닉네임" description="등록된 직무" />
             <Badge size="small" variant="secondary">
                0000
                <IconCredit color={color['secondary-main']} size={10} />
             </Badge>
-            <ProfileContents title="닉네임" description="등록된 직무" />
+            <Image
+               src="https://fakeimg.pl/600x400"
+               alt="QuestionDetailInformation"
+               width={358}
+               height={230}
+            />
          </div>
       </>
    )
@@ -34,13 +44,18 @@ function ProfileContents({
    description: ReactNode
 }) {
    return (
-      <div style={{ width: '100%' }}>
-         <Image src="" alt="profile" />
-         <div>
-            <h1>{title}</h1>
-            <p>{description}</p>
+      <>
+         <div className={profileWrapper}>
+            <div className={profileImageWrapper}>
+               <IconCharacter color={color['secondary-main']} size={48} />
+            </div>
+            <div>
+               {title}
+               <p>{description}</p>
+               {/* TODO: fix description font style */}
+            </div>
          </div>
          <Divider variant="default" />
-      </div>
+      </>
    )
 }

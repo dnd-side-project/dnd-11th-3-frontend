@@ -11,6 +11,14 @@ const withVanillaExtract = createVanillaExtractPlugin()
 /** @type {import('next').NextConfig} */
 const nextConfig = {
    reactStrictMode: true,
+   images: {
+      remotePatterns: [
+         {
+            protocol: 'https',
+            hostname: '**', // all domains
+         },
+      ],
+   },
    webpack: (config) => {
       config.resolve.alias['@gmi-design-system'] = path.resolve(
          __dirname,
