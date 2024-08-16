@@ -19,7 +19,7 @@ function AnswerBox({ text, date }: AnswerProps) {
                   <span>{text}</span>
                </div>
             </div>
-            <div className={styles.BottomWrapper}>
+            <div className={styles.DateBox}>
                <span>{date}</span>
             </div>
          </div>

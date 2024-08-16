@@ -15,16 +15,11 @@ export interface QuestionData {
 
 interface Props {
    data: QuestionData
-   type: 'question' | 'answer'
 }
 
-function Question({ data, type }: Props) {
+function Question({ data }: Props) {
    return (
-      <div
-         className={styles.QuestionWrapper({
-            borderBottom: type,
-         })}
-      >
+      <div className={styles.QuestionWrapper}>
          <div className={styles.QuestionTagWrapper}>
             {/** TODO: 디자인시스템의 Badge를 사용 */}
             {/* <JobListTag name={data.tag} />
