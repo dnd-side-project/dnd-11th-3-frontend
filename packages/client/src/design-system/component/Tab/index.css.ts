@@ -7,6 +7,7 @@ export const TabsWrapper = style({
    justifyContent: 'space-between',
    height: '50px',
    width: '100%',
+   cursor: 'pointer',
 })
 
 export const TabBox = recipe({
