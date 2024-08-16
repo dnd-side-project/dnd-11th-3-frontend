@@ -1,7 +1,6 @@
 import React from 'react'
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
-import '@gmi-design-system/global.css'
 import localFont from 'next/font/local'
 import './design-system-globals.css'
 import ReactQueryClientProviders from '../src/apps/provider/reactQueryProviders'
