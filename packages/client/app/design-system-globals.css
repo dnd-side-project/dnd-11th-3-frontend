@@ -6,6 +6,7 @@ body,
 input,
 pre,
 textarea,
+input,
 button {
    margin: 0;
    font-family:
@@ -20,6 +21,7 @@ button {
    -webkit-font-smoothing: antialiased;
    -moz-osx-font-smoothing: grayscale;
    color: #2a2a2a;
+   border: none;
 }
 
 img {

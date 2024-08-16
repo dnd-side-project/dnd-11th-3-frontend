@@ -47,6 +47,8 @@
       "react/no-unused-prop-types": "off", // react/no-unused-prop-types 규칙 비활성화
       "@typescript-eslint/no-use-before-define": "off", // @typescript-eslint/no-use-before-define 규칙 비활성화
       "react/require-default-props": "off", // react/require-default-props 규칙 비활성화
-      "import/no-cycle": "off" // import/no-cycle 규칙 비활성화
+      "import/no-cycle": "off", // import/no-cycle 규칙 비활성화
+      "no-unused-vars": "warn", // no-unused-vars 규칙 추가
+      "@typescript-eslint/no-unused-vars": "warn" // @typescript-eslint/no-unused-vars 규칙 추가
    }
 }

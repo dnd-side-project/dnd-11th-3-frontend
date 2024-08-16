@@ -24,9 +24,8 @@
     "url": "https://github.com/dnd-side-project/dnd-11th-3-frontend"
   },
   "scripts": {
-    "prepare": "if [ \"$NETLIFY\" != \"true\" ]; then husky install && chmod +x .husky/pre-commit; fi"
-  },
-  "dependencies": {
-    "react-slick": "^0.30.2"
+    "prepare": "if [ \"$NETLIFY\" != \"true\" ]; then husky install && chmod +x .husky/pre-commit; fi",
+    "build:gongmuin-client": "nx run gongmuin-client:build",
+    "dev:gongmuin-client": "nx run gongmuin-client:dev"
   }
 }

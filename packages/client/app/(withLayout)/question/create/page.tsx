@@ -1,7 +1,9 @@
+import { QuestionCreateInputs } from '@widgets/QuestionCreateInputs'
+
 export default function CreateQuestionPage() {
    return (
       <div>
-         <h1>Create Question</h1>
+         <QuestionCreateInputs />
       </div>
    )
 }

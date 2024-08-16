@@ -1,4 +1,5 @@
 import { style } from '@vanilla-extract/css'
+import { color } from '@gds/token'
 
 export const homeheaderWrapper = style({
    width: '358px',
@@ -17,7 +18,11 @@ export const categoryWrapper = style({
    display: 'flex',
 })
 
-export const categoryTitle = style({})
+export const categoryTitle = style({
+   fontSize: '18px',
+   fontWeight: '600',
+   color: color['gray-100'],
+})
 
 export const categoryDownBtn = style({
    display: 'flex',

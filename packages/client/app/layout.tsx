@@ -1,8 +1,8 @@
 import React from 'react'
 import type { Metadata, Viewport } from 'next'
-
 import './globals.css'
-import '@gmi-design-system/global.css'
+import localFont from 'next/font/local'
+import './design-system-globals.css'
 import ReactQueryClientProviders from '../src/apps/provider/reactQueryProviders'
 
 export const metadata: Metadata = {
@@ -23,13 +23,20 @@ export const viewport: Viewport = {
    viewportFit: 'contain',
 }
 
+const pretendard = localFont({
+   src: '../public/font/PretendardVariable.woff2',
+   display: 'swap',
+   weight: '45 920',
+   variable: '--font-pretendard',
+})
+
 export default function RootLayout({
    children,
 }: Readonly<{
    children: React.ReactNode
 }>) {
    return (
-      <html lang="en">
+      <html lang="en" className={pretendard.className}>
          <head>
             <link
                rel="stylesheet"
