@@ -10,3 +10,6 @@ export type { ButtonProps } from './Button/Button'
 
 // export { Select } from './Select/Select'
 // export type { SelectProps } from './Select/Select'
+
+export { SNSLogin } from './SignIn/SNSLogin'
+export type { LoginProps } from './SignIn/SNSLogin'

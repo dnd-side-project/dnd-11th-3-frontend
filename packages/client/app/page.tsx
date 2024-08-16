@@ -1,5 +1,5 @@
-import SNSLogin from '@gmi-design-system/component/SignIn/SNSLogin'
 import Image from 'next/image'
+import { SNSLogin } from '@gds/component'
 import BackGroundImage from '../public/asset/Background.svg'
 import * as styles from './signin.css'
 
