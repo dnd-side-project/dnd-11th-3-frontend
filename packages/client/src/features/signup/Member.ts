@@ -11,7 +11,7 @@ export const postCheckNickname = async (nickname: string) => {
       if (axios.isAxiosError(error)) {
          console.log(error.response?.data)
       }
-      throw error
+      return false
    }
 }
 

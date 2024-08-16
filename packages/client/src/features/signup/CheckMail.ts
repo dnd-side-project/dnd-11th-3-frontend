@@ -1,16 +1,24 @@
 import axios from 'axios'
 import { axiosInstance } from '@shared/api/axiosInstance'
 
-export const postMail = async (targetMail: string) => {
+export const postMail = async (
+   targetMail: string,
+   setEmailState: (emailState: 'before' | 'available' | 'duplicated') => void,
+) => {
    try {
-      const res = await axiosInstance.post('/auth/check-email', {
+      await axiosInstance.post('/auth/check-email', {
          targetEmail: targetMail,
       })
-      console.log(res)
+      setEmailState('available')
+
+      return true
    } catch (error) {
       if (axios.isAxiosError(error)) {
+         setEmailState('duplicated')
          console.log(error.response?.data)
+         return false
       }
+      return false
    }
 }
 
@@ -25,6 +33,6 @@ export const postAuthCode = async (targetMail: string, code: string) => {
       if (axios.isAxiosError(error)) {
          console.log(error.response?.data)
       }
-      throw error
+      return false
    }
 }
