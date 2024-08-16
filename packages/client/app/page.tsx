@@ -1,6 +1,6 @@
 import SNSLogin from '@gmi-design-system/component/SignIn/SNSLogin'
 import Image from 'next/image'
-import BackGroundImage from './Background.svg'
+import BackGroundImage from '../public/asset/Background.svg'
 import * as styles from './signin.css'
 
 export default function Signin() {
