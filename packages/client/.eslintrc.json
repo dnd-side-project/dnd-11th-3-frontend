@@ -40,6 +40,7 @@
          "warn",
          { "extensions": [".ts", ".tsx"] }
       ],
+      "react/jsx-key": ["error", { "checkFragmentShorthand": true }],
       "no-useless-catch": "off", // 불필요한 catch 못쓰게 하는 기능 끔
       "import/prefer-default-export": "off",
       "import/no-extraneous-dependencies": "off",
