@@ -1,5 +1,3 @@
-'use client'
-
 import React from 'react'
 import Question from '@shared/ui/QuestionList/Question'
 import { QuestionData } from 'app/(withLayout)/home/page'
