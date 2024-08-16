@@ -2,41 +2,37 @@ import React from 'react'
 import * as styles from './index.css'
 
 interface TabProps {
-   tabState: 'write' | 'answer'
-   setTabState: (state: 'write' | 'answer') => void
+   tabState: string
+   setTabState: (state: string) => void
+   tabs: { key: string; label: string }[]
 }
 
-function Tab({ tabState, setTabState }: TabProps) {
-   const handleKeyPress = (event: React.KeyboardEvent<HTMLDivElement>) => {
+function Tab({ tabState, setTabState, tabs }: TabProps) {
+   const handleKeyPress = (
+      event: React.KeyboardEvent<HTMLDivElement>,
+      key: string,
+   ) => {
       if (event.key === 'Enter' || event.key === ' ') {
-         setTabState(tabState === 'write' ? 'answer' : 'write')
+         setTabState(key)
       }
    }
 
    return (
       <div className={styles.TabsWrapper}>
-         <div
-            className={styles.TabBox({
-               borderBottom: tabState === 'write',
-            })}
-            onClick={() => setTabState('write')}
-            onKeyDown={handleKeyPress}
-            role="button"
-            tabIndex={0}
-         >
-            <span>작성한 질문</span>
-         </div>
-         <div
-            className={styles.TabBox({
-               borderBottom: tabState === 'answer',
-            })}
-            onClick={() => setTabState('answer')}
-            onKeyDown={handleKeyPress}
-            role="button"
-            tabIndex={0}
-         >
-            <span>답변 단 질문</span>
-         </div>
+         {tabs.map(({ key, label }) => (
+            <div
+               key={key}
+               className={styles.TabBox({
+                  borderBottom: tabState === key,
+               })}
+               onClick={() => setTabState(key)}
+               onKeyDown={(event) => handleKeyPress(event, key)}
+               role="button"
+               tabIndex={0}
+            >
+               <span>{label}</span>
+            </div>
+         ))}
       </div>
    )
 }
