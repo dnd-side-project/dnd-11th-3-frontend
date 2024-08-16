@@ -24,6 +24,7 @@ function Tab({ tabState, setTabState, tabs }: TabProps) {
                key={key}
                className={styles.TabBox({
                   borderBottom: tabState === key,
+                  color: tabState === key,
                })}
                onClick={() => setTabState(key)}
                onKeyDown={(event) => handleKeyPress(event, key)}

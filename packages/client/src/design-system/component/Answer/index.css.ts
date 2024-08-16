@@ -24,10 +24,18 @@ export const TopWrapper = style({
 })
 export const IconBox = style({})
 
-export const TxtBox = style({ marginLeft: '8px' })
+export const TxtBox = style({
+   marginLeft: '8px',
 
-export const BottomWrapper = style({
+   fontSize: '14px',
+   fontWeight: '500',
+   lineHeight: '18px',
+})
+
+export const DateBox = style({
    display: 'flex',
    marginLeft: 'auto',
    marginTop: '8px',
+   fontSize: '12px',
+   fontWeight: '500',
 })

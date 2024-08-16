@@ -8,6 +8,8 @@ export const TabsWrapper = style({
    height: '50px',
    width: '100%',
    cursor: 'pointer',
+   fontSize: '16px',
+   fontWeight: '600',
 })
 
 export const TabBox = recipe({
@@ -22,6 +24,10 @@ export const TabBox = recipe({
       borderBottom: {
          true: { borderBottom: `4px solid ${color['primary-main']} ` },
          false: { borderBottom: `2px solid ${color['gray-800']}` },
+      },
+      color: {
+         true: { color: 'black' },
+         false: { color: color['gray-400'] },
       },
    },
 })

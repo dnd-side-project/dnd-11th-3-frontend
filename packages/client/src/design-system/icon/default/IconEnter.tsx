@@ -7,7 +7,7 @@ function IconEnter(
       title = 'IconEnter',
       titleId = 'GDS-IconEnter',
       size = 20,
-      color = '#2A2A2A',
+      color = '#25E3C0',
       ...props
    }: SVGProps<SVGSVGElement> & IconProps,
    ref: Ref<SVGSVGElement>,
