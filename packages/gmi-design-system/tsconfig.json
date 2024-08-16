@@ -23,7 +23,12 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "importHelpers": true
+    "importHelpers": true,
+    "paths": {
+      "@gds/component": ["./src/component/index.ts"],
+      "@gds/token": ["./src/token/index.ts"],
+      "@gds/icon": ["./src/icon/index.ts"]
+    }
   },
   "include": ["src/**/*", "eslint.config.js"],
   "exclude": ["**/dist/**, **/node_modules"],

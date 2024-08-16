@@ -1,7 +1,8 @@
 import type { SVGProps } from 'react'
 import { Ref, forwardRef } from 'react'
 import type { IconProps } from '../shared/props'
-const IconArrowUp = (
+
+function IconArrowUp(
   {
     title = 'IconArrowUp',
     titleId = 'GDS-IconArrowUp',
@@ -10,33 +11,35 @@ const IconArrowUp = (
     ...props
   }: SVGProps<SVGSVGElement> & IconProps,
   ref: Ref<SVGSVGElement>,
-) => (
-  <svg
-    width={size}
-    height={size}
-    fill="none"
-    viewBox="0 0 24 24"
-    color={color}
-    ref={ref}
-    aria-labelledby={titleId}
-    {...props}
-  >
-    {title ? <title id={titleId}>{title}</title> : null}
-    <g
-      stroke={color}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={2}
-      clipPath="url(#a)"
+) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      fill="none"
+      viewBox="0 0 24 24"
+      color={color}
+      ref={ref}
+      aria-labelledby={titleId}
+      {...props}
     >
-      <path d="m17 14-5-5M12 9l-5 5" />
-    </g>
-    <defs>
-      <clipPath id="a">
-        <path fill="#fff" d="M24 24H0V0h24z" />
-      </clipPath>
-    </defs>
-  </svg>
-)
+      {title ? <title id={titleId}>{title}</title> : null}
+      <g
+        stroke={color}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        clipPath="url(#a)"
+      >
+        <path d="m17 14-5-5M12 9l-5 5" />
+      </g>
+      <defs>
+        <clipPath id="a">
+          <path fill="#fff" d="M24 24H0V0h24z" />
+        </clipPath>
+      </defs>
+    </svg>
+  )
+}
 const ForwardRef = forwardRef(IconArrowUp)
 export { ForwardRef as IconArrowUp }

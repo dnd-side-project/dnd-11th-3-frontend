@@ -1,4 +1,4 @@
-import { CSSProperties, forwardRef } from 'react'
+import { CSSProperties, ReactNode } from 'react'
 import {
   textAreaStyle,
   textAreaLabelContainerStyle,
@@ -8,43 +8,40 @@ import {
 } from './textarea.css'
 
 export interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
-  label?: string
+  label?: ReactNode
   description?: string
   errorMessage?: string
   height?: CSSProperties['height']
 }
 
-export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
-  ({ label, description, errorMessage, height, ...props }, ref) => {
-    return (
-      <div className={textAreaLabelContainerStyle}>
-        <div className={textAreaLabelStyle}>{label}</div>
+export function TextArea({ label, description, errorMessage, height, ...props }: TextAreaProps) {
+  return (
+    <div className={textAreaLabelContainerStyle}>
+      {label && <div className={textAreaLabelStyle}>{label}</div>}
+      <div
+        style={{
+          height: height ?? 'auto',
+        }}
+        className={textAreaWrapperStyle({
+          color: props.disabled ? 'disabled' : errorMessage ? 'error' : 'default',
+        })}
+      >
+        <textarea
+          className={textAreaStyle({
+            color: props.disabled ? 'disabled' : errorMessage ? 'error' : 'default',
+          })}
+          {...props}
+        />
+      </div>
+      {(errorMessage || description) && (
         <div
-          style={{
-            height: height ?? 'auto',
-          }}
-          className={textAreaWrapperStyle({
+          className={textMetaStyle({
             color: props.disabled ? 'disabled' : errorMessage ? 'error' : 'default',
           })}
         >
-          <textarea
-            className={textAreaStyle({
-              color: props.disabled ? 'disabled' : errorMessage ? 'error' : 'default',
-            })}
-            {...props}
-            ref={ref}
-          />
+          {!props.disabled && errorMessage ? errorMessage : description}
         </div>
-        {(errorMessage || description) && (
-          <div
-            className={textMetaStyle({
-              color: props.disabled ? 'disabled' : errorMessage ? 'error' : 'default',
-            })}
-          >
-            {!props.disabled && errorMessage ? errorMessage : description}
-          </div>
-        )}
-      </div>
-    )
-  },
-)
+      )}
+    </div>
+  )
+}
