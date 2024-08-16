@@ -20,12 +20,16 @@ function AccountQuestion() {
          <Tab tabState={tabState} setTabState={setTabState} tabs={tabs} />
          <div className={styles.ListWrapper}>
             {tabState === 'write'
-               ? QuestionData.map((el) => (
-                    <Question key={el.id} data={el} type="question" />
+               ? QuestionData.map((question) => (
+                    <Question
+                       key={question.questionPostId}
+                       data={question}
+                       type="question"
+                    />
                  ))
-               : QuestionData.map((el) => (
-                    <React.Fragment key={el.id}>
-                       <Question data={el} type="answer" />
+               : QuestionData.map((question) => (
+                    <React.Fragment key={question.questionPostId}>
+                       <Question data={question} type="answer" />
                        <AnswerBox
                           text="내 생일 파티에 너만 못 온 그날 혜진이가 엄청 혼났던 그날 지원이가 여친이랑 헤어진 그날"
                           date="2024.07.19"

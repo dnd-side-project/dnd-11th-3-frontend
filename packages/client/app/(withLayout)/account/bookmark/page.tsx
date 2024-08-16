@@ -9,8 +9,14 @@ function AccountBookmark() {
    return (
       <div className={styles.Wrapper}>
          <div className={styles.ListWrapper}>
-            {QuestionData.map((el) => {
-               return <Question data={el} type="question" />
+            {QuestionData.map((question) => {
+               return (
+                  <Question
+                     key={question.questionPostId}
+                     data={question}
+                     type="question"
+                  />
+               )
             })}
          </div>
       </div>
