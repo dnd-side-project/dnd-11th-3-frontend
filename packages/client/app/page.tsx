@@ -13,10 +13,10 @@ export default function Signin() {
          </div>
          <div className={styles.LoginBtnWrapper}>
             <div>
-               <SNSLogin SNS="카카오" type="시작하기" />
+               <SNSLogin socialLoginType="kakao">카카오로 시작하기</SNSLogin>
             </div>
             <div style={{ marginTop: '16px' }}>
-               <SNSLogin SNS="네이버" type="시작하기" />
+               <SNSLogin socialLoginType="naver">네이버로 시작하기</SNSLogin>
             </div>
          </div>
       </div>
