@@ -11,48 +11,31 @@ export const handleOnClickCheckMail = (officialEmail: string) => {
 export const handleOnClickCheckAuthCode = (
    officialEmail: string,
    authCode: string,
-   setEssentialData: React.Dispatch<React.SetStateAction<EssentialDataType>>,
+   setIsAuth: (isAuth: boolean) => void,
 ) => {
    if (authCode.length > 0) {
       postAuthCode(officialEmail, authCode).then((res) => {
-         setEssentialData((prev) => ({
-            ...prev,
-            isAuth: res?.data.result,
-         }))
+         setIsAuth(res?.data.result)
       })
    }
 }
 
 export const handleOnClickCheckNickname = (
    nickname: string,
-   setEssentialData: React.Dispatch<React.SetStateAction<EssentialDataType>>,
+   setIsDuplicated: (isDuplicated: boolean) => void,
 ) => {
    if (nickname.length > 0) {
       postCheckNickname(nickname).then((res) => {
-         if (!res?.data.result) {
-            setEssentialData((prev) => ({
-               ...prev,
-               isDuplicated: false,
-            }))
-         }
+         setIsDuplicated(!res?.data.result)
       })
    }
 }
 
 export const handleOnClickSignUp = (essentialData: EssentialDataType) => {
-   if (
-      essentialData.officialEmail.length > 0 &&
-      essentialData.nickname.length > 0 &&
-      essentialData.jobGroup.length > 0 &&
-      essentialData.jobCategory.length > 0 &&
-      essentialData.isAuth &&
-      !essentialData.isDuplicated
-   ) {
-      postMemberInfo(
-         essentialData.officialEmail,
-         essentialData.nickname,
-         essentialData.jobGroup,
-         essentialData.jobCategory,
-      )
-   }
+   postMemberInfo(
+      essentialData.officialEmail,
+      essentialData.nickname,
+      essentialData.jobGroup,
+      essentialData.jobCategory,
+   )
 }
