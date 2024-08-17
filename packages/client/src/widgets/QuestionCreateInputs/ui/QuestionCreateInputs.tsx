@@ -9,9 +9,11 @@ import {
    NumberInput,
 } from '@gds/component'
 import { IconAddPhoto, IconSearch } from '@gds/icon'
+import { useCreateQuestionForm } from '@entities/questionCreate'
 import { pageWrapper } from './questionCreateInputs.css'
 
 export function QuestionCreateInputs() {
+   const form = useCreateQuestionForm()
    return (
       <div className={pageWrapper}>
          <TextInput label="제목" placeholder="질문 제목을 작성해주세요" />
