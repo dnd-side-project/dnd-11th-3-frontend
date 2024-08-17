@@ -1,6 +1,6 @@
 'use client'
 
-import { useCreateQuestionForm } from '@entities/question'
+import { QuestionFormValues } from '@entities/question'
 import { useValidateQuestion } from '@entities/question/lib/useValidateQuestion'
 import {
    Button,
@@ -11,11 +11,15 @@ import {
    TextInput,
 } from '@gds/component'
 import { IconAddPhoto, IconSearch } from '@gds/icon'
-import { Controller } from 'react-hook-form'
+import { Controller, UseFormReturn } from 'react-hook-form'
 import { pageWrapper } from './questionCreateInputs.css'
 
-export function QuestionCreateInputs() {
-   const form = useCreateQuestionForm()
+interface Props {
+   form: UseFormReturn<QuestionFormValues>
+   onSubmit: () => void
+}
+
+export function QuestionCreateInputs({ form, onSubmit }: Props) {
    const {
       canSubmit,
       getTitleErrorMessage,
@@ -121,9 +125,7 @@ export function QuestionCreateInputs() {
             type="submit"
             variant="filled"
             size="large"
-            onClick={() => {
-               console.log('Submit')
-            }}
+            onClick={() => onSubmit()}
             disabled={!canSubmit}
          >
             질문 게시하기
