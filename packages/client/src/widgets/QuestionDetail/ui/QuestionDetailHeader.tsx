@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation'
 import { IconArrowLeft, IconEdit } from 'src/design-system/icon'
 import { IconButton } from '@gds/component'
+import { PageURL } from '@shared/model'
 import {
    arrowButtonWrappewrStyle,
    headerTitleWrappewrStyle,
@@ -11,10 +12,12 @@ import {
 
 interface Props {
    title?: string
+   id?: string
 }
 
-export function QuestionDetailHeader({ title }: Props) {
+export function QuestionDetailHeader({ title, id }: Props) {
    const router = useRouter()
+
    return (
       <div className={headerWrapperStyle}>
          <div className={arrowButtonWrappewrStyle}>
@@ -32,6 +35,7 @@ export function QuestionDetailHeader({ title }: Props) {
             variant="default"
             aria-label="Edit"
             size="small"
+            onClick={() => router.push(`${PageURL.QUESTION_UPDATE}/${id}`)}
             icon={<IconEdit />}
          />
       </div>
