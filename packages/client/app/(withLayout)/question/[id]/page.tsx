@@ -1,4 +1,4 @@
-import { QuestionInformation } from '@widgets/QuestionDetailInformation/'
+import { QuestionInformation } from '@widgets/QuestionDetail'
 
 export default function QuestionDetailPage() {
    return <QuestionInformation />
