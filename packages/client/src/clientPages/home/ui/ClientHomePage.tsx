@@ -9,7 +9,7 @@ import { useScrollHandler } from '@features/useScrollHandler'
 import Question from '@shared/ui/QuestionList/Question'
 import { IconArrowRight, IconPlus } from '@gds/icon'
 // import HomeRecommend from '@gds/component'
-import { FloatButton, Badge, Button, Divider } from '@gds/component'
+import { Badge, Button, Divider } from '@gds/component'
 
 // import './slider.css'
 import { PageURL } from '@shared/model'
