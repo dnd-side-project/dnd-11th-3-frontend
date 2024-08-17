@@ -2,7 +2,7 @@
 
 import { Button, TextInput } from '@gds/component'
 import { color, Typo } from '@gds/token'
-import { IconCheckCircle, IconCheckCircleFilled } from '@gds/icon'
+import { IconChat, IconCheckCircle, IconCheckCircleFilled } from '@gds/icon'
 import {
    answerbuttonWrapper,
    answerCardWrapper,
@@ -38,12 +38,9 @@ export function AnswerCard() {
                   size="small"
                   rightIcon={
                      isSelected ? (
-                        <IconCheckCircle size={16} />
+                        <IconChat size={16} />
                      ) : (
-                        <IconCheckCircleFilled
-                           size={16}
-                           color={color['primary-main']}
-                        />
+                        <IconChat size={16} color={color['primary-main']} />
                      )
                   }
                >
