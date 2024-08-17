@@ -1,7 +1,11 @@
 import { cloneElement, ReactElement } from 'react'
 import { IconProps } from '../../icon'
 import { color } from '../../token/Color/color'
-import { buttonStyle, iconWrapperStyle } from './button.css'
+import {
+   buttonStyle,
+   leftIconWrapperStyle,
+   rightIconWrapperStyle,
+} from './button.css'
 
 export interface ButtonProps
    extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -9,18 +13,19 @@ export interface ButtonProps
    size: 'small' | 'medium' | 'large'
    children?: React.ReactNode
    disabled?: boolean
-   icon?: ReactElement<IconProps>
+   rightIcon?: ReactElement<IconProps>
+   leftIcon?: ReactElement<IconProps>
 }
 
 export function Button({
    children,
    size,
    disabled,
-   icon,
+   leftIcon,
+   rightIcon,
    variant,
    ...props
 }: ButtonProps) {
-   const Icon = icon
    return (
       <button
          type="button"
@@ -31,18 +36,25 @@ export function Button({
          disabled={disabled}
          {...props}
       >
+         {!!leftIcon && (
+            <div className={leftIconWrapperStyle}>
+               {disabled || variant === 'filled'
+                  ? cloneElement(leftIcon, {
+                       // TODO: refactor not to use cloneElement
+                       color: disabled ? color['gray-400'] : color.white,
+                    })
+                  : leftIcon}
+            </div>
+         )}
          {children}
-         {!!Icon && (
-            <div className={iconWrapperStyle}>
-               {cloneElement(icon, {
-                  // TODO: refactor not to use cloneElement
-                  color: disabled
-                     ? color['gray-400']
-                     : variant === 'filled'
-                       ? color.white
-                       : color['gray-200'],
-                  size: size === 'small' ? 16 : size === 'medium' ? 18 : 22,
-               })}
+         {!!rightIcon && (
+            <div className={rightIconWrapperStyle}>
+               {disabled || variant === 'filled'
+                  ? cloneElement(rightIcon, {
+                       // TODO: refactor not to use cloneElement
+                       color: disabled ? color['gray-400'] : color.white,
+                    })
+                  : rightIcon}
             </div>
          )}
       </button>

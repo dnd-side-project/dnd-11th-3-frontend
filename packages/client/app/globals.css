@@ -357,6 +357,7 @@ video {
    max-height: 844px;
    width: 390px;
    background-color: rgb(255, 255, 255); /* TODO: fix */
+   border-radius: 8px;
 
    position: relative;
    overflow: auto;

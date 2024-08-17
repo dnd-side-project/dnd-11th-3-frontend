@@ -31,11 +31,17 @@ export const buttonStyle = recipe({
          filled: {
             backgroundColor: color['primary-main'],
             color: color.white,
+            ':hover': {
+               backgroundColor: color['primary-light'],
+            },
          },
          outlined: {
             border: `1px solid ${color['gray-800']}`,
             color: color['gray-200'],
-            backgroundColor: color['gray-000'],
+            backgroundColor: color.white,
+            ':hover': {
+               backgroundColor: color['gray-900'],
+            },
          },
          disabled: {
             cursor: 'not-allowed',
@@ -50,8 +56,15 @@ export const buttonStyle = recipe({
    },
 })
 
-export const iconWrapperStyle = style({
+export const rightIconWrapperStyle = style({
    marginLeft: '0.3rem',
+   display: 'flex',
+   justifyContent: 'center',
+   alignItems: 'center',
+})
+
+export const leftIconWrapperStyle = style({
+   marginRight: '0.3rem',
    display: 'flex',
    justifyContent: 'center',
    alignItems: 'center',

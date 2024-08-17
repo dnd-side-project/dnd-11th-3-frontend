@@ -26,6 +26,8 @@
   "scripts": {
     "prepare": "if [ \"$NETLIFY\" != \"true\" ]; then husky install && chmod +x .husky/pre-commit; fi",
     "build:gongmuin-client": "nx run gongmuin-client:build",
-    "dev:gongmuin-client": "nx run gongmuin-client:dev"
+    "dev:gongmuin-client": "nx run gongmuin-client:dev",
+    "gen-icon:gongmuin-client": "nx run gongmuin-client:gen-icon",
+    "gen-design-system:gongmuin-client": "nx run gongmuin-client:gen-design-system"
   }
 }

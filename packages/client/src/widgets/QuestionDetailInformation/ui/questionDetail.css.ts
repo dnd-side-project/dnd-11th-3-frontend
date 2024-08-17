@@ -28,3 +28,21 @@ export const profileWrapper = style({
 })
 
 export const typoWrapper = style({ display: 'flex', flexDirection: 'column' })
+
+export const bottomWrapper = style({
+   display: 'flex',
+   justifyContent: 'space-between',
+   alignItems: 'center',
+
+   width: '100%',
+   padding: '3px 0',
+})
+
+export const bottomButtonWrapper = style({
+   display: 'flex',
+   justifyContent: 'space-between',
+   alignItems: 'center',
+   gap: 5,
+
+   minWidth: 105,
+})
