@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css'
-import { color } from '../../token/Color/color'
+import { color } from '../../token'
 
 export const CreditBox = style({
   backgroundColor: color['secondary-main'],

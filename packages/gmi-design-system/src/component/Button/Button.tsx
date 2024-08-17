@@ -1,6 +1,6 @@
 import { cloneElement, ReactElement } from 'react'
 import { IconProps } from '../../icon'
-import { color } from '../../token/Color/color'
+import { color } from '../../token'
 import { buttonStyle, leftIconWrapperStyle, rightIconWrapperStyle } from './button.css'
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -10,6 +10,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   disabled?: boolean
   rightIcon?: ReactElement<IconProps>
   leftIcon?: ReactElement<IconProps>
+  rounded?: boolean
 }
 
 export function Button({
@@ -19,6 +20,7 @@ export function Button({
   leftIcon,
   rightIcon,
   variant,
+  rounded = false,
   ...props
 }: ButtonProps) {
   return (
@@ -27,6 +29,7 @@ export function Button({
       className={buttonStyle({
         size,
         variant: disabled ? 'disabled' : variant,
+        rounded,
       })}
       disabled={disabled}
       {...props}

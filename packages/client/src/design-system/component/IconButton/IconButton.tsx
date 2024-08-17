@@ -7,13 +7,11 @@ export interface IconButtonProps
    extends React.ButtonHTMLAttributes<HTMLButtonElement> {
    variant: 'default' | 'outlined'
    size: 'small' | 'medium' | 'large'
-   children?: React.ReactNode
    disabled?: boolean
    icon: ReactElement<IconProps>
 }
 
 export function IconButton({
-   children,
    size,
    disabled,
    icon,

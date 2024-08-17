@@ -1,5 +1,5 @@
 import { recipe } from '@vanilla-extract/recipes'
-import { color } from '../../token/Color/color'
+import { color } from '../../token'
 
 export const tooltipWrapperStyle = recipe({
    base: {

@@ -1,6 +1,6 @@
 import { cloneElement, ReactElement } from 'react'
 import { IconProps } from '../../icon'
-import { color } from '../../token/Color/color'
+import { color } from '../../token'
 import {
    buttonStyle,
    leftIconWrapperStyle,
