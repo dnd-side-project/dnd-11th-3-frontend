@@ -4,10 +4,9 @@ import { Button } from '@gds/component'
 import { IconBookmarkFilled, IconThumbUpFilled } from '@gds/icon'
 import { color, Typo } from '@gds/token'
 
-import { useParams } from 'next/navigation'
-import { bottomButtonWrapper, bottomWrapper } from './questionDetail.css'
+import { bottomButtonWrapper, bottomWrapper } from './questionInformation.css'
 
-export function QuestionDetailInformationBottom() {
+export function QuestionInformationBottom() {
    return (
       <div className={bottomWrapper}>
          <p className={Typo.body2.md}>{new Date().toLocaleDateString()}</p>

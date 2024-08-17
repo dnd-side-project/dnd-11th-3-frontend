@@ -1,22 +1,17 @@
 'use client'
 
-import { Badge, Button } from '@gds/component'
-import {
-   IconBookmark,
-   IconBookmarkFilled,
-   IconCredit,
-   IconThumbUpFilled,
-} from '@gds/icon'
+import { Badge } from '@gds/component'
+import { IconCredit } from '@gds/icon'
 import { color, Typo } from '@gds/token'
 import { Header } from '@shared/ui'
 
 import Image from 'next/image'
 import { useParams } from 'next/navigation'
 import { ProfileContents } from './ProfileContents'
-import { pageWrapper } from './questionDetail.css'
-import { QuestionDetailInformationBottom } from './QuestionDetailInformationBottom'
+import { pageWrapper } from './questionInformation.css'
+import { QuestionInformationBottom } from './QuestionInformationBottom'
 
-export function QuestionDetailInformation() {
+export function QuestionInformation() {
    const params = useParams()
    return (
       <>
@@ -40,7 +35,7 @@ export function QuestionDetailInformation() {
                width={358}
                height={230}
             />
-            <QuestionDetailInformationBottom />
+            <QuestionInformationBottom />
          </div>
       </>
    )

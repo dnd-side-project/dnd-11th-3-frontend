@@ -9,7 +9,7 @@ import {
    profileImageWrapper,
    profileWrapper,
    typoWrapper,
-} from './questionDetail.css'
+} from './questionInformation.css'
 
 export function ProfileContents({
    title,
