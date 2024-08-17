@@ -1,19 +1,23 @@
-import { HomeHeader } from '@widgets/HomeHeader/HomeHeader'
+'use client'
 
-// import dynamic from 'next/dynamic'
-// import Green from '@gmi-design-system/component/Recommend/home/Green.svg'
-// import Blue from '@gmi-design-system/component/Recommend/home/Blue.svg'
-// import Orange from '@gmi-design-system/component/Recommend/home/Orange.svg'
-// import { useScrollHandler } from '@features/useScrollHandler'
+import { HomeHeader } from '@widgets/HomeHeader/HomeHeader'
+import { Button } from '@gmi-design-system/component/Button/Button'
+import React, { useState } from 'react'
+import dynamic from 'next/dynamic'
+import Green from '@gmi-design-system/component/Recommend/home/Green.svg'
+import Blue from '@gmi-design-system/component/Recommend/home/Blue.svg'
+import Orange from '@gmi-design-system/component/Recommend/home/Orange.svg'
+import { useScrollHandler } from '@features/useScrollHandler'
 import Question from '@shared/ui/QuestionList/Question'
-// import { IconArrowRight } from '@gds/icon'
-// import HomeRecommend from '@gmi-design-system/component/Recommend/home/HomeRecommend'
-import { FloatButton, Badge, Button } from '@gds/component'
+import { IconArrowRight } from '@gmi-design-system/icon'
+import HomeRecommend from '@gmi-design-system/component/Recommend/home/HomeRecommend'
+import { FloatButton, JobGreenTag } from '@gds/component'
+import { useClientSideRender } from './useClientSideRender'
 
 import './slider.css'
 import * as styles from './index.css'
 
-// const Slider = dynamic(() => import('react-slick'), { ssr: false }) // ui 컴포넌트로 분리해서 csr로 처리해주세요
+const Slider = dynamic(() => import('react-slick'), { ssr: false })
 
 const data = [
    {
@@ -73,18 +77,22 @@ const data = [
 ]
 
 export default function Home() {
-   // const settings = {
-   //    className: 'center',
-   //    infinite: true,
-   //    slidesToShow: 1,
-   //    swipeToSlide: true,
-   //    nextArrow: (
-   //       <div className={styles.ArrowBox}>{/* <IconArrowRight /> */}</div>
-   //    ),
-   // }
+   const isClient = useClientSideRender()
 
-   const fixed = false
-   // useScrollHandler(setFixed, 'nav-section')
+   const settings = {
+      className: 'center',
+      infinite: true,
+      slidesToShow: 1,
+      swipeToSlide: true,
+      nextArrow: (
+         <div className={styles.ArrowBox}>
+            <IconArrowRight />
+         </div>
+      ),
+   }
+
+   const [fixed, setFixed] = useState<boolean>(false)
+   useScrollHandler(setFixed, 'nav-section')
 
    return (
       <div style={{ position: 'fixed', height: '844px' }}>
@@ -110,9 +118,7 @@ export default function Home() {
                </div>
             </div>
             <div className={styles.RecommendContentBox}>
-               TODO: isClient를 사용하지 말고 캐러셀을 순수 컴포넌트로 따로
-               만들어주세요
-               {/* {isClient && (
+               {isClient && (
                   <div className="slider-container">
                      <Slider
                         className={settings.className}
@@ -121,10 +127,8 @@ export default function Home() {
                         swipeToSlide={settings.swipeToSlide}
                         nextArrow={settings.nextArrow}
                      >
-                        TODO: 디자인 시스템에 포함 시키고 싶으면 Card 로
-                        네이밍해서 추가해주세요
                         {/** TODO: 데이터 형식으로 변경하기 */}
-               {/* <HomeRecommendCard
+                        <HomeRecommend
                            src={Blue}
                            coin="2000"
                            title="ddd"
@@ -144,11 +148,10 @@ export default function Home() {
                            title="ddd"
                            bookmark={20}
                            likes={4}
-                        
+                        />
                      </Slider>
                   </div>
-               )} 
-               */}
+               )}
             </div>
             <hr className={styles.Line} />
             <div id="nav-section" className={styles.HomeWrapper}>
@@ -161,9 +164,7 @@ export default function Home() {
                      </div>
                      <div className={styles.QuestionFilterBox}>
                         {/** TODO: 디자인시스템 작성필요 */}
-                        <Badge size="small" variant="primary">
-                           더보기
-                        </Badge>
+                        <JobGreenTag name="더보기" />
                      </div>
                   </div>
                </div>
