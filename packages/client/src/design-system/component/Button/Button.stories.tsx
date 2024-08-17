@@ -27,7 +27,7 @@ export function ButtonComponent() {
             <Button
                size="medium"
                variant="filled"
-               icon={<IconBookmark color="white" />}
+               rightIcon={<IconBookmark color="white" />}
             >
                Medium
             </Button>
