@@ -26,7 +26,7 @@ export function AnswerCard() {
                <p className={Typo.body1.sb}>닉네임</p>
                <p className={Typo.body2.md}>직무</p>
             </div>
-            <p className={Typo.body2.md}>{new Date().toLocaleString()}</p>
+            <p className={Typo.body2.md}>2024. 8. 17. 오후 5:44:19</p>
          </div>
          <p className={Typo.body1.lg}>답변 내용</p>
          <div className={selectAnswerWrapper}>
