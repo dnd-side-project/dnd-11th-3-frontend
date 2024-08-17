@@ -7,7 +7,7 @@ import {
    // IconArrowUp,
    IconBookmark,
    IconLogo,
-} from '@gmi-design-system/icon'
+} from '@gds/icon'
 import * as styles from './HomeHeader.css'
 
 export function HomeHeader() {
