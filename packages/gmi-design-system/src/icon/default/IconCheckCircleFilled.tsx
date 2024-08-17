@@ -2,10 +2,10 @@ import type { SVGProps } from 'react'
 import { Ref, forwardRef } from 'react'
 import type { IconProps } from '../shared/props'
 
-function IconBookmarkFilled(
+function IconCheckCircleFilled(
   {
-    title = 'IconBookmarkFilled',
-    titleId = 'GDS-IconBookmarkFilled',
+    title = 'IconCheckCircleFilled',
+    titleId = 'GDS-IconCheckCircleFilled',
     size = 20,
     color = '#2A2A2A',
     ...props
@@ -17,7 +17,7 @@ function IconBookmarkFilled(
       width={size}
       height={size}
       fill="none"
-      viewBox="0 0 15 16"
+      viewBox="0 0 16 16"
       color={color}
       ref={ref}
       aria-labelledby={titleId}
@@ -27,16 +27,16 @@ function IconBookmarkFilled(
       <g clipPath="url(#a)">
         <path
           fill={color}
-          d="M10.625 2.375h-6.25c-.687 0-1.25.563-1.25 1.25v10L7.5 11.75l4.375 1.875v-10c0-.687-.562-1.25-1.25-1.25"
+          d="M7.999 1.336a6.67 6.67 0 0 0-6.667 6.667 6.67 6.67 0 0 0 6.667 6.666 6.67 6.67 0 0 0 6.666-6.666A6.67 6.67 0 0 0 8 1.336m-1.807 9.527L3.799 8.469a.664.664 0 1 1 .94-.94l1.926 1.92 4.587-4.586a.664.664 0 1 1 .94.94l-5.06 5.06a.664.664 0 0 1-.94 0"
         />
       </g>
       <defs>
         <clipPath id="a">
-          <path fill="#fff" d="M0 .5h15v15H0z" />
+          <path fill="#fff" d="M0 0h16v16H0z" />
         </clipPath>
       </defs>
     </svg>
   )
 }
-const ForwardRef = forwardRef(IconBookmarkFilled)
-export { ForwardRef as IconBookmarkFilled }
+const ForwardRef = forwardRef(IconCheckCircleFilled)
+export { ForwardRef as IconCheckCircleFilled }

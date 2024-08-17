@@ -23,8 +23,8 @@ export const buttonStyle = recipe({
 
   variants: {
     size: {
-      small: { padding: '8px 0 8px 0', fontSize: '14px', height: '32px' },
-      medium: { padding: '15px 0 15px 0', fontSize: '16px', height: '49px' },
+      small: { padding: '8px 0 8px 0', fontSize: '12px', height: '32px' },
+      medium: { padding: '15px 0 15px 0', fontSize: '16px', height: '54px' },
       large: { padding: '18px 0 18px 0', fontSize: '18px', height: '60px' },
     },
     variant: {
@@ -38,7 +38,7 @@ export const buttonStyle = recipe({
       outlined: {
         border: `1px solid ${color['gray-800']}`,
         color: color['gray-200'],
-        backgroundColor: color['white'],
+        backgroundColor: color.white,
         ':hover': {
           backgroundColor: color['gray-900'],
         },
