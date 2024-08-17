@@ -1,7 +1,7 @@
 'use client'
 
-import { QuestionFormValues } from '@entities/question'
-import { useValidateQuestion } from '@entities/question/lib/useValidateQuestion'
+import { QuestionFormValues, useValidateQuestion } from '@entities/question'
+
 import {
    Button,
    IconButton,
