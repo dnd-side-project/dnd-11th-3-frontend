@@ -4,7 +4,7 @@ import { Button } from '@gds/component'
 import { IconBookmarkFilled, IconThumbUpFilled } from '@gds/icon'
 import { color, Typo } from '@gds/token'
 
-import { bottomButtonWrapper, bottomWrapper } from './questionInformation.css'
+import { bottomButtonWrapper, bottomWrapper } from './style.css'
 
 export function QuestionInformationBottom() {
    return (

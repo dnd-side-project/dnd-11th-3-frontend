@@ -1,5 +1,13 @@
-import { QuestionInformation } from '@widgets/QuestionDetail'
+import {
+   QuestionInformationContainer,
+   AnswerContainer,
+} from '@widgets/QuestionDetail'
 
 export default function QuestionDetailPage() {
-   return <QuestionInformation />
+   return (
+      <>
+         <QuestionInformationContainer />
+         <AnswerContainer />
+      </>
+   )
 }

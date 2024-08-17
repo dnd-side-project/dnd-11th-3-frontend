@@ -5,11 +5,7 @@ import { IconCharacter } from '@gds/icon'
 import { color, Typo } from '@gds/token'
 
 import { ReactNode } from 'react'
-import {
-   profileImageWrapper,
-   profileWrapper,
-   typoWrapper,
-} from './questionInformation.css'
+import { profileImageWrapper, profileWrapper, typoWrapper } from './style.css'
 
 export function ProfileContents({
    title,

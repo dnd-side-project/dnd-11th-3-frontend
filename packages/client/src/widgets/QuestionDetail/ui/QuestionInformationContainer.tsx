@@ -8,10 +8,10 @@ import { Header } from '@shared/ui'
 import Image from 'next/image'
 import { useParams } from 'next/navigation'
 import { ProfileContents } from './ProfileContents'
-import { pageWrapper } from './questionInformation.css'
+import { pageWrapper } from './style.css'
 import { QuestionInformationBottom } from './QuestionInformationBottom'
 
-export function QuestionInformation() {
+export function QuestionInformationContainer() {
    const params = useParams()
    return (
       <>
