@@ -84,8 +84,62 @@ export const answerInputWrapper = style({
    justifyContent: 'space-around',
    alignItems: 'flex-end',
    gap: 10,
+   padding: '24px 0',
 })
 
 export const answerbuttonWrapper = style({
    width: 70,
+})
+
+export const answerProfileWrapper = style({
+   display: 'flex',
+   justifyContent: 'flex-start',
+   alignItems: 'center',
+
+   position: 'relative',
+   width: 36,
+   height: 36,
+})
+
+export const answerProfileBox = style({
+   borderRadius: 8,
+   backgroundColor: color['secondary-light'],
+   border: `1px solid ${color['gray-800']}`,
+   width: 30,
+   height: 30,
+})
+
+export const answerMetaWrapper = style({
+   display: 'flex',
+   justifyContent: 'space-between',
+   alignItems: 'center',
+})
+
+export const answerUserWrapper = style({
+   display: 'flex',
+   justifyContent: 'flex-start',
+   alignItems: 'center',
+   gap: 4,
+})
+
+export const answerCardWrapper = style({
+   display: 'flex',
+   flexDirection: 'column',
+   justifyContent: 'flex-start',
+   alignItems: 'flex-start',
+   gap: 8,
+   padding: '8px 0 15px 0',
+   borderBottom: `1px solid ${color['gray-800']}`,
+})
+
+export const selectAnswerWrapper = style({
+   width: '100%',
+   display: 'flex',
+   justifyContent: 'flex-end',
+   alignItems: 'center',
+   gap: 8,
+})
+
+export const selectAnswerButtonWrapper = style({
+   width: 60,
 })

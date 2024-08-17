@@ -2,6 +2,7 @@
 
 import { Button, TextInput } from '@gds/component'
 import { answerbuttonWrapper, answerInputWrapper } from './style.css'
+import { AnswerCard } from './AnswerCard'
 
 export function AnswerContainer() {
    return (
@@ -14,6 +15,7 @@ export function AnswerContainer() {
                </Button>
             </div>
          </div>
+         <AnswerCard />
       </div>
    )
 }
