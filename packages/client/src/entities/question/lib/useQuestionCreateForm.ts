@@ -13,7 +13,7 @@ export const useCreateQuestionForm = (): UseFormReturn<QuestionFormValues> => {
       defaultValues: {
          title: '',
          content: '',
-         jobCategory: null,
+         jobCategory: { label: '', id: '' },
          reward: 1000,
       },
    })

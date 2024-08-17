@@ -3,11 +3,12 @@
 import React, { useState } from 'react'
 import {
    IconAlarm,
-   // IconArrowDown,
-   // IconArrowUp,
+   IconArrowDown,
+   IconArrowUp,
    IconBookmark,
-   IconLogo,
+   IconLogoFilled,
 } from '@gds/icon'
+
 import * as styles from './HomeHeader.css'
 
 export function HomeHeader() {
@@ -22,7 +23,7 @@ export function HomeHeader() {
    return (
       <div className={styles.homeheaderWrapper}>
          <div className={styles.homelogoBox}>
-            <IconLogo />
+            <IconLogoFilled />
          </div>
          <div
             className={styles.categoryWrapper}

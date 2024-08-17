@@ -1,1 +1,1 @@
-export { ClientQuestionCreatePage } from './ui/Page'
+export { ClientQuestionCreatePage } from './ui/ClientQuestionCreatePage'

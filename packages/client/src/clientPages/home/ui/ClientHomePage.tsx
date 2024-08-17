@@ -7,7 +7,7 @@ import dynamic from 'next/dynamic'
 
 import { useScrollHandler } from '@features/useScrollHandler'
 import Question from '@shared/ui/QuestionList/Question'
-// import { IconArrowRight } from '@gds/icon'
+import { IconArrowRight } from '@gds/icon'
 // import HomeRecommend from '@gds/component'
 import { FloatButton, Badge, Button } from '@gds/component'
 
