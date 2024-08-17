@@ -2,11 +2,10 @@ import { color } from '@gds/token'
 import { style } from '@vanilla-extract/css'
 
 export const headerWrapperStyle = style({
-   width: '390px',
+   width: '100%',
    display: 'flex',
    // justifyContent: 'center',
    alignItems: 'center',
-   padding: '0 16px',
 
    height: '60px',
    backgroundColor: '#fff',
@@ -38,13 +37,6 @@ export const headerTitleWrappewrStyle = style({
    display: 'flex',
    justifyContent: 'center',
    alignItems: 'center',
-})
-
-export const pageWrapper = style({
-   padding: 16,
-   display: 'flex',
-   flexDirection: 'column',
-   gap: 16,
 })
 
 export const profileImageWrapper = style({
