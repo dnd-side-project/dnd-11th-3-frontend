@@ -9,9 +9,11 @@ import { useScrollHandler } from '@features/useScrollHandler'
 import Question from '@shared/ui/QuestionList/Question'
 import { IconArrowRight, IconPlus } from '@gds/icon'
 // import HomeRecommend from '@gds/component'
-import { FloatButton, Badge, Button } from '@gds/component'
+import { FloatButton, Badge, Button, Divider } from '@gds/component'
 
 // import './slider.css'
+import { PageURL } from '@shared/model'
+import { useRouter } from 'next/navigation'
 import * as styles from './style.css'
 
 const Slider = dynamic(() => import('react-slick'), { ssr: false })
@@ -91,6 +93,7 @@ export function ClientHomePage() {
    })
    const [fixed, setFixed] = useState<boolean>(false)
    useScrollHandler(setFixed, 'nav-section')
+   const router = useRouter()
 
    return (
       <div style={{ position: 'fixed', height: '844px' }}>
@@ -118,6 +121,7 @@ export function ClientHomePage() {
                   </div>
                </div>
             </div>
+            {/* TODO: widgets 에 하나의 컴포넌트로 분리해주세요. */}
             {/* <div className={styles.RecommendContentBox}>
                <div className="slider-container">
                   <Slider
@@ -153,7 +157,8 @@ export function ClientHomePage() {
                   </Slider>
                </div>
             </div> */}
-            <hr className={styles.Line} />
+            <Divider />
+            {/* TODO: widgets 에 하나의 컴포넌트로 분리해주세요. */}
             {/* <div id="nav-section" className={styles.HomeWrapper}>
                <div
                   className={`${styles.QuestionListsWrapper} ${fixed && styles.fixedNav}`}
@@ -178,6 +183,7 @@ export function ClientHomePage() {
          </div>
          <div className={styles.floatingButton}>
             <Button
+               onClick={() => router.push(PageURL.QUESTION_CREATE)}
                rounded
                variant="filled"
                size="medium"

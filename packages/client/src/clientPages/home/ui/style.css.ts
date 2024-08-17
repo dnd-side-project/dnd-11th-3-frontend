@@ -12,6 +12,7 @@ export const RecommendWrapper = style({
    flexDirection: 'column',
    alignItems: 'center',
    justifyContent: 'center',
+   marginBottom: '10px',
 })
 
 export const RecommendHeaderBox = style({
