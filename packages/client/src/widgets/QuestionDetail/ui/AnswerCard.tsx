@@ -2,6 +2,7 @@
 
 import { Button, TextInput } from '@gds/component'
 import { color, Typo } from '@gds/token'
+import { IconCheckCircle, IconCheckCircleFilled } from '@gds/icon'
 import {
    answerbuttonWrapper,
    answerCardWrapper,
@@ -15,6 +16,8 @@ import {
 } from './style.css'
 
 export function AnswerCard() {
+   const isSelected = false
+
    return (
       <div className={answerCardWrapper}>
          <div className={answerMetaWrapper}>
@@ -30,12 +33,38 @@ export function AnswerCard() {
          <p className={Typo.body1.lg}>답변 내용</p>
          <div className={selectAnswerWrapper}>
             <div className={selectAnswerButtonWrapper}>
-               <Button variant="outlined" size="small">
-                  대화
+               <Button
+                  variant={isSelected ? 'filled' : 'outlined'}
+                  size="small"
+                  rightIcon={
+                     isSelected ? (
+                        <IconCheckCircle size={16} />
+                     ) : (
+                        <IconCheckCircleFilled
+                           size={16}
+                           color={color['primary-main']}
+                        />
+                     )
+                  }
+               >
+                  채택
                </Button>
             </div>
             <div className={selectAnswerButtonWrapper}>
-               <Button variant="outlined" size="small">
+               <Button
+                  variant={isSelected ? 'filled' : 'outlined'}
+                  size="small"
+                  rightIcon={
+                     isSelected ? (
+                        <IconCheckCircle size={16} />
+                     ) : (
+                        <IconCheckCircleFilled
+                           size={16}
+                           color={color['primary-main']}
+                        />
+                     )
+                  }
+               >
                   채택
                </Button>
             </div>

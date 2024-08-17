@@ -110,6 +110,7 @@ export const answerProfileBox = style({
 })
 
 export const answerMetaWrapper = style({
+   width: '100%',
    display: 'flex',
    justifyContent: 'space-between',
    alignItems: 'center',
