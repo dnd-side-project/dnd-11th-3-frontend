@@ -1,82 +1,46 @@
 {
-  "compileOnSave": true,
-  "compilerOptions": {
-    "rootDir": ".",
-    "baseUrl": ".",
-    "sourceMap": true,
-    "declaration": false,
-    "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "importHelpers": true,
-    "jsx": "preserve", // 이 부분이 중요합니다.
-    "target": "es2017",
-    "module": "esnext",
-    "lib": [
-      "es2017",
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "incremental": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
-    "paths": {
-      "@apps/*": [
-        "./src/apps/*"
+   "compileOnSave": true,
+   "compilerOptions": {
+      "rootDir": ".",
+      "baseUrl": ".",
+      "sourceMap": true,
+      "declaration": false,
+      "moduleResolution": "node",
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "importHelpers": true,
+      "jsx": "preserve", // 이 부분이 중요합니다.
+      "target": "es2017",
+      "module": "esnext",
+      "lib": ["es2017", "dom", "dom.iterable", "esnext"],
+      "allowJs": true,
+      "skipLibCheck": true,
+      "strict": true,
+      "noEmit": true,
+      "esModuleInterop": true,
+      "resolveJsonModule": true,
+      "isolatedModules": true,
+      "incremental": true,
+      "plugins": [
+         {
+            "name": "next"
+         }
       ],
-      "@entities/*": [
-        "./src/entities/*"
-      ],
-      "@features/*": [
-        "./src/features/*"
-      ],
-      "@shared/*": [
-        "./src/shared/*"
-      ],
-      "@widgets/*": [
-        "./src/widgets/*"
-      ],
-      "@gds/component": [
-        "./src/design-system/component/index.ts"
-      ],
-      "@gds/token": [
-        "./src/design-system/token/index.ts"
-      ],
-      "@gds/icon": [
-        "./src/design-system/icon/index.ts"
-      ],
-      "@gmi-design-system": [
-        "../gmi-design-system/src"
-      ],
-      "@vanilla-extract/css": [
-        "node_modules/@vanilla-extract/css"
-      ],
-      "@vanilla-extract/recipes": [
-        "node_modules/@vanilla-extract/recipes"
-      ]
-    },
-    "forceConsistentCasingInFileNames": true
-  },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    ".next",
-    "dist"
-  ]
+      "paths": {
+         "@apps/*": ["./src/apps/*"],
+         "@entities/*": ["./src/entities/*"],
+         "@features/*": ["./src/features/*"],
+         "@shared/*": ["./src/shared/*"],
+         "@widgets/*": ["./src/widgets/*"],
+         "@gds/component": ["./src/design-system/component/index.ts"],
+         "@gds/token": ["./src/design-system/token/index.ts"],
+         "@gds/icon": ["./src/design-system/icon/index.ts"],
+
+         "@vanilla-extract/css": ["node_modules/@vanilla-extract/css"],
+         "@vanilla-extract/recipes": ["node_modules/@vanilla-extract/recipes"]
+      },
+      "forceConsistentCasingInFileNames": true
+   },
+   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+   "exclude": ["node_modules", ".next", "dist"]
 }
