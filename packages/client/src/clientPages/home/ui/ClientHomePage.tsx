@@ -121,7 +121,7 @@ export function ClientHomePage() {
                   </div>
                </div>
             </div>
-            {/* TODO: widgets 에 하나의 컴포넌트로 분리해주세요. */}
+            {/* TODO: widgets 에 하나의 컴포넌트로 분리해주세요. /src/widget/ui/home/Carousel */}
             {/* <div className={styles.RecommendContentBox}>
                <div className="slider-container">
                   <Slider
@@ -158,7 +158,7 @@ export function ClientHomePage() {
                </div>
             </div> */}
             <Divider />
-            {/* TODO: widgets 에 하나의 컴포넌트로 분리해주세요. */}
+            {/* TODO: widgets 에 하나의 컴포넌트로 분리해주세요.  /src/widget/ui/home/QuestionList */}
             {/* <div id="nav-section" className={styles.HomeWrapper}>
                <div
                   className={`${styles.QuestionListsWrapper} ${fixed && styles.fixedNav}`}
