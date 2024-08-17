@@ -126,7 +126,8 @@ export default function Signup() {
             <Button
                type="button"
                size="medium"
-               variant={isFormComplete ? 'filled' : 'disabled'}
+               disabled={!isFormComplete}
+               variant="filled"
             >
                가입하기
             </Button>
