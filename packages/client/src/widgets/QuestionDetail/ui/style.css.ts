@@ -77,3 +77,15 @@ export const bottomButtonWrapper = style({
 
    minWidth: 105,
 })
+
+export const answerInputWrapper = style({
+   width: '100%',
+   display: 'flex',
+   justifyContent: 'space-around',
+   alignItems: 'flex-end',
+   gap: 10,
+})
+
+export const answerbuttonWrapper = style({
+   width: 70,
+})
