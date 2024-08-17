@@ -1,11 +1,14 @@
 'use client'
 
-import { useCreateQuestionForm } from '@entities/question'
+import {
+   useQuestionForm,
+   QUSETION_FORM_DEFAULT_VALUES,
+} from '@entities/question'
 
 import { QuestionUpdateInputs } from '@widgets/QuestionUpdateInputs'
 
 export function ClientQuestionUpdatePage() {
-   const form = useCreateQuestionForm()
+   const form = useQuestionForm(QUSETION_FORM_DEFAULT_VALUES)
    // api 연동시 onSubmit 함수 구현
 
    return (
