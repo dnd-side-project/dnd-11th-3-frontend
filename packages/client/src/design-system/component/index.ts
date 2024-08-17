@@ -20,8 +20,8 @@ export type { CreditProps } from './Tag/CreditTag'
 
 export { FloatButton } from './FloatButton/index'
 
-// export { Select } from './Select/Select'
-// export type { SelectProps } from './Select/Select'
+export { Select } from './Select/Select'
+export type { SelectProps } from './Select/Select'
 
 export { IconButton } from './IconButton/IconButton'
 export type { IconButtonProps } from './IconButton/IconButton'

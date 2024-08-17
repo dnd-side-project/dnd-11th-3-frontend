@@ -1,13 +1,13 @@
-import { useForm } from 'react-hook-form'
+import { useForm, UseFormReturn } from 'react-hook-form'
 
 export type QuestionFormValues = {
    title: string
    content: string
-   jobCategory: { label: string; key: string } | null
+   jobCategory: null | { label: string; id: string }
    reward: number
 }
 
-export const useCreateQuestionForm = () => {
+export const useCreateQuestionForm = (): UseFormReturn<QuestionFormValues> => {
    const form = useForm({
       mode: 'onTouched',
       defaultValues: {
@@ -17,4 +17,5 @@ export const useCreateQuestionForm = () => {
          reward: 1000,
       },
    })
+   return form as UseFormReturn<QuestionFormValues>
 }
