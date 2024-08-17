@@ -96,9 +96,10 @@ export function ClientHomePage() {
    const router = useRouter()
 
    return (
-      <div style={{ position: 'fixed', height: '844px' }}>
+      <div style={{ position: 'relative', height: '844px' }}>
          <div
             style={{
+               // TODO: 분리해주세요.
                position: 'absolute',
                top: 0,
                left: 0,
