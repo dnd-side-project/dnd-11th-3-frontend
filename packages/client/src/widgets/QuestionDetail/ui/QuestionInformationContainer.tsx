@@ -10,12 +10,13 @@ import { useParams } from 'next/navigation'
 import { ProfileContents } from './ProfileContents'
 import { pageWrapper } from './style.css'
 import { QuestionInformationBottom } from './QuestionInformationBottom'
+import { QuestionDetailHeader } from './QuestionDetailHeader'
 
 export function QuestionInformationContainer() {
    const params = useParams()
    return (
       <>
-         <Header title={String(params.id)} />
+         <QuestionDetailHeader title={String(params.id)} />
          {/* TODO: fix title */}
          <div className={pageWrapper}>
             <ProfileContents title="닉네임" description="등록된 직무" />

@@ -7,13 +7,13 @@ import {
    arrowButtonWrappewrStyle,
    headerTitleWrappewrStyle,
    headerWrapperStyle,
-} from './header.css'
+} from './style.css'
 
 interface Props {
    title?: string
 }
 
-export function Header({ title }: Props) {
+export function QuestionDetailHeader({ title }: Props) {
    const router = useRouter()
    return (
       <div className={headerWrapperStyle}>
@@ -27,6 +27,13 @@ export function Header({ title }: Props) {
             />
          </div>
          <h1 className={headerTitleWrappewrStyle}>{title}</h1>
+         {/* TODO: not to show this button if not the writer */}
+         <IconButton
+            variant="default"
+            aria-label="Edit"
+            size="small"
+            icon={<IconEdit />}
+         />
       </div>
    )
 }
