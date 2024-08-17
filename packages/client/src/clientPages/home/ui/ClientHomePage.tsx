@@ -7,7 +7,7 @@ import dynamic from 'next/dynamic'
 
 import { useScrollHandler } from '@features/useScrollHandler'
 import Question from '@shared/ui/QuestionList/Question'
-import { IconArrowRight } from '@gds/icon'
+import { IconArrowRight, IconPlus } from '@gds/icon'
 // import HomeRecommend from '@gds/component'
 import { FloatButton, Badge, Button } from '@gds/component'
 
@@ -176,7 +176,16 @@ export function ClientHomePage() {
                </div>
             </div> */}
          </div>
-         <FloatButton />
+         <div className={styles.floatingButton}>
+            <Button
+               rounded
+               variant="filled"
+               size="medium"
+               leftIcon={<IconPlus />}
+            >
+               작성하기
+            </Button>
+         </div>
       </div>
    )
 }

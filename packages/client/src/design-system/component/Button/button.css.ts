@@ -22,6 +22,9 @@ export const buttonStyle = recipe({
    },
 
    variants: {
+      rounded: {
+         true: { borderRadius: 30 },
+      },
       size: {
          small: { padding: '8px 0 8px 0', fontSize: '12px', height: '32px' },
          medium: { padding: '15px 0 15px 0', fontSize: '16px', height: '54px' },

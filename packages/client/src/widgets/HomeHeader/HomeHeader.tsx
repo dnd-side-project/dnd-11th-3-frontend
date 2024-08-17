@@ -1,6 +1,5 @@
 'use client'
 
-import React, { useState } from 'react'
 import {
    IconAlarm,
    IconArrowDown,
@@ -45,7 +44,6 @@ export function HomeHeader({ selectedCategory, onSelectCategory }: Props) {
                }
             />
          </div>
-
          <div className={styles.headerButtonWrapper}>
             <IconButton
                size="small"

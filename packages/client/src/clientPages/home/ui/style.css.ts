@@ -101,3 +101,11 @@ export const ArrowBox = style({
    color: color['primary-main'],
    marginRight: '30px',
 })
+
+export const floatingButton = style({
+   position: 'absolute',
+   width: 127,
+   zIndex: 999, // TODO: fix 확장성이 없음으로 z-index를 사용하지 않도록 수정
+   bottom: 100,
+   left: 250,
+})

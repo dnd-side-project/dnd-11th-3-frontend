@@ -15,6 +15,7 @@ export interface ButtonProps
    disabled?: boolean
    rightIcon?: ReactElement<IconProps>
    leftIcon?: ReactElement<IconProps>
+   rounded?: boolean
 }
 
 export function Button({
@@ -24,6 +25,7 @@ export function Button({
    leftIcon,
    rightIcon,
    variant,
+   rounded = false,
    ...props
 }: ButtonProps) {
    return (
@@ -32,6 +34,7 @@ export function Button({
          className={buttonStyle({
             size,
             variant: disabled ? 'disabled' : variant,
+            rounded,
          })}
          disabled={disabled}
          {...props}
