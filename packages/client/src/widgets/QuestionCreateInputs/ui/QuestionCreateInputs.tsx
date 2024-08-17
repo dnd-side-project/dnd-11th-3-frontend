@@ -76,6 +76,7 @@ export function QuestionCreateInputs({ form, onSubmit }: Props) {
             }}
             render={({ field: { onChange, value } }) => (
                <Select // TODO: add Search Select and remove the default select
+                  variant="filled"
                   items={[{ label: 'TODO', id: 'TODO' }]}
                   selected={value}
                   onSelect={onChange}

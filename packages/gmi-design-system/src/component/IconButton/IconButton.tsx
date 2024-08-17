@@ -6,7 +6,6 @@ import { iconButtonWrapperStyle } from './iconButton.css'
 export interface IconButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant: 'default' | 'outlined'
   size: 'small' | 'medium' | 'large'
-
   disabled?: boolean
   icon: ReactElement<IconProps>
 }

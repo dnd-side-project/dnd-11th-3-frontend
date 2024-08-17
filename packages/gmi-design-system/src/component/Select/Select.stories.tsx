@@ -26,6 +26,7 @@ export function SelectComponent() {
       }}
     >
       <Select
+        variant="default"
         onSelect={item => setSelected(item as { label: string; id: string })}
         selected={selected}
         items={[
@@ -35,6 +36,7 @@ export function SelectComponent() {
         ]}
       />
       <Select
+        variant="default"
         disabled
         onSelect={item => setSelected(item as { label: string; id: string })}
         selected={null}
@@ -42,6 +44,7 @@ export function SelectComponent() {
       />
 
       <Select
+        variant="default"
         inputProps={{
           icon: <IconSearch />,
         }}
@@ -50,9 +53,9 @@ export function SelectComponent() {
         items={[{ label: 'Option 1', id: '1' }]}
       />
       <Select
+        variant="filled"
         inputProps={{
           icon: <IconSearch />,
-          variant: 'filled',
         }}
         onSelect={item => setSelectedWithIcon(item as { label: string; id: string })}
         selected={selectedWithIcon}
