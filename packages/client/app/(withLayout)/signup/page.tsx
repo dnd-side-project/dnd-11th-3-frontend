@@ -93,7 +93,8 @@ export default function Signup() {
             <Button
                style={{ width: '86px', marginLeft: '8px' }}
                size="small"
-               variant={`${essentialData.nickname.length > 0 ? 'filled' : 'disabled'}`}
+               disabled={essentialData.nickname.length <= 0}
+               variant="filled"
             >
                중복확인
             </Button>
