@@ -4,56 +4,59 @@ import React, { useState } from 'react'
 import {
    IconAlarm,
    IconArrowDown,
-   IconArrowUp,
    IconBookmark,
    IconLogoFilled,
 } from '@gds/icon'
 
+import { IconButton, Select } from '@gds/component'
 import * as styles from './HomeHeader.css'
 
-export function HomeHeader() {
-   const [isExpand, setIsExpand] = useState<boolean>(false)
-
-   const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
-      if (event.key === 'Enter' || event.key === ' ') {
-         setIsExpand(!isExpand)
-      }
+interface Props {
+   selectedCategory: {
+      label: string
+      id: string
    }
+   onSelectCategory: ({ label, id }: { label: string; id: string }) => void
+}
 
+export function HomeHeader({ selectedCategory, onSelectCategory }: Props) {
    return (
       <div className={styles.homeheaderWrapper}>
          <div className={styles.homelogoBox}>
-            <IconLogoFilled />
+            <IconLogoFilled size={26} />
          </div>
-         <div
-            className={styles.categoryWrapper}
-            onClick={() => setIsExpand(!isExpand)}
-            onKeyDown={handleKeyDown}
-            role="button"
-            tabIndex={0}
-         >
-            <span className={styles.categoryTitle}>전체</span>
-            <button
-               type="button"
-               className={styles.categoryDownBtn}
-               aria-label="expand category"
-            >
-               {/* {isExpand ? <IconArrowUp /> : <IconArrowDown />} */}
-            </button>
+         <div className={styles.categoryWrapper}>
+            <Select
+               inputProps={{
+                  icon: <IconArrowDown size={16} />,
+               }}
+               width={120}
+               variant="textOnly"
+               items={[
+                  {
+                     label: '전체',
+                     id: 'all',
+                  },
+                  { label: '유저직군', id: 'user' },
+               ]}
+               selected={selectedCategory}
+               onSelect={({ id, label }) =>
+                  onSelectCategory({ id: String(id), label })
+               }
+            />
          </div>
-         {isExpand && (
-            <div className={styles.categoryFilterWrapper}>
-               <div className={styles.categoryFilterTitle}>전체</div>
-               <div className={styles.categoryFilterTitle}>유저직군</div>
-            </div>
-         )}
+
          <div className={styles.headerButtonWrapper}>
-            <div className={styles.headerIconBox}>
-               <IconBookmark />
-            </div>
-            <div className={styles.headerIconBox}>
-               <IconAlarm />
-            </div>
+            <IconButton
+               size="small"
+               variant="default"
+               icon={<IconBookmark size={24} />}
+            />
+            <IconButton
+               size="small"
+               variant="default"
+               icon={<IconAlarm size={24} />}
+            />
          </div>
       </div>
    )

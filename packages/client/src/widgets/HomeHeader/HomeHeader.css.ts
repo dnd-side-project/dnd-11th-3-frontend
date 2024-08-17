@@ -15,7 +15,10 @@ export const homelogoBox = style({
 })
 
 export const categoryWrapper = style({
+   width: 'fit-content',
    display: 'flex',
+   alignItems: 'center',
+   justifyContent: 'center',
 })
 
 export const categoryTitle = style({
@@ -43,4 +46,7 @@ export const headerButtonWrapper = style({
    display: 'flex',
 })
 
-export const headerIconBox = style({})
+// export const headerIconBox = style({
+//    width: 'fit-content',
+//    minWidth: 30,
+// })

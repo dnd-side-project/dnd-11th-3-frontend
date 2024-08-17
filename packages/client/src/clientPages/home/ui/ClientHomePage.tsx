@@ -85,7 +85,10 @@ export function ClientHomePage() {
          </div>
       ),
    }
-
+   const [jobCategory, setJobCategory] = useState({
+      label: '전체',
+      id: 'all',
+   })
    const [fixed, setFixed] = useState<boolean>(false)
    useScrollHandler(setFixed, 'nav-section')
 
@@ -100,7 +103,10 @@ export function ClientHomePage() {
             }}
          >
             <div className={styles.HomeWrapper}>
-               <HomeHeader />
+               <HomeHeader
+                  selectedCategory={jobCategory}
+                  onSelectCategory={setJobCategory}
+               />
                <div className={styles.RecommendWrapper}>
                   <div className={styles.RecommendHeaderBox}>
                      <div className={styles.RecommendTitle}>추천 질문</div>
@@ -112,7 +118,7 @@ export function ClientHomePage() {
                   </div>
                </div>
             </div>
-            <div className={styles.RecommendContentBox}>
+            {/* <div className={styles.RecommendContentBox}>
                <div className="slider-container">
                   <Slider
                      className={settings.className}
@@ -122,8 +128,8 @@ export function ClientHomePage() {
                      nextArrow={settings.nextArrow}
                   >
                      슬라이더
-                     {/** TODO: 데이터 형식으로 변경하기 */}
-                     {/* <HomeRecommend
+                     
+                     <HomeRecommend
                         src={Blue}
                         coin="2000"
                         title="ddd"
@@ -143,12 +149,12 @@ export function ClientHomePage() {
                         title="ddd"
                         bookmark={20}
                         likes={4}
-                     /> */}
+                     />
                   </Slider>
                </div>
-            </div>
+            </div> */}
             <hr className={styles.Line} />
-            <div id="nav-section" className={styles.HomeWrapper}>
+            {/* <div id="nav-section" className={styles.HomeWrapper}>
                <div
                   className={`${styles.QuestionListsWrapper} ${fixed && styles.fixedNav}`}
                >
@@ -157,7 +163,6 @@ export function ClientHomePage() {
                         <span>질문 리스트</span>
                      </div>
                      <div className={styles.QuestionFilterBox}>
-                        {/** TODO: 디자인시스템 작성필요 */}
                         <Badge variant="primary" size="small">
                            더보기
                         </Badge>
@@ -169,7 +174,7 @@ export function ClientHomePage() {
                      return <Question data={el} />
                   })}
                </div>
-            </div>
+            </div> */}
          </div>
          <FloatButton />
       </div>
