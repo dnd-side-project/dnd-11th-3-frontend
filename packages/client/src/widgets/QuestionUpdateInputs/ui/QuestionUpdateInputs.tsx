@@ -12,14 +12,14 @@ import {
 } from '@gds/component'
 import { IconAddPhoto, IconSearch } from '@gds/icon'
 import { Controller, UseFormReturn } from 'react-hook-form'
-import { pageWrapper } from './questionCreateInputs.css'
+import { pageWrapper } from './questionUpdateInputs.css'
 
 interface Props {
    form: UseFormReturn<QuestionFormValues>
    onSubmit: () => void
 }
 
-export function QuestionCreateInputs({ form, onSubmit }: Props) {
+export function QuestionUpdateInputs({ form, onSubmit }: Props) {
    const {
       canSubmit,
       getTitleErrorMessage,
@@ -129,7 +129,7 @@ export function QuestionCreateInputs({ form, onSubmit }: Props) {
             onClick={() => onSubmit()}
             disabled={!canSubmit}
          >
-            질문 게시하기
+            질문 수정하기
          </Button>
       </div>
    )

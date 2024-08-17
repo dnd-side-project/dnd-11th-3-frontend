@@ -16,9 +16,11 @@ export function QuestionInformationContainer() {
    const params = useParams()
    return (
       <>
-         <QuestionDetailHeader title={String(params.id)} />
+         <QuestionDetailHeader
+            title={String(params.id)}
+            id={String(params.id)}
+         />
          {/* TODO: fix title */}
-
          <ProfileContents title="닉네임" description="등록된 직무" />
          <Badge size="small" variant="secondary">
             0000

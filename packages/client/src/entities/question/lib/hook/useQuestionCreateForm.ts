@@ -7,15 +7,12 @@ export type QuestionFormValues = {
    reward: number
 }
 
-export const useCreateQuestionForm = (): UseFormReturn<QuestionFormValues> => {
+export const useQuestionForm = (
+   defaultValues: QuestionFormValues,
+): UseFormReturn<QuestionFormValues> => {
    const form = useForm({
       mode: 'onTouched',
-      defaultValues: {
-         title: '',
-         content: '',
-         jobCategory: { label: '', id: '' },
-         reward: 1000,
-      },
+      defaultValues,
    })
    return form as UseFormReturn<QuestionFormValues>
 }
