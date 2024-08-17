@@ -1,6 +1,5 @@
-import { style } from '@vanilla-extract/css'
 import { recipe } from '@vanilla-extract/recipes'
-import { color } from '../../token/Color/color'
+import { color } from '../../token'
 
 export const badgeWrapper = recipe({
    base: {
