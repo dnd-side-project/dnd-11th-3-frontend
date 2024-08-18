@@ -1,6 +1,6 @@
 import React from 'react'
 import { data } from 'src/clientPages/home/ui/ClientHomePage'
-import AccountBookmarkClient from '@widgets/accountBookmark/ui/AccountBookMarkList'
+import AccountBookmarkClient from '@widgets/accountBookmark/ui'
 import * as styles from '../index.css'
 
 function AccountBookmark() {
