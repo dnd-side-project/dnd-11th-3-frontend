@@ -14,64 +14,89 @@ import { Badge, Button, Divider } from '@gds/component'
 // import './slider.css'
 import { PageURL } from '@shared/model'
 import { useRouter } from 'next/navigation'
+import { QuestionDataType } from '@entities/@types/question'
 import * as styles from './style.css'
 
 const Slider = dynamic(() => import('react-slick'), { ssr: false })
 
-const data = [
+export const data: QuestionDataType[] = [
    {
-      tag: '법원경비관리',
-      reward: '2000',
+      questionPostId: 1,
       title: '서류 처리 관련 질문',
       content: '안녕ㅎ아세요',
-      date: '2024',
+      jobGroup: '법원경비관리',
+      reward: '2000',
+      createdAt: '2024',
+      isChosen: false,
       bookmark: 23,
       likes: 2,
+      tag: '법원경비관리',
+      date: '2024',
    },
    {
-      tag: '법원경비관리',
-      reward: '2000',
+      questionPostId: 2,
       title: '서류 처리 관련 질문',
       content: '안녕ㅎ아세요',
-      date: '2024',
+      jobGroup: '법원경비관리',
+      reward: '2000',
+      createdAt: '2024',
+      isChosen: false,
       bookmark: 23,
       likes: 2,
+      tag: '법원경비관리',
+      date: '2024',
    },
    {
-      tag: '법원경비관리',
-      reward: '2000',
+      questionPostId: 3,
       title: '서류 처리 관련 질문',
       content: '안녕ㅎ아세요',
-      date: '2024',
+      jobGroup: '법원경비관리',
+      reward: '2000',
+      createdAt: '2024',
+      isChosen: false,
       bookmark: 23,
       likes: 2,
+      tag: '법원경비관리',
+      date: '2024',
    },
    {
-      tag: '법원경비관리',
-      reward: '2000',
+      questionPostId: 4,
       title: '서류 처리 관련 질문',
       content: '안녕ㅎ아세요',
-      date: '2024',
+      jobGroup: '법원경비관리',
+      reward: '2000',
+      createdAt: '2024',
+      isChosen: false,
       bookmark: 23,
       likes: 2,
+      tag: '법원경비관리',
+      date: '2024',
    },
    {
-      tag: '법원경비관리',
-      reward: '2000',
+      questionPostId: 5,
       title: '서류 처리 관련 질문',
       content: '안녕ㅎ아세요',
-      date: '2024',
+      jobGroup: '법원경비관리',
+      reward: '2000',
+      createdAt: '2024',
+      isChosen: false,
       bookmark: 23,
       likes: 2,
+      tag: '법원경비관리',
+      date: '2024',
    },
    {
-      tag: '법원경비관리',
-      reward: '2000',
+      questionPostId: 6,
       title: '서류 처리 관련 질문',
       content: '안녕ㅎ아세요',
-      date: '2024',
+      jobGroup: '법원경비관리',
+      reward: '2000',
+      createdAt: '2024',
+      isChosen: false,
       bookmark: 23,
       likes: 2,
+      tag: '법원경비관리',
+      date: '2024',
    },
 ]
 
@@ -136,21 +161,21 @@ export function ClientHomePage() {
                      
                      <HomeRecommend
                         src={Blue}
-                        coin="2000"
+                        coin="""2000"""
                         title="ddd"
                         bookmark={20}
                         likes={4}
                      />
                      <HomeRecommend
                         src={Green}
-                        coin="2000"
+                        coin="""2000"""
                         title="ddd"
                         bookmark={20}
                         likes={4}
                      />
                      <HomeRecommend
                         src={Orange}
-                        coin="2000"
+                        coin="""2000"""
                         title="ddd"
                         bookmark={20}
                         likes={4}
