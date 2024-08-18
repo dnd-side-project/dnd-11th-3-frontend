@@ -3,9 +3,11 @@ export type QuestionDataType = {
    title: string
    content: string
    jobGroup: string
-   reward: number
+   reward: string
    createdAt: string
    isChosen: boolean
    bookmark: number
    likes: number
+   tag: string
+   date: string
 }

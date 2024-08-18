@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import Tab from 'src/design-system/component/Tab'
 import AnswerBox from 'src/design-system/component/Answer'
 import Question from '@shared/ui/QuestionList/Question'
-import { QuestionData } from 'app/(withLayout)/home/page'
+import { data } from 'src/clientPages/home/ui/ClientHomePage'
 import * as styles from '../index.css'
 
 function AccountQuestion() {
@@ -20,16 +20,12 @@ function AccountQuestion() {
          <Tab tabState={tabState} setTabState={setTabState} tabs={tabs} />
          <div className={styles.ListWrapper}>
             {tabState === 'write'
-               ? QuestionData.map((question) => (
-                    <Question
-                       key={question.questionPostId}
-                       data={question}
-                       type="question"
-                    />
+               ? data.map((question) => (
+                    <Question key={question.questionPostId} data={question} />
                  ))
-               : QuestionData.map((question) => (
+               : data.map((question) => (
                     <React.Fragment key={question.questionPostId}>
-                       <Question data={question} type="answer" />
+                       <Question data={question} />
                        <AnswerBox
                           text="내 생일 파티에 너만 못 온 그날 혜진이가 엄청 혼났던 그날 지원이가 여친이랑 헤어진 그날"
                           date="2024.07.19"

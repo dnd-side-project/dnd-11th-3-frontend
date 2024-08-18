@@ -1,20 +1,11 @@
 import { style } from '@vanilla-extract/css'
 import { color } from '@gds/token'
-import { recipe } from '@vanilla-extract/recipes'
 
-export const QuestionWrapper = recipe({
-   base: {
-      display: 'flex',
-      flexDirection: 'column',
-      marginTop: '23px',
-      width: '100%',
-   },
-   variants: {
-      borderBottom: {
-         question: { borderBottom: `2px solid ${color['gray-900']}` },
-         answer: { borderBottom: 'none' },
-      },
-   },
+export const QuestionWrapper = style({
+   display: 'flex',
+   flexDirection: 'column',
+   marginTop: '23px',
+   width: '100%',
 })
 
 export const QuestionTagWrapper = style({
