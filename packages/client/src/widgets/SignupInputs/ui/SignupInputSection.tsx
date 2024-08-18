@@ -10,9 +10,13 @@ import * as styles from './style.css'
 
 interface Props {
    form: UseFormReturn<SignupFormValues>
+   onSendVerificationCodeByEmail: (email: string) => void
 }
 
-export function SignupInputSection({ form }: Props) {
+export function SignupInputSection({
+   form,
+   onSendVerificationCodeByEmail,
+}: Props) {
    return (
       <>
          <Controller
@@ -27,10 +31,12 @@ export function SignupInputSection({ form }: Props) {
                      label: '공무원 이메일 인증',
                      required: true,
                      width: 292,
+                     onChange,
                   }}
                   buttonProps={{
                      variant: 'filled',
                      width: 58,
+                     onClick: () => onSendVerificationCodeByEmail(value),
                   }}
                   buttonChildren="인증"
                />
