@@ -1,12 +1,9 @@
 'use client'
 
 import React, { useState } from 'react'
-import dynamic from 'next/dynamic'
 
 import { useScrollHandler } from '@features/useScrollHandler'
-import Question from '@shared/ui/QuestionList/Question'
 import { IconArrowRight, IconPlus } from '@gds/icon'
-// import HomeRecommend from '@gds/component'
 import { Badge, Button, Divider } from '@gds/component'
 
 // import './slider.css'
@@ -14,9 +11,8 @@ import { PageURL } from '@shared/model'
 import { useRouter } from 'next/navigation'
 import { QuestionDataType } from '@entities/@types/question'
 import { HomeHeader } from '@widgets/Home/ui/HomeHeader'
+import QuestionList from '@widgets/Home/ui/QuestionList'
 import * as styles from './style.css'
-
-const Slider = dynamic(() => import('react-slick'), { ssr: false })
 
 export const data: QuestionDataType[] = [
    {
@@ -100,23 +96,10 @@ export const data: QuestionDataType[] = [
 ]
 
 export function ClientHomePage() {
-   const settings = {
-      className: 'center',
-      infinite: true,
-      slidesToShow: 1,
-      swipeToSlide: true,
-      nextArrow: (
-         <div className={styles.ArrowBox}>
-            <button aria-label="next" type="button" />
-         </div>
-      ),
-   }
    const [jobCategory, setJobCategory] = useState({
       label: '전체',
       id: 'all',
    })
-   const [fixed, setFixed] = useState<boolean>(false)
-   useScrollHandler(setFixed, 'nav-section')
    const router = useRouter()
 
    return (
@@ -183,28 +166,7 @@ export function ClientHomePage() {
                </div>
             </div> */}
             <Divider />
-            {/* TODO: widgets 에 하나의 컴포넌트로 분리해주세요.  /src/widget/ui/home/QuestionList */}
-            {/* <div id="nav-section" className={styles.HomeWrapper}>
-               <div
-                  className={`${styles.QuestionListsWrapper} ${fixed && styles.fixedNav}`}
-               >
-                  <div className={styles.QuestionListHeaderWrapper}>
-                     <div className={styles.QuestionHeaderTitle}>
-                        <span>질문 리스트</span>
-                     </div>
-                     <div className={styles.QuestionFilterBox}>
-                        <Badge variant="primary" size="small">
-                           더보기
-                        </Badge>
-                     </div>
-                  </div>
-               </div>
-               <div className={styles.QuestionsWrapper}>
-                  {data.map((el) => {
-                     return <Question data={el} />
-                  })}
-               </div>
-            </div> */}
+            <QuestionList />
          </div>
          <div className={styles.floatingButton}>
             <Button
