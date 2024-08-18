@@ -5,16 +5,6 @@
       "version": "7.7.0"
    },
    "name": "openapi-generator-cli",
-   "version": "1.0.0",
-   "description": "",
-   "main": "index.js",
-   "generators": {
-      "server": {
-         "packageName": "servere",
-         "generatorName": "typescript-axios",
-         "output": "#{cwd}/packages/client/api/server/v1",
-         "inputSpec": "https://api/api-json"
-      }
-   },
-   "author": ""
+   "generatorName": "typescript-axios",
+   "inputSpec": "https://gongmuin.site/v3/api-docs/API%20v.1.0"
 }

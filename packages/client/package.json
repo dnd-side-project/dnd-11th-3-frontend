@@ -10,7 +10,7 @@
       "refactor-icon": "node refactorIcons.cjs",
       "gen-icon": "svgr --out-dir ./src/design-system/icon/default -- ./src/design-system/icon/prepare && npm run refactor-icon",
       "gen-design-system": "node copyFolderSync.cjs",
-      "oas-gen": "openapi-generator-cli generate"
+      "gen-api": "openapi-generator-cli generate -c openapitools.json  -o ./api"
    },
    "dependencies": {
       "@tanstack/react-query": "^5.51.1",
