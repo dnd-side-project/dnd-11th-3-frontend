@@ -1,12 +1,12 @@
 import React from 'react'
-import AccountBookmarkClient from './client'
-import { QuestionData } from '../../home/page'
+import { data } from 'src/clientPages/home/ui/ClientHomePage'
+import AccountBookmarkClient from '@widgets/accountBookmark/ui/AccountBookMarkList'
 import * as styles from '../index.css'
 
 function AccountBookmark() {
    return (
       <div className={styles.Wrapper}>
-         <AccountBookmarkClient QuestionData={QuestionData} />
+         <AccountBookmarkClient QuestionData={data} />
       </div>
    )
 }

@@ -3,7 +3,7 @@
 import React from 'react'
 import Question from '@shared/ui/QuestionList/Question'
 import { QuestionDataType } from '@entities/@types/question'
-import * as styles from '../index.css'
+import { ListWrapper } from './index.css'
 
 interface Prop {
    QuestionData: QuestionDataType[]
@@ -11,13 +11,9 @@ interface Prop {
 
 function AccountBookmarkClient({ QuestionData }: Prop) {
    return (
-      <div className={styles.ListWrapper}>
+      <div className={ListWrapper}>
          {QuestionData.map((question) => (
-            <Question
-               key={question.questionPostId}
-               data={question}
-               type="question"
-            />
+            <Question key={question.questionPostId} data={question} />
          ))}
       </div>
    )
