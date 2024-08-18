@@ -11,7 +11,6 @@ import {
    handleOnClickCheckNickname,
    handleOnClickSignUp,
 } from '@shared/model/signup/handleOnClick'
-import { IconCheck, IconError } from '@gds/icon'
 import { useQuery } from '@tanstack/react-query'
 import * as styles from './index.css'
 
@@ -92,18 +91,10 @@ export default function Signup() {
                            <span style={{ color: color.error }}>*</span>
                         </>
                      }
-                     description={
-                        emailState === 'before'
-                           ? ''
-                           : emailState === 'duplicated' && '이메일 중복'
-                     }
                      errorMessage={
-                        emailState === 'duplicated' && (
-                           <div className={styles.NickNameDescriptionWrapper}>
-                              <IconError color={color.error} /> 이미 가입된
-                              이메일입니다.
-                           </div>
-                        )
+                        emailState === 'duplicated'
+                           ? '이미 가입된 이메일입니다.'
+                           : ''
                      }
                      {...field}
                   />
@@ -113,7 +104,7 @@ export default function Signup() {
                <Button
                   style={{ height: '54px' }}
                   size="small"
-                  variant={officialEmail.length > 0 && 'filled'}
+                  variant={officialEmail.length > 0 ? 'filled' : 'outlined'}
                   disabled={officialEmail.length === 0}
                   onClick={() => {
                      handleOnClickCheckMail(officialEmail, (newEmailState) =>
@@ -136,20 +127,14 @@ export default function Signup() {
                      description={
                         authState === 'before'
                            ? ''
-                           : authState === 'available' && (
-                                <div className={styles.AcceptTxtStyle}>
-                                   <IconCheck color={color['primary-main']} />
-                                   공무원 인증이 완료되었습니다.
-                                </div>
-                             )
+                           : authState === 'available'
+                             ? ' 공무원 인증이 완료되었습니다.'
+                             : ''
                      }
                      errorMessage={
-                        authState === 'error' && (
-                           <div className={styles.NickNameDescriptionWrapper}>
-                              <IconError color={color.error} /> 인증번호를 다시
-                              확인해주세요.
-                           </div>
-                        )
+                        authState === 'error'
+                           ? '인증번호를 다시 확인해주세요.'
+                           : ''
                      }
                      placeholder="인증번호 n자리를 입력해주세요"
                      disabled={officialEmail.length === 0}
@@ -161,7 +146,7 @@ export default function Signup() {
                <Button
                   style={{ height: '54px' }}
                   size="small"
-                  variant={authCode.length > 0 && 'filled'}
+                  variant={authCode.length > 0 ? 'filled' : 'outlined'}
                   disabled={authCode.length === 0}
                   onClick={() =>
                      handleOnClickCheckAuthCode(
@@ -190,27 +175,16 @@ export default function Signup() {
                         </>
                      }
                      description={
-                        nicknameState === 'before' ? (
-                           <div className={styles.NickNameDescriptionWrapper}>
-                              <IconCheck color={color['gray-400']} /> 2 - 12자
-                              이내로 입력하세요
-                           </div>
-                        ) : (
-                           nicknameState === 'available' && (
-                              <div className={styles.AcceptTxtStyle}>
-                                 <IconCheck color={color['primary-main']} />
-                                 사용가능한 닉네임 입니다.
-                              </div>
-                           )
-                        )
+                        nicknameState === 'before'
+                           ? '2 - 12자 이내로 입력하세요'
+                           : nicknameState === 'available'
+                             ? '사용가능한 닉네임 입니다.'
+                             : ''
                      }
                      errorMessage={
-                        nicknameState === 'duplicated' && (
-                           <div className={styles.NickNameDescriptionWrapper}>
-                              <IconError color={color.error} /> 이미 존재하는
-                              닉네임 입니다.
-                           </div>
-                        )
+                        nicknameState === 'duplicated'
+                           ? '이미 존재하는 닉네임 입니다.'
+                           : ''
                      }
                      placeholder="닉네임을 입력해주세요"
                      {...field}
@@ -221,7 +195,7 @@ export default function Signup() {
                <Button
                   style={{ height: '54px' }}
                   size="small"
-                  variant={nickname.length > 0 && 'filled'}
+                  variant={nickname.length > 0 ? 'filled' : 'outlined'}
                   disabled={nickname.length < 3}
                   onClick={() =>
                      handleOnClickCheckNickname(nickname, (newNicknameState) =>
