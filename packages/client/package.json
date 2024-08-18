@@ -9,7 +9,8 @@
       "start": "next start",
       "refactor-icon": "node refactorIcons.cjs",
       "gen-icon": "svgr --out-dir ./src/design-system/icon/default -- ./src/design-system/icon/prepare && npm run refactor-icon",
-      "gen-design-system": "node copyFolderSync.cjs"
+      "gen-design-system": "node copyFolderSync.cjs",
+      "gen-api": "openapi-generator-cli generate -c openapitools.json  -o ./api"
    },
    "dependencies": {
       "@tanstack/react-query": "^5.51.1",
@@ -22,6 +23,7 @@
       "react-hook-form": "^7.52.1"
    },
    "devDependencies": {
+      "@openapitools/openapi-generator-cli": "^2.13.4",
       "@svgr/cli": "^8.1.0",
       "@svgr/core": "^8.1.0",
       "@tanstack/eslint-plugin-query": "^5.51.1",
