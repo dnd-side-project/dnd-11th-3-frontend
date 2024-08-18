@@ -8,7 +8,7 @@ import {
 } from '@gds/icon'
 
 import { IconButton, Select } from '@gds/component'
-import * as styles from './HomeHeader.css'
+import * as styles from './index.css'
 
 interface Props {
    selectedCategory: {
