@@ -118,3 +118,8 @@ sketch
 ### StorybookJs ###
 storybook-static/
 
+
+wwwroot/*.js
+node_modules
+typings
+dist

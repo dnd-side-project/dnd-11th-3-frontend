@@ -1,0 +1,10 @@
+{
+   "$schema": "../../node_modules/@openapitools/openapi-generator-cli/config.schema.json",
+   "spaces": 2,
+   "generator-cli": {
+      "version": "7.7.0"
+   },
+   "name": "openapi-generator-cli",
+   "generatorName": "typescript-axios",
+   "inputSpec": "https://gongmuin.site/v3/api-docs/API%20v.1.0"
+}
