@@ -3,6 +3,7 @@ import { recipe } from '@vanilla-extract/recipes'
 
 export const Wrapper = recipe({
    base: {
+      width: '100%',
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
@@ -12,6 +13,7 @@ export const Wrapper = recipe({
       fontWeight: '600',
       lineHeight: '22px',
       letterSpacing: '-0.18px',
+      cursor: 'pointer',
    },
    variants: {
       backgroundColor: {
