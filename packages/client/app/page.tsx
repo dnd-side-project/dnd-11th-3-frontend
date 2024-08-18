@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { SNSLogin } from '@gds/component'
+import { SNSButton as SNSLogin } from '@gds/component'
 import BackGroundImage from '../public/asset/Background.svg'
 import * as styles from './signin.css'
 

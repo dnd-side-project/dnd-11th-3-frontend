@@ -11,8 +11,8 @@ export type { ButtonProps } from './Button/Button'
 export { Select } from './Select/Select'
 export type { SelectProps } from './Select/Select'
 
-export { SNSLogin } from './SignIn/SNSLogin'
-export type { LoginProps } from './SignIn/SNSLogin'
+export { SNSButton } from './SNSButton/SNSButton'
+export type { SNSButtonProps } from './SNSButton/SNSButton'
 
 export { IconButton } from './IconButton/IconButton'
 export type { IconButtonProps } from './IconButton/IconButton'

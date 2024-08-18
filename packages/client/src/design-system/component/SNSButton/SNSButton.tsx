@@ -1,13 +1,14 @@
 import React from 'react'
-import { IconKakao, IconNaver } from '@gds/icon'
 import * as styles from './SNSButton.css'
+import { IconKakao } from '../../icon/default/IconKakao'
+import { IconNaver } from '../../icon/default/IconNaver'
 
-export interface LoginProps {
+interface SNSButtonProps {
    socialLoginType: 'kakao' | 'naver'
    children: React.ReactNode
 }
 
-export function SNSLogin({ socialLoginType, children }: LoginProps) {
+export function SNSButton({ socialLoginType, children }: SNSButtonProps) {
    return (
       <div
          className={styles.Wrapper({
