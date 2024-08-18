@@ -14,13 +14,31 @@ export const INPUT_COLOR = {
    error: color.error,
 }
 
+export const asteriskStyle = style({
+   color: color.error,
+   marginLeft: '3px',
+})
+
 export const textInputLabelStyle = style({
-   marginBottom: '17px',
+   minHeight: 21.5,
+   display: 'flex',
+   justifyContent: 'flex-start',
+   alignItems: 'center',
+
+   marginBottom: '12px',
    fontSize: '18px',
    fontStyle: 'normal',
    fontWeight: '600',
    lineHeight: 'normal',
    color: color['gray-100'],
+})
+
+export const textInputContainerStyle = style({
+   width: '100%',
+   minHeight: 109.5,
+
+   display: 'flex',
+   flexDirection: 'column',
 })
 
 export const textInputLabelContainerStyle = style({
@@ -50,6 +68,14 @@ export const textInputWrapperStyle = recipe({
    },
 
    variants: {
+      size: {
+         medium: {
+            fontSize: 16,
+            fontWeight: 500,
+            padding: '12px 15px',
+         },
+         large: { padding: '14px 15px' },
+      },
       color: {
          default: {
             border: '1px solid #e0e0e0',
@@ -69,6 +95,7 @@ export const textInputWrapperStyle = recipe({
    },
 
    defaultVariants: {
+      size: 'large',
       color: 'default',
    },
 })
@@ -114,6 +141,7 @@ export const textMetaStyle = recipe({
       fontSize: '14px',
       marginLeft: '5px',
       marginTop: '5px',
+      height: 21,
    },
 
    variants: {
