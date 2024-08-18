@@ -1,6 +1,6 @@
 import { postMail, postAuthCode } from '@features/signup/CheckMail'
 import { postCheckNickname, postMemberInfo } from '@features/signup/Member'
-import { EssentialDataType } from 'app/(withLayout)/signup/page'
+import { EssentialDataType } from 'app/(withLayout)/dsignup/page'
 
 export const handleOnClickCheckMail = (
    officialEmail: string,

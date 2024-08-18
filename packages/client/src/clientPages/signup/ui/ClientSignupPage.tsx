@@ -14,7 +14,7 @@ import { IconSearch } from '@gds/icon'
 import { SignupInputSection } from '@widgets/SignupInputs'
 import { useSignupForm } from '@entities/signup'
 import * as styles from './style.css'
-import { useSendVerificationCodeByEmail } from '../api/signup'
+import { useSendVerificationCodeByEmail } from '../api/mail'
 
 export function ClientSignupPage() {
    const form = useSignupForm()

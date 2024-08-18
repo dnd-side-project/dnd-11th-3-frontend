@@ -21,7 +21,7 @@ export type EssentialDataType = SignUpType & {
    authCode: string
 }
 
-export default function Signup() {
+export default function DSignup() {
    const { control, handleSubmit, watch, setValue, getValues } =
       useForm<EssentialDataType>({
          defaultValues: {
