@@ -2,16 +2,14 @@
 
 import React, { useState } from 'react'
 
-import { useScrollHandler } from '@features/useScrollHandler'
-import { IconArrowRight, IconPlus } from '@gds/icon'
-import { Badge, Button, Divider } from '@gds/component'
-
-// import './slider.css'
+import { IconPlus } from '@gds/icon'
+import { Button, Divider } from '@gds/component'
 import { PageURL } from '@shared/model'
 import { useRouter } from 'next/navigation'
 import { QuestionDataType } from '@entities/@types/question'
 import { HomeHeader } from '@widgets/Home/ui/HomeHeader'
 import QuestionList from '@widgets/Home/ui/QuestionList'
+import { Carousel } from '@widgets/Home/ui/Carousel'
 import * as styles from './style.css'
 
 export const data: QuestionDataType[] = [
@@ -104,15 +102,7 @@ export function ClientHomePage() {
 
    return (
       <div style={{ position: 'relative', height: '844px' }}>
-         <div
-            style={{
-               // TODO: 분리해주세요.
-               position: 'absolute',
-               top: 0,
-               left: 0,
-               overflowY: 'scroll',
-            }}
-         >
+         <div className={styles.absolutePos}>
             <div className={styles.HomeWrapper}>
                <HomeHeader
                   selectedCategory={jobCategory}
@@ -130,41 +120,7 @@ export function ClientHomePage() {
                </div>
             </div>
             {/* TODO: widgets 에 하나의 컴포넌트로 분리해주세요. /src/widget/ui/home/Carousel */}
-            {/* <div className={styles.RecommendContentBox}>
-               <div className="slider-container">
-                  <Slider
-                     className={settings.className}
-                     infinite={settings.infinite}
-                     slidesToShow={settings.slidesToShow}
-                     swipeToSlide={settings.swipeToSlide}
-                     nextArrow={settings.nextArrow}
-                  >
-                     슬라이더
-                     
-                     <HomeRecommend
-                        src={Blue}
-                        coin="""2000"""
-                        title="ddd"
-                        bookmark={20}
-                        likes={4}
-                     />
-                     <HomeRecommend
-                        src={Green}
-                        coin="""2000"""
-                        title="ddd"
-                        bookmark={20}
-                        likes={4}
-                     />
-                     <HomeRecommend
-                        src={Orange}
-                        coin="""2000"""
-                        title="ddd"
-                        bookmark={20}
-                        likes={4}
-                     />
-                  </Slider>
-               </div>
-            </div> */}
+            <Carousel />
             <Divider />
             <QuestionList />
          </div>
