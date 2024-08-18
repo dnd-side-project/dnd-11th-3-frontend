@@ -1,5 +1,9 @@
-import axios from 'axios'
+import axios, { AxiosResponse } from 'axios'
 import { axiosInstance } from '@shared/api/axiosInstance'
+
+interface PostAuthCodeResponse {
+   result: boolean
+}
 
 export const postMail = async (
    targetMail: string,
@@ -22,13 +26,21 @@ export const postMail = async (
    }
 }
 
-export const postAuthCode = async (targetMail: string, code: string) => {
+export const postAuthCode = async (
+   targetMail: string,
+   code: string,
+): Promise<PostAuthCodeResponse | false> => {
    try {
-      const res = await axiosInstance.post('/auth/check-email/authCode', {
-         targetEmail: targetMail,
-         authCode: code,
-      })
-      return res
+      const response: AxiosResponse<PostAuthCodeResponse> =
+         await axiosInstance.post<PostAuthCodeResponse>(
+            '/auth/check-email/authCode',
+            {
+               targetEmail: targetMail,
+               authCode: code,
+            },
+         )
+
+      return response.data
    } catch (error) {
       if (axios.isAxiosError(error)) {
          console.log(error.response?.data)

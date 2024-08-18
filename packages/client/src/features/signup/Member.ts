@@ -1,12 +1,21 @@
-import axios from 'axios'
+import axios, { AxiosResponse } from 'axios'
 import { axiosInstance } from '@shared/api/axiosInstance'
 
-export const postCheckNickname = async (nickname: string) => {
+interface CheckNicknameResponse {
+   isDuplicated: boolean
+}
+
+export const postCheckNickname = async (
+   nickname: string,
+): Promise<CheckNicknameResponse | false> => {
    try {
-      const res = await axiosInstance.post('/auth/check-nickname', {
-         nickname,
-      })
-      return res
+      const response: AxiosResponse<CheckNicknameResponse> =
+         await axiosInstance.post<CheckNicknameResponse>(
+            '/auth/check-nickname',
+            { nickname },
+         )
+
+      return response.data
    } catch (error) {
       if (axios.isAxiosError(error)) {
          console.log(error.response?.data)
@@ -14,7 +23,6 @@ export const postCheckNickname = async (nickname: string) => {
       return false
    }
 }
-
 export const postMemberInfo = async (
    officialEmail: string,
    nickname: string,
