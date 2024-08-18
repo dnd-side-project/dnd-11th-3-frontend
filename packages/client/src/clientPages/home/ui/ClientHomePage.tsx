@@ -1,7 +1,5 @@
 'use client'
 
-import { HomeHeader } from '@widgets/HomeHeader/HomeHeader'
-
 import React, { useState } from 'react'
 import dynamic from 'next/dynamic'
 
@@ -15,6 +13,7 @@ import { Badge, Button, Divider } from '@gds/component'
 import { PageURL } from '@shared/model'
 import { useRouter } from 'next/navigation'
 import { QuestionDataType } from '@entities/@types/question'
+import { HomeHeader } from '@widgets/Home/ui/HomeHeader'
 import * as styles from './style.css'
 
 const Slider = dynamic(() => import('react-slick'), { ssr: false })
