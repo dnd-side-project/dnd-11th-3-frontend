@@ -5,16 +5,6 @@ export const contentWrapper = style({
 
    display: 'flex',
    justifyContent: 'space-between',
-   alignItems: 'flex-end',
+   alignItems: 'flex-start',
    gap: '5px',
-})
-
-export const inputWrapper = style({
-   width: 292,
-})
-
-export const buttonWrapper = style({
-   width: 58,
-   height: '100%',
-   marginBottom: 60,
 })

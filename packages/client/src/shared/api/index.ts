@@ -1,1 +1,2 @@
-export { config, csrConfig, ssrConfig } from './config'
+export * from './config'
+export * from './auth'

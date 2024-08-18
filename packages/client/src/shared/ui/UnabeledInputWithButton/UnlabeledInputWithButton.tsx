@@ -17,16 +17,10 @@ export function UnlabeledInputWithButton({
 }: Props) {
    return (
       <div className={styles.contentWrapper}>
-         <div
-            className={styles.inputWrapper}
-            style={{ width: inputProps.width }}
-         >
+         <div style={{ width: inputProps.width }}>
             <TextInput {...inputProps} size="medium" />
          </div>
-         <div
-            className={styles.buttonWrapper}
-            style={{ width: buttonProps.width }}
-         >
+         <div style={{ width: buttonProps.width }}>
             <Button size="medium" {...buttonProps}>
                {buttonChildren}
             </Button>

@@ -100,7 +100,7 @@ export default function DSignup() {
                   />
                )}
             />
-            <div className={styles.ButtonStyle} style={{ marginTop: '37px' }}>
+            <div className={styles.ButtonStyle} style={{ marginTop: '36px' }}>
                <Button
                   style={{ height: '54px' }}
                   size="small"
