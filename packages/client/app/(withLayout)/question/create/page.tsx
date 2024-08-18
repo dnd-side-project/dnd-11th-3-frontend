@@ -1,9 +1,9 @@
-import { QuestionCreateInputs } from '@widgets/QuestionCreateInputs'
+import { ClientQuestionCreatePage } from 'src/clientPages/questionCreate'
 
-export default function CreateQuestionPage() {
+export default function QuestionCreatePage() {
    return (
       <div>
-         <QuestionCreateInputs />
+         <ClientQuestionCreatePage />
       </div>
    )
 }

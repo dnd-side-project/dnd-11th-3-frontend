@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css'
-import { color } from '../../token/Color/color'
+import { color } from '../../token'
 
 export const CreditBox = style({
   backgroundColor: color['secondary-main'],
@@ -12,7 +12,7 @@ export const CreditBox = style({
   fontSize: '11px',
   fontWeight: '600',
   borderRadius: '2px',
-  color: color['white'],
+  color: color.white,
   lineHeight: '100%',
 })
 
@@ -38,4 +38,32 @@ export const JobListBox = style({
   borderRadius: '2px',
   color: color['secondary-dark'],
   lineHeight: '100%',
+  border: `1px solid ${color['gray-800']}`,
+  padding: '0 4px ',
+})
+
+export const JobGreenTagBox = style({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  fontSize: '12px',
+  fontWeight: '600',
+  borderRadius: '8px',
+  color: color['primary-dark'],
+  lineHeight: '100%',
+  border: `1px solid ${color['primary-light']}`,
+  backgroundColor: color['primary-background'],
+  padding: '6px ',
+})
+export const AdoptTagBox = style({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  fontSize: '11px',
+  fontWeight: '600',
+  borderRadius: '2px',
+  color: color.white,
+  backgroundColor: color['primary-main'],
+  lineHeight: '100%',
+  padding: '4px ',
 })

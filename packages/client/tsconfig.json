@@ -9,6 +9,7 @@
       "emitDecoratorMetadata": true,
       "experimentalDecorators": true,
       "importHelpers": true,
+      "jsx": "preserve", // 이 부분이 중요합니다.
       "target": "es2017",
       "module": "esnext",
       "lib": ["es2017", "dom", "dom.iterable", "esnext"],
@@ -19,7 +20,6 @@
       "esModuleInterop": true,
       "resolveJsonModule": true,
       "isolatedModules": true,
-      "jsx": "preserve",
       "incremental": true,
       "plugins": [
          {
@@ -35,8 +35,9 @@
          "@gds/component": ["./src/design-system/component/index.ts"],
          "@gds/token": ["./src/design-system/token/index.ts"],
          "@gds/icon": ["./src/design-system/icon/index.ts"],
-         "@gmi-design-system": ["../gmi-design-system/src"],
-         "@vanilla-extract": ["node_modules/@vanilla-extract"]
+
+         "@vanilla-extract/css": ["node_modules/@vanilla-extract/css"],
+         "@vanilla-extract/recipes": ["node_modules/@vanilla-extract/recipes"]
       },
       "forceConsistentCasingInFileNames": true
    },

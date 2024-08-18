@@ -1,7 +1,8 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
-import { IconArrowLeft } from 'src/design-system/icon'
+import { IconArrowLeft, IconEdit } from 'src/design-system/icon'
+import { IconButton } from '@gds/component'
 import {
    arrowButtonWrappewrStyle,
    headerTitleWrappewrStyle,
@@ -16,14 +17,15 @@ export function Header({ title }: Props) {
    const router = useRouter()
    return (
       <div className={headerWrapperStyle}>
-         <button
-            className={arrowButtonWrappewrStyle}
-            type="button"
-            onClick={() => router.back()}
-            aria-label="Go back"
-         >
-            <IconArrowLeft />
-         </button>
+         <div className={arrowButtonWrappewrStyle}>
+            <IconButton
+               onClick={() => router.back()}
+               variant="default"
+               aria-label="Back"
+               size="small"
+               icon={<IconArrowLeft />}
+            />
+         </div>
          <h1 className={headerTitleWrappewrStyle}>{title}</h1>
       </div>
    )

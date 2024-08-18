@@ -1,4 +1,10 @@
-import { CSSProperties, useRef, useState } from 'react'
+import {
+   cloneElement,
+   CSSProperties,
+   ReactElement,
+   useRef,
+   useState,
+} from 'react'
 import {
    Select as AriaSelect,
    Button,
@@ -7,16 +13,19 @@ import {
    ListBoxItem,
    Popover,
 } from 'react-aria-components'
+
+import { TextInputProps } from '../TextInput/TextInput'
 import {
+   selectItemWrapper,
    INPUT_BG_COLOR,
    textInputLabelContainerStyle,
    textInputLabelStyle,
    textInputStyle,
    textInputWrapperStyle,
    textMetaStyle,
-} from '../TextInput/textInput.css'
-import { TextInputProps } from '../TextInput/TextInput'
-import { selectItemWrapper } from './select.css'
+   INPUT_COLOR,
+   iconWrapperStyle,
+} from './select.css'
 
 export interface SelectItemType {
    label: string
@@ -31,8 +40,10 @@ export interface SelectProps
    selected: SelectItemType | null
    pressAndClose?: boolean
    placeholder?: string
-   inputProps?: Omit<TextInputProps, 'value' | 'onChange'>
+   inputProps?: Omit<TextInputProps, 'value' | 'onChange' | 'variant'>
    width?: CSSProperties['width']
+   variant: 'default' | 'textOnly' | 'filled'
+   listBoxWidth?: CSSProperties['width']
 }
 
 export function Select({
@@ -43,6 +54,7 @@ export function Select({
    pressAndClose = true,
    width = 350,
    inputProps,
+   variant = 'default',
 }: SelectProps) {
    const [opened, setOpened] = useState(false)
 
@@ -53,6 +65,7 @@ export function Select({
          }}
       >
          <SelectInput
+            variant={variant}
             inputProps={inputProps}
             disabled={disabled}
             selected={selected}
@@ -113,8 +126,10 @@ function SelectInput({
    inputProps,
    selected,
    onClick,
-}: Pick<SelectProps, 'disabled' | 'inputProps' | 'selected'> & {
+   variant,
+}: Pick<SelectProps, 'disabled' | 'inputProps' | 'selected' | 'variant'> & {
    onClick: () => void
+   icon?: ReactElement
 }) {
    const ref = useRef(null)
 
@@ -139,7 +154,7 @@ function SelectInput({
                border: 'none',
                backgroundColor: disabled // TODO: refactor to use variant
                   ? INPUT_BG_COLOR.disabled
-                  : inputProps?.variant === 'filled'
+                  : variant === 'filled'
                     ? INPUT_BG_COLOR.filled
                     : INPUT_BG_COLOR.default,
                color: 'none',
@@ -152,7 +167,7 @@ function SelectInput({
                      ? 'disabled'
                      : inputProps?.errorMessage
                        ? 'error'
-                       : inputProps?.variant,
+                       : variant,
                })}
             >
                <input
@@ -161,13 +176,24 @@ function SelectInput({
                         ? 'disabled'
                         : inputProps?.errorMessage
                           ? 'error'
-                          : inputProps?.variant,
+                          : variant,
                   })}
                   readOnly
                   value={selected ? selected.label : ''}
                   {...inputProps}
                />
-               {inputProps?.icon}
+
+               <div className={iconWrapperStyle}>
+                  {!!inputProps?.icon &&
+                     // TODO: refactor not to use cloneElement
+                     cloneElement(inputProps?.icon, {
+                        color: disabled
+                           ? INPUT_COLOR.disabled
+                           : inputProps?.errorMessage
+                             ? INPUT_COLOR.error
+                             : INPUT_COLOR.default,
+                     })}
+               </div>
             </div>
          </Button>
          {(inputProps?.errorMessage || inputProps?.description) && (

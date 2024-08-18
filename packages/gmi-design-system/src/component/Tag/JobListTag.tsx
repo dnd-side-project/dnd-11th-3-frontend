@@ -1,11 +1,10 @@
+import React from 'react'
 import { JobListBox } from './index.css'
 
-interface Props {
+export interface JobListProps {
   name: string
 }
 
-const JobListTag = ({ name }: Props) => {
+export function JobListTag({ name }: JobListProps) {
   return <div className={JobListBox}>{name}</div>
 }
-
-export default JobListTag

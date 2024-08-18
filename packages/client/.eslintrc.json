@@ -21,6 +21,8 @@
       "**/*.css"
    ], // eslint 미적용될 폴더나 파일 명시
    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended",
       "next",
       "next/core-web-vitals",
       "airbnb",
@@ -50,5 +52,10 @@
       "import/no-cycle": "off", // import/no-cycle 규칙 비활성화
       "no-unused-vars": "warn", // no-unused-vars 규칙 추가
       "@typescript-eslint/no-unused-vars": "warn" // @typescript-eslint/no-unused-vars 규칙 추가
+   },
+   "settings": {
+      "react": {
+         "version": "18"
+      }
    }
 }

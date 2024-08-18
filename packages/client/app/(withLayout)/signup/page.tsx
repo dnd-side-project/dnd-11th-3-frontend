@@ -1,9 +1,9 @@
 'use client'
 
-import { Button } from '@gmi-design-system/component/Button/Button'
+import { Button } from '@gds/component'
 import { SignUpType } from '@entities/@types/signup'
 import { ChangeEvent, useState } from 'react'
-import { color } from '@gmi-design-system/token'
+import { color } from '@gds/token'
 import * as styles from './index.css'
 
 export type EssentialDataType = SignUpType & {
@@ -57,7 +57,8 @@ export default function Signup() {
             <Button
                style={{ width: '58px', marginLeft: '8px' }}
                size="small"
-               variant={`${essentialData.officialEmail.length > 0 ? 'filled' : 'disabled'}`}
+               disabled={essentialData.officialEmail.length > 0}
+               variant="filled"
             >
                인증
             </Button>
@@ -73,7 +74,8 @@ export default function Signup() {
             <Button
                style={{ width: '58px', marginLeft: '8px' }}
                size="small"
-               variant={`${authCode.length > 0 ? 'filled' : 'disabled'}`}
+               disabled={authCode.length <= 0}
+               variant="filled"
             >
                확인
             </Button>
@@ -91,7 +93,8 @@ export default function Signup() {
             <Button
                style={{ width: '86px', marginLeft: '8px' }}
                size="small"
-               variant={`${essentialData.nickname.length > 0 ? 'filled' : 'disabled'}`}
+               disabled={essentialData.nickname.length <= 0}
+               variant="filled"
             >
                중복확인
             </Button>
@@ -123,7 +126,8 @@ export default function Signup() {
             <Button
                type="button"
                size="medium"
-               variant={isFormComplete ? 'filled' : 'disabled'}
+               disabled={!isFormComplete}
+               variant="filled"
             >
                가입하기
             </Button>

@@ -24,7 +24,7 @@ export function ButtonComponent() {
         <Button size="small" variant="filled">
           Small
         </Button>
-        <Button size="medium" variant="filled" icon={<IconBookmark color="white" />}>
+        <Button size="medium" variant="filled" rightIcon={<IconBookmark color="white" />}>
           Medium
         </Button>
         <Button size="large" variant="filled">
@@ -43,7 +43,7 @@ export function ButtonComponent() {
         <Button size="medium" variant="outlined">
           Medium
         </Button>
-        <Button size="large" variant="outlined" icon={<IconBookmark />}>
+        <Button size="large" variant="outlined" rightIcon={<IconBookmark />}>
           Large
         </Button>
       </div>
@@ -53,10 +53,10 @@ export function ButtonComponent() {
           gap: '1rem',
         }}
       >
-        <Button size="small" variant="outlined" icon={<IconBookmark />}>
+        <Button size="small" variant="outlined" rightIcon={<IconBookmark />}>
           Small
         </Button>
-        <Button size="medium" variant="outlined" disabled icon={<IconBookmark />}>
+        <Button size="medium" variant="outlined" disabled rightIcon={<IconBookmark />}>
           Medium
         </Button>
         <Button size="large" variant="outlined" disabled>

@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css'
 import { recipe } from '@vanilla-extract/recipes'
-import { color } from '../../token/Color/color'
+import { color } from '../../token'
 
 export const buttonStyle = recipe({
    base: {
@@ -22,20 +22,29 @@ export const buttonStyle = recipe({
    },
 
    variants: {
+      rounded: {
+         true: { borderRadius: 30 },
+      },
       size: {
-         small: { padding: '8px 0 8px 0', fontSize: '14px', height: '32px' },
-         medium: { padding: '15px 0 15px 0', fontSize: '16px', height: '49px' },
+         small: { padding: '8px 0 8px 0', fontSize: '12px', height: '32px' },
+         medium: { padding: '15px 0 15px 0', fontSize: '16px', height: '54px' },
          large: { padding: '18px 0 18px 0', fontSize: '18px', height: '60px' },
       },
       variant: {
          filled: {
             backgroundColor: color['primary-main'],
             color: color.white,
+            ':hover': {
+               backgroundColor: color['primary-light'],
+            },
          },
          outlined: {
             border: `1px solid ${color['gray-800']}`,
             color: color['gray-200'],
-            backgroundColor: color['gray-000'],
+            backgroundColor: color.white,
+            ':hover': {
+               backgroundColor: color['gray-900'],
+            },
          },
          disabled: {
             cursor: 'not-allowed',
@@ -50,8 +59,15 @@ export const buttonStyle = recipe({
    },
 })
 
-export const iconWrapperStyle = style({
+export const rightIconWrapperStyle = style({
    marginLeft: '0.3rem',
+   display: 'flex',
+   justifyContent: 'center',
+   alignItems: 'center',
+})
+
+export const leftIconWrapperStyle = style({
+   marginRight: '0.3rem',
    display: 'flex',
    justifyContent: 'center',
    alignItems: 'center',

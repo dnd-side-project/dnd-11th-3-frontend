@@ -34,7 +34,6 @@ export const headerTitleWrappewrStyle = style({
    width: 430 - LEFT_ARROW_WIDTH,
    marginRight: LEFT_ARROW_WIDTH,
    textAlign: 'center',
-
    display: 'flex',
    justifyContent: 'center',
    alignItems: 'center',

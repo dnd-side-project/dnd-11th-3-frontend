@@ -16,3 +16,9 @@ export type { IconButtonProps } from './IconButton/IconButton'
 
 export { NumberInput } from './NumberInput/NumberInput'
 export type { NumberInputProps } from './NumberInput/NumberInput'
+
+export { Badge } from './Badge/Badge'
+export type { BadgeProps } from './Badge/Badge'
+
+export { Divider } from './Divider/Divider'
+export type { DividerProps } from './Divider/Divider'
