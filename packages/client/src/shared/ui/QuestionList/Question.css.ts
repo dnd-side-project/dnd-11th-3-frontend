@@ -4,8 +4,8 @@ import { color } from '@gds/token'
 export const QuestionWrapper = style({
    display: 'flex',
    flexDirection: 'column',
-   borderBottom: `2px solid ${color['gray-900']}`,
    marginTop: '23px',
+   width: '100%',
 })
 
 export const QuestionTagWrapper = style({
