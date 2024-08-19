@@ -1,6 +1,8 @@
 import React from 'react'
 import Image from 'next/image'
-import { IconBookmark, IconWhiteLike } from '@gds/icon'
+import { IconBookmark, IconCredit, IconWhiteLike } from '@gds/icon'
+import { Badge } from '@gds/component'
+import { color } from '@gds/token'
 import * as styles from './index.css'
 
 interface HomeRecommendProps {
@@ -22,11 +24,15 @@ function HomeRecommend({
       <div className={styles.RecommendItem}>
          <Image src={src} alt="recommend Image" />
          <div className={styles.overlay}>
-            <div className={styles.CoinBox}>{/* <Credit coin={coin} /> */}</div>
+            <div className={styles.CoinBox}>
+               <Badge variant="secondary" size="small">
+                  {coin} <IconCredit color={color['secondary-main']} />
+               </Badge>
+            </div>
             <span className={styles.TitleStyle}>{title}</span>
             <div className={styles.DetailWrapper}>
                <div className={styles.IconBox}>
-                  <IconBookmark color="#FFF" />
+                  <IconBookmark color="#FFF" size={10} />
                </div>
                <div className={styles.NumberBox}>{bookmark}</div>
                <div className={styles.IconBox}>
