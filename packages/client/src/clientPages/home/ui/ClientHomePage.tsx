@@ -119,9 +119,10 @@ export function ClientHomePage() {
                   </div>
                </div>
             </div>
-            {/* TODO: widgets 에 하나의 컴포넌트로 분리해주세요. /src/widget/ui/home/Carousel */}
             <Carousel />
-            <Divider />
+            <div className={styles.DividerWrapper}>
+               <Divider />
+            </div>
             <QuestionList />
          </div>
          <div className={styles.floatingButton}>
@@ -131,6 +132,7 @@ export function ClientHomePage() {
                variant="filled"
                size="medium"
                leftIcon={<IconPlus />}
+               style={{ boxShadow: '0 2px  4px 0px rgba(0, 0, 0, 0.15)' }}
             >
                작성하기
             </Button>
