@@ -20,7 +20,7 @@ export function AuthLayout({ children }: Props) {
    )
 
    const showBottomNavBar = useMemo(() => {
-      const PAGES: string[] = [PageURL.ACCOUNT, PageURL.HOME]
+      const PAGES: string[] = [PageURL.ACCOUNT, PageURL.HOME, PageURL.CHAT]
       return PAGES.includes(pathname)
    }, [pathname])
 
