@@ -29,6 +29,8 @@ export const overlay = style({
 
 export const CoinBox = style({
    marginBottom: '8px',
+   display: 'flex',
+   alignItems: 'center',
 })
 
 export const DetailWrapper = style({
