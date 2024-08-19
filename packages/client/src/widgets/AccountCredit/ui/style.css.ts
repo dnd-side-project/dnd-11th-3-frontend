@@ -43,3 +43,7 @@ export const CreditIconBox = style({
 })
 
 export const CreditsContainer = style({})
+
+export const SelectBox = style({
+   margin: '10px 0',
+})
