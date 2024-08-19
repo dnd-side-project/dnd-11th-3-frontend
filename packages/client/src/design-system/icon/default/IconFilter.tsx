@@ -6,7 +6,7 @@ function IconFilter(
    {
       title = 'IconFilter',
       titleId = 'GDS-IconFilter',
-      size = 20,
+      size = 16,
       color = '#2A2A2A',
       ...props
    }: SVGProps<SVGSVGElement> & IconProps,
