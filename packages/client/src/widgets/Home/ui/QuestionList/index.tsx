@@ -1,14 +1,24 @@
 import React, { useState } from 'react'
 
 import { useScrollHandler } from '@features/useScrollHandler'
-import { Badge } from '@gds/component'
 import { data } from 'src/clientPages/home/ui/ClientHomePage'
 import Question from '@shared/ui/QuestionList/Question'
+import { IconFilter } from '@gds/icon'
+import { SelectItemType } from 'src/design-system/component/Select/Select'
+import { SelectFilter } from 'src/design-system/component/SelectFilter'
 import * as styles from './index.css'
 
 function QuestionList() {
    const [fixed, setFixed] = useState<boolean>(false)
+   const [selectedWithIcon, setSelectedWithIcon] = useState<SelectItemType[]>(
+      [],
+   )
+
    useScrollHandler(setFixed, 'nav-section')
+
+   const handleSelect = (selectedItems: SelectItemType[]) => {
+      setSelectedWithIcon(selectedItems)
+   }
 
    return (
       <div id="nav-section" className={styles.HomeWrapper}>
@@ -20,16 +30,30 @@ function QuestionList() {
                   <span>질문 리스트</span>
                </div>
                <div className={styles.QuestionFilterBox}>
-                  <Badge variant="primary" size="small">
-                     더보기
-                  </Badge>
+                  <SelectFilter
+                     variant="default"
+                     inputProps={{
+                        icon: <IconFilter />,
+                     }}
+                     onSelect={handleSelect}
+                     selected={selectedWithIcon}
+                     placeholder="직군 3개까지 선택 가능합니다."
+                     items={[
+                        // TODO: 직군 데이터로 변경 필요
+                        { label: 'Option 1', id: '1' },
+                        { label: 'Option 2', id: '2' },
+                        { label: 'Option 3', id: '3' },
+                        { label: 'Option 4', id: '4' },
+                        { label: 'Option 56', id: '5' },
+                     ]}
+                  />
                </div>
             </div>
          </div>
          <div className={styles.QuestionsWrapper}>
-            {data.map((question) => {
-               return <Question data={question} key={question.questionPostId} />
-            })}
+            {data.map((question) => (
+               <Question data={question} key={question.questionPostId} />
+            ))}
          </div>
       </div>
    )

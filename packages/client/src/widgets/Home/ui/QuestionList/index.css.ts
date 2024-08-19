@@ -25,7 +25,9 @@ export const QuestionHeaderTitle = style({
    color: color['gray-100'],
 })
 
-export const QuestionFilterBox = style({ display: 'flex' })
+export const QuestionFilterBox = style({
+   display: 'flex',
+})
 
 export const QuestionsWrapper = style({
    display: 'flex',
