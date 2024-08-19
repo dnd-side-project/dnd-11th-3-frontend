@@ -17,5 +17,5 @@ export const RecommendItem = style({
 
 export const ArrowBox = style({
    color: color['primary-main'],
-   marginRight: '30px',
+   marginRight: '10px',
 })
