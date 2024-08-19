@@ -33,7 +33,7 @@ export const data: QuestionDataType[] = [
       jobGroup: '법원경비관리',
       reward: '2000',
       createdAt: '2024',
-      isChosen: false,
+      isChosen: true,
       bookmark: 23,
       likes: 2,
       tag: '법원경비관리',
