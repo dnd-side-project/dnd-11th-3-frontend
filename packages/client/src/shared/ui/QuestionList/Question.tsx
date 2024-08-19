@@ -1,6 +1,8 @@
 import React from 'react'
-import { IconBookmark, IconThumbUpFilled } from '@gds/icon'
+import { IconBookmark, IconCredit, IconThumbUpFilled } from '@gds/icon'
 
+import { Badge } from '@gds/component'
+import { color } from '@gds/token'
 import * as styles from './Question.css'
 
 export interface QuestionData {
@@ -11,6 +13,7 @@ export interface QuestionData {
    date: string
    bookmark: number
    likes: number
+   isChosen: boolean
 }
 
 interface Props {
@@ -21,14 +24,20 @@ function Question({ data }: Props) {
    return (
       <div className={styles.QuestionWrapper}>
          <div className={styles.QuestionTagWrapper}>
-            {/** TODO: 디자인시스템의 Badge를 사용 */}
-            {/* <JobListTag name={data.tag} />
-            <div className={styles.TagBox}>
-               <AdoptTag />
+            <div style={{ marginRight: '4px' }}>
+               <Badge variant="outlined" size="small">
+                  {data.tag}
+               </Badge>
             </div>
-            <div className={styles.TagBox}>
-               <CreditTag coin={data.reward} />
-            </div> */}
+            {data.isChosen ? (
+               <Badge variant="primary" size="small">
+                  채택완료
+               </Badge>
+            ) : (
+               <Badge variant="secondary" size="small">
+                  {data.reward} <IconCredit color={color['secondary-main']} />
+               </Badge>
+            )}
          </div>
          <div className={styles.QuestionTitleBox}>
             <span>{data.title}</span>
