@@ -241,6 +241,13 @@ function SelectInput({
                   }}
                   role="button"
                   tabIndex={0}
+                  style={{
+                     cursor: 'pointer',
+                     border: `1px solid ${color['gray-800']}`,
+                     backgroundColor: color['gray-000'],
+                     padding: '4px 5px',
+                     borderRadius: '8px',
+                  }}
                >
                   {!!inputProps?.icon &&
                      // TODO: refactor not to use cloneElement
