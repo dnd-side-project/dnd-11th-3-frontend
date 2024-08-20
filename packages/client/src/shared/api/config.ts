@@ -2,7 +2,7 @@ import { IncomingMessage } from 'http'
 
 import { Configuration } from '@server-api/configuration'
 import { useQueryClient } from '@tanstack/react-query'
-import { PostTmpAccessTokenQueryKey, usePostTmpAccessToken } from './auth'
+import { PostTmpAccessTokenQueryKey } from './auth'
 
 const { API_BASE_URL } = process.env
 
