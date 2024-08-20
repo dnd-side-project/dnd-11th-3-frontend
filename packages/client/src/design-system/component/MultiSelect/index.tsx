@@ -48,7 +48,7 @@ export interface SelectProps
    listBoxWidth?: CSSProperties['width']
 }
 
-export function SelectFilter({
+export function MultiSelect({
    disabled = false,
    items,
    onSelect,
@@ -309,4 +309,4 @@ function CustomListBoxItem({
    )
 }
 
-export default SelectFilter
+export default MultiSelect

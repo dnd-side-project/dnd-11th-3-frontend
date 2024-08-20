@@ -5,7 +5,7 @@ import { data } from 'src/clientPages/home/ui/ClientHomePage'
 import Question from '@shared/ui/QuestionList/Question'
 import { IconFilter } from '@gds/icon'
 import { SelectItemType } from 'src/design-system/component/Select/Select'
-import { SelectFilter } from 'src/design-system/component/SelectFilter'
+import { MultiSelect } from 'src/design-system/component/MultiSelect'
 import * as styles from './index.css'
 
 function QuestionList() {
@@ -30,7 +30,7 @@ function QuestionList() {
                   <span>질문 리스트</span>
                </div>
                <div className={styles.QuestionFilterBox}>
-                  <SelectFilter
+                  <MultiSelect
                      variant="default"
                      inputProps={{
                         icon: <IconFilter />,
