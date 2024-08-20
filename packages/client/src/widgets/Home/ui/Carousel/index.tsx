@@ -1,10 +1,10 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
 
+import Blue from 'public/asset/Carousel/blue.svg'
+import Green from 'public/asset/Carousel/Green.svg'
+import Orange from 'public/asset/Carousel/Orange.svg'
 import HomeRecommend from '../Recommend'
-import Blue from './Blue.svg'
-import Green from './Green.svg'
-import Orange from './Orange.svg'
 import './slider.css'
 import * as styles from './index.css'
 
