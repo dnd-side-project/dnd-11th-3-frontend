@@ -12,6 +12,7 @@ import {
    useVerifyCode,
 } from 'src/clientPages/signup/api/mail'
 import { on } from 'events'
+import { usePostNicknameDuplCheck } from '@shared/api'
 import * as styles from './style.css'
 
 interface Props {
@@ -21,6 +22,7 @@ interface Props {
 export function SignupInputSection({ form }: Props) {
    const [loading, setLoading] = useState(false)
    const {
+      officialEmail,
       officialEmailVerifyCodeSent,
       // nicknameErrorMessage,
       // officialEmailVerifyCodeErrorMessage,
@@ -28,6 +30,7 @@ export function SignupInputSection({ form }: Props) {
 
    const { mutate: sendVerifyCodeByEmail } = useSendVerificationCodeByEmail()
    const { mutate: verifyCode } = useVerifyCode()
+   const { mutate: checkNickNameDuplication } = usePostNicknameDuplCheck()
 
    return (
       <>
@@ -67,6 +70,7 @@ export function SignupInputSection({ form }: Props) {
                            {
                               onSuccess: () => {
                                  // TODO: '성공했습니다 메세지 띄우기'
+                                 form.clearErrors('officialEmail')
                                  setLoading(false)
                                  form.setValue(
                                     'officialEmailVerifyCodeSent',
@@ -102,6 +106,12 @@ export function SignupInputSection({ form }: Props) {
             render={({ field: { onChange, value }, fieldState: { error } }) => (
                <UnlabeledInputWithButton
                   inputProps={{
+                     onChange: (e) => {
+                        if (error) {
+                           form.clearErrors('verificationNumber')
+                        }
+                        onChange(e.target.value)
+                     },
                      width: 292,
                      placeholder: '인증번호를 입력해주세요',
                      errorMessage:
@@ -112,6 +122,31 @@ export function SignupInputSection({ form }: Props) {
                      variant: 'filled',
                      disabled: !officialEmailVerifyCodeSent,
                      loading,
+                     onClick: () => {
+                        verifyCode(
+                           {
+                              targetEmail: officialEmail,
+                              authCode: value,
+                           },
+                           {
+                              onSuccess: () => {
+                                 form.clearErrors('verificationNumber')
+                              },
+                              onError: () => {
+                                 form.setError('verificationNumber', {
+                                    message:
+                                       '서버 에러가 발생했습니다. 다시 시도해주세요.',
+                                    type: 'server',
+                                 })
+
+                                 form.setError('verificationNumber', {
+                                    message: '인증번호가 일치하지 않습니다.',
+                                    type: 'verification',
+                                 })
+                              },
+                           },
+                        )
+                     },
                   }}
                   buttonChildren="확인"
                />
@@ -125,7 +160,10 @@ export function SignupInputSection({ form }: Props) {
                rules={{
                   required: true,
                }}
-               render={({ field: { onChange, value } }) => (
+               render={({
+                  field: { onChange, value },
+                  fieldState: { error },
+               }) => (
                   <LabeledInputWithButton
                      inputProps={{
                         minLength: 2,
@@ -134,12 +172,47 @@ export function SignupInputSection({ form }: Props) {
                         label: '닉네임',
                         description: '2-12자 이내로 입력해주세요.',
                         required: true,
-                        onChange,
+                        onChange: (e) => {
+                           if (error) {
+                              form.clearErrors('nickname')
+                           }
+                           onChange(e.target.value)
+                        },
                         value,
+                        errorMessage:
+                           error?.type === 'server'
+                              ? error.message
+                              : error?.type === 'validation'
+                                ? error.message
+                                : '',
                      }}
                      buttonProps={{
                         width: 86,
                         variant: 'filled',
+                        onClick: () => {
+                           checkNickNameDuplication(
+                              {
+                                 nickname: value,
+                              },
+                              {
+                                 onSuccess: () => {
+                                    form.clearErrors('nickname')
+                                 },
+                                 onError: () => {
+                                    form.setError('nickname', {
+                                       message:
+                                          '서버 에러가 발생했습니다. 다시 시도해주세요.',
+                                       type: 'server',
+                                    })
+
+                                    // form.setError('nickname', { //TODO: 서버에서 에러메세지 받아오기
+                                    //    message: '이미 사용중인 닉네임입니다.',
+                                    //    type: 'validation',
+                                    // })
+                                 },
+                              },
+                           )
+                        },
                      }}
                      buttonChildren="중복확인"
                   />
