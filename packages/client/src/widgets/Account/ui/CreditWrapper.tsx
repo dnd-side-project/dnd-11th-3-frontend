@@ -1,7 +1,6 @@
 import React from 'react'
-import { IconArrowRight, IconCredit, IconCreditFill } from '@gds/icon'
+import { IconArrowRight, IconCreditFill } from '@gds/icon'
 import { color } from '@gds/token'
-import { Divider } from '@gds/component'
 import * as styles from './style.css'
 
 function CreditWrapper() {

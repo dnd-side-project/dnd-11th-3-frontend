@@ -2,9 +2,14 @@ import { color } from '@gds/token'
 import { style } from '@vanilla-extract/css'
 
 export const Wrapper = style({
+   padding: '0 16px',
    display: 'flex',
    flexDirection: 'column',
-   padding: '0 16px',
+})
+
+export const Container = style({
+   display: 'flex',
+   flexDirection: 'column',
 })
 
 export const Header = style({
@@ -106,4 +111,31 @@ export const creditMore = style({
    fontSize: '14px',
    fontWeight: '600',
    lineHeight: '16px',
+})
+
+export const marginBox = style({
+   margin: '24px 0',
+})
+
+export const titleMenu = style({
+   fontSize: '16px',
+   fontWeight: '600',
+   color: color['gray-200'],
+})
+
+export const urlBox = style({
+   marginTop: '16px',
+   display: 'flex',
+})
+
+export const urlMenu = style({
+   fontSize: '18px',
+   fontWeight: '600',
+   lineHeight: '22px',
+   letterSpacing: '-0.18px',
+   color: color['gray-100'],
+})
+
+export const iconBox = style({
+   marginLeft: 'auto',
 })
