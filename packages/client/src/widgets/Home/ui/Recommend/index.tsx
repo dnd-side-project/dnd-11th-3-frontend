@@ -1,4 +1,3 @@
-import React from 'react'
 import Image from 'next/image'
 import { IconBookmark, IconCredit, IconWhiteLike } from '@gds/icon'
 import { Badge } from '@gds/component'

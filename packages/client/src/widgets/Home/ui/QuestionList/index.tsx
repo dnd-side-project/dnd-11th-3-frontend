@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 import { useScrollHandler } from '@features/useScrollHandler'
 import { data } from 'src/clientPages/home/ui/ClientHomePage'
