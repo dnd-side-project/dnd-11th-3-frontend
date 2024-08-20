@@ -1,6 +1,4 @@
-import React from 'react'
 import { IconBookmark, IconCredit, IconThumbUpFilled } from '@gds/icon'
-
 import { Badge } from '@gds/component'
 import { color } from '@gds/token'
 import * as styles from './Question.css'
