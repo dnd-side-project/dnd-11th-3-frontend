@@ -52,6 +52,7 @@ export function SignupInputSection({ form }: Props) {
                         }
                         onChange(e.target.value)
                      },
+                     placeholder: '공무원 공식 메일을 입력해주세요.',
                      description: '버튼 클릭시 이메일로 인증번호가 전송됩니다.',
                      errorMessage:
                         error?.type === 'server' ? error.message : '',
@@ -189,6 +190,7 @@ export function SignupInputSection({ form }: Props) {
                      buttonProps={{
                         width: 86,
                         variant: 'filled',
+                        disabled: value.length < 2,
                         onClick: () => {
                            checkNickNameDuplication(
                               {
@@ -226,12 +228,13 @@ export function SignupInputSection({ form }: Props) {
                }}
                render={({ field: { onChange, value } }) => (
                   <Select
+                     required
                      items={JOB_CATEGORIES.map((category) => ({
                         label: category,
                         id: category,
                      }))}
                      inputProps={{
-                        placeholder: '해당 직군을 입력해주세요',
+                        placeholder: '해당 직군을 선택해주세요',
                         label: '직군',
                         required: true,
                         icon: <IconSearch />,
@@ -242,31 +245,6 @@ export function SignupInputSection({ form }: Props) {
                   />
                )}
             />
-
-            {/* <Controller
-               name="jobCategory"
-               control={form.control}
-               rules={{
-                  required: true,
-               }}
-               render={({ field: { onChange, value } }) => (
-                  <Select
-                     items={JOB_CATEGORIES.map((category) => ({
-                        label: category,
-                        id: category,
-                     }))}
-                     inputProps={{
-                        placeholder: '해당 직렬을 입력해주세요',
-                        label: '직렬',
-                        required: true,
-                        icon: <IconSearch />,
-                     }}
-                     selected={null}
-                     variant="default"
-                     onSelect={(item) => console.log(item)}
-                  />
-               )}
-            /> */}
          </div>
       </>
    )

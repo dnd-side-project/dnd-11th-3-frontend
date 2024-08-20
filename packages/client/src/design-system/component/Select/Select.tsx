@@ -25,6 +25,7 @@ import {
    textMetaStyle,
    INPUT_COLOR,
    iconWrapperStyle,
+   asteriskStyle,
 } from './select.css'
 
 export interface SelectItemType {
@@ -40,10 +41,11 @@ export interface SelectProps
    selected: SelectItemType | null
    pressAndClose?: boolean
    placeholder?: string
-   inputProps?: Omit<TextInputProps, 'value' | 'onChange' | 'variant'>
+   inputProps?: Omit<TextInputProps, 'value' | 'onChange' | 'variant' | 'size'>
    width?: CSSProperties['width']
    variant: 'default' | 'textOnly' | 'filled'
    listBoxWidth?: CSSProperties['width']
+   required?: boolean
 }
 
 export function Select({
@@ -55,6 +57,7 @@ export function Select({
    width = 350,
    inputProps,
    variant = 'default',
+   required = false,
 }: SelectProps) {
    const [opened, setOpened] = useState(false)
 
@@ -65,6 +68,7 @@ export function Select({
          }}
       >
          <SelectInput
+            required={required}
             variant={variant}
             inputProps={inputProps}
             disabled={disabled}
@@ -128,7 +132,11 @@ function SelectInput({
    selected,
    onClick,
    variant,
-}: Pick<SelectProps, 'disabled' | 'inputProps' | 'selected' | 'variant'> & {
+   required,
+}: Pick<
+   SelectProps,
+   'disabled' | 'inputProps' | 'selected' | 'variant' | 'required'
+> & {
    onClick: () => void
    icon?: ReactElement
 }) {
@@ -137,7 +145,10 @@ function SelectInput({
    return (
       <div className={textInputLabelContainerStyle}>
          {inputProps?.label && (
-            <div className={textInputLabelStyle}>{inputProps.label}</div>
+            <div className={textInputLabelStyle}>
+               {inputProps.label}
+               {required && <span className={asteriskStyle}>*</span>}
+            </div>
          )}
          <Button
             aria-labelledby="select"
@@ -172,6 +183,7 @@ function SelectInput({
                })}
             >
                <input
+                  {...inputProps}
                   className={textInputStyle({
                      color: disabled
                         ? 'disabled'
@@ -181,7 +193,6 @@ function SelectInput({
                   })}
                   readOnly
                   value={selected ? selected.label : ''}
-                  {...inputProps}
                />
 
                <div className={iconWrapperStyle}>
