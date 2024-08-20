@@ -58,13 +58,13 @@ export const usePostNicknameDuplCheck = () => {
    })
 }
 
-export const useFetchKakaoSininRedirect = (options: UseQueryOptions) =>
-   useQuery({
-      ...options,
-      queryKey: ['/auth/sigin/kakao'],
-      queryFn: async () =>
-         (await new SocialLoginAPIApi(unAuthConfig).kakaoLoginRedirect()).data,
-   })
+// export const useFetchKakaoSininRedirect = (options: UseQueryOptions) =>
+//    useQuery({
+//       ...options,
+//       queryKey: ['/auth/sigin/kakao'],
+//       queryFn: async () =>
+//          (await new SocialLoginAPIApi(unAuthConfig).()).data,
+//    })
 
 export const usePostLogout = () => {
    const queryClient = useQueryClient()
@@ -92,14 +92,38 @@ export const usePostReissueToken = () => {
    })
 }
 
-export const usePostSignup = () => {
-   const config = getTmpAuthorizedConfig()
-   useMutation({
-      mutationFn: async (dto: AdditionalInfoRequest) =>
-         (
-            await new SocialLoginAPIApi(config).signUp({
-               ...dto,
-            })
-         ).data,
-   })
-}
+// export const usePostSignup = () => {
+//    const config = getTmpAuthorizedConfig()
+//    useMutation({
+//       mutationFn: async (dto: AdditionalInfoRequest) =>
+//          (
+//             await new SocialLoginAPIApi(config).signUp({
+//                ...dto,
+//             })
+//          ).data,
+//    })
+// }
+
+// export const usePostTempSignup = () => {
+//    const config = getTmpAuthorizedConfig()
+//    useMutation({
+//       mutationFn: async (dto: AdditionalInfoRequest) =>
+//          (
+//             await new SocialLoginAPIApi(config).tempSignUp({
+//                ...dto,
+//             })
+//          ).data,
+//    })
+// }
+
+// export const usePostTempSignup = () => {
+//    const config = getTmpAuthorizedConfig()
+//    useMutation({
+//       mutationFn: async (dto: AdditionalInfoRequest) =>
+//          (
+//             await new SocialLoginAPIApi(config).tempSignIn({
+//                ...dto,
+//             })
+//          ).data,
+//    })
+// }

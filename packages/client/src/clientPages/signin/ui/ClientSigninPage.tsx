@@ -1,15 +1,12 @@
 'use client'
 
-import Image from 'next/image'
 import { SNSButton } from '@gds/component'
-import { useRouter } from 'next/navigation'
-import { PageURL } from '@shared/model'
+import Image from 'next/image'
+import Link from 'next/link'
 import BackGroundImage from '../../../../public/asset/Background.svg'
 import * as styles from './signin.css'
 
 export function ClientSigninPage() {
-   const router = useRouter()
-
    return (
       <div className={styles.Wrapper}>
          <div className={styles.TextWrapper}>
@@ -19,15 +16,11 @@ export function ClientSigninPage() {
          </div>
          <div className={styles.LoginBtnWrapper}>
             <div>
-               <SNSButton
-                  onClick={async () => {
-                     // 카카오 로그인 구현시 수정 필요
-                     router.push(PageURL.SIGNUP)
-                  }}
-                  socialLoginType="kakao"
-               >
-                  카카오로 시작하기
-               </SNSButton>
+               <Link href={String(process.env.API_KAKAO_SIGNIN)}>
+                  <SNSButton socialLoginType="kakao">
+                     카카오로 시작하기
+                  </SNSButton>
+               </Link>
             </div>
             <div style={{ marginTop: '16px' }}>
                <SNSButton
