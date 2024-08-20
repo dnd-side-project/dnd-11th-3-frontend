@@ -55,7 +55,12 @@ export default function RootLayout({
                <ReactQueryClientProviders>
                   {children}
 
-                  <ReactQueryDevtools initialIsOpen={false} position="left" />
+                  {process.env.NODE_ENV !== 'production' && (
+                     <ReactQueryDevtools
+                        initialIsOpen={false}
+                        position="left"
+                     />
+                  )}
                </ReactQueryClientProviders>
             </div>
          </body>
