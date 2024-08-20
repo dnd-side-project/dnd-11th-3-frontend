@@ -70,9 +70,8 @@ export function SignupInputSection({ form }: Props) {
                            },
                            {
                               onSuccess: () => {
-                                 // TODO: '성공했습니다 메세지 띄우기'
-                                 form.clearErrors('officialEmail')
                                  setLoading(false)
+                                 form.clearErrors('officialEmail')
                                  form.setValue(
                                     'officialEmailVerifyCodeSent',
                                     false,
@@ -121,7 +120,7 @@ export function SignupInputSection({ form }: Props) {
                   buttonProps={{
                      width: 58,
                      variant: 'filled',
-                     disabled: !officialEmailVerifyCodeSent,
+                     disabled: !officialEmailVerifyCodeSent || !value,
                      loading,
                      onClick: () => {
                         verifyCode(
@@ -131,7 +130,9 @@ export function SignupInputSection({ form }: Props) {
                            },
                            {
                               onSuccess: () => {
+                                 // TODO: '성공했습니다 메세지 띄우기'
                                  form.clearErrors('verificationNumber')
+                                 form.setValue('officialEmailVerified', true)
                               },
                               onError: () => {
                                  form.setError('verificationNumber', {
@@ -139,7 +140,6 @@ export function SignupInputSection({ form }: Props) {
                                        '서버 에러가 발생했습니다. 다시 시도해주세요.',
                                     type: 'server',
                                  })
-
                                  form.setError('verificationNumber', {
                                     message: '인증번호가 일치하지 않습니다.',
                                     type: 'verification',
@@ -199,6 +199,7 @@ export function SignupInputSection({ form }: Props) {
                               {
                                  onSuccess: () => {
                                     form.clearErrors('nickname')
+                                    form.setValue('nicknameVerified', true)
                                  },
                                  onError: () => {
                                     form.setError('nickname', {
