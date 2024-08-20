@@ -1,6 +1,6 @@
 import Blue from 'public/asset/Carousel/blue.svg'
-import Green from 'public/asset/Carousel/Green.svg'
-import Orange from 'public/asset/Carousel/Orange.svg'
+import Green from 'public/asset/Carousel/green.svg'
+import Orange from 'public/asset/Carousel/orange.svg'
 import './slider.css'
 import Slider from 'react-slick'
 import * as styles from './index.css'
