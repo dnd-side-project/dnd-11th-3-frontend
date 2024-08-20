@@ -35,6 +35,7 @@
          "@gds/component": ["./src/design-system/component/index.ts"],
          "@gds/token": ["./src/design-system/token/index.ts"],
          "@gds/icon": ["./src/design-system/icon/index.ts"],
+         "@server-api/*": ["./api/*"],
 
          "@vanilla-extract/css": ["node_modules/@vanilla-extract/css"],
          "@vanilla-extract/recipes": ["node_modules/@vanilla-extract/recipes"]

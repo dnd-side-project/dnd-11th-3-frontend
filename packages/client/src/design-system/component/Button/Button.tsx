@@ -6,6 +6,7 @@ import {
    leftIconWrapperStyle,
    rightIconWrapperStyle,
 } from './button.css'
+import { Spinner } from '../Spinner/Spinner'
 
 export interface ButtonProps
    extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -16,6 +17,7 @@ export interface ButtonProps
    rightIcon?: ReactElement<IconProps>
    leftIcon?: ReactElement<IconProps>
    rounded?: boolean
+   loading?: boolean
 }
 
 export function Button({
@@ -26,8 +28,31 @@ export function Button({
    rightIcon,
    variant,
    rounded = false,
+   loading = false,
    ...props
 }: ButtonProps) {
+   if (loading) {
+      return (
+         <button
+            type="button"
+            className={buttonStyle({
+               size,
+               variant,
+               rounded,
+            })}
+            disabled
+            {...props}
+         >
+            <Spinner
+               color={
+                  variant === 'filled' ? color.white : color['primary-main']
+               }
+               size="small"
+            />
+         </button>
+      )
+   }
+
    return (
       <button
          type="button"

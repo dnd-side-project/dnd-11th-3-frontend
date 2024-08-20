@@ -21,7 +21,7 @@ export type EssentialDataType = SignUpType & {
    authCode: string
 }
 
-export default function Signup() {
+export default function DSignup() {
    const { control, handleSubmit, watch, setValue, getValues } =
       useForm<EssentialDataType>({
          defaultValues: {
@@ -100,7 +100,7 @@ export default function Signup() {
                   />
                )}
             />
-            <div className={styles.ButtonStyle} style={{ marginTop: '37px' }}>
+            <div className={styles.ButtonStyle} style={{ marginTop: '36px' }}>
                <Button
                   style={{ height: '54px' }}
                   size="small"

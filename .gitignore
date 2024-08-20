@@ -6,6 +6,7 @@ dist
 tmp
 /out-tsc
 
+.env
 
 # IDEs and editors
 /.idea

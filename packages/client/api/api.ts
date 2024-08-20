@@ -352,19 +352,6 @@ export interface InteractionResponse {
 /**
  *
  * @export
- * @interface LogoutRequest
- */
-export interface LogoutRequest {
-   /**
-    *
-    * @type {string}
-    * @memberof LogoutRequest
-    */
-   accessToken: string
-}
-/**
- *
- * @export
  * @interface LogoutResponse
  */
 export interface LogoutResponse {
@@ -553,6 +540,31 @@ export interface PageResponseQuestionPostsByMemberResponse {
     *
     * @type {boolean}
     * @memberof PageResponseQuestionPostsByMemberResponse
+    */
+   hasNext?: boolean
+}
+/**
+ *
+ * @export
+ * @interface PageResponseRecQuestionPostResponse
+ */
+export interface PageResponseRecQuestionPostResponse {
+   /**
+    *
+    * @type {Array<RecQuestionPostResponse>}
+    * @memberof PageResponseRecQuestionPostResponse
+    */
+   content?: Array<RecQuestionPostResponse>
+   /**
+    *
+    * @type {number}
+    * @memberof PageResponseRecQuestionPostResponse
+    */
+   size?: number
+   /**
+    *
+    * @type {boolean}
+    * @memberof PageResponseRecQuestionPostResponse
     */
    hasNext?: boolean
 }
@@ -798,6 +810,49 @@ export interface QuestionPostsByMemberResponse {
 /**
  *
  * @export
+ * @interface RecQuestionPostResponse
+ */
+export interface RecQuestionPostResponse {
+   /**
+    *
+    * @type {number}
+    * @memberof RecQuestionPostResponse
+    */
+   questionPostId?: number
+   /**
+    *
+    * @type {string}
+    * @memberof RecQuestionPostResponse
+    */
+   title?: string
+   /**
+    *
+    * @type {number}
+    * @memberof RecQuestionPostResponse
+    */
+   reward?: number
+   /**
+    *
+    * @type {boolean}
+    * @memberof RecQuestionPostResponse
+    */
+   isChosen?: boolean
+   /**
+    *
+    * @type {number}
+    * @memberof RecQuestionPostResponse
+    */
+   savedCount?: number
+   /**
+    *
+    * @type {number}
+    * @memberof RecQuestionPostResponse
+    */
+   recommendCount?: number
+}
+/**
+ *
+ * @export
  * @interface RegisterAnswerRequest
  */
 export interface RegisterAnswerRequest {
@@ -903,28 +958,15 @@ export interface RegisterQuestionPostResponse {
 /**
  *
  * @export
- * @interface ReissueRequest
- */
-export interface ReissueRequest {
-   /**
-    *
-    * @type {string}
-    * @memberof ReissueRequest
-    */
-   accessToken: string
-}
-/**
- *
- * @export
  * @interface ReissueResponse
  */
 export interface ReissueResponse {
    /**
     *
-    * @type {string}
+    * @type {boolean}
     * @memberof ReissueResponse
     */
-   accessToken?: string
+   result?: boolean
 }
 /**
  *
@@ -968,19 +1010,32 @@ export interface SignUpResponse {
 /**
  *
  * @export
- * @interface TempLoginRequest
+ * @interface TempSignInRequest
  */
-export interface TempLoginRequest {
+export interface TempSignInRequest {
    /**
     *
     * @type {string}
-    * @memberof TempLoginRequest
+    * @memberof TempSignInRequest
+    */
+   socialEmail?: string
+}
+/**
+ *
+ * @export
+ * @interface TempSignUpRequest
+ */
+export interface TempSignUpRequest {
+   /**
+    *
+    * @type {string}
+    * @memberof TempSignUpRequest
     */
    socialName?: string
    /**
     *
     * @type {string}
-    * @memberof TempLoginRequest
+    * @memberof TempSignUpRequest
     */
    socialEmail?: string
 }
@@ -1008,6 +1063,86 @@ export interface UpdateMemberProfileRequest {
     * @memberof UpdateMemberProfileRequest
     */
    jobCategory: string
+}
+/**
+ *
+ * @export
+ * @interface UpdateQuestionPostRequest
+ */
+export interface UpdateQuestionPostRequest {
+   /**
+    *
+    * @type {string}
+    * @memberof UpdateQuestionPostRequest
+    */
+   title?: string
+   /**
+    *
+    * @type {string}
+    * @memberof UpdateQuestionPostRequest
+    */
+   content?: string
+   /**
+    *
+    * @type {Array<string>}
+    * @memberof UpdateQuestionPostRequest
+    */
+   imageUrls?: Array<string>
+   /**
+    *
+    * @type {number}
+    * @memberof UpdateQuestionPostRequest
+    */
+   reward?: number
+   /**
+    *
+    * @type {string}
+    * @memberof UpdateQuestionPostRequest
+    */
+   targetJobGroup: string
+}
+/**
+ *
+ * @export
+ * @interface UpdateQuestionPostResponse
+ */
+export interface UpdateQuestionPostResponse {
+   /**
+    *
+    * @type {number}
+    * @memberof UpdateQuestionPostResponse
+    */
+   questionPostId?: number
+   /**
+    *
+    * @type {string}
+    * @memberof UpdateQuestionPostResponse
+    */
+   title?: string
+   /**
+    *
+    * @type {string}
+    * @memberof UpdateQuestionPostResponse
+    */
+   content?: string
+   /**
+    *
+    * @type {Array<string>}
+    * @memberof UpdateQuestionPostResponse
+    */
+   imageUrls?: Array<string>
+   /**
+    *
+    * @type {number}
+    * @memberof UpdateQuestionPostResponse
+    */
+   reward?: number
+   /**
+    *
+    * @type {string}
+    * @memberof UpdateQuestionPostResponse
+    */
+   targetJobGroup?: string
 }
 /**
  *
@@ -1111,10 +1246,6 @@ export const APIApiAxiosParamCreator = function (
          const localVarHeaderParameter = {} as any
          const localVarQueryParameter = {} as any
 
-         // authentication Authorization required
-         // http bearer authentication required
-         await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
          if (type !== undefined) {
             localVarQueryParameter['type'] = type
          }
@@ -1164,10 +1295,6 @@ export const APIApiAxiosParamCreator = function (
          }
          const localVarHeaderParameter = {} as any
          const localVarQueryParameter = {} as any
-
-         // authentication Authorization required
-         // http bearer authentication required
-         await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
          setSearchParams(localVarUrlObj, localVarQueryParameter)
          let headersFromBaseOptions =
@@ -1220,10 +1347,6 @@ export const APIApiAxiosParamCreator = function (
          const localVarHeaderParameter = {} as any
          const localVarQueryParameter = {} as any
 
-         // authentication Authorization required
-         // http bearer authentication required
-         await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
          setSearchParams(localVarUrlObj, localVarQueryParameter)
          let headersFromBaseOptions =
             baseOptions && baseOptions.headers ? baseOptions.headers : {}
@@ -1274,9 +1397,54 @@ export const APIApiAxiosParamCreator = function (
          const localVarHeaderParameter = {} as any
          const localVarQueryParameter = {} as any
 
-         // authentication Authorization required
-         // http bearer authentication required
-         await setBearerAuthToObject(localVarHeaderParameter, configuration)
+         setSearchParams(localVarUrlObj, localVarQueryParameter)
+         let headersFromBaseOptions =
+            baseOptions && baseOptions.headers ? baseOptions.headers : {}
+         localVarRequestOptions.headers = {
+            ...localVarHeaderParameter,
+            ...headersFromBaseOptions,
+            ...options.headers,
+         }
+
+         return {
+            url: toPathString(localVarUrlObj),
+            options: localVarRequestOptions,
+         }
+      },
+      /**
+       * 직군에 맞는 질문글을 추천순으로 조회한다.
+       * @summary 질문글 추천 API
+       * @param {Pageable} pageable
+       * @param {*} [options] Override http request option.
+       * @throws {RequiredError}
+       */
+      getRecommendQuestionPosts: async (
+         pageable: Pageable,
+         options: RawAxiosRequestConfig = {},
+      ): Promise<RequestArgs> => {
+         // verify required parameter 'pageable' is not null or undefined
+         assertParamExists('getRecommendQuestionPosts', 'pageable', pageable)
+         const localVarPath = `/api/question-posts/recommends`
+         // use dummy base URL string because the URL constructor only accepts absolute URLs.
+         const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL)
+         let baseOptions
+         if (configuration) {
+            baseOptions = configuration.baseOptions
+         }
+
+         const localVarRequestOptions = {
+            method: 'GET',
+            ...baseOptions,
+            ...options,
+         }
+         const localVarHeaderParameter = {} as any
+         const localVarQueryParameter = {} as any
+
+         if (pageable !== undefined) {
+            for (const [key, value] of Object.entries(pageable)) {
+               localVarQueryParameter[key] = value
+            }
+         }
 
          setSearchParams(localVarUrlObj, localVarQueryParameter)
          let headersFromBaseOptions =
@@ -1332,10 +1500,6 @@ export const APIApiAxiosParamCreator = function (
          }
          const localVarHeaderParameter = {} as any
          const localVarQueryParameter = {} as any
-
-         // authentication Authorization required
-         // http bearer authentication required
-         await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
          if (type !== undefined) {
             localVarQueryParameter['type'] = type
@@ -1396,10 +1560,6 @@ export const APIApiAxiosParamCreator = function (
          const localVarHeaderParameter = {} as any
          const localVarQueryParameter = {} as any
 
-         // authentication Authorization required
-         // http bearer authentication required
-         await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
          localVarHeaderParameter['Content-Type'] = 'application/json'
 
          setSearchParams(localVarUrlObj, localVarQueryParameter)
@@ -1453,10 +1613,6 @@ export const APIApiAxiosParamCreator = function (
          }
          const localVarHeaderParameter = {} as any
          const localVarQueryParameter = {} as any
-
-         // authentication Authorization required
-         // http bearer authentication required
-         await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
          localVarHeaderParameter['Content-Type'] = 'application/json'
 
@@ -1512,10 +1668,6 @@ export const APIApiAxiosParamCreator = function (
          const localVarHeaderParameter = {} as any
          const localVarQueryParameter = {} as any
 
-         // authentication Authorization required
-         // http bearer authentication required
-         await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
          if (condition !== undefined) {
             for (const [key, value] of Object.entries(condition)) {
                localVarQueryParameter[key] = value
@@ -1536,6 +1688,72 @@ export const APIApiAxiosParamCreator = function (
             ...headersFromBaseOptions,
             ...options.headers,
          }
+
+         return {
+            url: toPathString(localVarUrlObj),
+            options: localVarRequestOptions,
+         }
+      },
+      /**
+       * 질문자가 질문글을 수정한다.
+       * @summary 질문글 수정 API
+       * @param {number} questionPostId
+       * @param {UpdateQuestionPostRequest} updateQuestionPostRequest
+       * @param {*} [options] Override http request option.
+       * @throws {RequiredError}
+       */
+      updateQuestionPosts: async (
+         questionPostId: number,
+         updateQuestionPostRequest: UpdateQuestionPostRequest,
+         options: RawAxiosRequestConfig = {},
+      ): Promise<RequestArgs> => {
+         // verify required parameter 'questionPostId' is not null or undefined
+         assertParamExists(
+            'updateQuestionPosts',
+            'questionPostId',
+            questionPostId,
+         )
+         // verify required parameter 'updateQuestionPostRequest' is not null or undefined
+         assertParamExists(
+            'updateQuestionPosts',
+            'updateQuestionPostRequest',
+            updateQuestionPostRequest,
+         )
+         const localVarPath =
+            `/api/question-posts/{questionPostId}/edit`.replace(
+               `{${'questionPostId'}}`,
+               encodeURIComponent(String(questionPostId)),
+            )
+         // use dummy base URL string because the URL constructor only accepts absolute URLs.
+         const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL)
+         let baseOptions
+         if (configuration) {
+            baseOptions = configuration.baseOptions
+         }
+
+         const localVarRequestOptions = {
+            method: 'PATCH',
+            ...baseOptions,
+            ...options,
+         }
+         const localVarHeaderParameter = {} as any
+         const localVarQueryParameter = {} as any
+
+         localVarHeaderParameter['Content-Type'] = 'application/json'
+
+         setSearchParams(localVarUrlObj, localVarQueryParameter)
+         let headersFromBaseOptions =
+            baseOptions && baseOptions.headers ? baseOptions.headers : {}
+         localVarRequestOptions.headers = {
+            ...localVarHeaderParameter,
+            ...headersFromBaseOptions,
+            ...options.headers,
+         }
+         localVarRequestOptions.data = serializeDataIfNeeded(
+            updateQuestionPostRequest,
+            localVarRequestOptions,
+            configuration,
+         )
 
          return {
             url: toPathString(localVarUrlObj),
@@ -1692,6 +1910,40 @@ export const APIApiFp = function (configuration?: Configuration) {
             )(axios, localVarOperationServerBasePath || basePath)
       },
       /**
+       * 직군에 맞는 질문글을 추천순으로 조회한다.
+       * @summary 질문글 추천 API
+       * @param {Pageable} pageable
+       * @param {*} [options] Override http request option.
+       * @throws {RequiredError}
+       */
+      async getRecommendQuestionPosts(
+         pageable: Pageable,
+         options?: RawAxiosRequestConfig,
+      ): Promise<
+         (
+            axios?: AxiosInstance,
+            basePath?: string,
+         ) => AxiosPromise<PageResponseRecQuestionPostResponse>
+      > {
+         const localVarAxiosArgs =
+            await localVarAxiosParamCreator.getRecommendQuestionPosts(
+               pageable,
+               options,
+            )
+         const localVarOperationServerIndex = configuration?.serverIndex ?? 0
+         const localVarOperationServerBasePath =
+            operationServerMap['APIApi.getRecommendQuestionPosts']?.[
+               localVarOperationServerIndex
+            ]?.url
+         return (axios, basePath) =>
+            createRequestFunction(
+               localVarAxiosArgs,
+               globalAxios,
+               BASE_PATH,
+               configuration,
+            )(axios, localVarOperationServerBasePath || basePath)
+      },
+      /**
        * 게시글을 추천하거나 북마크 취소한다.
        * @summary 상호작용 등록 API
        * @param {number} questionPostId
@@ -1836,6 +2088,43 @@ export const APIApiFp = function (configuration?: Configuration) {
                configuration,
             )(axios, localVarOperationServerBasePath || basePath)
       },
+      /**
+       * 질문자가 질문글을 수정한다.
+       * @summary 질문글 수정 API
+       * @param {number} questionPostId
+       * @param {UpdateQuestionPostRequest} updateQuestionPostRequest
+       * @param {*} [options] Override http request option.
+       * @throws {RequiredError}
+       */
+      async updateQuestionPosts(
+         questionPostId: number,
+         updateQuestionPostRequest: UpdateQuestionPostRequest,
+         options?: RawAxiosRequestConfig,
+      ): Promise<
+         (
+            axios?: AxiosInstance,
+            basePath?: string,
+         ) => AxiosPromise<UpdateQuestionPostResponse>
+      > {
+         const localVarAxiosArgs =
+            await localVarAxiosParamCreator.updateQuestionPosts(
+               questionPostId,
+               updateQuestionPostRequest,
+               options,
+            )
+         const localVarOperationServerIndex = configuration?.serverIndex ?? 0
+         const localVarOperationServerBasePath =
+            operationServerMap['APIApi.updateQuestionPosts']?.[
+               localVarOperationServerIndex
+            ]?.url
+         return (axios, basePath) =>
+            createRequestFunction(
+               localVarAxiosArgs,
+               globalAxios,
+               BASE_PATH,
+               configuration,
+            )(axios, localVarOperationServerBasePath || basePath)
+      },
    }
 }
 
@@ -1913,6 +2202,21 @@ export const APIApiFactory = function (
             .then((request) => request(axios, basePath))
       },
       /**
+       * 직군에 맞는 질문글을 추천순으로 조회한다.
+       * @summary 질문글 추천 API
+       * @param {Pageable} pageable
+       * @param {*} [options] Override http request option.
+       * @throws {RequiredError}
+       */
+      getRecommendQuestionPosts(
+         pageable: Pageable,
+         options?: any,
+      ): AxiosPromise<PageResponseRecQuestionPostResponse> {
+         return localVarFp
+            .getRecommendQuestionPosts(pageable, options)
+            .then((request) => request(axios, basePath))
+      },
+      /**
        * 게시글을 추천하거나 북마크 취소한다.
        * @summary 상호작용 등록 API
        * @param {number} questionPostId
@@ -1976,6 +2280,27 @@ export const APIApiFactory = function (
       ): AxiosPromise<PageResponseQuestionPostSimpleResponse> {
          return localVarFp
             .searchQuestionPost(condition, pageable, options)
+            .then((request) => request(axios, basePath))
+      },
+      /**
+       * 질문자가 질문글을 수정한다.
+       * @summary 질문글 수정 API
+       * @param {number} questionPostId
+       * @param {UpdateQuestionPostRequest} updateQuestionPostRequest
+       * @param {*} [options] Override http request option.
+       * @throws {RequiredError}
+       */
+      updateQuestionPosts(
+         questionPostId: number,
+         updateQuestionPostRequest: UpdateQuestionPostRequest,
+         options?: any,
+      ): AxiosPromise<UpdateQuestionPostResponse> {
+         return localVarFp
+            .updateQuestionPosts(
+               questionPostId,
+               updateQuestionPostRequest,
+               options,
+            )
             .then((request) => request(axios, basePath))
       },
    }
@@ -2059,6 +2384,23 @@ export class APIApi extends BaseAPI {
    }
 
    /**
+    * 직군에 맞는 질문글을 추천순으로 조회한다.
+    * @summary 질문글 추천 API
+    * @param {Pageable} pageable
+    * @param {*} [options] Override http request option.
+    * @throws {RequiredError}
+    * @memberof APIApi
+    */
+   public getRecommendQuestionPosts(
+      pageable: Pageable,
+      options?: RawAxiosRequestConfig,
+   ) {
+      return APIApiFp(this.configuration)
+         .getRecommendQuestionPosts(pageable, options)
+         .then((request) => request(this.axios, this.basePath))
+   }
+
+   /**
     * 게시글을 추천하거나 북마크 취소한다.
     * @summary 상호작용 등록 API
     * @param {number} questionPostId
@@ -2131,6 +2473,29 @@ export class APIApi extends BaseAPI {
          .searchQuestionPost(condition, pageable, options)
          .then((request) => request(this.axios, this.basePath))
    }
+
+   /**
+    * 질문자가 질문글을 수정한다.
+    * @summary 질문글 수정 API
+    * @param {number} questionPostId
+    * @param {UpdateQuestionPostRequest} updateQuestionPostRequest
+    * @param {*} [options] Override http request option.
+    * @throws {RequiredError}
+    * @memberof APIApi
+    */
+   public updateQuestionPosts(
+      questionPostId: number,
+      updateQuestionPostRequest: UpdateQuestionPostRequest,
+      options?: RawAxiosRequestConfig,
+   ) {
+      return APIApiFp(this.configuration)
+         .updateQuestionPosts(
+            questionPostId,
+            updateQuestionPostRequest,
+            options,
+         )
+         .then((request) => request(this.axios, this.basePath))
+   }
 }
 
 /**
@@ -2173,10 +2538,6 @@ export const MailAPIApiAxiosParamCreator = function (
          }
          const localVarHeaderParameter = {} as any
          const localVarQueryParameter = {} as any
-
-         // authentication Authorization required
-         // http bearer authentication required
-         await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
          localVarHeaderParameter['Content-Type'] = 'application/json'
 
@@ -2231,10 +2592,6 @@ export const MailAPIApiAxiosParamCreator = function (
          }
          const localVarHeaderParameter = {} as any
          const localVarQueryParameter = {} as any
-
-         // authentication Authorization required
-         // http bearer authentication required
-         await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
          localVarHeaderParameter['Content-Type'] = 'application/json'
 
@@ -2465,10 +2822,6 @@ export const MemberAPIApiAxiosParamCreator = function (
          const localVarHeaderParameter = {} as any
          const localVarQueryParameter = {} as any
 
-         // authentication Authorization required
-         // http bearer authentication required
-         await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
          if (pageable !== undefined) {
             for (const [key, value] of Object.entries(pageable)) {
                localVarQueryParameter[key] = value
@@ -2518,10 +2871,6 @@ export const MemberAPIApiAxiosParamCreator = function (
          const localVarHeaderParameter = {} as any
          const localVarQueryParameter = {} as any
 
-         // authentication Authorization required
-         // http bearer authentication required
-         await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
          if (pageable !== undefined) {
             for (const [key, value] of Object.entries(pageable)) {
                localVarQueryParameter[key] = value
@@ -2567,10 +2916,6 @@ export const MemberAPIApiAxiosParamCreator = function (
          const localVarHeaderParameter = {} as any
          const localVarQueryParameter = {} as any
 
-         // authentication Authorization required
-         // http bearer authentication required
-         await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
          setSearchParams(localVarUrlObj, localVarQueryParameter)
          let headersFromBaseOptions =
             baseOptions && baseOptions.headers ? baseOptions.headers : {}
@@ -2613,10 +2958,6 @@ export const MemberAPIApiAxiosParamCreator = function (
          }
          const localVarHeaderParameter = {} as any
          const localVarQueryParameter = {} as any
-
-         // authentication Authorization required
-         // http bearer authentication required
-         await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
          if (pageable !== undefined) {
             for (const [key, value] of Object.entries(pageable)) {
@@ -2670,10 +3011,6 @@ export const MemberAPIApiAxiosParamCreator = function (
          }
          const localVarHeaderParameter = {} as any
          const localVarQueryParameter = {} as any
-
-         // authentication Authorization required
-         // http bearer authentication required
-         await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
          localVarHeaderParameter['Content-Type'] = 'application/json'
 
@@ -3084,10 +3421,6 @@ export const S3APIApiAxiosParamCreator = function (
          const localVarHeaderParameter = {} as any
          const localVarQueryParameter = {} as any
 
-         // authentication Authorization required
-         // http bearer authentication required
-         await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
          localVarHeaderParameter['Content-Type'] = 'application/json'
 
          setSearchParams(localVarUrlObj, localVarQueryParameter)
@@ -3135,10 +3468,6 @@ export const S3APIApiAxiosParamCreator = function (
          }
          const localVarHeaderParameter = {} as any
          const localVarQueryParameter = {} as any
-
-         // authentication Authorization required
-         // http bearer authentication required
-         await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
          localVarHeaderParameter['Content-Type'] = 'application/json'
 
@@ -3367,10 +3696,6 @@ export const SocialLoginAPIApiAxiosParamCreator = function (
          const localVarHeaderParameter = {} as any
          const localVarQueryParameter = {} as any
 
-         // authentication Authorization required
-         // http bearer authentication required
-         await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
          localVarHeaderParameter['Content-Type'] = 'application/json'
 
          setSearchParams(localVarUrlObj, localVarQueryParameter)
@@ -3393,115 +3718,14 @@ export const SocialLoginAPIApiAxiosParamCreator = function (
          }
       },
       /**
-       * 로그인 또는 회원가입 후 토큰을 발급한다.
-       * @summary 임시 로그인/회원가입(토큰 발급) API
-       * @param {TempLoginRequest} tempLoginRequest
-       * @param {*} [options] Override http request option.
-       * @throws {RequiredError}
-       */
-      getTempToken: async (
-         tempLoginRequest: TempLoginRequest,
-         options: RawAxiosRequestConfig = {},
-      ): Promise<RequestArgs> => {
-         // verify required parameter 'tempLoginRequest' is not null or undefined
-         assertParamExists('getTempToken', 'tempLoginRequest', tempLoginRequest)
-         const localVarPath = `/api/auth/token`
-         // use dummy base URL string because the URL constructor only accepts absolute URLs.
-         const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL)
-         let baseOptions
-         if (configuration) {
-            baseOptions = configuration.baseOptions
-         }
-
-         const localVarRequestOptions = {
-            method: 'POST',
-            ...baseOptions,
-            ...options,
-         }
-         const localVarHeaderParameter = {} as any
-         const localVarQueryParameter = {} as any
-
-         // authentication Authorization required
-         // http bearer authentication required
-         await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-         localVarHeaderParameter['Content-Type'] = 'application/json'
-
-         setSearchParams(localVarUrlObj, localVarQueryParameter)
-         let headersFromBaseOptions =
-            baseOptions && baseOptions.headers ? baseOptions.headers : {}
-         localVarRequestOptions.headers = {
-            ...localVarHeaderParameter,
-            ...headersFromBaseOptions,
-            ...options.headers,
-         }
-         localVarRequestOptions.data = serializeDataIfNeeded(
-            tempLoginRequest,
-            localVarRequestOptions,
-            configuration,
-         )
-
-         return {
-            url: toPathString(localVarUrlObj),
-            options: localVarRequestOptions,
-         }
-      },
-      /**
-       * 카카오 로그인 페이지로 이동 요청한다.(사용불가!!)
-       * @summary 카카오 로그인 API
-       * @param {*} [options] Override http request option.
-       * @throws {RequiredError}
-       */
-      kakaoLoginRedirect: async (
-         options: RawAxiosRequestConfig = {},
-      ): Promise<RequestArgs> => {
-         const localVarPath = `/api/auth/signin/kakao`
-         // use dummy base URL string because the URL constructor only accepts absolute URLs.
-         const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL)
-         let baseOptions
-         if (configuration) {
-            baseOptions = configuration.baseOptions
-         }
-
-         const localVarRequestOptions = {
-            method: 'GET',
-            ...baseOptions,
-            ...options,
-         }
-         const localVarHeaderParameter = {} as any
-         const localVarQueryParameter = {} as any
-
-         // authentication Authorization required
-         // http bearer authentication required
-         await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-         setSearchParams(localVarUrlObj, localVarQueryParameter)
-         let headersFromBaseOptions =
-            baseOptions && baseOptions.headers ? baseOptions.headers : {}
-         localVarRequestOptions.headers = {
-            ...localVarHeaderParameter,
-            ...headersFromBaseOptions,
-            ...options.headers,
-         }
-
-         return {
-            url: toPathString(localVarUrlObj),
-            options: localVarRequestOptions,
-         }
-      },
-      /**
        * 로그아웃한다.
        * @summary 로그아웃 API
-       * @param {LogoutRequest} logoutRequest
        * @param {*} [options] Override http request option.
        * @throws {RequiredError}
        */
       logout: async (
-         logoutRequest: LogoutRequest,
          options: RawAxiosRequestConfig = {},
       ): Promise<RequestArgs> => {
-         // verify required parameter 'logoutRequest' is not null or undefined
-         assertParamExists('logout', 'logoutRequest', logoutRequest)
          const localVarPath = `/api/auth/logout`
          // use dummy base URL string because the URL constructor only accepts absolute URLs.
          const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL)
@@ -3518,12 +3742,6 @@ export const SocialLoginAPIApiAxiosParamCreator = function (
          const localVarHeaderParameter = {} as any
          const localVarQueryParameter = {} as any
 
-         // authentication Authorization required
-         // http bearer authentication required
-         await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-         localVarHeaderParameter['Content-Type'] = 'application/json'
-
          setSearchParams(localVarUrlObj, localVarQueryParameter)
          let headersFromBaseOptions =
             baseOptions && baseOptions.headers ? baseOptions.headers : {}
@@ -3532,11 +3750,6 @@ export const SocialLoginAPIApiAxiosParamCreator = function (
             ...headersFromBaseOptions,
             ...options.headers,
          }
-         localVarRequestOptions.data = serializeDataIfNeeded(
-            logoutRequest,
-            localVarRequestOptions,
-            configuration,
-         )
 
          return {
             url: toPathString(localVarUrlObj),
@@ -3546,16 +3759,12 @@ export const SocialLoginAPIApiAxiosParamCreator = function (
       /**
        * 토큰을 재발급한다.
        * @summary 토큰 재발급 API
-       * @param {ReissueRequest} reissueRequest
        * @param {*} [options] Override http request option.
        * @throws {RequiredError}
        */
       reissue: async (
-         reissueRequest: ReissueRequest,
          options: RawAxiosRequestConfig = {},
       ): Promise<RequestArgs> => {
-         // verify required parameter 'reissueRequest' is not null or undefined
-         assertParamExists('reissue', 'reissueRequest', reissueRequest)
          const localVarPath = `/api/auth/reissue/token`
          // use dummy base URL string because the URL constructor only accepts absolute URLs.
          const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL)
@@ -3572,12 +3781,6 @@ export const SocialLoginAPIApiAxiosParamCreator = function (
          const localVarHeaderParameter = {} as any
          const localVarQueryParameter = {} as any
 
-         // authentication Authorization required
-         // http bearer authentication required
-         await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-         localVarHeaderParameter['Content-Type'] = 'application/json'
-
          setSearchParams(localVarUrlObj, localVarQueryParameter)
          let headersFromBaseOptions =
             baseOptions && baseOptions.headers ? baseOptions.headers : {}
@@ -3586,11 +3789,6 @@ export const SocialLoginAPIApiAxiosParamCreator = function (
             ...headersFromBaseOptions,
             ...options.headers,
          }
-         localVarRequestOptions.data = serializeDataIfNeeded(
-            reissueRequest,
-            localVarRequestOptions,
-            configuration,
-         )
 
          return {
             url: toPathString(localVarUrlObj),
@@ -3630,10 +3828,6 @@ export const SocialLoginAPIApiAxiosParamCreator = function (
          const localVarHeaderParameter = {} as any
          const localVarQueryParameter = {} as any
 
-         // authentication Authorization required
-         // http bearer authentication required
-         await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
          localVarHeaderParameter['Content-Type'] = 'application/json'
 
          setSearchParams(localVarUrlObj, localVarQueryParameter)
@@ -3646,6 +3840,106 @@ export const SocialLoginAPIApiAxiosParamCreator = function (
          }
          localVarRequestOptions.data = serializeDataIfNeeded(
             additionalInfoRequest,
+            localVarRequestOptions,
+            configuration,
+         )
+
+         return {
+            url: toPathString(localVarUrlObj),
+            options: localVarRequestOptions,
+         }
+      },
+      /**
+       * 임시 로그인 후 토큰을 발급한다.
+       * @summary 임시 로그인(토큰 발급) API
+       * @param {TempSignInRequest} tempSignInRequest
+       * @param {*} [options] Override http request option.
+       * @throws {RequiredError}
+       */
+      tempSignIn: async (
+         tempSignInRequest: TempSignInRequest,
+         options: RawAxiosRequestConfig = {},
+      ): Promise<RequestArgs> => {
+         // verify required parameter 'tempSignInRequest' is not null or undefined
+         assertParamExists('tempSignIn', 'tempSignInRequest', tempSignInRequest)
+         const localVarPath = `/api/auth/temp-signin`
+         // use dummy base URL string because the URL constructor only accepts absolute URLs.
+         const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL)
+         let baseOptions
+         if (configuration) {
+            baseOptions = configuration.baseOptions
+         }
+
+         const localVarRequestOptions = {
+            method: 'POST',
+            ...baseOptions,
+            ...options,
+         }
+         const localVarHeaderParameter = {} as any
+         const localVarQueryParameter = {} as any
+
+         localVarHeaderParameter['Content-Type'] = 'application/json'
+
+         setSearchParams(localVarUrlObj, localVarQueryParameter)
+         let headersFromBaseOptions =
+            baseOptions && baseOptions.headers ? baseOptions.headers : {}
+         localVarRequestOptions.headers = {
+            ...localVarHeaderParameter,
+            ...headersFromBaseOptions,
+            ...options.headers,
+         }
+         localVarRequestOptions.data = serializeDataIfNeeded(
+            tempSignInRequest,
+            localVarRequestOptions,
+            configuration,
+         )
+
+         return {
+            url: toPathString(localVarUrlObj),
+            options: localVarRequestOptions,
+         }
+      },
+      /**
+       * 임시 회원가입 후 토큰을 발급한다.
+       * @summary 임시 회원가입(토큰 발급) API
+       * @param {TempSignUpRequest} tempSignUpRequest
+       * @param {*} [options] Override http request option.
+       * @throws {RequiredError}
+       */
+      tempSignUp: async (
+         tempSignUpRequest: TempSignUpRequest,
+         options: RawAxiosRequestConfig = {},
+      ): Promise<RequestArgs> => {
+         // verify required parameter 'tempSignUpRequest' is not null or undefined
+         assertParamExists('tempSignUp', 'tempSignUpRequest', tempSignUpRequest)
+         const localVarPath = `/api/auth/temp-signup`
+         // use dummy base URL string because the URL constructor only accepts absolute URLs.
+         const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL)
+         let baseOptions
+         if (configuration) {
+            baseOptions = configuration.baseOptions
+         }
+
+         const localVarRequestOptions = {
+            method: 'POST',
+            ...baseOptions,
+            ...options,
+         }
+         const localVarHeaderParameter = {} as any
+         const localVarQueryParameter = {} as any
+
+         localVarHeaderParameter['Content-Type'] = 'application/json'
+
+         setSearchParams(localVarUrlObj, localVarQueryParameter)
+         let headersFromBaseOptions =
+            baseOptions && baseOptions.headers ? baseOptions.headers : {}
+         localVarRequestOptions.headers = {
+            ...localVarHeaderParameter,
+            ...headersFromBaseOptions,
+            ...options.headers,
+         }
+         localVarRequestOptions.data = serializeDataIfNeeded(
+            tempSignUpRequest,
             localVarRequestOptions,
             configuration,
          )
@@ -3701,70 +3995,12 @@ export const SocialLoginAPIApiFp = function (configuration?: Configuration) {
             )(axios, localVarOperationServerBasePath || basePath)
       },
       /**
-       * 로그인 또는 회원가입 후 토큰을 발급한다.
-       * @summary 임시 로그인/회원가입(토큰 발급) API
-       * @param {TempLoginRequest} tempLoginRequest
-       * @param {*} [options] Override http request option.
-       * @throws {RequiredError}
-       */
-      async getTempToken(
-         tempLoginRequest: TempLoginRequest,
-         options?: RawAxiosRequestConfig,
-      ): Promise<
-         (axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>
-      > {
-         const localVarAxiosArgs = await localVarAxiosParamCreator.getTempToken(
-            tempLoginRequest,
-            options,
-         )
-         const localVarOperationServerIndex = configuration?.serverIndex ?? 0
-         const localVarOperationServerBasePath =
-            operationServerMap['SocialLoginAPIApi.getTempToken']?.[
-               localVarOperationServerIndex
-            ]?.url
-         return (axios, basePath) =>
-            createRequestFunction(
-               localVarAxiosArgs,
-               globalAxios,
-               BASE_PATH,
-               configuration,
-            )(axios, localVarOperationServerBasePath || basePath)
-      },
-      /**
-       * 카카오 로그인 페이지로 이동 요청한다.(사용불가!!)
-       * @summary 카카오 로그인 API
-       * @param {*} [options] Override http request option.
-       * @throws {RequiredError}
-       */
-      async kakaoLoginRedirect(
-         options?: RawAxiosRequestConfig,
-      ): Promise<
-         (axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>
-      > {
-         const localVarAxiosArgs =
-            await localVarAxiosParamCreator.kakaoLoginRedirect(options)
-         const localVarOperationServerIndex = configuration?.serverIndex ?? 0
-         const localVarOperationServerBasePath =
-            operationServerMap['SocialLoginAPIApi.kakaoLoginRedirect']?.[
-               localVarOperationServerIndex
-            ]?.url
-         return (axios, basePath) =>
-            createRequestFunction(
-               localVarAxiosArgs,
-               globalAxios,
-               BASE_PATH,
-               configuration,
-            )(axios, localVarOperationServerBasePath || basePath)
-      },
-      /**
        * 로그아웃한다.
        * @summary 로그아웃 API
-       * @param {LogoutRequest} logoutRequest
        * @param {*} [options] Override http request option.
        * @throws {RequiredError}
        */
       async logout(
-         logoutRequest: LogoutRequest,
          options?: RawAxiosRequestConfig,
       ): Promise<
          (
@@ -3772,10 +4008,8 @@ export const SocialLoginAPIApiFp = function (configuration?: Configuration) {
             basePath?: string,
          ) => AxiosPromise<LogoutResponse>
       > {
-         const localVarAxiosArgs = await localVarAxiosParamCreator.logout(
-            logoutRequest,
-            options,
-         )
+         const localVarAxiosArgs =
+            await localVarAxiosParamCreator.logout(options)
          const localVarOperationServerIndex = configuration?.serverIndex ?? 0
          const localVarOperationServerBasePath =
             operationServerMap['SocialLoginAPIApi.logout']?.[
@@ -3792,12 +4026,10 @@ export const SocialLoginAPIApiFp = function (configuration?: Configuration) {
       /**
        * 토큰을 재발급한다.
        * @summary 토큰 재발급 API
-       * @param {ReissueRequest} reissueRequest
        * @param {*} [options] Override http request option.
        * @throws {RequiredError}
        */
       async reissue(
-         reissueRequest: ReissueRequest,
          options?: RawAxiosRequestConfig,
       ): Promise<
          (
@@ -3805,10 +4037,8 @@ export const SocialLoginAPIApiFp = function (configuration?: Configuration) {
             basePath?: string,
          ) => AxiosPromise<ReissueResponse>
       > {
-         const localVarAxiosArgs = await localVarAxiosParamCreator.reissue(
-            reissueRequest,
-            options,
-         )
+         const localVarAxiosArgs =
+            await localVarAxiosParamCreator.reissue(options)
          const localVarOperationServerIndex = configuration?.serverIndex ?? 0
          const localVarOperationServerBasePath =
             operationServerMap['SocialLoginAPIApi.reissue']?.[
@@ -3855,6 +4085,66 @@ export const SocialLoginAPIApiFp = function (configuration?: Configuration) {
                configuration,
             )(axios, localVarOperationServerBasePath || basePath)
       },
+      /**
+       * 임시 로그인 후 토큰을 발급한다.
+       * @summary 임시 로그인(토큰 발급) API
+       * @param {TempSignInRequest} tempSignInRequest
+       * @param {*} [options] Override http request option.
+       * @throws {RequiredError}
+       */
+      async tempSignIn(
+         tempSignInRequest: TempSignInRequest,
+         options?: RawAxiosRequestConfig,
+      ): Promise<
+         (axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>
+      > {
+         const localVarAxiosArgs = await localVarAxiosParamCreator.tempSignIn(
+            tempSignInRequest,
+            options,
+         )
+         const localVarOperationServerIndex = configuration?.serverIndex ?? 0
+         const localVarOperationServerBasePath =
+            operationServerMap['SocialLoginAPIApi.tempSignIn']?.[
+               localVarOperationServerIndex
+            ]?.url
+         return (axios, basePath) =>
+            createRequestFunction(
+               localVarAxiosArgs,
+               globalAxios,
+               BASE_PATH,
+               configuration,
+            )(axios, localVarOperationServerBasePath || basePath)
+      },
+      /**
+       * 임시 회원가입 후 토큰을 발급한다.
+       * @summary 임시 회원가입(토큰 발급) API
+       * @param {TempSignUpRequest} tempSignUpRequest
+       * @param {*} [options] Override http request option.
+       * @throws {RequiredError}
+       */
+      async tempSignUp(
+         tempSignUpRequest: TempSignUpRequest,
+         options?: RawAxiosRequestConfig,
+      ): Promise<
+         (axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>
+      > {
+         const localVarAxiosArgs = await localVarAxiosParamCreator.tempSignUp(
+            tempSignUpRequest,
+            options,
+         )
+         const localVarOperationServerIndex = configuration?.serverIndex ?? 0
+         const localVarOperationServerBasePath =
+            operationServerMap['SocialLoginAPIApi.tempSignUp']?.[
+               localVarOperationServerIndex
+            ]?.url
+         return (axios, basePath) =>
+            createRequestFunction(
+               localVarAxiosArgs,
+               globalAxios,
+               BASE_PATH,
+               configuration,
+            )(axios, localVarOperationServerBasePath || basePath)
+      },
    }
 }
 
@@ -3885,59 +4175,25 @@ export const SocialLoginAPIApiFactory = function (
             .then((request) => request(axios, basePath))
       },
       /**
-       * 로그인 또는 회원가입 후 토큰을 발급한다.
-       * @summary 임시 로그인/회원가입(토큰 발급) API
-       * @param {TempLoginRequest} tempLoginRequest
-       * @param {*} [options] Override http request option.
-       * @throws {RequiredError}
-       */
-      getTempToken(
-         tempLoginRequest: TempLoginRequest,
-         options?: any,
-      ): AxiosPromise<string> {
-         return localVarFp
-            .getTempToken(tempLoginRequest, options)
-            .then((request) => request(axios, basePath))
-      },
-      /**
-       * 카카오 로그인 페이지로 이동 요청한다.(사용불가!!)
-       * @summary 카카오 로그인 API
-       * @param {*} [options] Override http request option.
-       * @throws {RequiredError}
-       */
-      kakaoLoginRedirect(options?: any): AxiosPromise<object> {
-         return localVarFp
-            .kakaoLoginRedirect(options)
-            .then((request) => request(axios, basePath))
-      },
-      /**
        * 로그아웃한다.
        * @summary 로그아웃 API
-       * @param {LogoutRequest} logoutRequest
        * @param {*} [options] Override http request option.
        * @throws {RequiredError}
        */
-      logout(
-         logoutRequest: LogoutRequest,
-         options?: any,
-      ): AxiosPromise<LogoutResponse> {
+      logout(options?: any): AxiosPromise<LogoutResponse> {
          return localVarFp
-            .logout(logoutRequest, options)
+            .logout(options)
             .then((request) => request(axios, basePath))
       },
       /**
        * 토큰을 재발급한다.
        * @summary 토큰 재발급 API
-       * @param {ReissueRequest} reissueRequest
        * @param {*} [options] Override http request option.
        * @throws {RequiredError}
        */
-      reissue(
-         reissueRequest: ReissueRequest,
-         options?: any,
-      ): AxiosPromise<ReissueResponse> {
+      reissue(options?: any): AxiosPromise<ReissueResponse> {
          return localVarFp
-            .reissue(reissueRequest, options)
+            .reissue(options)
             .then((request) => request(axios, basePath))
       },
       /**
@@ -3953,6 +4209,36 @@ export const SocialLoginAPIApiFactory = function (
       ): AxiosPromise<SignUpResponse> {
          return localVarFp
             .signUp(additionalInfoRequest, options)
+            .then((request) => request(axios, basePath))
+      },
+      /**
+       * 임시 로그인 후 토큰을 발급한다.
+       * @summary 임시 로그인(토큰 발급) API
+       * @param {TempSignInRequest} tempSignInRequest
+       * @param {*} [options] Override http request option.
+       * @throws {RequiredError}
+       */
+      tempSignIn(
+         tempSignInRequest: TempSignInRequest,
+         options?: any,
+      ): AxiosPromise<string> {
+         return localVarFp
+            .tempSignIn(tempSignInRequest, options)
+            .then((request) => request(axios, basePath))
+      },
+      /**
+       * 임시 회원가입 후 토큰을 발급한다.
+       * @summary 임시 회원가입(토큰 발급) API
+       * @param {TempSignUpRequest} tempSignUpRequest
+       * @param {*} [options] Override http request option.
+       * @throws {RequiredError}
+       */
+      tempSignUp(
+         tempSignUpRequest: TempSignUpRequest,
+         options?: any,
+      ): AxiosPromise<string> {
+         return localVarFp
+            .tempSignUp(tempSignUpRequest, options)
             .then((request) => request(axios, basePath))
       },
    }
@@ -3983,66 +4269,28 @@ export class SocialLoginAPIApi extends BaseAPI {
    }
 
    /**
-    * 로그인 또는 회원가입 후 토큰을 발급한다.
-    * @summary 임시 로그인/회원가입(토큰 발급) API
-    * @param {TempLoginRequest} tempLoginRequest
-    * @param {*} [options] Override http request option.
-    * @throws {RequiredError}
-    * @memberof SocialLoginAPIApi
-    */
-   public getTempToken(
-      tempLoginRequest: TempLoginRequest,
-      options?: RawAxiosRequestConfig,
-   ) {
-      return SocialLoginAPIApiFp(this.configuration)
-         .getTempToken(tempLoginRequest, options)
-         .then((request) => request(this.axios, this.basePath))
-   }
-
-   /**
-    * 카카오 로그인 페이지로 이동 요청한다.(사용불가!!)
-    * @summary 카카오 로그인 API
-    * @param {*} [options] Override http request option.
-    * @throws {RequiredError}
-    * @memberof SocialLoginAPIApi
-    */
-   public kakaoLoginRedirect(options?: RawAxiosRequestConfig) {
-      return SocialLoginAPIApiFp(this.configuration)
-         .kakaoLoginRedirect(options)
-         .then((request) => request(this.axios, this.basePath))
-   }
-
-   /**
     * 로그아웃한다.
     * @summary 로그아웃 API
-    * @param {LogoutRequest} logoutRequest
     * @param {*} [options] Override http request option.
     * @throws {RequiredError}
     * @memberof SocialLoginAPIApi
     */
-   public logout(
-      logoutRequest: LogoutRequest,
-      options?: RawAxiosRequestConfig,
-   ) {
+   public logout(options?: RawAxiosRequestConfig) {
       return SocialLoginAPIApiFp(this.configuration)
-         .logout(logoutRequest, options)
+         .logout(options)
          .then((request) => request(this.axios, this.basePath))
    }
 
    /**
     * 토큰을 재발급한다.
     * @summary 토큰 재발급 API
-    * @param {ReissueRequest} reissueRequest
     * @param {*} [options] Override http request option.
     * @throws {RequiredError}
     * @memberof SocialLoginAPIApi
     */
-   public reissue(
-      reissueRequest: ReissueRequest,
-      options?: RawAxiosRequestConfig,
-   ) {
+   public reissue(options?: RawAxiosRequestConfig) {
       return SocialLoginAPIApiFp(this.configuration)
-         .reissue(reissueRequest, options)
+         .reissue(options)
          .then((request) => request(this.axios, this.basePath))
    }
 
@@ -4060,6 +4308,40 @@ export class SocialLoginAPIApi extends BaseAPI {
    ) {
       return SocialLoginAPIApiFp(this.configuration)
          .signUp(additionalInfoRequest, options)
+         .then((request) => request(this.axios, this.basePath))
+   }
+
+   /**
+    * 임시 로그인 후 토큰을 발급한다.
+    * @summary 임시 로그인(토큰 발급) API
+    * @param {TempSignInRequest} tempSignInRequest
+    * @param {*} [options] Override http request option.
+    * @throws {RequiredError}
+    * @memberof SocialLoginAPIApi
+    */
+   public tempSignIn(
+      tempSignInRequest: TempSignInRequest,
+      options?: RawAxiosRequestConfig,
+   ) {
+      return SocialLoginAPIApiFp(this.configuration)
+         .tempSignIn(tempSignInRequest, options)
+         .then((request) => request(this.axios, this.basePath))
+   }
+
+   /**
+    * 임시 회원가입 후 토큰을 발급한다.
+    * @summary 임시 회원가입(토큰 발급) API
+    * @param {TempSignUpRequest} tempSignUpRequest
+    * @param {*} [options] Override http request option.
+    * @throws {RequiredError}
+    * @memberof SocialLoginAPIApi
+    */
+   public tempSignUp(
+      tempSignUpRequest: TempSignUpRequest,
+      options?: RawAxiosRequestConfig,
+   ) {
+      return SocialLoginAPIApiFp(this.configuration)
+         .tempSignUp(tempSignUpRequest, options)
          .then((request) => request(this.axios, this.basePath))
    }
 }
