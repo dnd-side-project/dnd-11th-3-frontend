@@ -34,6 +34,10 @@ export function AccountPageWrapper() {
          <div className={styles.marginBox}>
             <Divider />
          </div>
+         <div className={styles.Wrapper}>
+            {/** TODO: api 연결 필요 */}
+            <span className={styles.titleMenu}>로그아웃</span>
+         </div>
       </div>
    )
 }
