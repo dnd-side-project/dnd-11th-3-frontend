@@ -300,10 +300,11 @@ function CustomListBoxItem({
             cursor: 'pointer',
             fontSize: '12px',
             fontWeight: '600',
-            backgroundColor: isSelected ? color['gray-600'] : 'transparent',
          }}
       >
-         <div className={selectItemWrapper}>{item.label}</div>
+         <div className={selectItemWrapper({ backgroundColor: isSelected })}>
+            {item.label}
+         </div>
       </ListBoxItem>
    )
 }

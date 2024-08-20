@@ -61,21 +61,28 @@ export const iconWrapperStyle = style({
    textAlign: 'center',
 })
 
-export const selectItemWrapper = style({
-   width: '100%',
-   height: '100%',
-   padding: '8px 16px',
+export const selectItemWrapper = recipe({
+   base: {
+      width: '100%',
+      height: '100%',
+      padding: '8px 16px',
 
-   display: 'flex',
-   justifyContent: 'flex-start',
-   alignItems: 'center',
+      display: 'flex',
+      justifyContent: 'flex-start',
+      alignItems: 'center',
 
-   borderRadius: '8px',
-   backgroundColor: color.white,
-   color: color['gray-100'],
-   ':hover': {
-      backgroundColor: color['primary-background'],
-      color: color['primary-dark'],
+      borderRadius: '8px',
+      color: color['gray-100'],
+      ':hover': {
+         backgroundColor: color['primary-background'],
+         color: color['primary-dark'],
+      },
+   },
+   variants: {
+      backgroundColor: {
+         true: { backgroundColor: color['gray-900'] },
+         false: { backgroundColor: color.white },
+      },
    },
 })
 
