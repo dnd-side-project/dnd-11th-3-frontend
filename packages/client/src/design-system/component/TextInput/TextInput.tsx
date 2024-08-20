@@ -1,8 +1,6 @@
 import { cloneElement, ReactElement, ReactNode } from 'react'
 
-import { Header } from '@shared/ui'
 import {
-   textInputLabelContainerStyle,
    textInputLabelStyle,
    textInputStyle,
    textInputWrapperStyle,
@@ -17,6 +15,7 @@ export interface TextInputProps
    label?: ReactNode
    description?: string
    errorMessage?: string
+   successMessage?: string
    icon?: ReactElement
    variant?: 'default' | 'filled'
    required?: boolean
@@ -27,6 +26,7 @@ export function TextInput({
    label,
    description,
    errorMessage,
+   successMessage,
    variant = 'default',
    icon,
    required = false,
@@ -74,21 +74,23 @@ export function TextInput({
                           : INPUT_COLOR.default,
                   })}
             </div>
-            {/* {(errorMessage || description) && ( */}
             <div
                className={textMetaStyle({
                   color: props.disabled
                      ? 'disabled'
                      : errorMessage
                        ? 'error'
-                       : variant,
+                       : successMessage
+                         ? 'success'
+                         : variant,
                })}
             >
-               {(errorMessage || description) && !props.disabled && errorMessage
+               {(errorMessage || successMessage || description) &&
+               !props.disabled &&
+               errorMessage
                   ? errorMessage
-                  : description}
+                  : successMessage || description}
             </div>
-            {/* )} */}
          </div>
       </div>
    )

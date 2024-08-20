@@ -150,6 +150,7 @@ export const textMetaStyle = recipe({
          filled: { color: color['gray-400'] },
          disabled: { color: color['gray-400'] },
          error: { color: color.error },
+         success: { color: color['primary-main'] },
       },
    },
 

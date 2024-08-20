@@ -11,7 +11,7 @@ import {
    useSendVerificationCodeByEmail,
    useVerifyCode,
 } from 'src/clientPages/signup/api/mail'
-import { on } from 'events'
+
 import { usePostNicknameDuplCheck } from '@shared/api'
 import * as styles from './style.css'
 
@@ -24,6 +24,8 @@ export function SignupInputSection({ form }: Props) {
    const {
       officialEmail,
       officialEmailVerifyCodeSent,
+      officialEmailVerified,
+      nicknameVerified,
       // nicknameErrorMessage,
       // officialEmailVerifyCodeErrorMessage,
    } = form.watch()
@@ -62,6 +64,7 @@ export function SignupInputSection({ form }: Props) {
                      width: 58,
                      onClick: async () => {
                         setLoading(true)
+                        form.setValue('officialEmailVerified', false)
                         form.setValue('officialEmailVerifyCodeSent', true)
                         form.clearErrors('officialEmail')
                         sendVerifyCodeByEmail(
@@ -76,6 +79,7 @@ export function SignupInputSection({ form }: Props) {
                                     'officialEmailVerifyCodeSent',
                                     false,
                                  )
+                                 form.setValue('officialEmailVerified', false)
                               },
                               onError: () => {
                                  setLoading(false)
@@ -116,6 +120,9 @@ export function SignupInputSection({ form }: Props) {
                      placeholder: '인증번호를 입력해주세요',
                      errorMessage:
                         error?.type === 'verification' ? error.message : '',
+                     successMessage: officialEmailVerified
+                        ? '공무원 인증이 완료되었습니다.'
+                        : '',
                   }}
                   buttonProps={{
                      width: 58,
@@ -123,6 +130,9 @@ export function SignupInputSection({ form }: Props) {
                      disabled: !officialEmailVerifyCodeSent || !value,
                      loading,
                      onClick: () => {
+                        if (officialEmailVerified) {
+                           form.setValue('officialEmailVerified', false)
+                        }
                         verifyCode(
                            {
                               targetEmail: officialEmail,
@@ -130,7 +140,6 @@ export function SignupInputSection({ form }: Props) {
                            },
                            {
                               onSuccess: () => {
-                                 // TODO: '성공했습니다 메세지 띄우기'
                                  form.clearErrors('verificationNumber')
                                  form.setValue('officialEmailVerified', true)
                               },
@@ -180,6 +189,9 @@ export function SignupInputSection({ form }: Props) {
                            onChange(e.target.value)
                         },
                         value,
+                        successMessage: nicknameVerified
+                           ? '사용 가능한 닉네임입니다.'
+                           : '',
                         errorMessage:
                            error?.type === 'server'
                               ? error.message
@@ -192,6 +204,9 @@ export function SignupInputSection({ form }: Props) {
                         variant: 'filled',
                         disabled: value.length < 2,
                         onClick: () => {
+                           if (nicknameVerified) {
+                              form.setValue('nicknameVerified', false)
+                           }
                            checkNickNameDuplication(
                               {
                                  nickname: value,
