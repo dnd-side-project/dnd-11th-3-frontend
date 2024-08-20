@@ -39,7 +39,7 @@ export const fixedNav = style({
    position: 'fixed',
    top: 0,
    zIndex: 999,
-   backgroundColor: '#FFf',
+   backgroundColor: '#FFF',
    width: '358px',
    display: 'flex',
    justifyContent: 'center',
