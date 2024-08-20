@@ -5,18 +5,30 @@ import { Select } from '@gds/component'
 import { IconSearch } from '@gds/icon'
 import { JOB_CATEGORIES } from '@shared/model'
 import { LabeledInputWithButton, UnlabeledInputWithButton } from '@shared/ui'
-import { Controller, UseFormReturn } from 'react-hook-form'
+import { Controller, set, UseFormReturn } from 'react-hook-form'
+import { useState } from 'react'
+import {
+   useSendVerificationCodeByEmail,
+   useVerifyCode,
+} from 'src/clientPages/signup/api/mail'
+import { on } from 'events'
 import * as styles from './style.css'
 
 interface Props {
    form: UseFormReturn<SignupFormValues>
-   onSendVerificationCodeByEmail: (email: string) => void
 }
 
-export function SignupInputSection({
-   form,
-   onSendVerificationCodeByEmail,
-}: Props) {
+export function SignupInputSection({ form }: Props) {
+   const [loading, setLoading] = useState(false)
+   const {
+      officialEmailVerifyCodeSent,
+      // nicknameErrorMessage,
+      // officialEmailVerifyCodeErrorMessage,
+   } = form.watch()
+
+   const { mutate: sendVerifyCodeByEmail } = useSendVerificationCodeByEmail()
+   const { mutate: verifyCode } = useVerifyCode()
+
    return (
       <>
          <Controller
@@ -25,18 +37,57 @@ export function SignupInputSection({
             rules={{
                required: true,
             }}
-            render={({ field: { onChange, value } }) => (
+            render={({ field: { onChange, value }, fieldState: { error } }) => (
                <LabeledInputWithButton
                   inputProps={{
                      label: '공무원 이메일 인증',
                      required: true,
                      width: 292,
-                     onChange,
+                     onChange: (e) => {
+                        if (error) {
+                           form.clearErrors('officialEmail')
+                        }
+                        onChange(e.target.value)
+                     },
+                     description: '버튼 클릭시 이메일로 인증번호가 전송됩니다.',
+                     errorMessage:
+                        error?.type === 'server' ? error.message : '',
                   }}
                   buttonProps={{
                      variant: 'filled',
                      width: 58,
-                     onClick: () => onSendVerificationCodeByEmail(value),
+                     onClick: async () => {
+                        setLoading(true)
+                        form.setValue('officialEmailVerifyCodeSent', true)
+                        form.clearErrors('officialEmail')
+                        sendVerifyCodeByEmail(
+                           {
+                              targetEmail: value,
+                           },
+                           {
+                              onSuccess: () => {
+                                 // TODO: '성공했습니다 메세지 띄우기'
+                                 setLoading(false)
+                                 form.setValue(
+                                    'officialEmailVerifyCodeSent',
+                                    false,
+                                 )
+                              },
+                              onError: () => {
+                                 setLoading(false)
+                                 form.setValue(
+                                    'officialEmailVerifyCodeSent',
+                                    false,
+                                 )
+                                 form.setError('officialEmail', {
+                                    message:
+                                       '이메일 전송을 실패했습니다. 다시 시도해주세요',
+                                    type: 'server',
+                                 })
+                              },
+                           },
+                        )
+                     },
                   }}
                   buttonChildren="인증"
                />
@@ -48,16 +99,19 @@ export function SignupInputSection({
             rules={{
                required: true,
             }}
-            render={({ field: { onChange, value } }) => (
+            render={({ field: { onChange, value }, fieldState: { error } }) => (
                <UnlabeledInputWithButton
                   inputProps={{
                      width: 292,
                      placeholder: '인증번호를 입력해주세요',
-                     errorMessage: '인증번호가 일치하지 않습니다.',
+                     errorMessage:
+                        error?.type === 'verification' ? error.message : '',
                   }}
                   buttonProps={{
                      width: 58,
                      variant: 'filled',
+                     disabled: !officialEmailVerifyCodeSent,
+                     loading,
                   }}
                   buttonChildren="확인"
                />
@@ -74,10 +128,14 @@ export function SignupInputSection({
                render={({ field: { onChange, value } }) => (
                   <LabeledInputWithButton
                      inputProps={{
+                        minLength: 2,
+                        maxLength: 12,
                         width: 264,
                         label: '닉네임',
                         description: '2-12자 이내로 입력해주세요.',
                         required: true,
+                        onChange,
+                        value,
                      }}
                      buttonProps={{
                         width: 86,
@@ -105,14 +163,14 @@ export function SignupInputSection({
                         required: true,
                         icon: <IconSearch />,
                      }}
-                     selected={null}
+                     selected={value}
                      variant="default"
-                     onSelect={(item) => console.log(item)}
+                     onSelect={(item) => onChange(item)}
                   />
                )}
             />
 
-            <Controller
+            {/* <Controller
                name="jobCategory"
                control={form.control}
                rules={{
@@ -135,7 +193,7 @@ export function SignupInputSection({
                      onSelect={(item) => console.log(item)}
                   />
                )}
-            />
+            /> */}
          </div>
       </>
    )

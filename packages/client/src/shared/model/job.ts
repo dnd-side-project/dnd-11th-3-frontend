@@ -1,4 +1,14 @@
 export const JOB_CATEGORIES: string[] = [
+   '공업',
+   '기계',
+   '법원경비관리',
+   '보건',
+   '보건위생',
+   '사법행정사무',
+   '정보통신',
+   '행정',
+]
+export const JOB_CATEGORIES_TOTAL: string[] = [
    '법원경비관리',
    '소방',
    '방호',

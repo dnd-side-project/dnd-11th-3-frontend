@@ -82,8 +82,9 @@ export function Select({
                   width,
                   minWidth: '140px',
                   height: 'fit-content',
+                  maxHeight: 140,
                   padding: '8px',
-
+                  overflowY: 'scroll',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'center',
@@ -92,7 +93,7 @@ export function Select({
                   borderRadius: '8px',
                   boxShadow: '0px 0px 4px 0px rgba(0, 0, 0, 0.25)',
                   backgroundColor: 'white',
-                  overflow: 'hidden',
+                  overflow: 'auto',
                }}
             >
                {items.map(({ id, label }) => (

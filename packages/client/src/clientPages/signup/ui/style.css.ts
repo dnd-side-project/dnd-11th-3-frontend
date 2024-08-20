@@ -3,6 +3,7 @@ import { style } from '@vanilla-extract/css'
 export const Wrapper = style({
    display: 'flex',
    flexDirection: 'column',
+   gap: 10,
 
    padding: '16px',
    minHeight: '760px',

@@ -1,9 +1,7 @@
 import {
    AdditionalInfoRequest,
-   LogoutRequest,
-   ReissueRequest,
    SocialLoginAPIApi,
-   TempLoginRequest,
+   TempSignUpRequest,
    ValidateNickNameRequest,
 } from '@server-api/api'
 import {
@@ -14,7 +12,7 @@ import {
 } from '@tanstack/react-query'
 import { get } from 'http'
 import { Configuration } from '@server-api/configuration'
-import { config as unAuthConfig, getTmpAuthorizedConfig } from './config'
+import { config } from './config'
 
 // export const usePostTmpAccessToken = () =>
 //    useMutation({
@@ -30,25 +28,8 @@ import { config as unAuthConfig, getTmpAuthorizedConfig } from './config'
 
 export const PostTmpAccessTokenQueryKey = '/signin/temporary/token'
 
-export const usePostTmpAccessToken = ({
-   dto,
-   options,
-}: {
-   dto: TempLoginRequest
-   options?: Omit<UseQueryOptions, 'queryKey'>
-}) =>
-   useQuery({
-      ...options,
-      // gcTime: 1000 * 60 * 60, // 1hr
-      queryKey: [PostTmpAccessTokenQueryKey],
-      queryFn: async () =>
-         (await new SocialLoginAPIApi(unAuthConfig).getTempToken(dto)).data,
-   })
-
 export const usePostNicknameDuplCheck = () => {
-   const config = getTmpAuthorizedConfig()
-
-   useMutation({
+   return useMutation({
       mutationFn: async (dto: ValidateNickNameRequest) =>
          (
             await new SocialLoginAPIApi(config).checkNickName({
@@ -69,26 +50,17 @@ export const usePostNicknameDuplCheck = () => {
 export const usePostLogout = () => {
    const queryClient = useQueryClient()
    return useMutation({
-      mutationFn: async (dto: LogoutRequest) =>
-         (
-            await new SocialLoginAPIApi(unAuthConfig).logout({
-               ...dto,
-            })
-         ).data,
+      mutationFn: async () =>
+         (await new SocialLoginAPIApi(config).logout()).data,
 
       onSuccess: () => queryClient.clear(),
    })
 }
 
 export const usePostReissueToken = () => {
-   const config = getTmpAuthorizedConfig()
-   useMutation({
-      mutationFn: async (dto: ReissueRequest) =>
-         (
-            await new SocialLoginAPIApi(config).reissue({
-               ...dto,
-            })
-         ).data,
+   return useMutation({
+      mutationFn: async () =>
+         (await new SocialLoginAPIApi(config).reissue()).data,
    })
 }
 
@@ -107,7 +79,7 @@ export const usePostReissueToken = () => {
 // export const usePostTempSignup = () => {
 //    const config = getTmpAuthorizedConfig()
 //    useMutation({
-//       mutationFn: async (dto: AdditionalInfoRequest) =>
+//       mutationFn: async (dto: TempSignUpRequest) =>
 //          (
 //             await new SocialLoginAPIApi(config).tempSignUp({
 //                ...dto,
@@ -115,6 +87,21 @@ export const usePostReissueToken = () => {
 //          ).data,
 //    })
 // }
+
+export const usePostTempSignup = (
+   dto: TempSignUpRequest,
+   options: UseQueryOptions,
+) =>
+   useQuery({
+      ...options,
+      queryKey: ['/auth/sigin/kakao'],
+      queryFn: async () =>
+         (
+            await new SocialLoginAPIApi(config).tempSignUp({
+               ...dto,
+            })
+         ).data,
+   })
 
 // export const usePostTempSignup = () => {
 //    const config = getTmpAuthorizedConfig()
