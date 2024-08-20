@@ -235,7 +235,7 @@ function SelectInput({
                   className={iconWrapperStyle}
                   onClick={onClick}
                   onKeyDown={(e) => {
-                     if (e.key === 'Enter' || e.key === ' ') {
+                     if (e.key === 'Enter' || e.key === 'Space') {
                         onClick()
                      }
                   }}
