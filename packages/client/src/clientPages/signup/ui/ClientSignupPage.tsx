@@ -4,13 +4,21 @@ import { useSignupForm } from '@entities/signup'
 import { Button } from '@gds/component'
 import { Header } from '@shared/ui'
 import { SignupInputSection } from '@widgets/SignupInputs'
-import { useSendVerificationCodeByEmail } from '../api/mail'
+
+import { usePostMember } from '@shared/api'
 import * as styles from './style.css'
 
 export function ClientSignupPage() {
    const form = useSignupForm()
-   const { officialEmailVerified, nicknameVerified, jobCategory, jobGroup } =
-      form.watch()
+   const {
+      officialEmailVerified,
+      nicknameVerified,
+      jobCategory,
+      jobGroup,
+      officialEmail,
+      nickname,
+   } = form.watch()
+   const { mutate: createMember } = usePostMember()
 
    return (
       <>
@@ -28,6 +36,14 @@ export function ClientSignupPage() {
                      jobCategory === null ||
                      jobGroup === null
                   }
+                  onClick={() => {
+                     createMember({
+                        officialEmail,
+                        nickname,
+                        jobGroup: String(jobCategory?.id),
+                        jobCategory: String(jobCategory?.id),
+                     })
+                  }}
                >
                   가입하기
                </Button>

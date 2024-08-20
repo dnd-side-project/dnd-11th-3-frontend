@@ -5,7 +5,7 @@ import { Select } from '@gds/component'
 import { IconSearch } from '@gds/icon'
 import { JOB_CATEGORIES } from '@shared/model'
 import { LabeledInputWithButton, UnlabeledInputWithButton } from '@shared/ui'
-import { Controller, set, UseFormReturn } from 'react-hook-form'
+import { Controller, UseFormReturn } from 'react-hook-form'
 import { useState } from 'react'
 import {
    useSendVerificationCodeByEmail,
@@ -26,8 +26,6 @@ export function SignupInputSection({ form }: Props) {
       officialEmailVerifyCodeSent,
       officialEmailVerified,
       nicknameVerified,
-      // nicknameErrorMessage,
-      // officialEmailVerifyCodeErrorMessage,
    } = form.watch()
 
    const { mutate: sendVerifyCodeByEmail } = useSendVerificationCodeByEmail()

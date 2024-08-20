@@ -103,14 +103,13 @@ export const usePostTempSignup = (
          ).data,
    })
 
-// export const usePostTempSignup = () => {
-//    const config = getTmpAuthorizedConfig()
-//    useMutation({
-//       mutationFn: async (dto: AdditionalInfoRequest) =>
-//          (
-//             await new SocialLoginAPIApi(config).tempSignIn({
-//                ...dto,
-//             })
-//          ).data,
-//    })
-// }
+export const usePostMember = () => {
+   return useMutation({
+      mutationFn: async (dto: AdditionalInfoRequest) =>
+         (
+            await new SocialLoginAPIApi(config).signUp({
+               ...dto,
+            })
+         ).data,
+   })
+}
