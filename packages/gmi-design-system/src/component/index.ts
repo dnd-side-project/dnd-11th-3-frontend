@@ -25,3 +25,6 @@ export type { BadgeProps } from './Badge/Badge'
 
 export { Divider } from './Divider/Divider'
 export type { DividerProps } from './Divider/Divider'
+
+export { Spinner } from './Spinner/Spinner'
+export type { SpinnerProps } from './Spinner/Spinner'

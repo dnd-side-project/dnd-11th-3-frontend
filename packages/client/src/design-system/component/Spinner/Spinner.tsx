@@ -8,7 +8,6 @@ export type SpinnerSize = 'small' | 'medium' | 'large'
 export interface SpinnerProps {
    color?: CSSProperties['color']
    size?: SpinnerSize
-   speed?: number
 }
 
 export const SpinnerSizeMap = { small: 20, medium: 25, large: 30 }
