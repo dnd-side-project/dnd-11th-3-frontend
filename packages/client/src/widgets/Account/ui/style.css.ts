@@ -138,4 +138,5 @@ export const urlMenu = style({
 
 export const iconBox = style({
    marginLeft: 'auto',
+   cursor: 'pointer',
 })
