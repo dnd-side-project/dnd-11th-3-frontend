@@ -39,7 +39,7 @@ export const usePostTmpAccessToken = ({
 }) =>
    useQuery({
       ...options,
-      gcTime: 1000 * 60 * 60, // 1hr
+      // gcTime: 1000 * 60 * 60, // 1hr
       queryKey: [PostTmpAccessTokenQueryKey],
       queryFn: async () =>
          (await new SocialLoginAPIApi(unAuthConfig).getTempToken(dto)).data,
