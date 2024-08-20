@@ -27,7 +27,7 @@ export const buttonStyle = recipe({
     },
     size: {
       small: { padding: '8px 0 8px 0', fontSize: '12px', height: '32px' },
-      medium: { padding: '15px 0 15px 0', fontSize: '16px', height: '54px' },
+      medium: { padding: '14px 0', fontSize: '16px', height: '50px' },
       large: { padding: '18px 0 18px 0', fontSize: '18px', height: '60px' },
     },
     variant: {
