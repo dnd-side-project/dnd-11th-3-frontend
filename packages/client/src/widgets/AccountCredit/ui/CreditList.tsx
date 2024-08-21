@@ -1,5 +1,5 @@
 import React from 'react'
-import { foramtNumberWithCommas } from '@shared/utils/formatNumberWithCommas'
+import { formatNumberWithCommas } from '@shared/utils/formatNumberWithCommas'
 import * as styles from './style.css'
 
 // TODO: 서버 데이터에 맞게 수정 필요
@@ -7,7 +7,7 @@ export interface CreditProps {
    profile: string
    title: string
    time: string
-   creditAmount: string
+   creditAmount: number
    creditId: number
    isPlus: boolean
 }
@@ -33,7 +33,7 @@ export function CreditList({
             })}
          >
             {isPlus ? '+' : '-'}
-            {foramtNumberWithCommas(creditAmount)}
+            {formatNumberWithCommas(creditAmount)}
          </span>
       </div>
    )

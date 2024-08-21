@@ -1,4 +1,4 @@
-export function foramtNumberWithCommas(num: string): string {
+export function formatNumberWithCommas(num: number): string {
    const formatter = new Intl.NumberFormat('en-US')
-   return formatter.format(parseFloat(num))
+   return formatter.format(num)
 }
