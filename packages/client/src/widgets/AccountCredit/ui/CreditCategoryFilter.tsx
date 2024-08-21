@@ -9,7 +9,7 @@ interface CategoryItem {
 
 interface Props {
    selectedCategory: CategoryItem
-   onSelectCategory: ({ label, id }: { label: string; id: string }) => void
+   onSelectCategory: ({ label, id }: CategoryItem) => void
 }
 
 function CreditCategoryFilter({ selectedCategory, onSelectCategory }: Props) {
