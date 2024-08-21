@@ -4,7 +4,7 @@ import { usePathname, useRouter } from 'next/navigation'
 import { PageURL } from '@shared/model'
 import { IconHome, IconHuman, IconNavbarChat } from '@gds/icon'
 import { color } from '@gds/token'
-import { navbarWrapperStyle } from './navbar.css'
+import { navbarSelectedStyle, navbarWrapperStyle } from './navbar.css'
 
 export function NavBar() {
    const router = useRouter()
@@ -16,6 +16,9 @@ export function NavBar() {
             type="button"
             onClick={() => router.push(PageURL.HOME)}
             aria-label="홈"
+            className={navbarSelectedStyle({
+               color: currentUrl === PageURL.HOME,
+            })}
          >
             <IconHome
                size={32}
@@ -31,6 +34,9 @@ export function NavBar() {
             type="button"
             onClick={() => router.push(PageURL.CHAT)}
             aria-label="채팅"
+            className={navbarSelectedStyle({
+               color: currentUrl === PageURL.CHAT,
+            })}
          >
             <IconNavbarChat
                size={32}
@@ -46,6 +52,9 @@ export function NavBar() {
             type="button"
             onClick={() => router.push(PageURL.ACCOUNT)}
             aria-label="마이페이지"
+            className={navbarSelectedStyle({
+               color: currentUrl === PageURL.ACCOUNT,
+            })}
          >
             <IconHuman
                size={32}
