@@ -8,7 +8,7 @@ export function AnswerContainer() {
    return (
       <div>
          <div className={answerInputWrapper}>
-            <TextInput label="답변" />
+            <TextInput label="답변" size="medium" />
             <div className={answerbuttonWrapper}>
                <Button variant="filled" size="medium">
                   입력

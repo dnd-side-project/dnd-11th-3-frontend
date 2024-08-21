@@ -2,10 +2,15 @@
 
 import Image from 'next/image'
 import { SNSButton } from '@gds/component'
+import { useRouter } from 'next/navigation'
+import { PageURL } from '@shared/model'
+import Link from 'next/link'
 import BackGroundImage from '../../../../public/asset/Background.svg'
 import * as styles from './signin.css'
 
 export function ClientSigninPage() {
+   const router = useRouter()
+
    return (
       <div className={styles.Wrapper}>
          <div className={styles.TextWrapper}>
@@ -15,7 +20,11 @@ export function ClientSigninPage() {
          </div>
          <div className={styles.LoginBtnWrapper}>
             <div>
-               <SNSButton socialLoginType="kakao">카카오로 시작하기</SNSButton>
+               <Link href="https://gongmuin.site/oauth2/authorization/kakao">
+                  <SNSButton socialLoginType="kakao">
+                     카카오로 시작하기
+                  </SNSButton>
+               </Link>
             </div>
             <div style={{ marginTop: '16px' }}>
                <SNSButton

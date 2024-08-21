@@ -122,6 +122,11 @@ export const textInputWrapperStyle = recipe({
   },
 })
 
+export const asteriskStyle = style({
+  color: color.error,
+  marginLeft: '3px',
+})
+
 export const textInputLabelContainerStyle = style({
   width: '100%',
   height: 'fit-content',
@@ -138,6 +143,10 @@ export const textInputLabelStyle = style({
   fontWeight: '600',
   lineHeight: 'normal',
   color: color['gray-100'],
+
+  display: 'flex',
+  justifyContent: 'flex-start',
+  alignItems: 'center',
 })
 export const textInputStyle = recipe({
   base: {

@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 import localFont from 'next/font/local'
 import './design-system-globals.css'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import ReactQueryClientProviders from '../src/apps/provider/reactQueryProviders'
 
 export const metadata: Metadata = {
@@ -51,7 +52,16 @@ export default function RootLayout({
          </head>
          <body>
             <div className="mobile-layout">
-               <ReactQueryClientProviders>{children}</ReactQueryClientProviders>
+               <ReactQueryClientProviders>
+                  {children}
+
+                  {process.env.NODE_ENV !== 'production' && (
+                     <ReactQueryDevtools
+                        initialIsOpen={false}
+                        position="left"
+                     />
+                  )}
+               </ReactQueryClientProviders>
             </div>
          </body>
       </html>

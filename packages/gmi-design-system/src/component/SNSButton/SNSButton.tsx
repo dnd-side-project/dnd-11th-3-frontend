@@ -3,7 +3,7 @@ import * as styles from './SNSButton.css'
 import { IconKakao } from '../../icon/default/IconKakao'
 import { IconNaver } from '../../icon/default/IconNaver'
 
-interface SNSButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface SNSButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   socialLoginType: 'kakao' | 'naver'
   children: ReactNode
 }
