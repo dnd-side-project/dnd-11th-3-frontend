@@ -34,7 +34,7 @@ function IconArrowDown(
             <path d="m3 6 5 5M8 11l5-5" />
          </g>
          <defs>
-            <clipPath id="a">
+            <clipPath id="down">
                <path fill="#fff" d="M-4-4h24v24H-4z" />
             </clipPath>
          </defs>
