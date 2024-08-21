@@ -31,11 +31,11 @@ function HomeRecommend({
             <span className={styles.TitleStyle}>{title}</span>
             <div className={styles.DetailWrapper}>
                <div className={styles.IconBox}>
-                  <IconBookmark color="#FFF" size={10} />
+                  <IconBookmark color="#FFF" size={15} />
                </div>
                <div className={styles.NumberBox}>{bookmark}</div>
                <div className={styles.IconBox}>
-                  <IconWhiteLike />
+                  <IconWhiteLike size={15} />
                </div>
                <div className={styles.NumberBox}>{likes}</div>
             </div>
