@@ -2,8 +2,8 @@ import React from 'react'
 import Image from 'next/image'
 import { IconEdit } from '@gds/icon'
 import { color } from '@gds/token'
+import ProfileBackground from 'public/asset/profileBackground.svg'
 import * as styles from './style.css'
-import ProfileBackground from '../../../../public/asset/profileBackground.svg'
 import CreditWrapper from './CreditWrapper'
 
 function ProfileCard() {
