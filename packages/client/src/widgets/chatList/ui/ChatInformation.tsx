@@ -9,7 +9,7 @@ interface ChatInfoProps {
    messageLastTime: string
 }
 
-function ChatInfoWrapper({
+function ChatInformation({
    nickname,
    jobGroup,
    unreadMessageCnt,
@@ -41,4 +41,4 @@ function ChatInfoWrapper({
    )
 }
 
-export default ChatInfoWrapper
+export default ChatInformation

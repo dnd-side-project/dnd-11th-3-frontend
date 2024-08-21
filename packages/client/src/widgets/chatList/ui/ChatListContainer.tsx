@@ -1,7 +1,6 @@
-import React from 'react'
 import * as styles from './style.css'
 import ChatListHeader from './ChatListHeader'
-import ChatInfoWrapper from './ChatInfoWrapper'
+import ChatInformation from './ChatInformation'
 
 export function ChatListContainer() {
    const chatData = [
@@ -38,7 +37,7 @@ export function ChatListContainer() {
                <span className={styles.DateTxt}>오늘</span>
                {chatData.map((chat) => {
                   return (
-                     <ChatInfoWrapper
+                     <ChatInformation
                         key={chat.chatRoomId}
                         nickname={chat.nickname}
                         jobGroup={chat.jobGroup}
