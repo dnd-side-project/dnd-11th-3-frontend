@@ -2,11 +2,13 @@ import React from 'react'
 import { Select } from '@gds/component'
 import { IconArrowDown } from '@gds/icon'
 
+interface CategoryItem {
+   label: string
+   id: string
+}
+
 interface Props {
-   selectedCategory: {
-      label: string
-      id: string
-   }
+   selectedCategory: CategoryItem
    onSelectCategory: ({ label, id }: { label: string; id: string }) => void
 }
 
