@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import { useState } from 'react'
 import * as styles from './style.css'
 import CreditCategoryFilter from './CreditCategoryFilter'
 import { CreditList, CreditProps } from './CreditList'

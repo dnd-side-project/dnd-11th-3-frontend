@@ -1,4 +1,3 @@
-import React from 'react'
 import { Select } from '@gds/component'
 import { IconArrowDown } from '@gds/icon'
 

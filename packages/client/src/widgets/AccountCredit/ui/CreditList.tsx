@@ -1,4 +1,3 @@
-import React from 'react'
 import { formatNumberWithCommas } from '@shared/utils/formatNumberWithCommas'
 import * as styles from './style.css'
 

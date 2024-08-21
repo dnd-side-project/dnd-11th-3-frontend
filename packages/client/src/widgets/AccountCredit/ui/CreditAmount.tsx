@@ -1,4 +1,3 @@
-import React from 'react'
 import { IconCredit } from '@gds/icon'
 import Image from 'next/image'
 import { color } from '@gds/token'
