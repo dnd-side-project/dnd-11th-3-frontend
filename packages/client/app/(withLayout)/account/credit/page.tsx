@@ -1,7 +1,7 @@
-import { CreditWrapper } from '@widgets/AccountCredit'
+import { CreditHistoryWidget } from '@widgets/AccountCredit'
 
 function AccountCredit() {
-   return <CreditWrapper />
+   return <CreditHistoryWidget />
 }
 
 export default AccountCredit
