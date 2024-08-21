@@ -15,7 +15,7 @@ interface AccountMenuProps {
    menuList: AccountMenuItem[]
 }
 
-function AccountMenu({ title, menuList }: AccountMenuProps) {
+export function AccountMenu({ title, menuList }: AccountMenuProps) {
    const router = useRouter()
    return (
       <div>
@@ -40,5 +40,3 @@ function AccountMenu({ title, menuList }: AccountMenuProps) {
       </div>
    )
 }
-
-export default AccountMenu
