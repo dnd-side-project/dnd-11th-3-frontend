@@ -27,6 +27,8 @@ export const CreditTxt = style({
    fontWeight: '600',
    lineHeight: '24px',
    marginLeft: '20px',
+   display: 'flex',
+   alignItems: 'center',
 })
 
 export const CreditAmountBox = style({
