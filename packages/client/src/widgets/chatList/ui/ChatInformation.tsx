@@ -1,4 +1,3 @@
-import React from 'react'
 import * as styles from './style.css'
 
 interface ChatInfoProps {

@@ -1,4 +1,3 @@
-import React from 'react'
 import { IconAlarm } from '@gds/icon'
 import * as styles from './style.css'
 
