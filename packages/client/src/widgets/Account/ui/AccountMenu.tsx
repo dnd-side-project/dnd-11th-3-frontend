@@ -5,14 +5,14 @@ import { IconArrowRight } from '@gds/icon'
 import { useRouter } from 'next/navigation'
 import * as styles from './style.css'
 
-export type MenuUrl = {
+export type AccountMenuItem = {
    smallTitle: string
    url: string
 }
 
 interface AccountMenuProps {
    title: string
-   menuList: MenuUrl[]
+   menuList: AccountMenuItem[]
 }
 
 function AccountMenu({ title, menuList }: AccountMenuProps) {

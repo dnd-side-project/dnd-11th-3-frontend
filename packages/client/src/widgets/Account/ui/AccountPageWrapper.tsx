@@ -2,15 +2,15 @@ import React from 'react'
 import { Divider } from '@gds/component'
 import * as styles from './style.css'
 import ProfileCard from './ProfileCard'
-import AccountMenu, { MenuUrl } from './AccountMenu'
+import AccountMenu, { AccountMenuItem } from './AccountMenu'
 
 export function AccountPageWrapper() {
-   const MyActivities: MenuUrl[] = [
+   const MyActivities: AccountMenuItem[] = [
       { smallTitle: '작성한 질문', url: '/account/question' },
       { smallTitle: '댓글 단 질문', url: '/account/question' },
    ]
 
-   const MyScrap: MenuUrl[] = [
+   const MyScrap: AccountMenuItem[] = [
       { smallTitle: '스크랩한 질문', url: '/account/bookmark' },
    ]
    return (
