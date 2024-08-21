@@ -3,7 +3,7 @@ import { IconArrowRight, IconCreditFill } from '@gds/icon'
 import { color } from '@gds/token'
 import * as styles from './style.css'
 
-function CreditWrapper() {
+function CreditSection() {
    // TODO: api 연결 필요
    return (
       <div className={styles.CreditBox}>
@@ -22,4 +22,4 @@ function CreditWrapper() {
    )
 }
 
-export default CreditWrapper
+export default CreditSection

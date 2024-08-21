@@ -4,7 +4,7 @@ import { IconEdit } from '@gds/icon'
 import { color } from '@gds/token'
 import ProfileBackground from 'public/asset/profileBackground.svg'
 import * as styles from './style.css'
-import CreditWrapper from './CreditWrapper'
+import CreditSection from './CreditSection'
 
 function ProfileCard() {
    return (
@@ -27,7 +27,7 @@ function ProfileCard() {
                   <IconEdit color={color.white} />
                </div>
             </div>
-            <CreditWrapper />
+            <CreditSection />
          </div>
       </div>
    )
