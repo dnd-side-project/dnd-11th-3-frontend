@@ -126,6 +126,7 @@ export const titleMenu = style({
 export const urlBox = style({
    marginTop: '16px',
    display: 'flex',
+   alignItems: 'center',
 })
 
 export const urlMenu = style({
@@ -134,6 +135,8 @@ export const urlMenu = style({
    lineHeight: '22px',
    letterSpacing: '-0.18px',
    color: color['gray-100'],
+   display: 'flex',
+   alignItems: 'center',
 })
 
 export const iconBox = style({

@@ -3,6 +3,7 @@
 import React from 'react'
 import { IconArrowRight } from '@gds/icon'
 import { useRouter } from 'next/navigation'
+import { IconButton } from '@gds/component'
 import * as styles from './style.css'
 
 export type AccountMenuItem = {
@@ -27,14 +28,13 @@ export function AccountMenu({ title, menuList }: AccountMenuProps) {
                <div>
                   <span className={styles.urlMenu}>{menu.smallTitle}</span>
                </div>
-               <button
-                  type="button"
+               <IconButton
+                  size="small"
+                  variant="default"
                   onClick={() => router.push(menu.url)}
-                  className={styles.iconBox}
                   aria-label={`Go to ${menu.smallTitle}`}
-               >
-                  <IconArrowRight />
-               </button>
+                  icon={<IconArrowRight />}
+               />
             </div>
          ))}
       </div>
