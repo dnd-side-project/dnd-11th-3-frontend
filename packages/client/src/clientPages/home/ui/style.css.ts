@@ -20,6 +20,7 @@ export const RecommendWrapper = style({
    alignItems: 'center',
    justifyContent: 'center',
    marginBottom: '10px',
+   marginTop: '-30px',
 })
 
 export const RecommendHeaderBox = style({
