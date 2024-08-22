@@ -6,6 +6,7 @@ import { Header } from '@shared/ui'
 import { SignupInputSection } from '@widgets/SignupInputs'
 
 import { usePostMember } from '@shared/api'
+import { useRouter } from 'next/navigation'
 import * as styles from './style.css'
 
 export function ClientSignupPage() {
@@ -18,7 +19,8 @@ export function ClientSignupPage() {
       officialEmail,
       nickname,
    } = form.watch()
-   const { mutate: createMember } = usePostMember()
+   const { mutate: createMember, status } = usePostMember()
+   const router = useRouter()
 
    return (
       <>
@@ -34,16 +36,25 @@ export function ClientSignupPage() {
                      !officialEmailVerified ||
                      !nicknameVerified ||
                      jobCategory === null ||
-                     jobGroup === null
+                     jobGroup === null ||
+                     !nickname
                   }
                   onClick={() => {
-                     createMember({
-                        officialEmail,
-                        nickname,
-                        jobGroup: String(jobGroup?.id),
-                        jobCategory: String(jobCategory?.id),
-                     })
+                     createMember(
+                        {
+                           officialEmail,
+                           nickname,
+                           jobGroup: String(jobGroup?.id),
+                           jobCategory: String(jobCategory?.id),
+                        },
+                        {
+                           onSuccess: () => {
+                              router.push('/')
+                           },
+                        },
+                     )
                   }}
+                  loading={status === 'pending'}
                >
                   가입하기
                </Button>
