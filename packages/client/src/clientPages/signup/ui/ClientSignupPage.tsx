@@ -40,7 +40,7 @@ export function ClientSignupPage() {
                      createMember({
                         officialEmail,
                         nickname,
-                        jobGroup: String(jobCategory?.id),
+                        jobGroup: String(jobGroup?.id),
                         jobCategory: String(jobCategory?.id),
                      })
                   }}

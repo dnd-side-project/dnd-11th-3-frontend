@@ -1,4 +1,4 @@
-export const JOB_CATEGORIES: string[] = [
+export const JOB_GROUPS: string[] = [
    '공업',
    '기계',
    '법원경비관리',
@@ -8,7 +8,7 @@ export const JOB_CATEGORIES: string[] = [
    '정보통신',
    '행정',
 ]
-export const JOB_CATEGORIES_TOTAL: string[] = [
+export const JOB_GROUPS_TOTAL: string[] = [
    '법원경비관리',
    '소방',
    '방호',
@@ -45,4 +45,54 @@ export const JOB_CATEGORIES_TOTAL: string[] = [
    '항공',
    '화공',
    '후생',
+]
+
+export const JOB_CATEGORIES: string[] = [
+   '간호',
+   '감사',
+   '경비관리',
+   '가스',
+   '공업',
+   '기계',
+   '기계운영',
+]
+
+export const JOB_CATEGORIES_TOTAL: string[] = [
+   '가스',
+   '가스운영',
+   '가축위생연구',
+   '간호',
+   '간호전문',
+   '간호조무',
+   '감사',
+   '감사전문',
+   '건축',
+   '건축연구',
+   '건축운영',
+   '검찰',
+   '검찰전문',
+   '경비관리',
+   '경위',
+   '공보',
+   '공업',
+   '공업연구',
+   '공업전문',
+   '관리',
+   '관세',
+   '관세전문',
+   '교육행정',
+   '교정',
+   '교정전문',
+   '교통',
+   '교환',
+   '교환운영',
+   '군사정보',
+   '군수',
+   '근로감독',
+   '금속',
+   '기계',
+   '기계운영',
+   '기록관리연구',
+   '기록연구',
+   '기상',
 ]
