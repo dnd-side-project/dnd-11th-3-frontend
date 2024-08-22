@@ -15,7 +15,7 @@ export interface QuestionData {
 }
 
 interface Props {
-   data: QuestionData
+   data?: QuestionData
 }
 
 function Question({ data }: Props) {
