@@ -20,7 +20,6 @@ export const navbarWrapperStyle = style({
    fontSize: '10px',
    fontWeight: '500',
    lineHeight: '13px',
-   backgroundColor: color.white,
 })
 
 export const navbarSelectedStyle = recipe({
@@ -30,7 +29,6 @@ export const navbarSelectedStyle = recipe({
       flexDirection: 'column',
       justifyContent: 'center',
       alignItems: 'center',
-      cursor: 'pointer',
    },
    variants: {
       color: {
