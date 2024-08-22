@@ -2,7 +2,7 @@ import { PropsWithChildren } from 'react'
 import { badgeWrapper } from './badge.css'
 
 export interface BadgeProps {
-  variant: 'primary' | 'secondary' | 'outlined'
+  variant: 'primary' | 'secondary' | 'outlined' | 'light'
   size: 'small' | 'medium' | 'large'
 }
 

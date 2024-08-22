@@ -27,6 +27,12 @@ export const badgeWrapper = recipe({
         color: '#F4811B',
         border: `1px solid ${color['gray-800']}`,
       },
+      light: {
+        color: color['primary-dark'],
+        backgroundColor: color['primary-background'],
+        border: `1px solid ${color['primary-light']}`,
+        borderRadius: '8px',
+      },
     },
     size: {
       small: {
