@@ -24,35 +24,35 @@ function Question({ data }: Props) {
          <div className={styles.QuestionTagWrapper}>
             <div style={{ marginRight: '4px' }}>
                <Badge variant="outlined" size="small">
-                  {data.tag}
+                  {data?.tag}
                </Badge>
             </div>
-            {data.isChosen ? (
+            {data?.isChosen ? (
                <Badge variant="primary" size="small">
                   채택완료
                </Badge>
             ) : (
                <Badge variant="secondary" size="small">
-                  {data.reward} <IconCredit color={color['secondary-main']} />
+                  {data?.reward} <IconCredit color={color['secondary-main']} />
                </Badge>
             )}
          </div>
          <div className={styles.QuestionTitleBox}>
-            <span>{data.title}</span>
+            <span>{data?.title}</span>
          </div>
-         <div className={styles.QuestionContentBox}>{data.content}</div>
+         <div className={styles.QuestionContentBox}>{data?.content}</div>
          <div className={styles.QuestionBottomWrapper}>
             <div className={styles.QuestionDateBox}>
-               <span>{data.date}</span>
+               <span>{data?.date}</span>
             </div>
             <div className={styles.QuestionDetailBox}>
                <div className={styles.QuestionIconBox}>
                   <IconBookmark />
                </div>
-               <div className={styles.QuestionIconTxtBox}>{data.bookmark}</div>
+               <div className={styles.QuestionIconTxtBox}>{data?.bookmark}</div>
                <div className={styles.QuestionIconBox} />
                <IconThumbUpFilled />
-               <div className={styles.QuestionIconTxtBox}>{data.likes}</div>
+               <div className={styles.QuestionIconTxtBox}>{data?.likes}</div>
             </div>
          </div>
       </div>
