@@ -2,7 +2,7 @@
 
 import { useSignupForm } from '@entities/signup'
 import { Button } from '@gds/component'
-import { Header } from '@shared/ui'
+import { Header, MainLoader } from '@shared/ui'
 import { SignupInputSection } from '@widgets/SignupInputs'
 
 import { usePostMember } from '@shared/api'
@@ -26,6 +26,7 @@ export function ClientSignupPage() {
    return (
       <>
          <Header title="회원가입" />
+         <MainLoader height={390} loading={status === 'pending'} />
          <div className={styles.Wrapper}>
             <SignupInputSection form={form} />
             <div className={styles.FinalBtnBox}>
@@ -60,7 +61,6 @@ export function ClientSignupPage() {
                         },
                      )
                   }}
-                  loading={status === 'pending'}
                >
                   가입하기
                </Button>
