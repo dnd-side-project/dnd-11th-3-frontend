@@ -32,7 +32,6 @@ export const QuestionFilterBox = style({
 export const QuestionsWrapper = style({
    display: 'flex',
    flexDirection: 'column',
-   height: '300px',
 })
 
 export const fixedNav = style({

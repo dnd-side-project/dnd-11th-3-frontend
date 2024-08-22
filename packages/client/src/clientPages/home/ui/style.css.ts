@@ -6,6 +6,7 @@ export const absolutePos = style({
    top: 0,
    left: 0,
    overflowY: 'scroll',
+   height: '760px',
 })
 
 export const HomeWrapper = style({
