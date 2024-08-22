@@ -10,13 +10,8 @@ export function Carousel() {
    const settings = {
       className: 'center',
       infinite: true,
-      slidesToShow: 1,
+      slidesToShow: 2,
       swipeToSlide: true,
-      nextArrow: (
-         <div className={styles.ArrowBox}>
-            <button aria-label="next" type="button" />
-         </div>
-      ),
    }
 
    return (
@@ -27,7 +22,6 @@ export function Carousel() {
                infinite={settings.infinite}
                slidesToShow={settings.slidesToShow}
                swipeToSlide={settings.swipeToSlide}
-               nextArrow={settings.nextArrow}
             >
                <HomeRecommend
                   src={Blue}

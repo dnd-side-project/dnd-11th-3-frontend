@@ -2,11 +2,13 @@ import { color } from '@gds/token'
 import { style } from '@vanilla-extract/css'
 
 export const RecommendContentBox = style({
-   width: '100%',
+   width: '358px',
    marginTop: '20px',
+   margin: '15px auto 0',
    display: 'flex',
+   justifyContent: 'center',
    flexDirection: 'column',
-   padding: '0 16px',
+   overflow: 'hidden',
 })
 
 export const RecommendItem = style({
