@@ -17,7 +17,9 @@ function QuestionList() {
    useScrollHandler(setFixed, 'nav-section')
 
    const handleSelect = (selectedItems: SelectItemType[]) => {
-      setSelectedWithIcon(selectedItems)
+      if (selectedItems.length <= 3) {
+         setSelectedWithIcon(selectedItems)
+      }
    }
 
    return (
