@@ -2,6 +2,7 @@ export enum PageURL {
    HOME = '/home', // without common header // question list page
    SIGNIN = '/', // without common header
    SIGNUP = '/signup',
+   SIGNUP_SUCCESS = '/signup/success',
    QUESTION_CREATE = '/question/create',
    QUESTION_UPDATE = '/question/update',
    // QUESTION_DETAIL='/question/{id}', //without common header

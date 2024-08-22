@@ -7,6 +7,7 @@ import { SignupInputSection } from '@widgets/SignupInputs'
 
 import { usePostMember } from '@shared/api'
 import { useRouter } from 'next/navigation'
+import { PageURL } from '@shared/model'
 import * as styles from './style.css'
 
 export function ClientSignupPage() {
@@ -49,7 +50,12 @@ export function ClientSignupPage() {
                         },
                         {
                            onSuccess: () => {
-                              router.push('/')
+                              router.push(PageURL.SIGNUP_SUCCESS)
+                           },
+                           onError: () => {
+                              alert(
+                                 '회원가입에 실패했습니다. 다시 시도해주세요.',
+                              )
                            },
                         },
                      )
