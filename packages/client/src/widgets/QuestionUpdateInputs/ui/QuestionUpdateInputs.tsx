@@ -69,7 +69,7 @@ export function QuestionUpdateInputs({ form, onSubmit }: Props) {
             icon={<IconAddPhoto size={32} />}
          />
          <Controller
-            name="jobCategory"
+            name="targetJobGroup"
             control={form.control}
             rules={{
                required: true,

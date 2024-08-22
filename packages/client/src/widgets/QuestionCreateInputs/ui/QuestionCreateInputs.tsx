@@ -12,6 +12,7 @@ import {
 } from '@gds/component'
 import { IconAddPhoto, IconSearch } from '@gds/icon'
 import { Controller, UseFormReturn } from 'react-hook-form'
+import { JOB_GROUPS } from '@shared/model/job'
 import { pageWrapper } from './questionCreateInputs.css'
 
 interface Props {
@@ -69,7 +70,7 @@ export function QuestionCreateInputs({ form, onSubmit }: Props) {
             icon={<IconAddPhoto size={32} />}
          />
          <Controller
-            name="jobCategory"
+            name="targetJobGroup"
             control={form.control}
             rules={{
                required: true,
@@ -77,7 +78,10 @@ export function QuestionCreateInputs({ form, onSubmit }: Props) {
             render={({ field: { onChange, value } }) => (
                <Select // TODO: add Search Select and remove the default select
                   variant="filled"
-                  items={[{ label: 'TODO', id: 'TODO' }]}
+                  items={JOB_GROUPS.map((job) => ({
+                     id: job,
+                     label: job,
+                  }))}
                   selected={value}
                   onSelect={onChange}
                   inputProps={{
@@ -99,7 +103,7 @@ export function QuestionCreateInputs({ form, onSubmit }: Props) {
             render={({ field: { onChange, value } }) => (
                <NumberInput
                   label={<>보상 크레딧 설정</>}
-                  value={1000}
+                  value={value}
                   onChange={(e) => onChange(e.target.value)}
                   onUpClick={() => {
                      if (value + 1000 > 100000) {

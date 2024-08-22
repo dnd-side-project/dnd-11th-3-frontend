@@ -3,7 +3,7 @@ import { useForm, UseFormReturn } from 'react-hook-form'
 export type QuestionFormValues = {
    title: string
    content: string
-   jobCategory: null | { label: string; id: string }
+   targetJobGroup: null | { label: string; id: string }
    reward: number
 }
 
