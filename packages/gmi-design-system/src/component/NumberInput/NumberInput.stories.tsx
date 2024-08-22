@@ -56,7 +56,7 @@ export function NumberInputComponent() {
         label="Error"
         description="Description"
         placeholder="Placeholder"
-        errorMessage="Error message"
+        errormessage="Error message"
       />
       <NumberInput
         value={1000}

@@ -172,7 +172,7 @@ function SelectInput({
       >
         <div
           className={textInputWrapperStyle({
-            color: disabled ? 'disabled' : inputProps?.errorMessage ? 'error' : variant,
+            color: disabled ? 'disabled' : inputProps?.errormessage ? 'error' : variant,
           })}
         >
           <div
@@ -237,20 +237,20 @@ function SelectInput({
               cloneElement(inputProps?.icon, {
                 color: disabled
                   ? INPUT_COLOR.disabled
-                  : inputProps?.errorMessage
+                  : inputProps?.errormessage
                     ? INPUT_COLOR.error
                     : INPUT_COLOR.default,
               })}
           </div>
         </div>
       </Button>
-      {(inputProps?.errorMessage || inputProps?.description) && (
+      {(inputProps?.errormessage || inputProps?.description) && (
         <div
           className={textMetaStyle({
-            color: disabled ? 'disabled' : inputProps.errorMessage ? 'error' : 'default',
+            color: disabled ? 'disabled' : inputProps.errormessage ? 'error' : 'default',
           })}
         >
-          {!disabled && inputProps.errorMessage ? inputProps.errorMessage : inputProps.description}
+          {!disabled && inputProps.errormessage ? inputProps.errormessage : inputProps.description}
         </div>
       )}
     </div>

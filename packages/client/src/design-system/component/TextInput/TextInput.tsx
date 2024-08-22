@@ -14,7 +14,7 @@ export interface TextInputProps
    extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
    label?: ReactNode
    description?: string
-   errorMessage?: string
+   errormessage?: string
    successMessage?: string
    icon?: ReactElement
    variant?: 'default' | 'filled'
@@ -25,7 +25,7 @@ export interface TextInputProps
 export function TextInput({
    label,
    description,
-   errorMessage,
+   errormessage,
    successMessage,
    variant = 'default',
    icon,
@@ -48,7 +48,7 @@ export function TextInput({
                className={textInputWrapperStyle({
                   color: props.disabled
                      ? 'disabled'
-                     : errorMessage
+                     : errormessage
                        ? 'error'
                        : variant,
                   size,
@@ -58,7 +58,7 @@ export function TextInput({
                   className={textInputStyle({
                      color: props.disabled
                         ? 'disabled'
-                        : errorMessage
+                        : errormessage
                           ? 'error'
                           : variant,
                   })}
@@ -69,7 +69,7 @@ export function TextInput({
                   cloneElement(Icon, {
                      color: props.disabled
                         ? INPUT_COLOR.disabled
-                        : errorMessage
+                        : errormessage
                           ? INPUT_COLOR.error
                           : INPUT_COLOR.default,
                   })}
@@ -78,17 +78,17 @@ export function TextInput({
                className={textMetaStyle({
                   color: props.disabled
                      ? 'disabled'
-                     : errorMessage
+                     : errormessage
                        ? 'error'
                        : successMessage
                          ? 'success'
                          : variant,
                })}
             >
-               {(errorMessage || successMessage || description) &&
+               {(errormessage || successMessage || description) &&
                !props.disabled &&
-               errorMessage
-                  ? errorMessage
+               errormessage
+                  ? errormessage
                   : successMessage || description}
             </div>
          </div>

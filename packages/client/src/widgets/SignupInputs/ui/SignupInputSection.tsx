@@ -54,7 +54,7 @@ export function SignupInputSection({ form }: Props) {
                      },
                      placeholder: '공무원 공식 메일을 입력해주세요.',
                      description: '버튼 클릭시 이메일로 인증번호가 전송됩니다.',
-                     errorMessage:
+                     errormessage:
                         error?.type === 'server' ? error.message : '',
                   }}
                   buttonProps={{
@@ -119,7 +119,7 @@ export function SignupInputSection({ form }: Props) {
                      },
                      width: 292,
                      placeholder: '인증번호를 입력해주세요',
-                     errorMessage:
+                     errormessage:
                         error?.type === 'verification' ? error.message : '',
                      successMessage: officialEmailVerified
                         ? '공무원 인증이 완료되었습니다.'
@@ -193,7 +193,7 @@ export function SignupInputSection({ form }: Props) {
                         successMessage: nicknameVerified
                            ? '사용 가능한 닉네임입니다.'
                            : '',
-                        errorMessage:
+                        errormessage:
                            error?.type === 'server'
                               ? error.message
                               : error?.type === 'validation'

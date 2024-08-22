@@ -11,11 +11,11 @@ import {
 export interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   label?: ReactNode
   description?: string
-  errorMessage?: string
+  errormessage?: string
   height?: CSSProperties['height']
 }
 
-export function TextArea({ label, description, errorMessage, height, ...props }: TextAreaProps) {
+export function TextArea({ label, description, errormessage, height, ...props }: TextAreaProps) {
   return (
     <div className={textAreaLabelContainerStyle}>
       {label && <div className={textAreaLabelStyle}>{label}</div>}
@@ -24,23 +24,23 @@ export function TextArea({ label, description, errorMessage, height, ...props }:
           height: height ?? 'auto',
         }}
         className={textAreaWrapperStyle({
-          color: props.disabled ? 'disabled' : errorMessage ? 'error' : 'default',
+          color: props.disabled ? 'disabled' : errormessage ? 'error' : 'default',
         })}
       >
         <textarea
           className={textAreaStyle({
-            color: props.disabled ? 'disabled' : errorMessage ? 'error' : 'default',
+            color: props.disabled ? 'disabled' : errormessage ? 'error' : 'default',
           })}
           {...props}
         />
       </div>
-      {(errorMessage || description) && (
+      {(errormessage || description) && (
         <div
           className={textMetaStyle({
-            color: props.disabled ? 'disabled' : errorMessage ? 'error' : 'default',
+            color: props.disabled ? 'disabled' : errormessage ? 'error' : 'default',
           })}
         >
-          {!props.disabled && errorMessage ? errorMessage : description}
+          {!props.disabled && errormessage ? errormessage : description}
         </div>
       )}
     </div>
