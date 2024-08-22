@@ -197,6 +197,7 @@ export const createRequestFunction = function (
             (axios.defaults.baseURL
                ? ''
                : (configuration?.basePath ?? basePath)) + axiosArgs.url,
+         withCredentials: true,
       }
       return axios.request<T, R>(axiosRequestArgs)
    }
