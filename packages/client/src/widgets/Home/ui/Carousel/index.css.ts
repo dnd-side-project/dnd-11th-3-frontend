@@ -4,7 +4,7 @@ import { style } from '@vanilla-extract/css'
 export const RecommendContentBox = style({
    width: '358px',
    marginTop: '20px',
-   margin: '15px auto 0',
+   margin: '10px auto 0',
    display: 'flex',
    justifyContent: 'center',
    flexDirection: 'column',
