@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react'
 
-import { IconPlus } from '@gds/icon'
-import { Button, Divider } from '@gds/component'
+import { IconPlus, IconSearch } from '@gds/icon'
+import { Button, Divider, TextInput } from '@gds/component'
 import { PageURL } from '@shared/model'
 import { useRouter } from 'next/navigation'
 import { QuestionDataType } from '@entities/@types/question'
@@ -107,6 +107,10 @@ export function ClientHomePage() {
                <HomeHeader
                   selectedCategory={jobCategory}
                   onSelectCategory={setJobCategory}
+               />
+               <TextInput
+                  placeholder="검색어를 입력해주세요"
+                  icon={<IconSearch size={25} />}
                />
                <div className={styles.RecommendWrapper}>
                   <div className={styles.RecommendHeaderBox}>

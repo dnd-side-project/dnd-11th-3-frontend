@@ -27,12 +27,12 @@ export const QuestionHeaderTitle = style({
 
 export const QuestionFilterBox = style({
    display: 'flex',
+   justifyContent: 'center',
 })
 
 export const QuestionsWrapper = style({
    display: 'flex',
    flexDirection: 'column',
-   height: '300px',
 })
 
 export const fixedNav = style({

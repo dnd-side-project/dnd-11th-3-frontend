@@ -6,6 +6,7 @@ export const absolutePos = style({
    top: 0,
    left: 0,
    overflowY: 'scroll',
+   height: '760px',
 })
 
 export const HomeWrapper = style({
@@ -20,6 +21,7 @@ export const RecommendWrapper = style({
    alignItems: 'center',
    justifyContent: 'center',
    marginBottom: '10px',
+   marginTop: '-30px',
 })
 
 export const RecommendHeaderBox = style({
