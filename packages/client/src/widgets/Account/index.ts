@@ -1,1 +1,1 @@
-export { AccountPageWrapper } from './ui/AccountPageWrapper'
+export { AccountPage } from './ui/AccountPage'

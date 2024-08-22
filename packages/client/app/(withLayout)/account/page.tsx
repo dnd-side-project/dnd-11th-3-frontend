@@ -1,8 +1,8 @@
-import { AccountPageWrapper } from '@widgets/Account'
+import { AccountPage } from '@widgets/Account'
 import React from 'react'
 
-function AccountPage() {
-   return <AccountPageWrapper />
+function Account() {
+   return <AccountPage />
 }
 
-export default AccountPage
+export default Account
