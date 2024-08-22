@@ -3,7 +3,6 @@
 import { SignupFormValues } from '@entities/signup'
 import { Select } from '@gds/component'
 import { IconSearch } from '@gds/icon'
-import { JOB_CATEGORIES } from '@shared/model'
 import { LabeledInputWithButton, UnlabeledInputWithButton } from '@shared/ui'
 import { Controller, UseFormReturn } from 'react-hook-form'
 import { useState } from 'react'
@@ -13,6 +12,7 @@ import {
 } from 'src/clientPages/signup/api/mail'
 
 import { usePostNicknameDuplCheck } from '@shared/api'
+import { JOB_CATEGORIES, JOB_GROUPS } from '@shared/model/job'
 import * as styles from './style.css'
 
 interface Props {
@@ -243,13 +243,38 @@ export function SignupInputSection({ form }: Props) {
                render={({ field: { onChange, value } }) => (
                   <Select
                      required
+                     items={JOB_GROUPS.map((group) => ({
+                        label: group,
+                        id: group,
+                     }))}
+                     inputProps={{
+                        placeholder: '해당 직군을 선택해주세요',
+                        label: '직군',
+                        required: true,
+                        icon: <IconSearch />,
+                     }}
+                     selected={value}
+                     variant="default"
+                     onSelect={(item) => onChange(item)}
+                  />
+               )}
+            />
+            <Controller
+               name="jobCategory"
+               control={form.control}
+               rules={{
+                  required: true,
+               }}
+               render={({ field: { onChange, value } }) => (
+                  <Select
+                     required
                      items={JOB_CATEGORIES.map((category) => ({
                         label: category,
                         id: category,
                      }))}
                      inputProps={{
-                        placeholder: '해당 직군을 선택해주세요',
-                        label: '직군',
+                        placeholder: '해당 직렬을 선택해주세요',
+                        label: '직렬',
                         required: true,
                         icon: <IconSearch />,
                      }}
