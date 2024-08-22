@@ -9,7 +9,7 @@ const { API_BASE_URL } = process.env
 export const config = new Configuration({
    basePath: API_BASE_URL,
    baseOptions: {
-      withCredentials: false, // TODO: fix after implementing authentication
+      withCredentials: true, // TODO: fix after implementing authentication
       headers: {
          'Content-Type': 'application/json',
       },
