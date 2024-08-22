@@ -75,7 +75,7 @@ export function SignupInputSection({ form }: Props) {
                                  form.clearErrors('officialEmail')
                                  form.setValue(
                                     'officialEmailVerifyCodeSent',
-                                    false,
+                                    true,
                                  )
                                  form.setValue('officialEmailVerified', false)
                               },
