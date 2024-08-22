@@ -1,5 +1,5 @@
 import { Divider } from '@gds/component'
-import CreditListsWrapper from './CreditListsWrapper'
+import CreditListsContainer from './CreditListsContainer'
 import CreditAmount from './CreditAmount'
 import { Wrapper } from './style.css'
 
@@ -8,7 +8,7 @@ export function CreditHistoryContainer() {
       <div className={Wrapper}>
          <CreditAmount />
          <Divider />
-         <CreditListsWrapper />
+         <CreditListsContainer />
       </div>
    )
 }

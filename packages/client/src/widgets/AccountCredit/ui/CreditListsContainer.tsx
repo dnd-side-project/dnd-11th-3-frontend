@@ -5,7 +5,7 @@ import * as styles from './style.css'
 import CreditCategoryFilter from './CreditCategoryFilter'
 import { CreditList, CreditProps } from './CreditList'
 
-function CreditListsWrapper() {
+function CreditListsContainer() {
    const CreditData: CreditProps[] = [
       {
          profile: '마라탕후로',
@@ -64,4 +64,4 @@ function CreditListsWrapper() {
    )
 }
 
-export default CreditListsWrapper
+export default CreditListsContainer
