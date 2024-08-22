@@ -1,9 +1,16 @@
+'use client'
+
 import { IconBookmark, IconCredit, IconThumbUpFilled } from '@gds/icon'
 import { Badge } from '@gds/component'
 import { color } from '@gds/token'
+import { QuestionPostSimpleResponse } from '@server-api/api'
 import * as styles from './Question.css'
 
+/**
+ * @description 삭제 예정
+ */
 export interface QuestionData {
+   // TODO: delete
    tag: string
    reward: string
    title: string
@@ -15,7 +22,7 @@ export interface QuestionData {
 }
 
 interface Props {
-   data: QuestionData
+   data: QuestionPostSimpleResponse
 }
 
 function Question({ data }: Props) {
@@ -24,7 +31,7 @@ function Question({ data }: Props) {
          <div className={styles.QuestionTagWrapper}>
             <div style={{ marginRight: '4px' }}>
                <Badge variant="outlined" size="small">
-                  {data.tag}
+                  {data.jobGroup}
                </Badge>
             </div>
             {data.isChosen ? (
@@ -43,16 +50,20 @@ function Question({ data }: Props) {
          <div className={styles.QuestionContentBox}>{data.content}</div>
          <div className={styles.QuestionBottomWrapper}>
             <div className={styles.QuestionDateBox}>
-               <span>{data.date}</span>
+               <span>{new Date(String(data.createdAt))?.toDateString()}</span>
             </div>
             <div className={styles.QuestionDetailBox}>
                <div className={styles.QuestionIconBox}>
                   <IconBookmark />
                </div>
-               <div className={styles.QuestionIconTxtBox}>{data.bookmark}</div>
+               <div className={styles.QuestionIconTxtBox}>
+                  {data.savedCount}
+               </div>
                <div className={styles.QuestionIconBox} />
                <IconThumbUpFilled />
-               <div className={styles.QuestionIconTxtBox}>{data.likes}</div>
+               <div className={styles.QuestionIconTxtBox}>
+                  {data.recommendCount}
+               </div>
             </div>
          </div>
       </div>

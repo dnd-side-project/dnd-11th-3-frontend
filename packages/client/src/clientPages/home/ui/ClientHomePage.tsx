@@ -10,7 +10,9 @@ import { QuestionDataType } from '@entities/@types/question'
 import { HomeHeader } from '@widgets/Home/ui/HomeHeader'
 import QuestionList from '@widgets/Home/ui/QuestionList'
 import { Carousel } from '@widgets/Home/ui/Carousel'
+import { pages } from 'next/dist/build/templates/app-page'
 import * as styles from './style.css'
+import { useFetchQuestions } from '../api/question'
 
 export const data: QuestionDataType[] = [
    {
@@ -94,11 +96,27 @@ export const data: QuestionDataType[] = [
 ]
 
 export function ClientHomePage() {
+   const router = useRouter()
+   const [search, setSearch] = useState<string | undefined>(undefined)
+   const [selectedJobGroups, setSelectedJobGroups] = useState<
+      { label: string; key: string }[]
+   >([])
+   const { data: questions } = useFetchQuestions({
+      condition: {
+         keyword: search,
+         jobGroups: selectedJobGroups.map((jobGroup) => jobGroup.key),
+         isChosen: false,
+      },
+      pageable: {
+         page: 1,
+         size: 10,
+      },
+   })
+
    const [jobCategory, setJobCategory] = useState({
       label: '전체',
       id: 'all',
    })
-   const router = useRouter()
 
    return (
       <div style={{ position: 'relative', height: '844px' }}>
@@ -127,7 +145,7 @@ export function ClientHomePage() {
             <div className={styles.DividerWrapper}>
                <Divider />
             </div>
-            <QuestionList />
+            <QuestionList data={questions} />
          </div>
          <div className={styles.floatingButton}>
             <Button

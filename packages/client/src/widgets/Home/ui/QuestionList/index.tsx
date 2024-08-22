@@ -3,15 +3,20 @@
 import { useState } from 'react'
 
 import { useScrollHandler } from '@features/useScrollHandler'
-import { data } from 'src/clientPages/home/ui/ClientHomePage'
+
 import Question from '@shared/ui/QuestionList/Question'
 import { IconFilter } from '@gds/icon'
 import { SelectItemType } from 'src/design-system/component/Select/Select'
 import { MultiSelect } from 'src/design-system/component/MultiSelect'
 import { JOB_GROUPS } from '@shared/model/job'
+import { PageResponseQuestionPostSimpleResponse } from '@server-api/api'
 import * as styles from './index.css'
 
-function QuestionList() {
+interface Props {
+   data: PageResponseQuestionPostSimpleResponse
+}
+
+function QuestionList({ data }: Props) {
    const [fixed, setFixed] = useState<boolean>(false)
    const [selectedWithIcon, setSelectedWithIcon] = useState<SelectItemType[]>(
       [],
@@ -52,7 +57,7 @@ function QuestionList() {
             </div>
          </div>
          <div className={styles.QuestionsWrapper}>
-            {data.map((question) => (
+            {data?.content?.map((question) => (
                <Question data={question} key={question.questionPostId} />
             ))}
          </div>
