@@ -19,10 +19,12 @@ export const navbarWrapperStyle = style({
    fontSize: '10px',
    fontWeight: '500',
    lineHeight: '13px',
+   backgroundColor: color.white,
 })
 
 export const navbarSelectedStyle = recipe({
    base: {
+      cursor: 'pointer',
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
