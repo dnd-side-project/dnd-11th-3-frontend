@@ -1,1 +1,1 @@
-export { CreditHistoryWidget } from './ui/CreditHistoryWidget'
+export { CreditHistoryContainer } from './ui/CreditHistoryContainer'

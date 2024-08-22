@@ -3,7 +3,7 @@ import CreditListsWrapper from './CreditListsWrapper'
 import CreditAmount from './CreditAmount'
 import { Wrapper } from './style.css'
 
-export function CreditHistoryWidget() {
+export function CreditHistoryContainer() {
    return (
       <div className={Wrapper}>
          <CreditAmount />
