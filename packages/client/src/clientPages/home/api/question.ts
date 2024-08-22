@@ -1,6 +1,11 @@
 import { useQuery, UseQueryOptions } from '@tanstack/react-query'
 
-import { APIApi, Pageable, QuestionPostSearchCondition } from '@server-api/api'
+import {
+   APIApi,
+   Pageable,
+   PageResponseQuestionPostSimpleResponse,
+   QuestionPostSearchCondition,
+} from '@server-api/api'
 import { config } from '@shared/api/config'
 
 export const useFetchQuestions = (
@@ -19,5 +24,5 @@ export const useFetchQuestions = (
                dto.condition,
                dto.pageable,
             )
-         ).data,
+         ).data as PageResponseQuestionPostSimpleResponse,
    })

@@ -14,21 +14,14 @@ import * as styles from './index.css'
 
 interface Props {
    data: PageResponseQuestionPostSimpleResponse
+   onSelectAdGroup: (selectedItems: SelectItemType[]) => void
+   selectedAdGroup: SelectItemType[]
 }
 
-function QuestionList({ data }: Props) {
+function QuestionList({ data, onSelectAdGroup, selectedAdGroup }: Props) {
    const [fixed, setFixed] = useState<boolean>(false)
-   const [selectedWithIcon, setSelectedWithIcon] = useState<SelectItemType[]>(
-      [],
-   )
 
    useScrollHandler(setFixed, 'nav-section')
-
-   const handleSelect = (selectedItems: SelectItemType[]) => {
-      if (selectedItems.length <= 3) {
-         setSelectedWithIcon(selectedItems)
-      }
-   }
 
    return (
       <div id="nav-section" className={styles.HomeWrapper}>
@@ -45,8 +38,8 @@ function QuestionList({ data }: Props) {
                      inputProps={{
                         icon: <IconFilter />,
                      }}
-                     onSelect={handleSelect}
-                     selected={selectedWithIcon}
+                     onSelect={onSelectAdGroup}
+                     selected={selectedAdGroup}
                      placeholder="직군 3개까지 선택 가능합니다."
                      items={JOB_GROUPS.map((jobGroup) => ({
                         id: jobGroup,
