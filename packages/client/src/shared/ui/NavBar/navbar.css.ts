@@ -28,6 +28,7 @@ export const navbarSelectedStyle = recipe({
       flexDirection: 'column',
       justifyContent: 'center',
       alignItems: 'center',
+      cursor: 'pointer',
    },
    variants: {
       color: {
