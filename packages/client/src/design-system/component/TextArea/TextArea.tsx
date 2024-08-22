@@ -12,14 +12,14 @@ export interface TextAreaProps
    extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
    label?: ReactNode
    description?: string
-   errorMessage?: string
+   errormessage?: string
    height?: CSSProperties['height']
 }
 
 export function TextArea({
    label,
    description,
-   errorMessage,
+   errormessage,
    height,
    ...props
 }: TextAreaProps) {
@@ -33,7 +33,7 @@ export function TextArea({
             className={textAreaWrapperStyle({
                color: props.disabled
                   ? 'disabled'
-                  : errorMessage
+                  : errormessage
                     ? 'error'
                     : 'default',
             })}
@@ -42,24 +42,24 @@ export function TextArea({
                className={textAreaStyle({
                   color: props.disabled
                      ? 'disabled'
-                     : errorMessage
+                     : errormessage
                        ? 'error'
                        : 'default',
                })}
                {...props}
             />
          </div>
-         {(errorMessage || description) && (
+         {(errormessage || description) && (
             <div
                className={textMetaStyle({
                   color: props.disabled
                      ? 'disabled'
-                     : errorMessage
+                     : errormessage
                        ? 'error'
                        : 'default',
                })}
             >
-               {!props.disabled && errorMessage ? errorMessage : description}
+               {!props.disabled && errormessage ? errormessage : description}
             </div>
          )}
       </div>

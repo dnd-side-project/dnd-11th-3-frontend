@@ -41,7 +41,7 @@ export function QuestionUpdateInputs({ form, onSubmit }: Props) {
                   placeholder="질문 제목을 작성해주세요"
                   onChange={(e) => onChange(e.target.value)}
                   value={value}
-                  errorMessage={(!!value && getTitleErrorMessage()) || ''}
+                  errormessage={(!!value && getTitleErrorMessage()) || ''}
                />
             )}
          />
@@ -59,7 +59,7 @@ export function QuestionUpdateInputs({ form, onSubmit }: Props) {
                   height={258}
                   onChange={(e) => onChange(e.target.value)}
                   value={value}
-                  errorMessage={(!!value && getContentErrorMessage()) || ''}
+                  errormessage={(!!value && getContentErrorMessage()) || ''}
                />
             )}
          />
@@ -69,7 +69,7 @@ export function QuestionUpdateInputs({ form, onSubmit }: Props) {
             icon={<IconAddPhoto size={32} />}
          />
          <Controller
-            name="jobCategory"
+            name="targetJobGroup"
             control={form.control}
             rules={{
                required: true,
@@ -84,7 +84,7 @@ export function QuestionUpdateInputs({ form, onSubmit }: Props) {
                      icon: <IconSearch size={20} />,
                      placeholder: '해당 직군을 입력해주세요',
                      label: '직군 선택',
-                     errorMessage:
+                     errormessage:
                         (value !== null && getJobCategoryErrorMessage()) || '',
                   }}
                />
@@ -115,7 +115,7 @@ export function QuestionUpdateInputs({ form, onSubmit }: Props) {
                   }}
                   variant="gradient"
                   subTitle="크레딧"
-                  errorMessage={(!!value && getRewardErrorMessage()) || ''}
+                  errormessage={(!!value && getRewardErrorMessage()) || ''}
                   min={1000}
                   max={10000}
                />

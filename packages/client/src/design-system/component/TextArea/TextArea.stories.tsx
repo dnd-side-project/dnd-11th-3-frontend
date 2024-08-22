@@ -25,7 +25,7 @@ export function TextAreaComponent() {
             label="Error"
             description="Description"
             placeholder="Placeholder"
-            errorMessage="Error message"
+            errormessage="Error message"
          />
          <TextArea
             label="Disabled"

@@ -28,7 +28,7 @@ export function TextInputComponent() {
         label="Error"
         description="Description"
         placeholder="Placeholder"
-        errorMessage="Error message"
+        errormessage="Error message"
       />
       <TextInput label="Disabled" description="Description" placeholder="Placeholder" disabled />
     </div>

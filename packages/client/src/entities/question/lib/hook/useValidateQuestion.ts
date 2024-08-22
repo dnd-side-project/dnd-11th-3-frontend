@@ -4,7 +4,7 @@ import { QuestionFormValues } from './useQuestionCreateForm'
 export const useValidateQuestion = (
    form: UseFormReturn<QuestionFormValues>,
 ) => {
-   const { title, content, jobCategory, reward } = useWatch({
+   const { title, content, targetJobGroup, reward } = useWatch({
       control: form.control,
    })
 
@@ -12,11 +12,11 @@ export const useValidateQuestion = (
    const isContentValid =
       !!content && content?.length > 0 && content?.length <= 500
    const isCategoryValid =
-      jobCategory !== null &&
-      !!jobCategory?.id &&
-      !!jobCategory?.label &&
-      typeof jobCategory?.id === 'string' &&
-      typeof jobCategory?.label === 'string'
+      targetJobGroup !== null &&
+      !!targetJobGroup?.id &&
+      !!targetJobGroup?.label &&
+      typeof targetJobGroup?.id === 'string' &&
+      typeof targetJobGroup?.label === 'string'
    const isRewardValid = !!reward && reward >= 1000 && reward <= 100000
 
    const getTitleErrorMessage = () => {

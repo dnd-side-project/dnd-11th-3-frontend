@@ -16,7 +16,7 @@ export interface NumberInputProps extends React.InputHTMLAttributes<HTMLInputEle
   subTitle?: ReactNode
   label?: ReactNode
   description?: string
-  errorMessage?: string
+  errormessage?: string
   icon?: ReactElement
   variant?: 'default' | 'filled' | 'gradient'
   value: number
@@ -29,7 +29,7 @@ export function NumberInput({
   label,
   description,
   subTitle,
-  errorMessage,
+  errormessage,
   variant = 'filled',
   icon,
   value,
@@ -44,7 +44,7 @@ export function NumberInput({
       {label && <div className={textInputLabelStyle}>{label}</div>}
       <div
         className={textInputWrapperStyle({
-          color: props.disabled ? 'disabled' : errorMessage ? 'error' : variant,
+          color: props.disabled ? 'disabled' : errormessage ? 'error' : variant,
         })}
       >
         {!!Icon &&
@@ -52,7 +52,7 @@ export function NumberInput({
           cloneElement(Icon, {
             color: props.disabled
               ? NUMBER_INPUT_COLOR.disabled
-              : errorMessage
+              : errormessage
                 ? NUMBER_INPUT_COLOR.error
                 : variant,
           })}
@@ -70,7 +70,7 @@ export function NumberInput({
                 color={
                   props.disabled
                     ? NUMBER_INPUT_COLOR.disabled
-                    : errorMessage
+                    : errormessage
                       ? NUMBER_INPUT_COLOR.error
                       : NUMBER_INPUT_COLOR[variant]
                 }
@@ -82,7 +82,7 @@ export function NumberInput({
             value={value}
             type="number"
             className={numberInputStyle({
-              color: props.disabled ? 'disabled' : errorMessage ? 'error' : variant,
+              color: props.disabled ? 'disabled' : errormessage ? 'error' : variant,
             })}
             {...props}
           />
@@ -98,7 +98,7 @@ export function NumberInput({
                 color={
                   props.disabled
                     ? NUMBER_INPUT_COLOR.disabled
-                    : errorMessage
+                    : errormessage
                       ? NUMBER_INPUT_COLOR.error
                       : NUMBER_INPUT_COLOR[variant]
                 }
@@ -107,13 +107,13 @@ export function NumberInput({
           )}
         </div>
       </div>
-      {(errorMessage || description) && (
+      {(errormessage || description) && (
         <div
           className={textMetaStyle({
-            color: props.disabled ? 'disabled' : errorMessage ? 'error' : variant,
+            color: props.disabled ? 'disabled' : errormessage ? 'error' : variant,
           })}
         >
-          {!props.disabled && errorMessage ? errorMessage : description}
+          {!props.disabled && errormessage ? errormessage : description}
         </div>
       )}
     </div>
