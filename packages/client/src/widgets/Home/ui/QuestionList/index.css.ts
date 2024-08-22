@@ -27,6 +27,7 @@ export const QuestionHeaderTitle = style({
 
 export const QuestionFilterBox = style({
    display: 'flex',
+   justifyContent: 'center',
 })
 
 export const QuestionsWrapper = style({
