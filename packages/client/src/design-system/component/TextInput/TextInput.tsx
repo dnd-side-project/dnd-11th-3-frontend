@@ -35,7 +35,7 @@ export function TextInput({
 }: TextInputProps) {
    const Icon = icon
    return (
-      <div>
+      <>
          <div className={textInputContainerStyle}>
             {label && (
                <div className={textInputLabelStyle}>
@@ -92,6 +92,6 @@ export function TextInput({
                   : successMessage || description}
             </div>
          </div>
-      </div>
+      </>
    )
 }
