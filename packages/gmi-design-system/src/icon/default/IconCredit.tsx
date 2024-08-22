@@ -6,7 +6,7 @@ function IconCredit(
   {
     title = 'IconCredit',
     titleId = 'GDS-IconCredit',
-    size = 20,
+    size = 11,
     color = '#2A2A2A',
     ...props
   }: SVGProps<SVGSVGElement> & IconProps,

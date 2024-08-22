@@ -112,6 +112,9 @@ export function SignupInputSection({ form }: Props) {
                         if (error) {
                            form.clearErrors('verificationNumber')
                         }
+                        if (nicknameVerified) {
+                           form.setValue('nicknameVerified', false)
+                        }
                         onChange(e.target.value)
                      },
                      width: 292,

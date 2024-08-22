@@ -2,10 +2,10 @@ import type { SVGProps } from 'react'
 import { Ref, forwardRef } from 'react'
 import type { IconProps } from '../shared/props'
 
-function IconArrowDown(
+function IconNavbarChat(
   {
-    title = 'IconArrowDown',
-    titleId = 'GDS-IconArrowDown',
+    title = 'IconNavbarChat',
+    titleId = 'GDS-IconNavbarChat',
     size = 20,
     color = '#2A2A2A',
     ...props
@@ -17,29 +17,28 @@ function IconArrowDown(
       width={size}
       height={size}
       fill="none"
-      viewBox="0 0 16 16"
+      viewBox="0 0 32 32"
       color={color}
       ref={ref}
       aria-labelledby={titleId}
       {...props}
     >
       {title ? <title id={titleId}>{title}</title> : null}
-      <g
+      <path
         stroke={color}
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={2}
-        clipPath="url(#a)"
-      >
-        <path d="m3 6 5 5M8 11l5-5" />
-      </g>
-      <defs>
-        <clipPath id="down">
-          <path fill="#fff" d="M-4-4h24v24H-4z" />
-        </clipPath>
-      </defs>
+        d="M15.5 26A9.5 9.5 0 1 0 6 16.5a9.46 9.46 0 0 0 1.056 4.357L6 26l5.143-1.056A9.46 9.46 0 0 0 15.5 26"
+      />
+      <path
+        stroke={color}
+        strokeLinecap="round"
+        strokeWidth={2}
+        d="M12.071 14.125h6.861M12.071 18.697h4.574"
+      />
     </svg>
   )
 }
-const ForwardRef = forwardRef(IconArrowDown)
-export { ForwardRef as IconArrowDown }
+const ForwardRef = forwardRef(IconNavbarChat)
+export { ForwardRef as IconNavbarChat }

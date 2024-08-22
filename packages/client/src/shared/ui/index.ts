@@ -4,3 +4,4 @@ export { UnlabeledInputWithButton } from './UnabeledInputWithButton/UnlabeledInp
 
 export { Header } from './Header/Header'
 export { NavBar } from './NavBar/NavBar'
+export { MainLoader } from './Loading/MainLoader'

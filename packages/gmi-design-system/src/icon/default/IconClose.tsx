@@ -2,10 +2,10 @@ import type { SVGProps } from 'react'
 import { Ref, forwardRef } from 'react'
 import type { IconProps } from '../shared/props'
 
-function IconArrowDown(
+function IconClose(
   {
-    title = 'IconArrowDown',
-    titleId = 'GDS-IconArrowDown',
+    title = 'IconClose',
+    titleId = 'GDS-IconClose',
     size = 20,
     color = '#2A2A2A',
     ...props
@@ -24,22 +24,19 @@ function IconArrowDown(
       {...props}
     >
       {title ? <title id={titleId}>{title}</title> : null}
-      <g
-        stroke={color}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        clipPath="url(#a)"
-      >
-        <path d="m3 6 5 5M8 11l5-5" />
+      <g clipPath="url(#a)">
+        <path
+          fill={color}
+          d="M12.2 3.807a.664.664 0 0 0-.94 0L8 7.06 4.74 3.8a.664.664 0 1 0-.94.94L7.06 8 3.8 11.26a.664.664 0 1 0 .94.94L8 8.94l3.26 3.26a.664.664 0 1 0 .94-.94L8.94 8l3.26-3.26a.67.67 0 0 0 0-.933"
+        />
       </g>
       <defs>
-        <clipPath id="down">
-          <path fill="#fff" d="M-4-4h24v24H-4z" />
+        <clipPath id="a">
+          <path fill="#fff" d="M0 0h16v16H0z" />
         </clipPath>
       </defs>
     </svg>
   )
 }
-const ForwardRef = forwardRef(IconArrowDown)
-export { ForwardRef as IconArrowDown }
+const ForwardRef = forwardRef(IconClose)
+export { ForwardRef as IconClose }
