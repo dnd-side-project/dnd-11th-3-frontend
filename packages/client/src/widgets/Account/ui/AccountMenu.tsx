@@ -28,13 +28,15 @@ export function AccountMenu({ title, menuList }: AccountMenuProps) {
                <div>
                   <span className={styles.urlMenu}>{menu.smallTitle}</span>
                </div>
-               <IconButton
-                  size="small"
-                  variant="default"
-                  onClick={() => router.push(menu.url)}
-                  aria-label={`Go to ${menu.smallTitle}`}
-                  icon={<IconArrowRight />}
-               />
+               <div className={styles.iconBox}>
+                  <IconButton
+                     size="small"
+                     variant="default"
+                     onClick={() => router.push(menu.url)}
+                     aria-label={`Go to ${menu.smallTitle}`}
+                     icon={<IconArrowRight />}
+                  />
+               </div>
             </div>
          ))}
       </div>
