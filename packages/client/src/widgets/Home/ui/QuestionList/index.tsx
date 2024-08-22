@@ -1,3 +1,5 @@
+'use client'
+
 import { useState } from 'react'
 
 import { useScrollHandler } from '@features/useScrollHandler'
@@ -6,6 +8,7 @@ import Question from '@shared/ui/QuestionList/Question'
 import { IconFilter } from '@gds/icon'
 import { SelectItemType } from 'src/design-system/component/Select/Select'
 import { MultiSelect } from 'src/design-system/component/MultiSelect'
+import { JOB_GROUPS } from '@shared/model/job'
 import * as styles from './index.css'
 
 function QuestionList() {
@@ -40,14 +43,10 @@ function QuestionList() {
                      onSelect={handleSelect}
                      selected={selectedWithIcon}
                      placeholder="직군 3개까지 선택 가능합니다."
-                     items={[
-                        // TODO: 직군 데이터로 변경 필요
-                        { label: 'Option 1', id: '1' },
-                        { label: 'Option 2', id: '2' },
-                        { label: 'Option 3', id: '3' },
-                        { label: 'Option 4', id: '4' },
-                        { label: 'Option 56', id: '5' },
-                     ]}
+                     items={JOB_GROUPS.map((jobGroup) => ({
+                        id: jobGroup,
+                        label: jobGroup,
+                     }))}
                   />
                </div>
             </div>
