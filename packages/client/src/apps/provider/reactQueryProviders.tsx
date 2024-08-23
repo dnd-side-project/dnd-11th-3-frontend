@@ -24,6 +24,7 @@ export default function ReactQueryClientProviders({
                      }
                      return false
                   },
+                  
                },
             },
          }),
