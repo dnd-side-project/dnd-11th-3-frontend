@@ -35,7 +35,7 @@ export function AnswerContainer({
                      display: 'flex',
                      flexDirection: 'column',
                      gap: 8,
-                     alignItems: 'center',
+                     alignItems: 'center', // TODO: fix style with VE
                   }}
                   className={Typo.body2.sb}
                >
