@@ -77,7 +77,11 @@ export function ClientQuestionDetailPage() {
                   )
                }}
                bottomNode={answersData?.content?.map((data) => (
-                  <AnswerCard answerData={data} key={data.answerId} />
+                  <AnswerCard
+                     answerData={data}
+                     key={data.answerId}
+                     userId={userData?.memberId}
+                  />
                ))}
             />
          </div>

@@ -17,9 +17,10 @@ import {
 interface Props {
    answerSelectDone?: boolean
    answerData: AnswerDetailResponse
+   userId?: number
 }
 
-export function AnswerCard({ answerSelectDone, answerData }: Props) {
+export function AnswerCard({ answerSelectDone, answerData, userId }: Props) {
    if (!answerData) return <></>
    return (
       <div className={answerCardWrapper}>
@@ -28,10 +29,22 @@ export function AnswerCard({ answerSelectDone, answerData }: Props) {
                <div className={answerProfileWrapper}>
                   <div className={answerProfileBox} />
                </div>
-               <p className={Typo.body1.sb}>
+               <p
+                  className={Typo.body1.sb}
+                  style={{
+                     color:
+                        userId === answerData?.memberInfo?.memberId
+                           ? color['secondary-dark']
+                           : color.black,
+                  }}
+               >
                   {answerData.memberInfo?.nickname}
+                  {userId === answerData?.memberInfo?.memberId && ' (나)'}
                </p>
-               <p className={Typo.body2.md}>
+               <p
+                  className={Typo.body2.md}
+                  style={{ color: color['gray-400'] }}
+               >
                   {answerData.memberInfo?.memberJobGroup}
                </p>
             </div>
