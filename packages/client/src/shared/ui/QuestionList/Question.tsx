@@ -1,6 +1,11 @@
 'use client'
 
-import { IconBookmark, IconCredit, IconThumbUpFilled } from '@gds/icon'
+import {
+   IconBookmark,
+   IconCredit,
+   IconLikesDefault,
+   IconThumbUpFilled,
+} from '@gds/icon'
 import { Badge } from '@gds/component'
 import { color } from '@gds/token'
 import { QuestionPostSimpleResponse } from '@server-api/api'
@@ -56,13 +61,13 @@ function Question({ data }: Props) {
             </div>
             <div className={styles.QuestionDetailBox}>
                <div className={styles.QuestionIconBox}>
-                  <IconBookmark />
+                  <IconBookmark color={color['gray-300']} />
                </div>
                <div className={styles.QuestionIconTxtBox}>
                   {data.savedCount}
                </div>
                <div className={styles.QuestionIconBox} />
-               <IconThumbUpFilled />
+               <IconLikesDefault color={color['gray-300']} />
                <div className={styles.QuestionIconTxtBox}>
                   {data.recommendCount}
                </div>
