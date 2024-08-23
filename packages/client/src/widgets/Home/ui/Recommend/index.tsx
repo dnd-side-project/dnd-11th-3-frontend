@@ -3,7 +3,6 @@ import { IconBookmark, IconCredit, IconWhiteLike } from '@gds/icon'
 import { Badge } from '@gds/component'
 import { color } from '@gds/token'
 import { QuestionPostSimpleResponse } from '@server-api/api'
-import { formatNumberWithCommas } from '@shared/utils/formatNumberWithCommas'
 import { useRouter } from 'next/navigation'
 import * as styles from './index.css'
 
@@ -31,7 +30,7 @@ function HomeRecommend({
          <div className={styles.Overlay}>
             <div className={styles.CoinBox}>
                <Badge variant="secondary" size="small">
-                  {formatNumberWithCommas(reward ?? 0)}
+                  {reward}
                   <IconCredit color={color['secondary-main']} />
                </Badge>
             </div>
