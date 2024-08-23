@@ -12,6 +12,7 @@ import QuestionList from '@widgets/Home/ui/QuestionList'
 import { Carousel } from '@widgets/Home/ui/Carousel'
 import { pages } from 'next/dist/build/templates/app-page'
 import { SelectItemType } from 'src/design-system/component/MultiSelect'
+import { MainLoader } from '@shared/ui'
 import * as styles from './style.css'
 import { useFetchQuestions } from '../api/question'
 
@@ -102,7 +103,7 @@ export function ClientHomePage() {
    const [selectedJobGroups, setSelectedJobGroups] = useState<SelectItemType[]>(
       [],
    )
-   const { data: questions } = useFetchQuestions({
+   const { data: questions, status: questionListsStatus } = useFetchQuestions({
       condition: {
          keyword: search,
          jobGroups: selectedJobGroups.map((jobGroup) => jobGroup.label),
@@ -146,6 +147,10 @@ export function ClientHomePage() {
             <div className={styles.DividerWrapper}>
                <Divider />
             </div>
+            <MainLoader
+               height={200}
+               loading={questionListsStatus === 'pending'}
+            />
             <QuestionList
                data={questions ?? []}
                selectedAdGroup={selectedJobGroups}
