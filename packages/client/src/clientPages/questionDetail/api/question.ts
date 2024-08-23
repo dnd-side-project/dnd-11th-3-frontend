@@ -1,6 +1,6 @@
 import { APIApi, QuestionPostDetailResponse } from '@server-api/api'
 import { config } from '@shared/api'
-import { AnswerMetaType } from '@shared/model'
+import { QuestionMetaDataType } from '@shared/model'
 import { useQuery, UseQueryOptions, useMutation } from '@tanstack/react-query'
 // /api/question-posts/{questionPostId}
 // getQuestionPostById
@@ -28,7 +28,7 @@ export const usePostCreateQuestionMeta = () => {
          type,
       }: {
          questionPostId: number
-         type: AnswerMetaType
+         type: QuestionMetaDataType
       }) =>
          (await new APIApi(config).activateInteraction(questionPostId, type))
             .data,
@@ -46,7 +46,7 @@ export const usePostCancelQuestionMeta = () => {
          type,
       }: {
          questionPostId: number
-         type: AnswerMetaType
+         type: QuestionMetaDataType
       }) =>
          (await new APIApi(config).inactivateInteraction(questionPostId, type))
             .data,

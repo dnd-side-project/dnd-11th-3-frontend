@@ -39,8 +39,10 @@ export function QuestionInformationContainer({
             {questionData?.reward}
             <IconCredit color={color['secondary-main']} size={11} />
          </Badge>
-         <div className={Typo.h1.lg}>{questionData?.title}</div>
-         <div className={Typo.body1.md}>{questionData?.content}</div>
+         <div style={{ minHeight: 200 }}>
+            <div className={Typo.h1.lg}>{questionData?.title}</div>
+            <div className={Typo.body1.md}>{questionData?.content}</div>
+         </div>
          {!!questionData?.imageUrls?.length &&
             questionData?.imageUrls.map((url) => (
                <Image
@@ -56,7 +58,6 @@ export function QuestionInformationContainer({
                />
             ))}
          {bottomNode}
-         <QuestionInformationBottom />
       </>
    )
 }
