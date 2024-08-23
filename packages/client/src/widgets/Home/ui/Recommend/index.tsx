@@ -2,22 +2,20 @@ import Image from 'next/image'
 import { IconBookmark, IconCredit, IconWhiteLike } from '@gds/icon'
 import { Badge } from '@gds/component'
 import { color } from '@gds/token'
+import { QuestionPostSimpleResponse } from '@server-api/api'
 import * as styles from './index.css'
 
-interface HomeRecommendProps {
+interface HomeRecommendProps extends QuestionPostSimpleResponse {
    src: string
-   coin: string
-   title: string
-   bookmark: number
-   likes: number
 }
 
 function HomeRecommend({
    src,
-   coin,
    title,
-   bookmark,
-   likes,
+   reward,
+   isChosen,
+   savedCount,
+   recommendCount,
 }: HomeRecommendProps) {
    return (
       <div className={styles.RecommendItem}>
@@ -25,7 +23,7 @@ function HomeRecommend({
          <div className={styles.overlay}>
             <div className={styles.CoinBox}>
                <Badge variant="secondary" size="small">
-                  {coin} <IconCredit color={color['secondary-main']} />
+                  {reward} <IconCredit color={color['secondary-main']} />
                </Badge>
             </div>
             <span className={styles.TitleStyle}>{title}</span>
@@ -33,11 +31,11 @@ function HomeRecommend({
                <div className={styles.IconBox}>
                   <IconBookmark color="#FFF" size={15} />
                </div>
-               <div className={styles.NumberBox}>{bookmark}</div>
+               <div className={styles.NumberBox}>{savedCount}</div>
                <div className={styles.IconBox}>
                   <IconWhiteLike size={15} />
                </div>
-               <div className={styles.NumberBox}>{likes}</div>
+               <div className={styles.NumberBox}>{recommendCount}</div>
             </div>
          </div>
       </div>

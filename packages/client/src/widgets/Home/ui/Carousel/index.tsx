@@ -8,6 +8,7 @@ import * as styles from './index.css'
 import HomeRecommend from '../Recommend'
 
 export function Carousel() {
+   const imageUrl = [Blue, Green, Orange]
    const settings = {
       className: 'center',
       infinite: true,
@@ -31,27 +32,18 @@ export function Carousel() {
                slidesToShow={settings.slidesToShow}
                swipeToSlide={settings.swipeToSlide}
             >
-               <HomeRecommend
-                  src={Blue}
-                  coin="2000"
-                  title="ddd"
-                  bookmark={20}
-                  likes={4}
-               />
-               <HomeRecommend
-                  src={Green}
-                  coin="2000"
-                  title="ddd"
-                  bookmark={20}
-                  likes={4}
-               />
-               <HomeRecommend
-                  src={Orange}
-                  coin="2000"
-                  title="ddd"
-                  bookmark={20}
-                  likes={4}
-               />
+               {recommendQuestions?.content?.map((question, idx) => {
+                  return (
+                     <HomeRecommend
+                        key={question.questionPostId}
+                        src={imageUrl[idx % 3]}
+                        reward={question.reward}
+                        title={question.title}
+                        savedCount={20}
+                        recommendCount={4}
+                     />
+                  )
+               })}
             </Slider>
          </div>
       </div>
