@@ -5,8 +5,7 @@ import {
     useQuery,
     UseQueryOptions,
  } from '@tanstack/react-query'
-// /api/question-posts/{questionPostId}
-//getQuestionPostById
+
 
 /**
  * 
