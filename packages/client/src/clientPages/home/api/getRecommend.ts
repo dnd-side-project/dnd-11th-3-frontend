@@ -13,10 +13,10 @@ export const useRecommendList = (
    },
    options?: UseQueryOptions<PageResponseQuestionPostSimpleResponse>,
 ) =>
-   useQuery({
+   useQuery<PageResponseQuestionPostSimpleResponse>({
       ...options,
       queryKey: ['/question-posts/recommends', dto.pageable],
       queryFn: async () =>
          (await new APIApi(config).getRecommendQuestionPosts(dto.pageable))
-            .data as PageResponseQuestionPostSimpleResponse,
+            .data,
    })
