@@ -26,13 +26,8 @@ export function Carousel() {
    return (
       <div className={styles.RecommendContentBox}>
          <div className="slider-container">
-            <Slider
-               className={settings.className}
-               infinite={settings.infinite}
-               slidesToShow={settings.slidesToShow}
-               swipeToSlide={settings.swipeToSlide}
-            >
-               {recommendQuestions?.content?.map((question, idx) => {
+            {recommendQuestions?.content?.length === 1 ? (
+               recommendQuestions?.content?.map((question, idx) => {
                   return (
                      <HomeRecommend
                         key={question.questionPostId}
@@ -44,8 +39,29 @@ export function Carousel() {
                         questionPostId={question.questionPostId}
                      />
                   )
-               })}
-            </Slider>
+               })
+            ) : (
+               <Slider
+                  className={settings.className}
+                  infinite={settings.infinite}
+                  slidesToShow={settings.slidesToShow}
+                  swipeToSlide={settings.swipeToSlide}
+               >
+                  {recommendQuestions?.content?.map((question, idx) => {
+                     return (
+                        <HomeRecommend
+                           key={question.questionPostId}
+                           src={imageUrl[idx % 3]}
+                           reward={question.reward}
+                           title={question.title}
+                           savedCount={question.savedCount}
+                           recommendCount={question.recommendCount}
+                           questionPostId={question.questionPostId}
+                        />
+                     )
+                  })}
+               </Slider>
+            )}
          </div>
       </div>
    )
