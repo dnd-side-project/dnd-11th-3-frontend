@@ -2,6 +2,13 @@
 
 import { Button, TextInput } from '@gds/component'
 import { useState } from 'react'
+import { color, Typo } from '@gds/token'
+import {
+   IconAlarm,
+   IconCheckCircle,
+   IconCheckCircleFilled,
+   PrimarySmile,
+} from '@gds/icon'
 import { answerbuttonWrapper, answerInputWrapper } from './style.css'
 import { AnswerCard } from './AnswerCard'
 
@@ -20,7 +27,22 @@ export function AnswerContainer({
    return (
       <div>
          <div className={answerInputWrapper}>
-            {!isWriter && (
+            {isWriter ? (
+               <div
+                  style={{
+                     color: color['primary-dark'],
+                     marginBottom: 16,
+                     display: 'flex',
+                     flexDirection: 'column',
+                     gap: 8,
+                     alignItems: 'center',
+                  }}
+                  className={Typo.body2.sb}
+               >
+                  <PrimarySmile size={40} />
+                  질문 작성자는 답변을 작성할 수 없습니다.
+               </div>
+            ) : (
                <>
                   <TextInput
                      label="답변"
@@ -45,7 +67,6 @@ export function AnswerContainer({
             )}
          </div>
          {bottomNode}
-         <AnswerCard />
       </div>
    )
 }

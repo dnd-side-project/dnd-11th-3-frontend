@@ -7,11 +7,13 @@ import {
 import { QuestionCreateInputs } from '@widgets/QuestionCreateInputs'
 import { MainLoader } from '@shared/ui'
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { usePostQuestion } from '../api/auth'
 
 export function ClientQuestionCreatePage() {
+   const router = useRouter()
    const form = useQuestionForm(QUSETION_FORM_DEFAULT_VALUES)
-   // api 연동시 onSubmit 함수 구현
+
    const { mutate: createQuestion, status } = usePostQuestion()
    const [imageUrls, setImageUrls] = useState<string[]>([])
 
@@ -22,13 +24,22 @@ export function ClientQuestionCreatePage() {
             form={form}
             onSubmit={() => {
                const value = form.getValues()
-               createQuestion({
-                  title: value.title,
-                  content: value.content,
-                  imageUrls,
-                  targetJobGroup: String(value.targetJobGroup?.id),
-                  reward: value.reward,
-               })
+               createQuestion(
+                  {
+                     title: value.title,
+                     content: value.content,
+                     imageUrls,
+                     targetJobGroup: String(value.targetJobGroup?.id),
+                     reward: value.reward,
+                  },
+                  {
+                     onSuccess: () => {
+                        form.reset()
+                        setImageUrls([])
+                        router.push('/home')
+                     },
+                  },
+               )
             }}
          />
       </>

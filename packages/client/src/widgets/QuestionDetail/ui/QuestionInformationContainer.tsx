@@ -39,8 +39,17 @@ export function QuestionInformationContainer({
             {questionData?.reward}
             <IconCredit color={color['secondary-main']} size={11} />
          </Badge>
-         <div style={{ minHeight: 200 }}>
-            <div className={Typo.h1.lg}>{questionData?.title}</div>
+         <div
+            style={{
+               // TODO: fix style to use VE
+               minHeight: 160,
+               display: 'flex',
+               flexDirection: 'column',
+               gap: 16,
+               marginBottom: 20,
+            }}
+         >
+            <div className={Typo.h1.sb}>{questionData?.title}</div>
             <div className={Typo.body1.md}>{questionData?.content}</div>
          </div>
          {!!questionData?.imageUrls?.length &&

@@ -34,7 +34,7 @@ function PrimarySmile(
             strokeWidth={4}
             rx={91}
          />
-         <g clipPath="url(#a)">
+         <g clipPath={titleId}>
             <path
                fill="#231815"
                stroke="#231815"
@@ -118,7 +118,7 @@ function PrimarySmile(
             />
          </g>
          <defs>
-            <clipPath id="a">
+            <clipPath id={titleId}>
                <path fill="#fff" d="M28 37h438v456H28z" />
             </clipPath>
          </defs>
