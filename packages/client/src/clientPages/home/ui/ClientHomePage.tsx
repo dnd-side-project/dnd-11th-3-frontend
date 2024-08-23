@@ -105,11 +105,11 @@ export function ClientHomePage() {
    const { data: questions } = useFetchQuestions({
       condition: {
          keyword: search,
-         jobGroups: selectedJobGroups.map((jobGroup) => jobGroup.key),
+         jobGroups: selectedJobGroups.map((jobGroup) => jobGroup.label),
          isChosen: false,
       },
       pageable: {
-         page: 1,
+         page: 0,
          size: 10,
       },
    })
@@ -147,7 +147,7 @@ export function ClientHomePage() {
                <Divider />
             </div>
             <QuestionList
-               data={questions}
+               data={questions ?? []}
                selectedAdGroup={selectedJobGroups}
                setSelectedJobGroups={setSelectedJobGroups}
             />
