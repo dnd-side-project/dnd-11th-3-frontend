@@ -16,6 +16,8 @@ import { MainLoader } from '@shared/ui'
 import { QuestionPostSimpleResponse } from '@server-api/api'
 import * as styles from './style.css'
 import { useFetchQuestions } from '../api/question'
+import { MainLoader } from '@shared/ui'
+import { useRecommendList } from '../api/getRecommend'
 
 export const data: QuestionPostSimpleResponse[] = [
    {
@@ -109,6 +111,14 @@ export function ClientHomePage() {
       id: 'all',
    })
 
+   const { data: recommendQuestions, status: recommendStatus } =
+      useRecommendList({
+         pageable: {
+            page: 0,
+            size: 10,
+         },
+      })
+
    return (
       <div style={{ position: 'relative', height: '844px' }}>
          <div className={styles.absolutePos}>
@@ -132,7 +142,11 @@ export function ClientHomePage() {
                   </div>
                </div>
             </div>
-            <Carousel />
+            <MainLoader height={210} loading={recommendStatus === 'pending'} />
+            {recommendStatus === 'pending' && (
+               <div style={{ height: '174px' }} />
+            )}
+            <Carousel data={recommendQuestions} />
             <div className={styles.DividerWrapper}>
                <Divider />
             </div>
