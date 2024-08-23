@@ -9,8 +9,9 @@ export const RecommendItem = style({
 })
 
 export const TitleStyle = style({
-   fontSize: '18px',
-   fontWeight: '600',
+   width: '100%',
+   fontSize: '17px',
+   fontWeight: '700',
    lineHeight: '22px',
    letterSpacing: '-0.18px',
    cursor: 'pointer',
@@ -22,7 +23,7 @@ export const Overlay = style({
    left: 0,
    display: 'flex',
    flexDirection: 'column',
-   padding: '22px 0 22px 22px ',
+   padding: '20px 0 20px 20px ',
    width: '150px',
    height: '180px',
    wordBreak: 'break-all',

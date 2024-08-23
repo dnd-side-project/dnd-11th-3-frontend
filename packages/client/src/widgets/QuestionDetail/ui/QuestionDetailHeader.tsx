@@ -13,9 +13,10 @@ import {
 interface Props {
    title?: string
    id?: string
+   canUpdate?: boolean
 }
 
-export function QuestionDetailHeader({ title, id }: Props) {
+export function QuestionDetailHeader({ title, id, canUpdate = false }: Props) {
    const router = useRouter()
 
    return (
@@ -29,15 +30,23 @@ export function QuestionDetailHeader({ title, id }: Props) {
                icon={<IconArrowLeft />}
             />
          </div>
-         <h1 className={headerTitleWrappewrStyle}>{title}</h1>
+         <h1
+            className={headerTitleWrappewrStyle({
+               canUpdate,
+            })}
+         >
+            {title}
+         </h1>
          {/* TODO: not to show this button if not the writer */}
-         <IconButton
-            variant="default"
-            aria-label="Edit"
-            size="small"
-            onClick={() => router.push(`${PageURL.QUESTION_UPDATE}/${id}`)}
-            icon={<IconEdit />}
-         />
+         {canUpdate && (
+            <IconButton
+               variant="default"
+               aria-label="Edit"
+               size="small"
+               onClick={() => router.push(`${PageURL.QUESTION_UPDATE}/${id}`)}
+               icon={<IconEdit />}
+            />
+         )}
       </div>
    )
 }

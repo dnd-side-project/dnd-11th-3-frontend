@@ -3,6 +3,7 @@
 import { Button } from '@gds/component'
 import { IconChat, IconCheckCircle, IconCheckCircleFilled } from '@gds/icon'
 import { color, Typo } from '@gds/token'
+import { AnswerDetailResponse } from '@server-api/api'
 import {
    answerCardWrapper,
    answerMetaWrapper,
@@ -13,9 +14,14 @@ import {
    selectAnswerWrapper,
 } from './style.css'
 
-export function AnswerCard() {
-   const isSelected = false
+interface Props {
+   answerSelectDone?: boolean
+   answerData: AnswerDetailResponse
+   userId?: number
+}
 
+export function AnswerCard({ answerSelectDone, answerData, userId }: Props) {
+   if (!answerData) return <></>
    return (
       <div className={answerCardWrapper}>
          <div className={answerMetaWrapper}>
@@ -23,34 +29,56 @@ export function AnswerCard() {
                <div className={answerProfileWrapper}>
                   <div className={answerProfileBox} />
                </div>
-               <p className={Typo.body1.sb}>닉네임</p>
-               <p className={Typo.body2.md}>직무</p>
+               <p
+                  className={Typo.body1.sb}
+                  style={{
+                     color:
+                        userId === answerData?.memberInfo?.memberId
+                           ? color['secondary-dark']
+                           : color.black,
+                  }}
+               >
+                  {answerData.memberInfo?.nickname}
+                  {userId === answerData?.memberInfo?.memberId && ' (나)'}
+               </p>
+               <p
+                  className={Typo.body2.md}
+                  style={{ color: color['gray-400'] }}
+               >
+                  {answerData.memberInfo?.memberJobGroup}
+               </p>
             </div>
-            <p className={Typo.body2.md}>2024. 8. 17. 오후 5:44:19</p>
+            <p className={Typo.body2.md}>
+               {new Date(String(answerData.createdAt)).toLocaleDateString()}
+            </p>
          </div>
-         <p className={Typo.body1.lg}>답변 내용</p>
+         <p className={Typo.body2.md}>{answerData.content}</p>
          <div className={selectAnswerWrapper}>
             <div className={selectAnswerButtonWrapper}>
                <Button
-                  variant={isSelected ? 'filled' : 'outlined'}
+                  onClick={() => alert('서비스 준비중입니다.')}
+                  disabled={answerSelectDone}
+                  variant={answerSelectDone ? 'filled' : 'outlined'}
                   size="small"
                   rightIcon={
-                     isSelected ? (
+                     answerData?.isChosen ? (
                         <IconChat size={16} />
                      ) : (
                         <IconChat size={16} color={color['primary-main']} />
                      )
                   }
                >
-                  채택
+                  채팅
                </Button>
             </div>
             <div className={selectAnswerButtonWrapper}>
                <Button
-                  variant={isSelected ? 'filled' : 'outlined'}
+                  onClick={() => alert('서비스 준비중입니다.')}
+                  disabled={answerSelectDone}
+                  variant={answerData?.isChosen ? 'filled' : 'outlined'}
                   size="small"
                   rightIcon={
-                     isSelected ? (
+                     answerData?.isChosen ? (
                         <IconCheckCircle size={16} />
                      ) : (
                         <IconCheckCircleFilled

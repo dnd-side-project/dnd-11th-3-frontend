@@ -120,7 +120,7 @@ export function QuestionCreateInputs({ form, onSubmit }: Props) {
                   variant="gradient"
                   subTitle="크레딧"
                   errormessage={(!!value && getRewardErrorMessage()) || ''}
-                  min={1000}
+                  min={2000}
                   max={10000}
                />
             )}

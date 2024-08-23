@@ -1,5 +1,6 @@
 import { color } from '@gds/token'
 import { style } from '@vanilla-extract/css'
+import { recipe } from '@vanilla-extract/recipes'
 
 export const headerWrapperStyle = style({
    width: '100%',
@@ -30,13 +31,26 @@ export const arrowButtonWrappewrStyle = style({
    },
 })
 
-export const headerTitleWrappewrStyle = style({
-   width: 430 - LEFT_ARROW_WIDTH * 2,
-
-   textAlign: 'center',
-   display: 'flex',
-   justifyContent: 'center',
-   alignItems: 'center',
+export const headerTitleWrappewrStyle = recipe({
+   base: {
+      textAlign: 'center',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      width: 430 - LEFT_ARROW_WIDTH * 1,
+      marginRight: LEFT_ARROW_WIDTH,
+   },
+   variants: {
+      canUpdate: {
+         true: {
+            width: 430 - LEFT_ARROW_WIDTH * 2,
+            marginRight: 0,
+         },
+      },
+   },
+   defaultVariants: {
+      canUpdate: false,
+   },
 })
 
 export const profileImageWrapper = style({
@@ -82,13 +96,14 @@ export const answerInputWrapper = style({
    width: '100%',
    display: 'flex',
    justifyContent: 'space-around',
-   alignItems: 'flex-end',
+   alignItems: 'flex-start',
    gap: 10,
    padding: '24px 0',
 })
 
 export const answerbuttonWrapper = style({
    width: 70,
+   marginTop: 34,
 })
 
 export const answerProfileWrapper = style({
