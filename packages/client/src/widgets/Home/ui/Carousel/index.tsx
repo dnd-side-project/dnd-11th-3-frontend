@@ -3,6 +3,7 @@ import Green from 'public/asset/Carousel/green.svg'
 import Orange from 'public/asset/Carousel/orange.svg'
 import './slider.css'
 import Slider from 'react-slick'
+import { useRecommendList } from 'src/clientPages/home/api/getRecommend'
 import * as styles from './index.css'
 import HomeRecommend from '../Recommend'
 
@@ -13,6 +14,13 @@ export function Carousel() {
       slidesToShow: 2,
       swipeToSlide: true,
    }
+
+   const { data: recommendQuestions } = useRecommendList({
+      pageable: {
+         page: 1,
+         size: 10,
+      },
+   })
 
    return (
       <div className={styles.RecommendContentBox}>
