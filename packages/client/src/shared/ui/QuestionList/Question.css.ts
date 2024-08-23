@@ -6,6 +6,10 @@ export const QuestionWrapper = style({
    flexDirection: 'column',
    marginTop: '23px',
    width: '100%',
+   borderRadius: '8px',
+   // ':hover': {
+   //    boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.09)',
+   // },
 })
 
 export const QuestionTagWrapper = style({

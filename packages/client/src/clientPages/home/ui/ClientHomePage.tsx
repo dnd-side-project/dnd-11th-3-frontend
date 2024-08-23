@@ -91,6 +91,11 @@ export function ClientHomePage() {
    const [selectedJobGroups, setSelectedJobGroups] = useState<SelectItemType[]>(
       [],
    )
+   const [jobCategory, setJobCategory] = useState({
+      label: '전체',
+      id: 'all',
+   })
+
    const { data: questions, status: questionListsStatus } = useFetchQuestions({
       condition: {
          keyword: search,
@@ -99,13 +104,8 @@ export function ClientHomePage() {
       },
       pageable: {
          page: 0,
-         size: 10,
+         size: 100,
       },
-   })
-
-   const [jobCategory, setJobCategory] = useState({
-      label: '전체',
-      id: 'all',
    })
 
    const { data: recommendQuestions, status: recommendStatus } =
@@ -117,58 +117,61 @@ export function ClientHomePage() {
       })
 
    return (
-      <div style={{ position: 'relative', height: '844px' }}>
-         <div className={styles.absolutePos}>
-            <div className={styles.HomeWrapper}>
-               <HomeHeader
-                  selectedCategory={jobCategory}
-                  onSelectCategory={setJobCategory}
-               />
-               <TextInput
-                  placeholder="검색어를 입력해주세요"
-                  icon={<IconSearch size={25} />}
-               />
-               <div className={styles.RecommendWrapper}>
-                  <div className={styles.RecommendHeaderBox}>
-                     <div className={styles.RecommendTitle}>추천 질문</div>
-                     <div className={styles.MoreBox}>
-                        <Button size="small" variant="outlined">
-                           더보기
-                        </Button>
+      <>
+         <MainLoader
+            height={944}
+            loading={
+               recommendStatus === 'pending' ||
+               questionListsStatus === 'pending'
+            }
+         />
+         <div style={{ position: 'relative', height: '844px' }}>
+            <div className={styles.absolutePos}>
+               <div className={styles.HomeWrapper}>
+                  <HomeHeader
+                     selectedCategory={jobCategory}
+                     onSelectCategory={setJobCategory}
+                  />
+                  <TextInput
+                     placeholder="검색어를 입력해주세요"
+                     icon={<IconSearch size={25} />}
+                  />
+                  <div className={styles.RecommendWrapper}>
+                     <div className={styles.RecommendHeaderBox}>
+                        <div className={styles.RecommendTitle}>추천 질문</div>
+                        <div className={styles.MoreBox}>
+                           <Button size="small" variant="outlined">
+                              더보기
+                           </Button>
+                        </div>
                      </div>
                   </div>
                </div>
+
+               <Carousel data={recommendQuestions} />
+               <div className={styles.DividerWrapper}>
+                  <Divider />
+               </div>
+
+               <QuestionList
+                  data={questions ?? []}
+                  selectedAdGroup={selectedJobGroups}
+                  setSelectedJobGroups={setSelectedJobGroups}
+               />
             </div>
-            <MainLoader height={210} loading={recommendStatus === 'pending'} />
-            {recommendStatus === 'pending' && (
-               <div style={{ height: '174px' }} />
-            )}
-            <Carousel data={recommendQuestions} />
-            <div className={styles.DividerWrapper}>
-               <Divider />
+            <div className={styles.floatingButton}>
+               <Button
+                  onClick={() => router.push(PageURL.QUESTION_CREATE)}
+                  rounded
+                  variant="filled"
+                  size="medium"
+                  leftIcon={<IconPlus />}
+                  style={{ boxShadow: '0 2px  4px 0px rgba(0, 0, 0, 0.15)' }}
+               >
+                  작성하기
+               </Button>
             </div>
-            <MainLoader
-               height={200}
-               loading={questionListsStatus === 'pending'}
-            />
-            <QuestionList
-               data={questions ?? []}
-               selectedAdGroup={selectedJobGroups}
-               setSelectedJobGroups={setSelectedJobGroups}
-            />
          </div>
-         <div className={styles.floatingButton}>
-            <Button
-               onClick={() => router.push(PageURL.QUESTION_CREATE)}
-               rounded
-               variant="filled"
-               size="medium"
-               leftIcon={<IconPlus />}
-               style={{ boxShadow: '0 2px  4px 0px rgba(0, 0, 0, 0.15)' }}
-            >
-               작성하기
-            </Button>
-         </div>
-      </div>
+      </>
    )
 }
