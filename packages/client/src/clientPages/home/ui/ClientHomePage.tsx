@@ -6,101 +6,107 @@ import { IconPlus, IconSearch } from '@gds/icon'
 import { Button, Divider, TextInput } from '@gds/component'
 import { PageURL } from '@shared/model'
 import { useRouter } from 'next/navigation'
-import { QuestionDataType } from '@entities/@types/question'
 import { HomeHeader } from '@widgets/Home/ui/HomeHeader'
 import QuestionList from '@widgets/Home/ui/QuestionList'
 import { Carousel } from '@widgets/Home/ui/Carousel'
+import { SelectItemType } from 'src/design-system/component/MultiSelect'
 import { MainLoader } from '@shared/ui'
+import { QuestionPostSimpleResponse } from '@server-api/api'
 import * as styles from './style.css'
+import { useFetchQuestions } from '../api/question'
 import { useRecommendList } from '../api/getRecommend'
 
-export const data: QuestionDataType[] = [
+export const data: QuestionPostSimpleResponse[] = [
    {
       questionPostId: 1,
       title: '서류 처리 관련 질문',
       content: '안녕ㅎ아세요',
       jobGroup: '법원경비관리',
-      reward: '2000',
+      reward: 2000,
       createdAt: '2024',
       isChosen: false,
-      bookmark: 23,
-      likes: 2,
-      tag: '법원경비관리',
-      date: '2024',
+      savedCount: 23,
+      recommendCount: 2,
    },
    {
       questionPostId: 2,
       title: '서류 처리 관련 질문',
       content: '안녕ㅎ아세요',
       jobGroup: '법원경비관리',
-      reward: '2000',
+      reward: 2000,
       createdAt: '2024',
       isChosen: true,
-      bookmark: 23,
-      likes: 2,
-      tag: '법원경비관리',
-      date: '2024',
+      savedCount: 23,
+      recommendCount: 2,
    },
    {
       questionPostId: 3,
       title: '서류 처리 관련 질문',
       content: '안녕ㅎ아세요',
       jobGroup: '법원경비관리',
-      reward: '2000',
+      reward: 2000,
       createdAt: '2024',
       isChosen: false,
-      bookmark: 23,
-      likes: 2,
-      tag: '법원경비관리',
-      date: '2024',
+      savedCount: 23,
+      recommendCount: 2,
    },
    {
       questionPostId: 4,
       title: '서류 처리 관련 질문',
       content: '안녕ㅎ아세요',
       jobGroup: '법원경비관리',
-      reward: '2000',
+      reward: 2000,
       createdAt: '2024',
       isChosen: false,
-      bookmark: 23,
-      likes: 2,
-      tag: '법원경비관리',
-      date: '2024',
+      savedCount: 23,
+      recommendCount: 2,
    },
    {
       questionPostId: 5,
       title: '서류 처리 관련 질문',
       content: '안녕ㅎ아세요',
       jobGroup: '법원경비관리',
-      reward: '2000',
+      reward: 2000,
       createdAt: '2024',
       isChosen: false,
-      bookmark: 23,
-      likes: 2,
-      tag: '법원경비관리',
-      date: '2024',
+      savedCount: 23,
+      recommendCount: 2,
    },
    {
       questionPostId: 6,
       title: '서류 처리 관련 질문',
       content: '안녕ㅎ아세요',
       jobGroup: '법원경비관리',
-      reward: '2000',
+      reward: 2000,
       createdAt: '2024',
       isChosen: false,
-      bookmark: 23,
-      likes: 2,
-      tag: '법원경비관리',
-      date: '2024',
+      savedCount: 23,
+      recommendCount: 2,
    },
 ]
 
 export function ClientHomePage() {
+   const router = useRouter()
+   const [search, setSearch] = useState<string | undefined>(undefined)
+   const [selectedJobGroups, setSelectedJobGroups] = useState<SelectItemType[]>(
+      [],
+   )
+   const { data: questions, status: questionListsStatus } = useFetchQuestions({
+      condition: {
+         keyword: search,
+         jobGroups: selectedJobGroups.map((jobGroup) => jobGroup.label),
+         isChosen: false,
+      },
+      pageable: {
+         page: 0,
+         size: 10,
+      },
+   })
+
    const [jobCategory, setJobCategory] = useState({
       label: '전체',
       id: 'all',
    })
-   const router = useRouter()
 
    const { data: recommendQuestions, status: recommendStatus } =
       useRecommendList({
@@ -141,7 +147,15 @@ export function ClientHomePage() {
             <div className={styles.DividerWrapper}>
                <Divider />
             </div>
-            <QuestionList />
+            <MainLoader
+               height={200}
+               loading={questionListsStatus === 'pending'}
+            />
+            <QuestionList
+               data={questions ?? []}
+               selectedAdGroup={selectedJobGroups}
+               setSelectedJobGroups={setSelectedJobGroups}
+            />
          </div>
          <div className={styles.floatingButton}>
             <Button

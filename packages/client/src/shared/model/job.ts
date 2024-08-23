@@ -50,6 +50,7 @@ export const JOB_GROUPS_TOTAL: string[] = [
 export const JOB_CATEGORIES: string[] = [
    '간호',
    '감사',
+   '관세',
    '경비관리',
    '가스',
    '공업',
