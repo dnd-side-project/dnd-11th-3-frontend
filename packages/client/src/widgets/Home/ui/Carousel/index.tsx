@@ -18,7 +18,7 @@ export function Carousel() {
 
    const { data: recommendQuestions } = useRecommendList({
       pageable: {
-         page: 1,
+         page: 0,
          size: 10,
       },
    })
@@ -39,8 +39,8 @@ export function Carousel() {
                         src={imageUrl[idx % 3]}
                         reward={question.reward}
                         title={question.title}
-                        savedCount={20}
-                        recommendCount={4}
+                        savedCount={question.savedCount}
+                        recommendCount={question.recommendCount}
                      />
                   )
                })}
