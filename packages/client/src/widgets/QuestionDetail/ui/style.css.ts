@@ -96,13 +96,14 @@ export const answerInputWrapper = style({
    width: '100%',
    display: 'flex',
    justifyContent: 'space-around',
-   alignItems: 'flex-end',
+   alignItems: 'flex-start',
    gap: 10,
    padding: '24px 0',
 })
 
 export const answerbuttonWrapper = style({
    width: 70,
+   marginTop: 34,
 })
 
 export const answerProfileWrapper = style({

@@ -11,26 +11,36 @@ import { bottomButtonWrapper, bottomWrapper } from './style.css'
 interface Props {
    questionData: QuestionPostDetailResponse | undefined
    onClick: (type: QuestionMetaDataType) => void
-   unClickable?: boolean
+
+   liked?: boolean
+   bookmarked?: boolean
 }
 export function QuestionInformationBottom({
    questionData,
    onClick,
-   unClickable = false,
+
+   liked,
+   bookmarked,
 }: Props) {
    return (
       <div className={bottomWrapper}>
          <p className={Typo.body2.md}>
-            {new Date(String(questionData?.createdAt)).toLocaleDateString()}
+            {new Date(String(questionData?.createdAt)).toLocaleString()}
          </p>
          <div className={bottomButtonWrapper}>
             <Button
                variant="outlined"
                size="small"
                onClick={() => onClick(QuestionMetaDataType.LIKE)}
-               disabled={unClickable}
+               disabled={liked}
                leftIcon={
-                  <IconThumbUpFilled color={color['tertiary-main']} size={16} />
+                  <IconThumbUpFilled
+                     // TODO: fix style
+                     color={
+                        liked ? color['tertiary-main'] : color['tertiary-main']
+                     }
+                     size={16}
+                  />
                }
             >
                {questionData?.recommendCount || 0}
@@ -39,9 +49,15 @@ export function QuestionInformationBottom({
                variant="outlined"
                size="small"
                onClick={() => onClick(QuestionMetaDataType.BOOKMARK)}
-               disabled={unClickable}
+               disabled={bookmarked}
                leftIcon={
-                  <IconBookmarkFilled color={color['primary-main']} size={16} />
+                  // TODO: fix style
+                  <IconBookmarkFilled
+                     color={
+                        liked ? color['primary-main'] : color['primary-main']
+                     }
+                     size={16}
+                  />
                }
             >
                {questionData?.savedCount || 0}

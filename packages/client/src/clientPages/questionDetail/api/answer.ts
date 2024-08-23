@@ -1,4 +1,8 @@
-import { APIApi } from '@server-api/api'
+import {
+   APIApi,
+   PageResponseAnswerDetailResponse,
+   RegisterAnswerRequest,
+} from '@server-api/api'
 import { config } from '@shared/api'
 import { useMutation, useQuery, UseQueryOptions } from '@tanstack/react-query'
 
@@ -8,7 +12,7 @@ import { useMutation, useQuery, UseQueryOptions } from '@tanstack/react-query'
  */
 export const useFetchAnswers = (
    dto: { questionPostId: number },
-   options: UseQueryOptions,
+   options?: UseQueryOptions<PageResponseAnswerDetailResponse>,
 ) =>
    useQuery({
       ...options,
@@ -27,8 +31,19 @@ export const useFetchAnswers = (
  */
 export const usePostAnswer = () => {
    return useMutation({
-      mutationFn: async ({ questionPostId }: { questionPostId: number }) =>
-         (await new APIApi(config).getQuestionPostById(questionPostId)).data,
+      mutationFn: async ({
+         questionPostId,
+         registerAnswerRequest,
+      }: {
+         questionPostId: number
+         registerAnswerRequest: RegisterAnswerRequest
+      }) =>
+         (
+            await new APIApi(config).registerAnswer(
+               questionPostId,
+               registerAnswerRequest,
+            )
+         ).data,
    })
 }
 
