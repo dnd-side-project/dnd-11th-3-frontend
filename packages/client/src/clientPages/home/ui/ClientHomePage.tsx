@@ -11,6 +11,7 @@ import { HomeHeader } from '@widgets/Home/ui/HomeHeader'
 import QuestionList from '@widgets/Home/ui/QuestionList'
 import { Carousel } from '@widgets/Home/ui/Carousel'
 import * as styles from './style.css'
+import { useRecommendList } from '../api/getRecommend'
 
 export const data: QuestionDataType[] = [
    {
@@ -100,6 +101,13 @@ export function ClientHomePage() {
    })
    const router = useRouter()
 
+   const { data: recommendQuestions } = useRecommendList({
+      pageable: {
+         page: 0,
+         size: 10,
+      },
+   })
+
    return (
       <div style={{ position: 'relative', height: '844px' }}>
          <div className={styles.absolutePos}>
@@ -123,7 +131,7 @@ export function ClientHomePage() {
                   </div>
                </div>
             </div>
-            <Carousel />
+            <Carousel data={recommendQuestions} />
             <div className={styles.DividerWrapper}>
                <Divider />
             </div>

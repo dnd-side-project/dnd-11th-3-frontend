@@ -1,15 +1,17 @@
-'use client'
-
 import Blue from 'public/asset/Carousel/blue.svg'
 import Green from 'public/asset/Carousel/green.svg'
 import Orange from 'public/asset/Carousel/orange.svg'
 import './slider.css'
 import Slider from 'react-slick'
-import { useRecommendList } from 'src/clientPages/home/api/getRecommend'
+import { PageResponseQuestionPostSimpleResponse } from '@server-api/api'
 import * as styles from './index.css'
 import HomeRecommend from '../Recommend'
 
-export function Carousel() {
+interface Props {
+   data?: PageResponseQuestionPostSimpleResponse
+}
+
+export function Carousel({ data }: Props) {
    const imageUrl = [Blue, Green, Orange]
    const settings = {
       className: 'center',
@@ -18,18 +20,11 @@ export function Carousel() {
       swipeToSlide: true,
    }
 
-   const { data: recommendQuestions } = useRecommendList({
-      pageable: {
-         page: 0,
-         size: 10,
-      },
-   })
-
    return (
       <div className={styles.RecommendContentBox}>
          <div className="slider-container">
-            {recommendQuestions?.content?.length === 1 ? (
-               recommendQuestions?.content?.map((question, idx) => {
+            {data?.content?.length === 1 ? (
+               data?.content?.map((question, idx) => {
                   return (
                      <HomeRecommend
                         key={question.questionPostId}
@@ -49,7 +44,7 @@ export function Carousel() {
                   slidesToShow={settings.slidesToShow}
                   swipeToSlide={settings.swipeToSlide}
                >
-                  {recommendQuestions?.content?.map((question, idx) => {
+                  {data?.content?.map((question, idx) => {
                      return (
                         <HomeRecommend
                            key={question.questionPostId}
