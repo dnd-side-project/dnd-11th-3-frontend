@@ -4,6 +4,7 @@ import { Badge } from '@gds/component'
 import { color } from '@gds/token'
 import { QuestionPostSimpleResponse } from '@server-api/api'
 import { formatNumberWithCommas } from '@shared/utils/formatNumberWithCommas'
+import { useRouter } from 'next/navigation'
 import * as styles from './index.css'
 
 interface HomeRecommendProps extends QuestionPostSimpleResponse {
@@ -16,9 +17,26 @@ function HomeRecommend({
    reward,
    savedCount,
    recommendCount,
+   questionPostId,
 }: HomeRecommendProps) {
+   const router = useRouter()
+
+   const handleOnClickRecommendQuestion = () => {
+      router.push(`/question/${questionPostId}`)
+   }
+
    return (
-      <div className={styles.RecommendItem}>
+      <div
+         className={styles.RecommendItem}
+         onClick={handleOnClickRecommendQuestion}
+         onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === 'Spacebar') {
+               handleOnClickRecommendQuestion()
+            }
+         }}
+         role="button"
+         tabIndex={0}
+      >
          <Image src={src} alt="recommend Image" />
          <div className={styles.overlay}>
             <div className={styles.CoinBox}>

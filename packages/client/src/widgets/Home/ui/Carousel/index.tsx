@@ -41,6 +41,7 @@ export function Carousel() {
                         title={question.title}
                         savedCount={question.savedCount}
                         recommendCount={question.recommendCount}
+                        questionPostId={question.questionPostId}
                      />
                   )
                })}

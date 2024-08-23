@@ -6,6 +6,7 @@ export const RecommendItem = style({
    height: '174px',
    position: 'relative',
    color: color.white,
+   cursor: 'pointer',
 })
 
 export const TitleStyle = style({
