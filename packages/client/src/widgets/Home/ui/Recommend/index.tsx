@@ -28,7 +28,7 @@ function HomeRecommend({
    return (
       <div className={styles.RecommendItem}>
          <Image src={src} alt="recommend Image" />
-         <div className={styles.overlay}>
+         <div className={styles.Overlay}>
             <div className={styles.CoinBox}>
                <Badge variant="secondary" size="small">
                   {formatNumberWithCommas(reward ?? 0)}

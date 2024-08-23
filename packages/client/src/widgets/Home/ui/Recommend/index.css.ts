@@ -16,7 +16,7 @@ export const TitleStyle = style({
    cursor: 'pointer',
 })
 
-export const overlay = style({
+export const Overlay = style({
    position: 'absolute',
    top: 0,
    left: 0,
