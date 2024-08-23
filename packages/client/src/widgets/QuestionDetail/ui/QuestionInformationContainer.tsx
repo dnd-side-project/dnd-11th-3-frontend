@@ -3,7 +3,6 @@
 import { Badge } from '@gds/component'
 import { IconCredit } from '@gds/icon'
 import { color, Typo } from '@gds/token'
-import { Header } from '@shared/ui'
 
 import Image from 'next/image'
 import { useParams } from 'next/navigation'
