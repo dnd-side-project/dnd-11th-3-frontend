@@ -3,6 +3,7 @@ import { IconBookmark, IconCredit, IconWhiteLike } from '@gds/icon'
 import { Badge } from '@gds/component'
 import { color } from '@gds/token'
 import { QuestionPostSimpleResponse } from '@server-api/api'
+import { formatNumberWithCommas } from '@shared/utils/formatNumberWithCommas'
 import * as styles from './index.css'
 
 interface HomeRecommendProps extends QuestionPostSimpleResponse {
@@ -24,6 +25,7 @@ function HomeRecommend({
             <div className={styles.CoinBox}>
                <Badge variant="secondary" size="small">
                   {reward} <IconCredit color={color['secondary-main']} />
+                  {formatNumberWithCommas(reward ?? 0)}
                </Badge>
             </div>
             <span className={styles.TitleStyle}>{title}</span>
