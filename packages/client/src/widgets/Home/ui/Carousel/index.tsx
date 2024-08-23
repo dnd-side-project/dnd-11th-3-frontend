@@ -3,10 +3,16 @@ import Green from 'public/asset/Carousel/green.svg'
 import Orange from 'public/asset/Carousel/orange.svg'
 import './slider.css'
 import Slider from 'react-slick'
+import { PageResponseQuestionPostSimpleResponse } from '@server-api/api'
 import * as styles from './index.css'
 import HomeRecommend from '../Recommend'
 
-export function Carousel() {
+interface Props {
+   data?: PageResponseQuestionPostSimpleResponse
+}
+
+export function Carousel({ data }: Props) {
+   const imageUrl = [Blue, Green, Orange]
    const settings = {
       className: 'center',
       infinite: true,
@@ -17,34 +23,42 @@ export function Carousel() {
    return (
       <div className={styles.RecommendContentBox}>
          <div className="slider-container">
-            <Slider
-               className={settings.className}
-               infinite={settings.infinite}
-               slidesToShow={settings.slidesToShow}
-               swipeToSlide={settings.swipeToSlide}
-            >
-               <HomeRecommend
-                  src={Blue}
-                  coin="2000"
-                  title="ddd"
-                  bookmark={20}
-                  likes={4}
-               />
-               <HomeRecommend
-                  src={Green}
-                  coin="2000"
-                  title="ddd"
-                  bookmark={20}
-                  likes={4}
-               />
-               <HomeRecommend
-                  src={Orange}
-                  coin="2000"
-                  title="ddd"
-                  bookmark={20}
-                  likes={4}
-               />
-            </Slider>
+            {data?.content?.length === 1 ? (
+               data?.content?.map((question, idx) => {
+                  return (
+                     <HomeRecommend
+                        key={question.questionPostId}
+                        src={imageUrl[idx % 3]}
+                        reward={question.reward}
+                        title={question.title}
+                        savedCount={question.savedCount}
+                        recommendCount={question.recommendCount}
+                        questionPostId={question.questionPostId}
+                     />
+                  )
+               })
+            ) : (
+               <Slider
+                  className={settings.className}
+                  infinite={settings.infinite}
+                  slidesToShow={settings.slidesToShow}
+                  swipeToSlide={settings.swipeToSlide}
+               >
+                  {data?.content?.map((question, idx) => {
+                     return (
+                        <HomeRecommend
+                           key={question.questionPostId}
+                           src={imageUrl[idx % 3]}
+                           reward={question.reward}
+                           title={question.title}
+                           savedCount={question.savedCount}
+                           recommendCount={question.recommendCount}
+                           questionPostId={question.questionPostId}
+                        />
+                     )
+                  })}
+               </Slider>
+            )}
          </div>
       </div>
    )

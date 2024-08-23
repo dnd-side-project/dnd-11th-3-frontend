@@ -10,7 +10,9 @@ import { QuestionDataType } from '@entities/@types/question'
 import { HomeHeader } from '@widgets/Home/ui/HomeHeader'
 import QuestionList from '@widgets/Home/ui/QuestionList'
 import { Carousel } from '@widgets/Home/ui/Carousel'
+import { MainLoader } from '@shared/ui'
 import * as styles from './style.css'
+import { useRecommendList } from '../api/getRecommend'
 
 export const data: QuestionDataType[] = [
    {
@@ -100,6 +102,14 @@ export function ClientHomePage() {
    })
    const router = useRouter()
 
+   const { data: recommendQuestions, status: recommendStatus } =
+      useRecommendList({
+         pageable: {
+            page: 0,
+            size: 10,
+         },
+      })
+
    return (
       <div style={{ position: 'relative', height: '844px' }}>
          <div className={styles.absolutePos}>
@@ -123,7 +133,11 @@ export function ClientHomePage() {
                   </div>
                </div>
             </div>
-            <Carousel />
+            <MainLoader height={210} loading={recommendStatus === 'pending'} />
+            {recommendStatus === 'pending' && (
+               <div style={{ height: '174px' }} />
+            )}
+            <Carousel data={recommendQuestions} />
             <div className={styles.DividerWrapper}>
                <Divider />
             </div>
