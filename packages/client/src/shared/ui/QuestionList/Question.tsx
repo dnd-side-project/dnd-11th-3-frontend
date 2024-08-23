@@ -1,14 +1,10 @@
 'use client'
 
-import {
-   IconBookmark,
-   IconCredit,
-   IconLikesDefault,
-   IconThumbUpFilled,
-} from '@gds/icon'
+import { IconBookmark, IconCredit, IconLikesDefault } from '@gds/icon'
 import { Badge } from '@gds/component'
 import { color } from '@gds/token'
 import { QuestionPostSimpleResponse } from '@server-api/api'
+import { useRouter } from 'next/navigation'
 import * as styles from './Question.css'
 
 /**
@@ -31,6 +27,7 @@ interface Props {
 }
 
 function Question({ data }: Props) {
+   const router = useRouter()
    return (
       <div className={styles.QuestionWrapper}>
          <div className={styles.QuestionTagWrapper}>
@@ -49,10 +46,24 @@ function Question({ data }: Props) {
                </Badge>
             )}
          </div>
-         <div className={styles.QuestionTitleBox}>
-            <span>{data.title}</span>
+         <div
+            className={styles.OnClickStyle}
+            onClick={() => {
+               router.push(`/question/${data.questionPostId}`)
+            }}
+            onKeyDown={(e) => {
+               if (e.key === 'Enter' || e.key === 'Spacebar') {
+                  router.push(`/question/${data.questionPostId}`)
+               }
+            }}
+            role="button"
+            tabIndex={0}
+         >
+            <div className={styles.QuestionTitleBox}>
+               <span>{data.title}</span>
+            </div>
+            <div className={styles.QuestionContentBox}>{data.content}</div>
          </div>
-         <div className={styles.QuestionContentBox}>{data.content}</div>
          <div className={styles.QuestionBottomWrapper}>
             <div className={styles.QuestionDateBox}>
                <span>
