@@ -14,7 +14,6 @@ function HomeRecommend({
    src,
    title,
    reward,
-   isChosen,
    savedCount,
    recommendCount,
 }: HomeRecommendProps) {
@@ -24,17 +23,17 @@ function HomeRecommend({
          <div className={styles.overlay}>
             <div className={styles.CoinBox}>
                <Badge variant="secondary" size="small">
-                  {reward} <IconCredit color={color['secondary-main']} />
                   {formatNumberWithCommas(reward ?? 0)}
+                  <IconCredit color={color['secondary-main']} />
                </Badge>
             </div>
             <span className={styles.TitleStyle}>{title}</span>
             <div className={styles.DetailWrapper}>
-               <div className={styles.IconBox}>
-                  <IconBookmark color="#FFF" size={15} />
+               <div>
+                  <IconBookmark color={color.white} size={15} />
                </div>
                <div className={styles.NumberBox}>{savedCount}</div>
-               <div className={styles.IconBox}>
+               <div>
                   <IconWhiteLike size={15} />
                </div>
                <div className={styles.NumberBox}>{recommendCount}</div>

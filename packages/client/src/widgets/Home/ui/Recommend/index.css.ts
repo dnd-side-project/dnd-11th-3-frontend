@@ -42,7 +42,6 @@ export const DetailWrapper = style({
    lineHeight: '16px',
 })
 
-export const IconBox = style({})
 export const NumberBox = style({
    marginRight: '8px',
    marginLeft: '4px',
