@@ -26,17 +26,7 @@ function HomeRecommend({
    }
 
    return (
-      <div
-         className={styles.RecommendItem}
-         onClick={handleOnClickRecommendQuestion}
-         onKeyDown={(e) => {
-            if (e.key === 'Enter' || e.key === 'Spacebar') {
-               handleOnClickRecommendQuestion()
-            }
-         }}
-         role="button"
-         tabIndex={0}
-      >
+      <div className={styles.RecommendItem}>
          <Image src={src} alt="recommend Image" />
          <div className={styles.overlay}>
             <div className={styles.CoinBox}>
@@ -45,7 +35,19 @@ function HomeRecommend({
                   <IconCredit color={color['secondary-main']} />
                </Badge>
             </div>
-            <span className={styles.TitleStyle}>{title}</span>
+            <span
+               className={styles.TitleStyle}
+               onClick={handleOnClickRecommendQuestion}
+               onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === 'Spacebar') {
+                     handleOnClickRecommendQuestion()
+                  }
+               }}
+               role="button"
+               tabIndex={0}
+            >
+               {title}
+            </span>
             <div className={styles.DetailWrapper}>
                <div>
                   <IconBookmark color={color.white} size={15} />

@@ -6,7 +6,6 @@ export const RecommendItem = style({
    height: '174px',
    position: 'relative',
    color: color.white,
-   cursor: 'pointer',
 })
 
 export const TitleStyle = style({
@@ -14,6 +13,7 @@ export const TitleStyle = style({
    fontWeight: '600',
    lineHeight: '22px',
    letterSpacing: '-0.18px',
+   cursor: 'pointer',
 })
 
 export const overlay = style({
