@@ -9,7 +9,7 @@ import { bottomButtonWrapper, bottomWrapper } from './style.css'
 export function QuestionInformationBottom() {
    return (
       <div className={bottomWrapper}>
-         <p className={Typo.body2.md}>{new Date().toLocaleDateString()}</p>
+         <p className={Typo.body2.md}>01.01.01</p>
          <div className={bottomButtonWrapper}>
             <Button
                variant="outlined"

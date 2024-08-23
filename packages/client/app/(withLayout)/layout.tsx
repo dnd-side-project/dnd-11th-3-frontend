@@ -1,5 +1,5 @@
-import { Suspense } from 'react'
-import { MainLoader } from '@shared/ui'
+// import { Suspense } from 'react'
+// import { MainLoader } from '@shared/ui'
 import { AuthLayout } from '../../src/apps/layout/ui'
 
 interface Props {
@@ -9,9 +9,9 @@ interface Props {
 export default function Layout({ children }: Props) {
    return (
       <AuthLayout>
-         <Suspense fallback={<MainLoader loading height={944} />}>
-            {children}
-         </Suspense>
+         {/* <Suspense fallback={<MainLoader loading height={944} />}> */}
+         {children}
+         {/* </Suspense> */}
       </AuthLayout>
    )
 }

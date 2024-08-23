@@ -1,19 +1,13 @@
-import { MemberAPIApi } from "@server-api/api";
-import { config } from "@shared/api";
-import {
-    useQuery,
-    UseQueryOptions,
- } from '@tanstack/react-query'
+import { MemberAPIApi, MemberInformationResponse } from '@server-api/api'
+import { config } from '@shared/api'
+import { useQuery, UseQueryOptions } from '@tanstack/react-query'
 
-
-export const useFetchMemberProfile = (
-    options: UseQueryOptions,
- ) =>
-    useQuery({
-       ...options,
-       queryKey: [`/members/profile`],
-       queryFn: async () =>
-          (
-             await new MemberAPIApi(config).getMemberProfile()
-          ).data,
-    })
+export const useFetchMemberInformation = (
+   options?: UseQueryOptions<MemberInformationResponse>,
+) =>
+   useQuery({
+      ...options,
+      queryKey: [`/members/information`],
+      queryFn: async () =>
+         (await new MemberAPIApi(config).getMemberInformation()).data,
+   })
