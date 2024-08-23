@@ -65,3 +65,7 @@ export const QuestionIconTxtBox = style({
    fontWeight: '600',
    color: color['gray-200'],
 })
+
+export const OnClickStyle = style({
+   cursor: 'pointer',
+})

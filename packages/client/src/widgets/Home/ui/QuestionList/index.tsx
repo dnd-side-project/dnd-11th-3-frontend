@@ -1,24 +1,31 @@
+'use client'
+
 import { useState } from 'react'
 
 import { useScrollHandler } from '@features/useScrollHandler'
-import { data } from 'src/clientPages/home/ui/ClientHomePage'
+
 import Question from '@shared/ui/QuestionList/Question'
 import { IconFilter } from '@gds/icon'
 import { SelectItemType } from 'src/design-system/component/Select/Select'
 import { MultiSelect } from 'src/design-system/component/MultiSelect'
+import { JOB_GROUPS } from '@shared/model/job'
+import { PageResponseQuestionPostSimpleResponse } from '@server-api/api'
 import * as styles from './index.css'
 
-function QuestionList() {
+interface Props {
+   data: PageResponseQuestionPostSimpleResponse
+   selectedAdGroup: SelectItemType[]
+   setSelectedJobGroups: (selectedItems: SelectItemType[]) => void
+}
+
+function QuestionList({ data, selectedAdGroup, setSelectedJobGroups }: Props) {
    const [fixed, setFixed] = useState<boolean>(false)
-   const [selectedWithIcon, setSelectedWithIcon] = useState<SelectItemType[]>(
-      [],
-   )
 
    useScrollHandler(setFixed, 'nav-section')
 
    const handleSelect = (selectedItems: SelectItemType[]) => {
       if (selectedItems.length <= 3) {
-         setSelectedWithIcon(selectedItems)
+         setSelectedJobGroups(selectedItems)
       }
    }
 
@@ -38,22 +45,18 @@ function QuestionList() {
                         icon: <IconFilter />,
                      }}
                      onSelect={handleSelect}
-                     selected={selectedWithIcon}
+                     selected={selectedAdGroup}
                      placeholder="직군 3개까지 선택 가능합니다."
-                     items={[
-                        // TODO: 직군 데이터로 변경 필요
-                        { label: 'Option 1', id: '1' },
-                        { label: 'Option 2', id: '2' },
-                        { label: 'Option 3', id: '3' },
-                        { label: 'Option 4', id: '4' },
-                        { label: 'Option 56', id: '5' },
-                     ]}
+                     items={JOB_GROUPS.map((jobGroup) => ({
+                        id: jobGroup,
+                        label: jobGroup,
+                     }))}
                   />
                </div>
             </div>
          </div>
          <div className={styles.QuestionsWrapper}>
-            {data.map((question) => (
+            {data?.content?.map((question) => (
                <Question data={question} key={question.questionPostId} />
             ))}
          </div>

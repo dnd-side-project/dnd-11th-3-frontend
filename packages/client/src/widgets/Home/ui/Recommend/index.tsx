@@ -2,42 +2,60 @@ import Image from 'next/image'
 import { IconBookmark, IconCredit, IconWhiteLike } from '@gds/icon'
 import { Badge } from '@gds/component'
 import { color } from '@gds/token'
+import { QuestionPostSimpleResponse } from '@server-api/api'
+import { useRouter } from 'next/navigation'
 import * as styles from './index.css'
 
-interface HomeRecommendProps {
+interface HomeRecommendProps extends QuestionPostSimpleResponse {
    src: string
-   coin: string
-   title: string
-   bookmark: number
-   likes: number
 }
 
 function HomeRecommend({
    src,
-   coin,
    title,
-   bookmark,
-   likes,
+   reward,
+   savedCount,
+   recommendCount,
+   questionPostId,
 }: HomeRecommendProps) {
+   const router = useRouter()
+
+   const handleOnClickRecommendQuestion = () => {
+      router.push(`/question/${questionPostId}`)
+   }
+
    return (
       <div className={styles.RecommendItem}>
          <Image src={src} alt="recommend Image" />
-         <div className={styles.overlay}>
+         <div className={styles.Overlay}>
             <div className={styles.CoinBox}>
                <Badge variant="secondary" size="small">
-                  {coin} <IconCredit color={color['secondary-main']} />
+                  {reward}
+                  <IconCredit color={color['secondary-main']} />
                </Badge>
             </div>
-            <span className={styles.TitleStyle}>{title}</span>
+            <span
+               className={styles.TitleStyle}
+               onClick={handleOnClickRecommendQuestion}
+               onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === 'Spacebar') {
+                     handleOnClickRecommendQuestion()
+                  }
+               }}
+               role="button"
+               tabIndex={0}
+            >
+               {title}
+            </span>
             <div className={styles.DetailWrapper}>
-               <div className={styles.IconBox}>
-                  <IconBookmark color="#FFF" size={15} />
+               <div>
+                  <IconBookmark color={color.white} size={15} />
                </div>
-               <div className={styles.NumberBox}>{bookmark}</div>
-               <div className={styles.IconBox}>
+               <div className={styles.NumberBox}>{savedCount}</div>
+               <div>
                   <IconWhiteLike size={15} />
                </div>
-               <div className={styles.NumberBox}>{likes}</div>
+               <div className={styles.NumberBox}>{recommendCount}</div>
             </div>
          </div>
       </div>

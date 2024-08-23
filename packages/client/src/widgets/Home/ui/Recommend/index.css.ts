@@ -13,9 +13,10 @@ export const TitleStyle = style({
    fontWeight: '600',
    lineHeight: '22px',
    letterSpacing: '-0.18px',
+   cursor: 'pointer',
 })
 
-export const overlay = style({
+export const Overlay = style({
    position: 'absolute',
    top: 0,
    left: 0,
@@ -42,7 +43,6 @@ export const DetailWrapper = style({
    lineHeight: '16px',
 })
 
-export const IconBox = style({})
 export const NumberBox = style({
    marginRight: '8px',
    marginLeft: '4px',
