@@ -50,7 +50,9 @@ function Question({ data }: Props) {
          <div className={styles.QuestionContentBox}>{data.content}</div>
          <div className={styles.QuestionBottomWrapper}>
             <div className={styles.QuestionDateBox}>
-               <span>{new Date(String(data.createdAt))?.toDateString()}</span>
+               <span>
+                  {new Date(String(data.createdAt))?.toLocaleDateString()}
+               </span>
             </div>
             <div className={styles.QuestionDetailBox}>
                <div className={styles.QuestionIconBox}>
