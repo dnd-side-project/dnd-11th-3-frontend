@@ -1,3 +1,5 @@
+'use client'
+
 import Blue from 'public/asset/Carousel/blue.svg'
 import Green from 'public/asset/Carousel/green.svg'
 import Orange from 'public/asset/Carousel/orange.svg'
