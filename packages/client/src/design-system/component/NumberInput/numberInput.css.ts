@@ -98,6 +98,7 @@ export const numberInputStyle = recipe({
 
       color: NUMBER_INPUT_COLOR.default,
       border: 'none',
+      margin: '0 1px 0 8px',
 
       fontSize: 20,
       fontWeight: 600,

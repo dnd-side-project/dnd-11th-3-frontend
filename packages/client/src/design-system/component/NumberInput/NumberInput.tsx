@@ -71,7 +71,7 @@ export function NumberInput({
                      aria-label="Increase value"
                   >
                      <IconArrowUp
-                        size={20}
+                        size={24}
                         color={
                            props.disabled
                               ? NUMBER_INPUT_COLOR.disabled
@@ -103,7 +103,7 @@ export function NumberInput({
                      aria-label="Decrease value"
                   >
                      <IconArrowDown
-                        size={20}
+                        size={24}
                         color={
                            props.disabled
                               ? NUMBER_INPUT_COLOR.disabled
