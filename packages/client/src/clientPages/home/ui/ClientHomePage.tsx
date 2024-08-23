@@ -149,12 +149,7 @@ export function ClientHomePage() {
             <QuestionList
                data={questions}
                selectedAdGroup={selectedJobGroups}
-               onSelectAdGroup={(v) => {
-                  if (selectedJobGroups.length >= 3) {
-                     return
-                  }
-                  setSelectedJobGroups((prev) => [...prev, ...v])
-               }}
+               setSelectedJobGroups={setSelectedJobGroups}
             />
          </div>
          <div className={styles.floatingButton}>
