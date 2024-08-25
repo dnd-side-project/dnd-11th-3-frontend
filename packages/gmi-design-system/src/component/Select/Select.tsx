@@ -1,3 +1,5 @@
+'use client'
+
 import { cloneElement, CSSProperties, ReactElement, useRef, useState } from 'react'
 import {
   Select as AriaSelect,
@@ -81,12 +83,11 @@ export function Select({
             height: 'fit-content',
             maxHeight: 140,
             padding: '8px',
-            overflowY: 'scroll',
+            overflowY: 'auto',
             display: 'flex',
             flexDirection: 'column',
-            justifyContent: 'center',
+            justifyContent: 'flex-start',
             alignItems: 'center',
-
             borderRadius: '8px',
             boxShadow: '0px 0px 4px 0px rgba(0, 0, 0, 0.25)',
             backgroundColor: 'white',

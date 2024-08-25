@@ -17,7 +17,7 @@ function IconArrowDown(
       width={size}
       height={size}
       fill="none"
-      viewBox="0 0 16 16"
+      viewBox="0 0 24 24"
       color={color}
       ref={ref}
       aria-labelledby={titleId}
@@ -31,11 +31,11 @@ function IconArrowDown(
         strokeWidth={2}
         clipPath="url(#a)"
       >
-        <path d="m3 6 5 5M8 11l5-5" />
+        <path d="m7 10 5 5M12 15l5-5" />
       </g>
       <defs>
-        <clipPath id="down">
-          <path fill="#fff" d="M-4-4h24v24H-4z" />
+        <clipPath id="a">
+          <path fill="#fff" d="M0 0h24v24H0z" />
         </clipPath>
       </defs>
     </svg>
