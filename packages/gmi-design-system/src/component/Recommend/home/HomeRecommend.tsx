@@ -2,7 +2,8 @@ import React from 'react'
 import * as styles from './index.css'
 import Image from 'next/image'
 import Credit from '../../Tag/Credit'
-import { IconWhiteBookmark, IconWhiteLike } from '../../../icon'
+import { IconTumbUp, IconBookmark } from '../../../icon'
+import { color } from '@gds/token'
 
 interface HomeRecommendProps {
   src: string
@@ -23,11 +24,11 @@ const HomeRecommend = ({ src, coin, title, bookmark, likes }: HomeRecommendProps
         <span className={styles.TitleStyle}>{title}</span>
         <div className={styles.DetailWrapper}>
           <div className={styles.IconBox}>
-            <IconWhiteBookmark />
+            <IconBookmark color={color.white} />
           </div>
           <div className={styles.NumberBox}>{bookmark}</div>
           <div className={styles.IconBox}>
-            <IconWhiteLike />
+            <IconTumbUp color={color.white} />
           </div>
           <div className={styles.NumberBox}>{likes}</div>
         </div>

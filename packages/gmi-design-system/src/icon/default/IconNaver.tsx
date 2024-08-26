@@ -24,12 +24,12 @@ function IconNaver(
       {...props}
     >
       {title ? <title id={titleId}>{title}</title> : null}
-      <g clipPath="url(#a)">
-        <path fill="#fff" d="M11.35 8.563 5.416 0H.5v16h5.15V7.436L11.584 16H16.5V0h-5.15z" />
+      <g clipPath={`url(#${titleId})`}>
+        <path fill={color} d="M11.35 8.563 5.416 0H.5v16h5.15V7.436L11.584 16H16.5V0h-5.15z" />
       </g>
       <defs>
-        <clipPath id="a">
-          <path fill="#fff" d="M.5 0h16v16H.5z" />
+        <clipPath id={titleId}>
+          <path fill={color} d="M.5 0h16v16H.5z" />
         </clipPath>
       </defs>
     </svg>
