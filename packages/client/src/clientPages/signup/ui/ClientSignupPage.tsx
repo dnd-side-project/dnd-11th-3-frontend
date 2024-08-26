@@ -9,6 +9,7 @@ import { usePostMember } from '@shared/api'
 import { useRouter } from 'next/navigation'
 import { PageURL } from '@shared/model'
 import { useState } from 'react'
+import { color, Typo } from '@gds/token'
 import * as styles from './style.css'
 
 export function ClientSignupPage() {
@@ -32,6 +33,14 @@ export function ClientSignupPage() {
          <div className={styles.Wrapper}>
             <SignupInputSection form={form} />
             <div className={styles.FinalBtnBox}>
+               <div
+                  className={Typo.body1.sb}
+                  style={{
+                     color: color.error,
+                  }}
+               >
+                  {submitError}
+               </div>
                <Button
                   type="button"
                   size="medium"
@@ -53,11 +62,14 @@ export function ClientSignupPage() {
                         },
                         {
                            onSuccess: () => {
+                              setSubmitError(null)
                               router.push(PageURL.SIGNUP_SUCCESS)
                            },
                            onError: (e) => {
-                              console.log(e.message)
-                              setSubmitError('회원가입에 실패했습니다.')
+                              setSubmitError(
+                                 e.response?.data?.message ||
+                                    '서버 오류가 발생했습니다. 다시 시도해주세요.',
+                              )
                            },
                         },
                      )

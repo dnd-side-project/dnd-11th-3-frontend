@@ -9,7 +9,6 @@ import {
 import { useFetchMemberInformation } from '@shared/api'
 import { useParams, useRouter } from 'next/navigation'
 import { MainLoader } from '@shared/ui'
-import { useState } from 'react'
 import { pageWrapper } from './style.css'
 import {
    useFetchQuestionPost,
