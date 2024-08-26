@@ -24,15 +24,15 @@ function IconPlus(
       {...props}
     >
       {title ? <title id={titleId}>{title}</title> : null}
-      <g clipPath="url(#a)">
+      <g clipPath={`url(#${titleId})`}>
         <path
-          fill="#fff"
+          fill={color}
           d="M19.25 13H13v6.25c0 .688-.562 1.25-1.25 1.25s-1.25-.562-1.25-1.25V13H4.25C3.563 13 3 12.438 3 11.75s.563-1.25 1.25-1.25h6.25V4.25c0-.687.563-1.25 1.25-1.25S13 3.563 13 4.25v6.25h6.25c.688 0 1.25.563 1.25 1.25S19.938 13 19.25 13"
         />
       </g>
       <defs>
-        <clipPath id="a">
-          <path fill="#fff" d="M0 0h24v24H0z" />
+        <clipPath id={titleId}>
+          <path fill={color} d="M0 0h24v24H0z" />
         </clipPath>
       </defs>
     </svg>

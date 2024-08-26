@@ -113,6 +113,7 @@ export function MultiSelect({
                   boxShadow: '0px 0px 4px 0px rgba(0, 0, 0, 0.25)',
                   backgroundColor: 'white',
                   overflow: 'hidden',
+                  gap: '6px',
                }}
             >
                {items.map((item) => (

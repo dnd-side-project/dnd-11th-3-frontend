@@ -28,6 +28,10 @@
     "build:gongmuin-client": "nx run gongmuin-client:build",
     "dev-client": "nx run gongmuin-client:dev",
     "gen-icon-client": "nx run gongmuin-client:gen-icon",
-    "gen-design-system": "nx run gongmuin-client:gen-design-system"
+    "gen-design-system": "nx run gongmuin-client:gen-design-system",
+    "gen-api": "nx run gongmuin-client:gen-api",
+    "storybook": "nx run gmi-design-system:storybook",
+    "build-storybook": "nx run gmi-design-system:build-storybook",
+    "build-design-system": "nx run gmi-design-system:build"
   }
 }

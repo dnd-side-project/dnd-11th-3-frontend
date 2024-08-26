@@ -3,12 +3,7 @@
 import { Button, TextInput } from '@gds/component'
 import { useState } from 'react'
 import { color, Typo } from '@gds/token'
-import {
-   IconAlarm,
-   IconCheckCircle,
-   IconCheckCircleFilled,
-   PrimarySmile,
-} from '@gds/icon'
+import { IconAlarm, IconCheckFilled, PrimarySmile } from '@gds/icon'
 import { answerbuttonWrapper, answerInputWrapper } from './style.css'
 import { AnswerCard } from './AnswerCard'
 

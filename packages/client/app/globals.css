@@ -215,6 +215,8 @@ textarea,
    letter-spacing: inherit; /* 1 */
    color: inherit; /* 1 */
    background: transparent; /* 2 */
+   border: none;
+   text-decoration: none;
 }
 
 /*

@@ -1,7 +1,7 @@
 'use client'
 
 import { Button } from '@gds/component'
-import { IconChat, IconCheckCircle, IconCheckCircleFilled } from '@gds/icon'
+import { IconChat, IconCheck, IconCheckFilled } from '@gds/icon'
 import { color, Typo } from '@gds/token'
 import { AnswerDetailResponse } from '@server-api/api'
 import {
@@ -79,9 +79,9 @@ export function AnswerCard({ answerSelectDone, answerData, userId }: Props) {
                   size="small"
                   rightIcon={
                      answerData?.isChosen ? (
-                        <IconCheckCircle size={16} />
+                        <IconCheck size={16} />
                      ) : (
-                        <IconCheckCircleFilled
+                        <IconCheckFilled
                            size={16}
                            color={color['primary-main']}
                         />

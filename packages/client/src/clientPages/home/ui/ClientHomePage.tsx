@@ -115,7 +115,7 @@ export function ClientHomePage() {
             size: 10,
          },
       })
-
+   console.log(recommendQuestions, questions)
    return (
       <>
          <MainLoader

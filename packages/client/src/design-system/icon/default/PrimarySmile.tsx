@@ -34,7 +34,10 @@ function PrimarySmile(
             strokeWidth={4}
             rx={91}
          />
-         <g clipPath={titleId}>
+         <g
+            clipPath={`
+               url(#${titleId})`}
+         >
             <path
                fill="#231815"
                stroke="#231815"
