@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { IconBookmark, IconCredit, IconTumbUp } from '@gds/icon'
+import { IconBookmark, IconCredit, IconThumbUp } from '@gds/icon'
 import { Badge } from '@gds/component'
 import { color } from '@gds/token'
 import { QuestionPostSimpleResponse } from '@server-api/api'
@@ -53,7 +53,7 @@ function HomeRecommend({
                </div>
                <div className={styles.NumberBox}>{savedCount}</div>
                <div>
-                  <IconTumbUp color={color.white} size={15} />
+                  <IconThumbUp color={color.white} size={15} />
                </div>
                <div className={styles.NumberBox}>{recommendCount}</div>
             </div>
