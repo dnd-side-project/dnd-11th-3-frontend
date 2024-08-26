@@ -1,4 +1,5 @@
 import { ButtonHTMLAttributes, ReactNode } from 'react'
+import { color } from '@gds/token'
 import * as styles from './SNSButton.css'
 import { IconKakao } from '../../icon/default/IconKakao'
 import { IconNaver } from '../../icon/default/IconNaver'
@@ -23,7 +24,11 @@ export function SNSButton({
          {...props}
       >
          <div className={styles.LogoBox}>
-            {socialLoginType === 'kakao' ? <IconKakao /> : <IconNaver />}
+            {socialLoginType === 'kakao' ? (
+               <IconKakao />
+            ) : (
+               <IconNaver color={color.white} />
+            )}
          </div>
          <div
             className={styles.TxtBox({
