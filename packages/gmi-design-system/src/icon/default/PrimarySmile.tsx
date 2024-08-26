@@ -26,7 +26,10 @@ function PrimarySmile(
       {title ? <title id={titleId}>{title}</title> : null}
       <rect width={489} height={489} x={2} y={2} fill="#05D3A6" rx={91} />
       <rect width={489} height={489} x={2} y={2} stroke="#000" strokeWidth={4} rx={91} />
-      <g clipPath={titleId}>
+      <g
+        clipPath={`
+               url(#${titleId})`}
+      >
         <path
           fill="#231815"
           stroke="#231815"

@@ -24,7 +24,10 @@ function IconCharacter(
       {...props}
     >
       {title ? <title id={titleId}>{title}</title> : null}
-      <g clipPath={titleId}>
+      <g
+        clipPath={`
+               url(#${titleId})`}
+      >
         <path
           fill="#231815"
           stroke="#231815"

@@ -27,7 +27,7 @@
     "paths": {
       "@gds/component": ["./src/component/index.ts"],
       "@gds/token": ["./src/token/index.ts"],
-      "@gds/icon": ["./src/icon"] //TODO: fix this
+      "@gds/icon": ["./src/icon/default"] //TODO: fix this
     }
   },
   "include": ["src/**/*", "eslint.config.js"],

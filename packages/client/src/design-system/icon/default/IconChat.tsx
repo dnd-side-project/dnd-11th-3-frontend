@@ -31,7 +31,7 @@ function IconChat(
             />
          </g>
          <defs>
-            <clipPath id="a">
+            <clipPath id={titleId}>
                <path fill="#fff" d="M0 0h16v16H0z" />
             </clipPath>
          </defs>

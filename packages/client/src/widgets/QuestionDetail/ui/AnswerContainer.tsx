@@ -6,7 +6,7 @@ import { color, Typo } from '@gds/token'
 import {
    IconAlarm,
    IconCheckCircle,
-   IconCheckCircleFilled,
+   IconCheckFilled,
    PrimarySmile,
 } from '@gds/icon'
 import { answerbuttonWrapper, answerInputWrapper } from './style.css'

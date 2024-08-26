@@ -2,10 +2,10 @@ import type { SVGProps } from 'react'
 import { Ref, forwardRef } from 'react'
 import type { IconProps } from '../shared/props'
 
-function IconCheckCircleFilled(
+function IconCheckFilled(
   {
-    title = 'IconCheckCircleFilled',
-    titleId = 'GDS-IconCheckCircleFilled',
+    title = 'IconCheckFilled',
+    titleId = 'GDS-IconCheckFilled',
     size = 20,
     color = '#2A2A2A',
     ...props
@@ -31,12 +31,12 @@ function IconCheckCircleFilled(
         />
       </g>
       <defs>
-        <clipPath id="a">
+        <clipPath id={titleId}>
           <path fill="#fff" d="M0 0h16v16H0z" />
         </clipPath>
       </defs>
     </svg>
   )
 }
-const ForwardRef = forwardRef(IconCheckCircleFilled)
-export { ForwardRef as IconCheckCircleFilled }
+const ForwardRef = forwardRef(IconCheckFilled)
+export { ForwardRef as IconCheckFilled }
