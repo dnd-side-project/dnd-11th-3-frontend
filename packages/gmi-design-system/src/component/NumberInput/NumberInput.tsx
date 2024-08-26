@@ -1,6 +1,6 @@
 import { cloneElement, ReactElement, ReactNode } from 'react'
 
-import { IconArrowDown, IconArrowUp } from '@gds/icon/default'
+import { IconArrowDown, IconArrowUp } from '@gds/icon'
 import {
   textInputLabelContainerStyle,
   textInputLabelStyle,
