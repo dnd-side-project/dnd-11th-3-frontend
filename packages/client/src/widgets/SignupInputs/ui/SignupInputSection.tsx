@@ -79,7 +79,7 @@ export function SignupInputSection({ form }: Props) {
                                  )
                                  form.setValue('officialEmailVerified', false)
                               },
-                              onError: () => {
+                              onError: (e) => {
                                  setLoading(false)
                                  form.setValue(
                                     'officialEmailVerifyCodeSent',
@@ -87,6 +87,7 @@ export function SignupInputSection({ form }: Props) {
                                  )
                                  form.setError('officialEmail', {
                                     message:
+                                       e.response.data.message ||
                                        '이메일 전송을 실패했습니다. 다시 시도해주세요',
                                     type: 'server',
                                  })
@@ -144,9 +145,10 @@ export function SignupInputSection({ form }: Props) {
                                  form.clearErrors('verificationNumber')
                                  form.setValue('officialEmailVerified', true)
                               },
-                              onError: () => {
+                              onError: (e) => {
                                  form.setError('verificationNumber', {
                                     message:
+                                       e.response.data.message ||
                                        '서버 에러가 발생했습니다. 다시 시도해주세요.',
                                     type: 'server',
                                  })
@@ -217,9 +219,10 @@ export function SignupInputSection({ form }: Props) {
                                     form.clearErrors('nickname')
                                     form.setValue('nicknameVerified', true)
                                  },
-                                 onError: () => {
+                                 onError: (e) => {
                                     form.setError('nickname', {
                                        message:
+                                          e.response.data.message ||
                                           '서버 에러가 발생했습니다. 다시 시도해주세요.',
                                        type: 'server',
                                     })
