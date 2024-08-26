@@ -1,12 +1,7 @@
 'use client'
 
 import { Button } from '@gds/component'
-import {
-   IconChat,
-   IconCheck,
-   IconCheckCircle,
-   IconCheckFilled,
-} from '@gds/icon'
+import { IconChat, IconCheck, IconCheckFilled } from '@gds/icon'
 import { color, Typo } from '@gds/token'
 import { AnswerDetailResponse } from '@server-api/api'
 import {
