@@ -8,8 +8,7 @@ export const toastBase = style({
    justifyContent: 'space-between',
    backgroundColor: color.white,
    borderRadius: '9px',
-   boxShadow:
-      '0px 0px 1px 0px rgba(132, 132, 132, 0.31), 0px 2px 5px 0px rgba(70, 70, 70, 0.2)',
+   boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1), 0px 4px 8px rgba(0, 0, 0, 0.1)',
 })
 
 export const left = style({
