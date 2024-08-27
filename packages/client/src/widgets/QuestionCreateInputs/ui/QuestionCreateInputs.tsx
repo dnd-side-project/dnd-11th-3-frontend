@@ -106,13 +106,13 @@ export function QuestionCreateInputs({ form, onSubmit }: Props) {
                   value={value}
                   onChange={(e) => onChange(e.target.value)}
                   onUpClick={() => {
-                     if (value + 1000 > 100000) {
+                     if (value + 1000 > 10000) {
                         return
                      }
                      onChange(value + 1000)
                   }}
                   onDownClick={() => {
-                     if (value - 1000 < 1000) {
+                     if (value - 1000 < 2000) {
                         return
                      }
                      onChange(value - 1000)
