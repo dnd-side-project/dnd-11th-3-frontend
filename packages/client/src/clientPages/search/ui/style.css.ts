@@ -8,7 +8,7 @@ export const Container = style({
 export const MulitSelectBox = style({
    display: 'flex',
    justifyContent: 'center',
-   marginTop: '-57px',
+   marginTop: '-53px',
 })
 
 export const SearchCountBox = style({

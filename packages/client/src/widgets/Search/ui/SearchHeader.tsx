@@ -12,7 +12,7 @@ export function SearchHeader() {
             <TextInput
                placeholder="검색어를 입력해주세요"
                icon={<IconSearch size={25} />}
-               style={{ width: '250px' }}
+               style={{ width: '259px' }}
             />
          </div>
       </div>
