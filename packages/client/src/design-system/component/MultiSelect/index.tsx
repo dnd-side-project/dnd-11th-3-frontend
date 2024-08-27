@@ -309,5 +309,3 @@ function CustomListBoxItem({
       </ListBoxItem>
    )
 }
-
-export default MultiSelect
