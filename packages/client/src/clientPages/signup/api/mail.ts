@@ -1,7 +1,7 @@
 import { useMutation } from '@tanstack/react-query'
 
 import { AuthCodeRequest, MailAPIApi, SendMailRequest } from '@server-api/api'
-import { getTmpAuthorizedConfig, config } from '@shared/api/config'
+import { config } from '@shared/api/config'
 
 export const useSendVerificationCodeByEmail = () => {
    return useMutation({

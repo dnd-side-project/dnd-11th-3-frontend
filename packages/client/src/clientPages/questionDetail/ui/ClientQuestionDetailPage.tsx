@@ -9,6 +9,7 @@ import {
 import { useFetchMemberInformation } from '@shared/api'
 import { useParams, useRouter } from 'next/navigation'
 import { MainLoader } from '@shared/ui'
+import { Toast } from '@gds/component'
 import { pageWrapper } from './style.css'
 import {
    useFetchQuestionPost,
@@ -21,10 +22,21 @@ export function ClientQuestionDetailPage() {
    const params = useParams()
    const router = useRouter()
 
-   const { data: userData } = useFetchMemberInformation()
-   const { data: questionData } = useFetchQuestionPost({
-      questionPostId: Number(params.id),
-   })
+   const {
+      data: userData,
+      isError: userDataIsError,
+      error: userDataError,
+   } = useFetchMemberInformation()
+   const {
+      data: questionData,
+      isError: questionDataIsError,
+      error: questionDataError,
+   } = useFetchQuestionPost(
+      {
+         questionPostId: Number(params.id),
+      },
+      { enabled: !!params.id },
+   )
    const { mutate: createQuestionMeta } = usePostCreateQuestionMeta()
    const { mutate: cancelQuestionMeta } = usePostCancelQuestionMeta()
    const { mutate: createAnswer } = usePostAnswer()
@@ -35,6 +47,17 @@ export function ClientQuestionDetailPage() {
 
    if (params.id === undefined) {
       router.push('/home')
+      Toast.error({ title: '잘못된 접근 입니다.' })
+   } else if (userDataIsError) {
+      router.push('/home')
+      Toast.error({
+         title: userDataError?.message || '서버 오류가 발생했습니다.',
+      })
+   } else if (questionDataIsError) {
+      router.push('/home')
+      Toast.error({
+         title: questionDataError?.message || '서버 오류가 발생했습니다.',
+      })
    }
 
    return (
@@ -69,8 +92,9 @@ export function ClientQuestionDetailPage() {
                         registerAnswerRequest: { content: answer },
                      },
                      {
-                        onSuccess: () => {
-                           refetch()
+                        onSuccess: async () => {
+                           await refetch()
+                           Toast.success({ title: '답변이 등록되었습니다.' })
                         },
                      },
                   )

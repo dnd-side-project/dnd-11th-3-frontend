@@ -1,4 +1,4 @@
-import { formatNumberWithCommas } from '@shared/utils/formatNumberWithCommas'
+import { formatNumberWithCommas } from '@shared/lib/utils/formatNumberWithCommas'
 import * as styles from './style.css'
 
 // TODO: 서버 데이터에 맞게 수정 필요
