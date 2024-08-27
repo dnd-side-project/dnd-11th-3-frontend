@@ -8,6 +8,8 @@ import {
 import { IconFilter } from '@gds/icon'
 import { useState } from 'react'
 import { JOB_GROUPS } from '@shared/model/job'
+import Question from '@shared/ui/QuestionList/Question'
+import { data } from 'src/clientPages/home/ui/ClientHomePage'
 import * as styles from './style.css'
 
 export function ClientSearchPage() {
@@ -38,6 +40,14 @@ export function ClientSearchPage() {
                   label: jobGroup,
                }))}
             />
+         </div>
+         <div className={styles.SearchCountBox}>
+            <span>검색결과 nnn건</span>
+         </div>
+         <div className={styles.QuestionContainer}>
+            {data.map((question) => {
+               return <Question data={question} key={question.questionPostId} />
+            })}
          </div>
       </div>
    )
