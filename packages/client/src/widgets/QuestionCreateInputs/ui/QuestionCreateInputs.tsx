@@ -9,6 +9,7 @@ import {
    Select,
    TextArea,
    TextInput,
+   Toast,
 } from '@gds/component'
 import { IconAddPhoto, IconSearch } from '@gds/icon'
 import { Controller, UseFormReturn } from 'react-hook-form'
@@ -70,6 +71,11 @@ export function QuestionCreateInputs({ form, onSubmit }: Props) {
             variant="outlined"
             size="large"
             icon={<IconAddPhoto size={32} />}
+            onClick={() =>
+               Toast.error({
+                  description: '이미지 업로드 기능은 준비 중입니다.',
+               })
+            }
          />
          <Controller
             name="targetJobGroup"
