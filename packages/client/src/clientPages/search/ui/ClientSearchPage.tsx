@@ -8,8 +8,8 @@ import {
 import { IconFilter } from '@gds/icon'
 import { useState } from 'react'
 import { JOB_GROUPS } from '@shared/model/job'
-import Question from '@shared/ui/QuestionList/Question'
 import { data } from 'src/clientPages/home/ui/ClientHomePage'
+import QuestionCard from '@shared/ui/QuestionList/Question'
 import * as styles from './style.css'
 
 export function ClientSearchPage() {
@@ -46,7 +46,9 @@ export function ClientSearchPage() {
          </div>
          <div className={styles.QuestionContainer}>
             {data.map((question) => {
-               return <Question data={question} key={question.questionPostId} />
+               return (
+                  <QuestionCard data={question} key={question.questionPostId} />
+               )
             })}
          </div>
       </div>

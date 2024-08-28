@@ -4,12 +4,12 @@ import { useState } from 'react'
 
 import { useScrollHandler } from '@features/useScrollHandler'
 
-import Question from '@shared/ui/QuestionList/Question'
 import { IconFilter } from '@gds/icon'
 import { SelectItemType } from 'src/design-system/component/Select/Select'
 import { MultiSelect } from 'src/design-system/component/MultiSelect'
 import { JOB_GROUPS } from '@shared/model/job'
 import { PageResponseQuestionPostSimpleResponse } from '@server-api/api'
+import QuestionCard from '@shared/ui/QuestionList/Question'
 import * as styles from './index.css'
 
 interface Props {
@@ -57,7 +57,7 @@ function QuestionList({ data, selectedAdGroup, setSelectedJobGroups }: Props) {
          </div>
          <div className={styles.QuestionsWrapper}>
             {data?.content?.map((question) => (
-               <Question data={question} key={question.questionPostId} />
+               <QuestionCard data={question} key={question.questionPostId} />
             ))}
          </div>
       </div>
