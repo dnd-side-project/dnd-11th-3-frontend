@@ -1,5 +1,6 @@
 import { TextInput } from '@gds/component'
 import { IconArrowLeft, IconSearch } from '@gds/icon'
+import { useRouter } from 'next/navigation'
 import * as styles from './style.css'
 
 interface Prop {
@@ -7,10 +8,12 @@ interface Prop {
 }
 
 export function SearchHeader({ input }: Prop) {
+   const router = useRouter()
+
    return (
       <div className={styles.Container}>
          <div className={styles.IconBox}>
-            <IconArrowLeft size={30} />
+            <IconArrowLeft onClick={() => router.back()} size={30} />
          </div>
          <div className={styles.SearchBox}>
             <TextInput
