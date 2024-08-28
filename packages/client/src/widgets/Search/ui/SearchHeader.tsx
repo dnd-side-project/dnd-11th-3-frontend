@@ -2,7 +2,11 @@ import { TextInput } from '@gds/component'
 import { IconArrowLeft, IconSearch } from '@gds/icon'
 import * as styles from './style.css'
 
-export function SearchHeader() {
+interface Prop {
+   input: string
+}
+
+export function SearchHeader({ input }: Prop) {
    return (
       <div className={styles.Container}>
          <div className={styles.IconBox}>
@@ -10,6 +14,7 @@ export function SearchHeader() {
          </div>
          <div className={styles.SearchBox}>
             <TextInput
+               value={input}
                placeholder="검색어를 입력해주세요"
                icon={<IconSearch size={25} />}
                style={{ width: '259px' }}

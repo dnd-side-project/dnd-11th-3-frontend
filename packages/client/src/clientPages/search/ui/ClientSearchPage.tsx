@@ -12,7 +12,11 @@ import { data } from 'src/clientPages/home/ui/ClientHomePage'
 import QuestionCard from '@shared/ui/QuestionList/Question'
 import * as styles from './style.css'
 
-export function ClientSearchPage() {
+interface Prop {
+   input: string
+}
+
+export function ClientSearchPage({ input }: Prop) {
    const [selectedJobGroups, setSelectedJobGroups] = useState<SelectItemType[]>(
       [],
    )
@@ -25,7 +29,7 @@ export function ClientSearchPage() {
 
    return (
       <div className={styles.Container}>
-         <SearchHeader />
+         <SearchHeader input={input} />
          <div className={styles.MulitSelectBox}>
             <MultiSelect
                variant="default"

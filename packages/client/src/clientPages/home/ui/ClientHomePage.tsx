@@ -87,7 +87,7 @@ export const data: QuestionPostSimpleResponse[] = [
 
 export function ClientHomePage() {
    const router = useRouter()
-   const [search, setSearch] = useState<string | undefined>(undefined)
+   const [searchInput, setSearchInput] = useState<string | undefined>(undefined)
    const [selectedJobGroups, setSelectedJobGroups] = useState<SelectItemType[]>(
       [],
    )
@@ -98,7 +98,6 @@ export function ClientHomePage() {
 
    const { data: questions, status: questionListsStatus } = useFetchQuestions({
       condition: {
-         keyword: search,
          jobGroups: selectedJobGroups.map((jobGroup) => jobGroup.label),
          isChosen: false,
       },
@@ -115,7 +114,20 @@ export function ClientHomePage() {
             size: 10,
          },
       })
-   console.log(recommendQuestions, questions)
+
+   const handleOnChangeSearchInputInput = (
+      event: React.ChangeEvent<HTMLInputElement>,
+   ) => {
+      setSearchInput(event.target.value)
+   }
+
+   const handleOnKeyDownEnter = (
+      event: React.KeyboardEvent<HTMLInputElement>,
+   ) => {
+      if (event.key === 'Enter') {
+         router.push(`/search/${searchInput}`)
+      }
+   }
    return (
       <>
          <MainLoader
@@ -133,6 +145,9 @@ export function ClientHomePage() {
                      onSelectCategory={setJobCategory}
                   />
                   <TextInput
+                     value={searchInput}
+                     onKeyDown={handleOnKeyDownEnter}
+                     onChange={handleOnChangeSearchInputInput}
                      placeholder="검색어를 입력해주세요"
                      icon={<IconSearch size={25} />}
                   />
