@@ -18,6 +18,8 @@ interface Prop {
 }
 
 export function ClientSearchPage({ input }: Prop) {
+   const [searchInput, setSearchInput] = useState<string>(decodeURI(input))
+
    const [selectedJobGroups, setSelectedJobGroups] = useState<SelectItemType[]>(
       [],
    )
@@ -30,7 +32,7 @@ export function ClientSearchPage({ input }: Prop) {
 
    return (
       <div className={styles.Container}>
-         <SearchHeader input={input} />
+         <SearchHeader input={searchInput} setSearchInput={setSearchInput} />
          <div className={styles.MulitSelectBox}>
             <MultiSelect
                variant="default"

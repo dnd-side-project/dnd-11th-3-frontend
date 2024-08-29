@@ -124,8 +124,8 @@ export function ClientHomePage() {
    const handleOnKeyDownEnter = (
       event: React.KeyboardEvent<HTMLInputElement>,
    ) => {
-      if (event.key === 'Enter') {
-         router.push(`/search/${searchInput}`)
+      if (event.key === 'Enter' && searchInput !== undefined) {
+         router.push(`/search/${decodeURI(searchInput)}`)
       }
    }
    return (
