@@ -10,6 +10,7 @@ import { MultiSelect } from 'src/design-system/component/MultiSelect'
 import { JOB_GROUPS } from '@shared/model/job'
 import { PageResponseQuestionPostSimpleResponse } from '@server-api/api'
 import QuestionCard from '@shared/ui/QuestionList/Question'
+import { MAX_SELECT_JOB_LENGTH } from '@shared/model'
 import * as styles from './index.css'
 
 interface Props {
@@ -24,7 +25,7 @@ function QuestionList({ data, selectedAdGroup, setSelectedJobGroups }: Props) {
    useScrollHandler(setFixed, 'nav-section')
 
    const handleSelect = (selectedItems: SelectItemType[]) => {
-      if (selectedItems.length <= 3) {
+      if (selectedItems.length <= MAX_SELECT_JOB_LENGTH) {
          setSelectedJobGroups(selectedItems)
       }
    }
@@ -46,7 +47,7 @@ function QuestionList({ data, selectedAdGroup, setSelectedJobGroups }: Props) {
                      }}
                      onSelect={handleSelect}
                      selected={selectedAdGroup}
-                     placeholder="직군 3개까지 선택 가능합니다."
+                     placeholder={`직군 ${MAX_SELECT_JOB_LENGTH}개까지 선택 가능합니다.`}
                      items={JOB_GROUPS.map((jobGroup) => ({
                         id: jobGroup,
                         label: jobGroup,

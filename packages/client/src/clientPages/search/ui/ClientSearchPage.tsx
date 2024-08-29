@@ -10,6 +10,7 @@ import { useState } from 'react'
 import { JOB_GROUPS } from '@shared/model/job'
 import { data } from 'src/clientPages/home/ui/ClientHomePage'
 import QuestionCard from '@shared/ui/QuestionList/Question'
+import { MAX_SELECT_JOB_LENGTH } from '@shared/model'
 import * as styles from './style.css'
 
 interface Prop {
@@ -22,7 +23,7 @@ export function ClientSearchPage({ input }: Prop) {
    )
 
    const handleSelect = (selectedItems: SelectItemType[]) => {
-      if (selectedItems.length <= 3) {
+      if (selectedItems.length <= MAX_SELECT_JOB_LENGTH) {
          setSelectedJobGroups(selectedItems)
       }
    }
@@ -38,7 +39,7 @@ export function ClientSearchPage({ input }: Prop) {
                }}
                onSelect={handleSelect}
                selected={selectedJobGroups}
-               placeholder="직군 3개까지 선택 가능합니다."
+               placeholder={`직군 ${MAX_SELECT_JOB_LENGTH}개까지 선택 가능합니다.`}
                items={JOB_GROUPS.map((jobGroup) => ({
                   id: jobGroup,
                   label: jobGroup,
