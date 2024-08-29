@@ -28,3 +28,6 @@ export type { DividerProps } from './Divider/Divider'
 
 export { Spinner } from './Spinner/Spinner'
 export type { SpinnerProps } from './Spinner/Spinner'
+
+export { Toast, ToastPrepare } from './Toast/Toast'
+export type { ToastData } from './Toast/Toast'

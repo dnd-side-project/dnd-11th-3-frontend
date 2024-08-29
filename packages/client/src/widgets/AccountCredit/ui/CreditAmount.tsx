@@ -1,7 +1,7 @@
 import { IconCredit } from '@gds/icon'
 import Image from 'next/image'
 import { color } from '@gds/token'
-import { formatNumberWithCommas } from '@shared/utils/formatNumberWithCommas'
+import { formatNumberWithCommas } from '@shared/lib/utils/formatNumberWithCommas'
 import CreditBackgroundImg from 'public/asset/creditBackground.svg'
 import * as styles from './style.css'
 

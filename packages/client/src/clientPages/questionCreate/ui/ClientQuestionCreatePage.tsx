@@ -8,6 +8,7 @@ import { QuestionCreateInputs } from '@widgets/QuestionCreateInputs'
 import { MainLoader } from '@shared/ui'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { Toast } from '@gds/component'
 import { usePostQuestion } from '../api/auth'
 
 export function ClientQuestionCreatePage() {
@@ -37,6 +38,16 @@ export function ClientQuestionCreatePage() {
                         form.reset()
                         setImageUrls([])
                         router.push('/home')
+                        Toast.success({
+                           title: '질문이 등록되었습니다.',
+                        })
+                     },
+                     onError: (e) => {
+                        Toast.error({
+                           title:
+                              e.response?.data?.message ||
+                              '서버 오류가 발생했습니다. 다시 시도해주세요.',
+                        })
                      },
                   },
                )

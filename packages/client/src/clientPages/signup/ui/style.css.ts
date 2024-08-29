@@ -51,4 +51,10 @@ export const bottomSection = style({
 
 export const FinalBtnBox = style({
    marginTop: 'auto',
+   minHeight: 50,
+   display: 'flex',
+   flexDirection: 'column',
+   justifyContent: 'flex-start',
+   alignItems: 'center',
+   gap: 10,
 })

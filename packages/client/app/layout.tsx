@@ -4,6 +4,7 @@ import './globals.css'
 import localFont from 'next/font/local'
 import './design-system-globals.css'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import { ToastPrepare } from '@gds/component'
 import ReactQueryClientProviders from '../src/apps/provider/reactQueryProviders'
 
 export const metadata: Metadata = {
@@ -53,6 +54,7 @@ export default function RootLayout({
          <body>
             <div className="mobile-layout">
                <ReactQueryClientProviders>
+                  <ToastPrepare />
                   {children}
 
                   {process.env.NODE_ENV !== 'production' && (

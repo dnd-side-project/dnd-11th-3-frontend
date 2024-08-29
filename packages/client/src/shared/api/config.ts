@@ -15,33 +15,3 @@ export const config = new Configuration({
       },
    },
 })
-
-export const getTmpAuthorizedConfig = (): Configuration => {
-   const queryClient = useQueryClient()
-
-   // 쿼리 키를 사용하여 캐싱된 데이터 가져오기
-   const accessToken =
-      queryClient.getQueryData([PostTmpAccessTokenQueryKey]) || ''
-
-   return new Configuration({
-      basePath: process.env.API_BASE_URL,
-      baseOptions: {
-         withCredentials: false, // TODO: fix after implementing authentication
-         headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${accessToken}`,
-         },
-      },
-   })
-}
-
-export const ssrConfig = (req: IncomingMessage): Configuration => {
-   return new Configuration({
-      basePath: API_BASE_URL,
-      baseOptions: {
-         headers: {
-            Cookie: req.headers.cookie,
-         },
-      },
-   })
-}
