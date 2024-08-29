@@ -7,12 +7,11 @@ const { API_BASE_URL } = process.env
 
 export const ssrConfig = (): Configuration => {
    const cookieStore = cookies()
-
    return new Configuration({
       basePath: API_BASE_URL,
       baseOptions: {
          headers: {
-            Cookie: cookieStore,
+            Cookie: cookieStore.toString(),
          },
       },
    })

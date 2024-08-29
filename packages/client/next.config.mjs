@@ -7,10 +7,12 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
 const withVanillaExtract = createVanillaExtractPlugin()
+const API_BASE_URL = process.env.API_BASE_URL
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
    reactStrictMode: true,
+   trailingSlash: true,
    images: {
       remotePatterns: [
          {
@@ -18,6 +20,14 @@ const nextConfig = {
             hostname: '**', // all domains
          },
       ],
+   },
+   async rewrites() {
+      return [
+         {
+            source: '/api/:path*/',
+            destination: `${API_BASE_URL}/:path*/`,
+         },
+      ]
    },
 }
 
