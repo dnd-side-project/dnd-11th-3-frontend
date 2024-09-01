@@ -1,0 +1,1 @@
+export { getQuestionFields } from './questionType'

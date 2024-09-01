@@ -3,31 +3,21 @@
 import { IconBookmark, IconCredit, IconThumbUp } from '@gds/icon'
 import { Badge } from '@gds/component'
 import { color } from '@gds/token'
-import { QuestionPostSimpleResponse } from '@server-api/api'
+import {
+   QuestionPostSimpleResponse,
+   QuestionPostsResponse,
+} from '@server-api/api'
 import { useRouter } from 'next/navigation'
+import { getQuestionFields } from '@features/account'
 import * as styles from './Question.css'
 
-/**
- * @description 삭제 예정
- */
-export interface QuestionData {
-   // TODO: delete
-   tag: string
-   reward: string
-   title: string
-   content: string
-   date: string
-   bookmark: number
-   likes: number
-   isChosen: boolean
-}
-
 interface Props {
-   data: QuestionPostSimpleResponse
+   data: QuestionPostSimpleResponse | QuestionPostsResponse
 }
 
 function Question({ data }: Props) {
    const router = useRouter()
+   const { title, content, savedCount } = getQuestionFields(data)
    return (
       <div className={styles.QuestionWrapper}>
          <div className={styles.QuestionTagWrapper}>
@@ -60,9 +50,9 @@ function Question({ data }: Props) {
             tabIndex={0}
          >
             <div className={styles.QuestionTitleBox}>
-               <span>{data.title}</span>
+               <span>{title}</span>
             </div>
-            <div className={styles.QuestionContentBox}>{data.content}</div>
+            <div className={styles.QuestionContentBox}>{content}</div>
          </div>
          <div className={styles.QuestionBottomWrapper}>
             <div className={styles.QuestionDateBox}>
@@ -74,9 +64,7 @@ function Question({ data }: Props) {
                <div className={styles.QuestionIconBox}>
                   <IconBookmark color={color['gray-300']} />
                </div>
-               <div className={styles.QuestionIconTxtBox}>
-                  {data.savedCount}
-               </div>
+               <div className={styles.QuestionIconTxtBox}>{savedCount}</div>
                <div className={styles.QuestionIconBox} />
                <IconThumbUp color={color['gray-300']} />
                <div className={styles.QuestionIconTxtBox}>

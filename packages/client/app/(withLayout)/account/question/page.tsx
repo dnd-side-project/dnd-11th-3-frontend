@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import Tab from 'src/design-system/component/Tab'
 import AnswerBox from 'src/design-system/component/Answer'
 import Question from '@shared/ui/QuestionList/Question'
-import { data } from 'src/clientPages/home/ui/ClientHomePage'
+import { useGetPostsQuestions } from 'src/clientPages/accountQuestion/api/questionPosts'
 import * as styles from '../index.css'
 
 function AccountQuestion() {
@@ -15,15 +15,22 @@ function AccountQuestion() {
       { key: 'answer', label: '답변 단 질문' },
    ]
 
+   const { data: postsQuestionsData } = useGetPostsQuestions({
+      pageable: {
+         page: 0,
+         size: 10,
+      },
+   })
+
    return (
       <div className={styles.Wrapper}>
          <Tab tabState={tabState} setTabState={setTabState} tabs={tabs} />
          <div className={styles.ListWrapper}>
             {tabState === 'write'
-               ? data.map((question) => (
+               ? postsQuestionsData?.content?.map((question) => (
                     <Question key={question.questionPostId} data={question} />
                  ))
-               : data.map((question) => (
+               : postsQuestionsData?.content?.map((question) => (
                     <React.Fragment key={question.questionPostId}>
                        <Question data={question} />
                        <AnswerBox
