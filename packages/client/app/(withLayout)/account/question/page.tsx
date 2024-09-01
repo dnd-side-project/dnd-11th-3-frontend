@@ -5,22 +5,35 @@ import Tab from 'src/design-system/component/Tab'
 import AnswerBox from 'src/design-system/component/Answer'
 import Question from '@shared/ui/QuestionList/Question'
 import { useGetPostsQuestions } from 'src/clientPages/accountQuestion/api/questionPosts'
+import { useRouter } from 'next/navigation'
 import * as styles from '../index.css'
 
 function AccountQuestion() {
    const [tabState, setTabState] = useState('write')
+
+   const router = useRouter()
 
    const tabs = [
       { key: 'write', label: '작성한 질문' },
       { key: 'answer', label: '답변 단 질문' },
    ]
 
-   const { data: postsQuestionsData } = useGetPostsQuestions({
+   const {
+      data: postsQuestionsData,
+      isError: postQuestionsDataIsError,
+      error: postQuestionsDataError,
+   } = useGetPostsQuestions({
       pageable: {
          page: 0,
          size: 10,
       },
    })
+
+   if (postQuestionsDataIsError) {
+      router.push('/home')
+      // TODO: toast로 수정 필요
+      alert(postQuestionsDataError.message || '서버 오류가 발생했습니다.')
+   }
 
    return (
       <div className={styles.Wrapper}>
