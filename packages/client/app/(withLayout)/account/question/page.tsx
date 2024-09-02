@@ -4,7 +4,10 @@ import React, { useState } from 'react'
 import Tab from 'src/design-system/component/Tab'
 import AnswerBox from 'src/design-system/component/Answer'
 import Question from '@shared/ui/QuestionList/Question'
-import { useGetPostsQuestions } from 'src/clientPages/accountQuestion/api/questionPosts'
+import {
+   useGetPostsQuestions,
+   useGetPostsQuestionsAnswers,
+} from 'src/clientPages/accountQuestion/api/questionPosts'
 import { useRouter } from 'next/navigation'
 import * as styles from '../index.css'
 
@@ -29,10 +32,25 @@ function AccountQuestion() {
       },
    })
 
+   const {
+      data: postsQuestionsAnswerData,
+      isError: postQuestionsAnswerDataIsError,
+      error: postQuestionsAnswerDataError,
+   } = useGetPostsQuestionsAnswers({
+      pageable: {
+         page: 0,
+         size: 10,
+      },
+   })
+
    if (postQuestionsDataIsError) {
       router.push('/home')
       // TODO: toast로 수정 필요
       alert(postQuestionsDataError.message || '서버 오류가 발생했습니다.')
+   } else if (postQuestionsAnswerDataIsError) {
+      router.push('/home')
+      // TODO: toast로 수정 필요
+      alert(postQuestionsAnswerDataError.message || '서버 오류가 발생했습니다.')
    }
 
    return (
@@ -43,12 +61,12 @@ function AccountQuestion() {
                ? postsQuestionsData?.content?.map((question) => (
                     <Question key={question.questionPostId} data={question} />
                  ))
-               : postsQuestionsData?.content?.map((question) => (
+               : postsQuestionsAnswerData?.content?.map((question) => (
                     <React.Fragment key={question.questionPostId}>
                        <Question data={question} />
                        <AnswerBox
-                          text="내 생일 파티에 너만 못 온 그날 혜진이가 엄청 혼났던 그날 지원이가 여친이랑 헤어진 그날"
-                          date="2024.07.19"
+                          text={question.answerContent}
+                          date={question.answerCreatedAt}
                        />
                     </React.Fragment>
                  ))}
