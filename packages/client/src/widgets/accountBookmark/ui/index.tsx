@@ -3,13 +3,13 @@ import { QuestionPostSimpleResponse } from '@server-api/api'
 import { ListWrapper } from './index.css'
 
 interface Prop {
-   QuestionData: QuestionPostSimpleResponse[]
+   QuestionData?: QuestionPostSimpleResponse[]
 }
 
 function AccountBookmarkClient({ QuestionData }: Prop) {
    return (
       <div className={ListWrapper}>
-         {QuestionData.map((question) => (
+         {QuestionData?.map((question) => (
             <Question key={question.questionPostId} data={question} />
          ))}
       </div>

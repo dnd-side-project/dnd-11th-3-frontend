@@ -33,3 +33,15 @@ export const useGetPostsQuestionsAnswers = (
             )
          ).data,
    })
+
+export const useGetScrapQuestions = (
+   dto: { pageable: Pageable },
+   options?: UseQueryOptions<PageResponseQuestionPostsResponse>,
+) =>
+   useQuery({
+      ...options,
+      queryKey: [`/members/question-posts/bookmarks`, dto.pageable],
+      queryFn: async () =>
+         (await new MemberAPIApi(config).getBookmarksByMember(dto.pageable))
+            .data,
+   })
