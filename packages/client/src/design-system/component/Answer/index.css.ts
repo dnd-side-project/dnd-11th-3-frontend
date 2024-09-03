@@ -13,7 +13,7 @@ export const Wrapper = style({
    display: 'flex',
    flexDirection: 'column',
    padding: '15px',
-   width: '100%',
+   width: '350px',
    backgroundColor: color['primary-background'],
    borderRadius: '8px',
    marginBottom: '15px',
