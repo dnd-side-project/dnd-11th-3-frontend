@@ -1,9 +1,13 @@
 import {
+   AnsweredQuestionPostsResponse,
    QuestionPostSimpleResponse,
    QuestionPostsResponse,
 } from '@server-api/api'
 
-type QuestionData = QuestionPostSimpleResponse | QuestionPostsResponse
+type QuestionData =
+   | QuestionPostSimpleResponse
+   | QuestionPostsResponse
+   | AnsweredQuestionPostsResponse
 
 interface QuestionFields {
    title: string
@@ -11,10 +15,20 @@ interface QuestionFields {
    savedCount: number
 }
 
+interface AnswerQuestionField {
+   createdAt: string
+}
+
 function isQuestionPostSimpleResponse(
    data: QuestionData,
 ): data is QuestionPostSimpleResponse {
    return 'title' in data && 'content' in data && 'savedCount' in data
+}
+
+function isAccountAnswerResponse(
+   data: QuestionData,
+): data is AnsweredQuestionPostsResponse {
+   return 'questionPostCreatedAt' in data
 }
 
 export function getQuestionFields(data: QuestionData): QuestionFields {
@@ -30,4 +44,15 @@ export function getQuestionFields(data: QuestionData): QuestionFields {
       content: data.questionContent ?? '',
       savedCount: data.bookmarkCount ?? 0,
    }
+}
+
+export function getAnswerQuestionField(
+   data: QuestionData,
+): AnswerQuestionField {
+   if (isAccountAnswerResponse(data)) {
+      return {
+         createdAt: data.questionPostCreatedAt ?? '',
+      }
+   }
+   return { createdAt: data.createdAt ?? '' }
 }

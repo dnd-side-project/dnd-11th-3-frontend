@@ -4,20 +4,25 @@ import { IconBookmark, IconCredit, IconThumbUp } from '@gds/icon'
 import { Badge } from '@gds/component'
 import { color } from '@gds/token'
 import {
+   AnsweredQuestionPostsResponse,
    QuestionPostSimpleResponse,
    QuestionPostsResponse,
 } from '@server-api/api'
 import { useRouter } from 'next/navigation'
-import { getQuestionFields } from '@features/account'
+import { getAnswerQuestionField, getQuestionFields } from '@features/account'
 import * as styles from './Question.css'
 
 interface Props {
-   data: QuestionPostSimpleResponse | QuestionPostsResponse
+   data:
+      | QuestionPostSimpleResponse
+      | QuestionPostsResponse
+      | AnsweredQuestionPostsResponse
 }
 
 function Question({ data }: Props) {
    const router = useRouter()
    const { title, content, savedCount } = getQuestionFields(data)
+   const { createdAt } = getAnswerQuestionField(data)
    return (
       <div className={styles.QuestionWrapper}>
          <div className={styles.QuestionTagWrapper}>
@@ -56,9 +61,7 @@ function Question({ data }: Props) {
          </div>
          <div className={styles.QuestionBottomWrapper}>
             <div className={styles.QuestionDateBox}>
-               <span>
-                  {new Date(String(data.createdAt))?.toLocaleDateString()}
-               </span>
+               <span>{new Date(String(createdAt))?.toLocaleDateString()}</span>
             </div>
             <div className={styles.QuestionDetailBox}>
                <div className={styles.QuestionIconBox}>
