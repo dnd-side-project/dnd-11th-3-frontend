@@ -1,6 +1,3 @@
-'use client'
-
-import React from 'react'
 import Question from '@shared/ui/QuestionList/Question'
 import { QuestionPostSimpleResponse } from '@server-api/api'
 import { ListWrapper } from './index.css'
