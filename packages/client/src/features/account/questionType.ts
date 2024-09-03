@@ -10,13 +10,13 @@ type QuestionData =
    | AnsweredQuestionPostsResponse
 
 interface QuestionFields {
-   title: string
-   content: string
-   savedCount: number
+   title?: string
+   content?: string
+   savedCount?: number
 }
 
 interface AnswerQuestionField {
-   createdAt: string
+   createdAt?: string
 }
 
 function isQuestionPostSimpleResponse(
@@ -34,15 +34,15 @@ function isAccountAnswerResponse(
 export function getQuestionFields(data: QuestionData): QuestionFields {
    if (isQuestionPostSimpleResponse(data)) {
       return {
-         title: data.title ?? '',
-         content: data.content ?? '',
-         savedCount: data.savedCount ?? 0,
+         title: data.title,
+         content: data.content,
+         savedCount: data.savedCount,
       }
    }
    return {
-      title: data.questionTitle ?? '',
-      content: data.questionContent ?? '',
-      savedCount: data.bookmarkCount ?? 0,
+      title: data.questionTitle,
+      content: data.questionContent,
+      savedCount: data.bookmarkCount,
    }
 }
 
@@ -51,8 +51,8 @@ export function getAnswerQuestionField(
 ): AnswerQuestionField {
    if (isAccountAnswerResponse(data)) {
       return {
-         createdAt: data.questionPostCreatedAt ?? '',
+         createdAt: data.questionPostCreatedAt,
       }
    }
-   return { createdAt: data.createdAt ?? '' }
+   return { createdAt: data.createdAt }
 }
