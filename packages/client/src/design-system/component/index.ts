@@ -28,3 +28,5 @@ export type { DividerProps } from './Divider/Divider'
 
 export { Spinner } from './Spinner/Spinner'
 export type { SpinnerProps } from './Spinner/Spinner'
+
+export { MultiSelect } from './MultiSelect/index'

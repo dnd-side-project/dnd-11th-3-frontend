@@ -25,8 +25,7 @@ export interface QuestionData {
 interface Props {
    data: QuestionPostSimpleResponse
 }
-
-function Question({ data }: Props) {
+function QuestionCard({ data }: Props) {
    const router = useRouter()
    return (
       <div className={styles.QuestionWrapper}>
@@ -88,4 +87,4 @@ function Question({ data }: Props) {
    )
 }
 
-export default Question
+export default QuestionCard
