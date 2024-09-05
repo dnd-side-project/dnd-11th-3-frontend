@@ -5,7 +5,6 @@ import * as styles from './style.css'
 
 interface Prop {
    input: string
-   input?: string
    setSearchInput: (input: string) => void
 }
 
