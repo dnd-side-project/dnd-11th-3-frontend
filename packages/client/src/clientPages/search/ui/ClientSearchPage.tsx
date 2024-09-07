@@ -8,9 +8,9 @@ import {
 import { IconFilter } from '@gds/icon'
 import { useState } from 'react'
 import { JOB_GROUPS } from '@shared/model/job'
-import { data } from 'src/clientPages/home/ui/ClientHomePage'
 import QuestionCard from '@shared/ui/QuestionList/Question'
 import { MAX_SELECT_JOB_LENGTH } from '@shared/model'
+import { useFetchQuestions } from 'src/clientPages/home/api/question'
 import * as styles from './style.css'
 
 interface Prop {
@@ -29,6 +29,19 @@ export function ClientSearchPage({ input }: Prop) {
          setSelectedJobGroups(selectedItems)
       }
    }
+
+   const { data: questionsData, status: questionListsStatus } =
+      useFetchQuestions({
+         condition: {
+            keyword: decodeURI(input),
+            jobGroups: selectedJobGroups.map((jobGroup) => jobGroup.label),
+            isChosen: false,
+         },
+         pageable: {
+            page: 0,
+            size: 100,
+         },
+      })
 
    return (
       <div className={styles.Container}>
@@ -49,10 +62,10 @@ export function ClientSearchPage({ input }: Prop) {
             />
          </div>
          <div className={styles.SearchCountBox}>
-            <span>검색결과 nnn건</span>
+            <span>검색결과 {questionsData?.content?.length}건</span>
          </div>
          <div className={styles.QuestionContainer}>
-            {data.map((question) => {
+            {questionsData?.content?.map((question) => {
                return (
                   <QuestionCard data={question} key={question.questionPostId} />
                )

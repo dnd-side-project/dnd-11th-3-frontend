@@ -14,7 +14,7 @@ import { MAX_SELECT_JOB_LENGTH } from '@shared/model'
 import * as styles from './index.css'
 
 interface Props {
-   data: PageResponseQuestionPostSimpleResponse
+   data?: PageResponseQuestionPostSimpleResponse
    selectedAdGroup: SelectItemType[]
    setSelectedJobGroups: (selectedItems: SelectItemType[]) => void
 }
