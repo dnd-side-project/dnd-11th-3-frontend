@@ -1,3 +1,5 @@
+'use client'
+
 import {
    useRef,
    cloneElement,
@@ -309,5 +311,3 @@ function CustomListBoxItem({
       </ListBoxItem>
    )
 }
-
-export default MultiSelect

@@ -18,8 +18,7 @@ interface Props {
       | QuestionPostsResponse
       | AnsweredQuestionPostsResponse
 }
-
-function Question({ data }: Props) {
+function QuestionCard({ data }: Props) {
    const router = useRouter()
    const { title, content, savedCount } = getQuestionFields(data)
    const { createdAt } = getAnswerQuestionField(data)
@@ -79,4 +78,4 @@ function Question({ data }: Props) {
    )
 }
 
-export default Question
+export default QuestionCard
