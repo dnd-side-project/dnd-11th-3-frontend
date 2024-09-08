@@ -12,6 +12,7 @@ import QuestionCard from '@shared/ui/QuestionList/Question'
 import { MAX_SELECT_JOB_LENGTH } from '@shared/model'
 import { useFetchQuestions } from 'src/clientPages/home/api/question'
 import { useRouter } from 'next/navigation'
+import { MainLoader } from '@shared/ui'
 import * as styles from './style.css'
 
 interface Prop {
@@ -72,6 +73,10 @@ export function ClientSearchPage({ input }: Prop) {
                }))}
             />
          </div>
+         <MainLoader
+            height={844}
+            loading={searchQuestionsDataStatus === 'pending'}
+         />
          <div className={styles.SearchCountBox}>
             <span>검색결과 {searchQuestionsData?.content?.length}건</span>
          </div>
