@@ -48,6 +48,9 @@ export const ProfileInfoWrapper = style({
 
 export const TxtWrapper = style({
    marginLeft: '10px',
+   display: 'flex',
+   justifyContent: 'center',
+   flexDirection: 'column',
 })
 
 export const NickNameTxt = style({
@@ -55,12 +58,19 @@ export const NickNameTxt = style({
    fontWeight: '600',
    lineHeight: '22px',
    letterSpacing: '-0.18px',
+   display: 'flex',
+   alignItems: 'center',
+   flexDirection: 'column',
 })
 
 export const JobInfoTxt = style({
    fontSize: '14px',
    fontWeight: '500',
    lineHeight: '18px',
+   marginTop: '5px',
+   display: 'flex',
+   alignItems: 'center',
+   flexDirection: 'column',
 })
 
 export const EditBox = style({
@@ -111,6 +121,9 @@ export const creditMore = style({
    fontSize: '14px',
    fontWeight: '600',
    lineHeight: '16px',
+   cursor: 'pointer',
+   display: 'flex',
+   alignItems: 'center',
 })
 
 export const marginBox = style({

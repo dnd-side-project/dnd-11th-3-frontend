@@ -1,6 +1,7 @@
 import React from 'react'
 import { IconArrowRight, IconCreditFill } from '@gds/icon'
 import { color } from '@gds/token'
+import { formatNumberWithCommas } from '@shared/utils/formatNumberWithCommas'
 import * as styles from './style.css'
 
 interface Prop {
@@ -14,12 +15,15 @@ function CreditSection({ credit }: Prop) {
          <hr className={styles.Line} />
          <div className={styles.creditBottomWrapper}>
             <div className={styles.AmountBox}>
-               {/** TODO: 콤마함수 적용하기 */}
-               <span className={styles.creditAmount}>{credit}</span>
+               <span className={styles.creditAmount}>
+                  {formatNumberWithCommas(credit || 0)}
+               </span>
                <IconCreditFill color={color['primary-main']} />
             </div>
-            <span className={styles.creditMore}>내역 보기</span>
-            <IconArrowRight color={color['primary-main']} />
+            <div className={styles.creditMore}>
+               <span>내역 보기</span>
+               <IconArrowRight color={color['primary-main']} size={18} />
+            </div>
          </div>
       </div>
    )
