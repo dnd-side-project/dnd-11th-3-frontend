@@ -143,3 +143,11 @@ export const iconBox = style({
    marginLeft: 'auto',
    cursor: 'pointer',
 })
+
+export const profileImageWrapper = style({
+   borderRadius: 8,
+   width: 48,
+   height: 48,
+   backgroundColor: color['secondary-light'],
+   border: `1px solid ${color['gray-800']}`,
+})
