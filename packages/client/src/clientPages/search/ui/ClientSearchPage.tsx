@@ -49,7 +49,7 @@ export function ClientSearchPage({ input }: Prop) {
       },
    })
 
-   if (searchQuestionsDataIsError) {
+   if (searchQuestionsDataIsError && searchQuestionsDataError) {
       router.push('/home')
       // TODO: toast로 수정 필요
       alert(searchQuestionsDataError.message || '서버 오류가 발생했습니다.')
@@ -73,15 +73,11 @@ export function ClientSearchPage({ input }: Prop) {
                }))}
             />
          </div>
-         <MainLoader
-            height={844}
-            loading={searchQuestionsDataStatus === 'pending'}
-         />
          <div className={styles.SearchCountBox}>
             <span>검색결과 {searchQuestionsData?.content?.length}건</span>
          </div>
          <div className={styles.QuestionContainer}>
-            {searchQuestionsData?.content?.map((question) => {
+            {searchQuestionsData.content.map((question) => {
                return (
                   <QuestionCard data={question} key={question.questionPostId} />
                )

@@ -639,7 +639,7 @@ export interface PageResponseQuestionPostSimpleResponse {
     * @type {Array<QuestionPostSimpleResponse>}
     * @memberof PageResponseQuestionPostSimpleResponse
     */
-   content?: Array<QuestionPostSimpleResponse>
+   content: Array<QuestionPostSimpleResponse>
    /**
     *
     * @type {number}

@@ -1,4 +1,8 @@
-import { useQuery, UseQueryOptions } from '@tanstack/react-query'
+import {
+   useQuery,
+   UseQueryOptions,
+   useSuspenseQuery,
+} from '@tanstack/react-query'
 
 import {
    APIApi,
@@ -15,7 +19,7 @@ export const useFetchQuestions = (
    },
    options?: UseQueryOptions<PageResponseQuestionPostSimpleResponse>,
 ) =>
-   useQuery({
+   useSuspenseQuery({
       ...options,
       queryKey: ['/question-posts/search', dto.condition, dto.pageable],
       queryFn: async () =>
