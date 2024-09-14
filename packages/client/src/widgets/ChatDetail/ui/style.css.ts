@@ -1,12 +1,14 @@
 import { Typo, color } from '@gds/token'
-import { flexColumn } from '@shared/ui/DisplayFlex/style.css'
+import {
+   flexAlignJustifyCenter,
+   flexColumn,
+} from '@shared/ui/DisplayFlex/style.css'
 import { style } from '@vanilla-extract/css'
 import { recipe } from '@vanilla-extract/recipes'
 
 export const headerWrapperStyle = style({
    width: '390px',
    display: 'flex',
-   // justifyContent: 'center',
    alignItems: 'center',
    padding: '0 16px',
 
@@ -140,3 +142,16 @@ export const nicknameTxt = style({
    lineHeight: '16px',
    marginBottom: '8px',
 })
+
+export const chatInputBottom = style({
+   width: '358px',
+
+   position: 'absolute',
+   bottom: 15,
+   left: 15,
+})
+
+export const addPhotoIconBox = style([
+   flexAlignJustifyCenter,
+   { marginRight: '8px' },
+])

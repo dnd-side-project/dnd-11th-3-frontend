@@ -1,6 +1,6 @@
+import { color } from '@gds/token'
 import { style } from '@vanilla-extract/css'
 import { recipe } from '@vanilla-extract/recipes'
-import { color } from '../../token'
 
 export const INPUT_BG_COLOR = {
    default: color.white,
@@ -14,45 +14,11 @@ export const INPUT_COLOR = {
    error: color.error,
 }
 
-export const asteriskStyle = style({
-   color: color.error,
-   marginLeft: '3px',
-})
-
-export const textInputLabelStyle = style({
-   minHeight: 21.5,
-   display: 'flex',
-   justifyContent: 'flex-start',
-   alignItems: 'center',
-
-   marginBottom: '12px',
-   fontSize: '18px',
-   fontStyle: 'normal',
-   fontWeight: '600',
-   lineHeight: 'normal',
-   color: color['gray-100'],
-})
-
 export const textInputContainerStyle = style({
    width: '100%',
-
+   backgroundColor: color.white,
    display: 'flex',
    flexDirection: 'column',
-})
-
-export const textInputLabelContainerStyle = style({
-   width: '100%',
-   height: 'fit-content',
-   margin: 0,
-   padding: 0,
-   display: 'flex',
-   flexDirection: 'column',
-})
-
-export const textInputDescriptionStyle = style({
-   fontSize: '0.8rem',
-   color: color.error,
-   marginTop: '5px',
 })
 
 export const textInputWrapperStyle = recipe({
@@ -82,7 +48,7 @@ export const textInputWrapperStyle = recipe({
          filled: {
             color: color['gray-100'],
             backgroundColor: INPUT_BG_COLOR.filled,
-            border: `1px solid ${color['gray-800']}`,
+            border: `1px solid ${color['primary-main']}`,
          },
          disabled: {
             cursor: 'not-allowed',
@@ -126,30 +92,6 @@ export const textInputStyle = recipe({
             backgroundColor: INPUT_BG_COLOR.disabled,
          },
          error: { color: INPUT_COLOR.error },
-      },
-   },
-
-   defaultVariants: {
-      color: 'default',
-   },
-})
-
-export const textMetaStyle = recipe({
-   base: {
-      width: '100%',
-      fontSize: '14px',
-      marginLeft: '5px',
-      marginTop: '5px',
-      height: 21,
-   },
-
-   variants: {
-      color: {
-         default: { color: color['gray-400'] },
-         filled: { color: color['gray-400'] },
-         disabled: { color: color['gray-400'] },
-         error: { color: color.error },
-         success: { color: color['primary-main'] },
       },
    },
 
