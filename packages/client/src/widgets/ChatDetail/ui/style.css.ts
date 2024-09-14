@@ -118,3 +118,25 @@ export const timeTxt = style({
 export const marginLeftAuto = style({
    marginLeft: 'auto',
 })
+
+export const receiveContainer = style({
+   display: 'flex',
+})
+
+export const profileBox = style({
+   backgroundColor: color['secondary-light'],
+   width: '32px',
+   height: '32px',
+   borderRadius: '5px',
+})
+
+export const nicknameBox = style({
+   marginLeft: '8px',
+})
+
+export const nicknameTxt = style({
+   fontSize: '14px',
+   fontWeight: '600',
+   lineHeight: '16px',
+   marginBottom: '8px',
+})

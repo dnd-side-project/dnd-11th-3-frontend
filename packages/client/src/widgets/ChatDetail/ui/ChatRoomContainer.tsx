@@ -1,12 +1,12 @@
 import SendMessage from './SendMessage'
-import ReceiveMessage from './ReceiveMessage'
 import { sendContainer } from './style.css'
+import ReceiveMessageContainer from './ReceiveMessageContainer'
 
 function ChatRoomContainer() {
    return (
       <div className={sendContainer}>
          <SendMessage />
-         <ReceiveMessage />
+         <ReceiveMessageContainer />
       </div>
    )
 }
