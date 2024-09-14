@@ -14,18 +14,18 @@ function CreditSection({ credit = 0 }: Prop) {
    const router = useRouter()
    return (
       <div className={styles.CreditBox}>
-         <span className={styles.creditTitle}>크레딧</span>
+         <span className={styles.CreditTitle}>크레딧</span>
          <hr className={styles.Line} />
-         <div className={styles.creditBottomWrapper}>
+         <div className={styles.CreditBottomWrapper}>
             <div className={styles.AmountBox}>
-               <span className={styles.creditAmount}>
+               <span className={styles.CreditAmount}>
                   {formatNumberWithCommas(credit)}
                </span>
                <IconCreditFill color={color['primary-main']} />
             </div>
             <button
                type="button"
-               className={styles.creditMore}
+               className={styles.CreditMore}
                onClick={() => {
                   router.push(PageURL.ACCOUNT_CREDIT)
                }}

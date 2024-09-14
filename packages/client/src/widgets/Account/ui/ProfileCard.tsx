@@ -27,7 +27,7 @@ function ProfileCard() {
          <Image src={ProfileBackground} alt="profile background image" />
          <div className={styles.AbsoluteBox}>
             <div className={styles.ProfileInfoWrapper}>
-               <div className={styles.profileImageWrapper}>
+               <div className={styles.ProfileImageWrapper}>
                   <IconCharacter color={color['secondary-main']} size={48} />
                </div>
                <div className={styles.TxtWrapper}>

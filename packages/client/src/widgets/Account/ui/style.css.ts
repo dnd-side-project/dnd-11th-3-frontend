@@ -87,7 +87,7 @@ export const CreditBox = style({
    marginTop: '10px',
 })
 
-export const creditTitle = style({
+export const CreditTitle = style({
    fontSize: '16px',
    fontWeight: '600',
 })
@@ -97,7 +97,7 @@ export const Line = style({
    margin: '10px 0',
 })
 
-export const creditBottomWrapper = style({
+export const CreditBottomWrapper = style({
    display: 'flex',
    alignItems: 'center',
    color: color['primary-main'],
@@ -109,14 +109,14 @@ export const AmountBox = style({
    alignItems: 'center',
 })
 
-export const creditAmount = style({
+export const CreditAmount = style({
    fontSize: '25px',
    fontWeight: '600',
    lineHeight: '30px',
    marginRight: '6px',
 })
 
-export const creditMore = style({
+export const CreditMore = style({
    marginLeft: 'auto',
    fontSize: '14px',
    fontWeight: '600',
@@ -126,23 +126,23 @@ export const creditMore = style({
    alignItems: 'center',
 })
 
-export const marginBox = style({
+export const MarginBox = style({
    margin: '24px 0',
 })
 
-export const titleMenu = style({
+export const TitleMenu = style({
    fontSize: '16px',
    fontWeight: '600',
    color: color['gray-200'],
 })
 
-export const urlBox = style({
+export const UrlBox = style({
    marginTop: '16px',
    display: 'flex',
    alignItems: 'center',
 })
 
-export const urlMenu = style({
+export const UrlMenu = style({
    fontSize: '18px',
    fontWeight: '600',
    lineHeight: '22px',
@@ -152,12 +152,12 @@ export const urlMenu = style({
    alignItems: 'center',
 })
 
-export const iconBox = style({
+export const IconBox = style({
    marginLeft: 'auto',
    cursor: 'pointer',
 })
 
-export const profileImageWrapper = style({
+export const ProfileImageWrapper = style({
    borderRadius: 8,
    width: 48,
    height: 48,

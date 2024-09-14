@@ -19,24 +19,24 @@ export function AccountPage() {
             <span className={styles.Header}>마이페이지</span>
             <ProfileCard />
          </div>
-         <div className={styles.marginBox}>
+         <div className={styles.MarginBox}>
             <Divider />
          </div>
          <div className={styles.Wrapper}>
             <AccountMenu title="나의 활동" menuList={MyActivities} />
          </div>
-         <div className={styles.marginBox}>
+         <div className={styles.MarginBox}>
             <Divider />
          </div>
          <div className={styles.Wrapper}>
             <AccountMenu title="스크랩" menuList={MyScrap} />
          </div>
-         <div className={styles.marginBox}>
+         <div className={styles.MarginBox}>
             <Divider />
          </div>
          <div className={styles.Wrapper}>
             {/** TODO: api 연결 필요 */}
-            <span className={styles.titleMenu}>로그아웃</span>
+            <span className={styles.TitleMenu}>로그아웃</span>
          </div>
       </div>
    )

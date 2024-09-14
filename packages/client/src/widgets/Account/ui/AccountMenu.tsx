@@ -21,14 +21,14 @@ export function AccountMenu({ title, menuList }: AccountMenuProps) {
    return (
       <div>
          <div>
-            <span className={styles.titleMenu}>{title}</span>
+            <span className={styles.TitleMenu}>{title}</span>
          </div>
          {menuList.map((menu) => (
-            <div className={styles.urlBox} key={menu.smallTitle}>
+            <div className={styles.UrlBox} key={menu.smallTitle}>
                <div>
-                  <span className={styles.urlMenu}>{menu.smallTitle}</span>
+                  <span className={styles.UrlMenu}>{menu.smallTitle}</span>
                </div>
-               <div className={styles.iconBox}>
+               <div className={styles.IconBox}>
                   <IconButton
                      size="small"
                      variant="default"
