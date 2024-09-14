@@ -10,7 +10,7 @@ interface Prop {
    credit?: number
 }
 
-function CreditSection({ credit }: Prop) {
+function CreditSection({ credit = 0 }: Prop) {
    const router = useRouter()
    return (
       <div className={styles.CreditBox}>
@@ -19,7 +19,7 @@ function CreditSection({ credit }: Prop) {
          <div className={styles.creditBottomWrapper}>
             <div className={styles.AmountBox}>
                <span className={styles.creditAmount}>
-                  {formatNumberWithCommas(credit || 0)}
+                  {formatNumberWithCommas(credit)}
                </span>
                <IconCreditFill color={color['primary-main']} />
             </div>
