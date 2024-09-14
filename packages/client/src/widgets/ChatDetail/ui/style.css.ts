@@ -107,3 +107,14 @@ export const messageBox = recipe({
       },
    },
 })
+
+export const timeTxt = style({
+   fontSize: '12px',
+   fontWeight: '500',
+   color: color['gray-400'],
+   marginTop: '-5px',
+})
+
+export const marginLeftAuto = style({
+   marginLeft: 'auto',
+})
