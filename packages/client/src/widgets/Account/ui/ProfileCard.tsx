@@ -42,9 +42,16 @@ function ProfileCard() {
                      </span>
                   </div>
                </div>
-               <div className={styles.EditBox}>
+               <button
+                  type="button"
+                  onClick={() => {
+                     router.push('/account/profile/update')
+                  }}
+                  className={styles.EditBox}
+                  aria-label="Edit profile"
+               >
                   <IconEdit color={color.white} />
-               </div>
+               </button>
             </div>
             <CreditSection credit={memberData?.credit} />
          </div>
