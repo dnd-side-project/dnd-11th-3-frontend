@@ -35,6 +35,7 @@ export const textInputLabelStyle = style({
 
 export const textInputContainerStyle = style({
    width: '100%',
+   minHeight: 109.5,
 
    display: 'flex',
    flexDirection: 'column',
