@@ -1,3 +1,5 @@
+import { Typo, color } from '@gds/token'
+import { flexColumn } from '@shared/ui/DisplayFlex/style.css'
 import { style } from '@vanilla-extract/css'
 
 export const headerWrapperStyle = style({
@@ -38,3 +40,35 @@ export const headerTitleWrappewrStyle = style({
    justifyContent: 'center',
    alignItems: 'center',
 })
+
+export const questionContainer = style([
+   flexColumn,
+   {
+      backgroundColor: color['gray-900'],
+      borderRadius: '8px',
+      padding: '16px',
+   },
+])
+
+export const questionJobGroupTag = style({
+   fontSize: '12px',
+   fontWeight: '500',
+   lineHeight: '16px',
+   marginBottom: '6px',
+   color: color['gray-300'],
+})
+
+export const goBackQuestionBtn = style([
+   Typo.body2.sb,
+   {
+      backgroundColor: color.white,
+      borderRadius: '8px',
+      marginTop: '16px',
+      height: '39px',
+      cursor: 'pointer',
+      ':hover': {
+         backgroundColor: color['primary-main'],
+         color: color.white,
+      },
+   },
+])
