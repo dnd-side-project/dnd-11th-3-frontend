@@ -4,6 +4,7 @@ export type ProfileUpdateFormValues = {
    nickname: string
    jobGroup: null | { label: string; id: string }
    jobCategory: null | { label: string; id: string }
+   nicknameVerified: boolean
 }
 
 export const useProfileUpdateForm =
@@ -14,6 +15,7 @@ export const useProfileUpdateForm =
             nickname: '',
             jobGroup: null,
             jobCategory: null,
+            nicknameVerified: false,
          },
       })
       return form as UseFormReturn<ProfileUpdateFormValues>
