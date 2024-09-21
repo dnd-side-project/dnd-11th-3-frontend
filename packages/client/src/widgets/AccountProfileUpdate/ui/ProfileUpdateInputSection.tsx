@@ -16,10 +16,6 @@ export function ProfileUpdateInputSection({ form }: Props) {
             <span>닉네임</span>
             <TextInput />
          </div>
-         <div>
-            <span>직군</span>
-            <TextInput />
-         </div>
          <Controller
             name="jobGroup"
             control={form.control}
