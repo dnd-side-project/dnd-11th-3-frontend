@@ -4,6 +4,7 @@ import { IconCircleClose } from '@gds/icon'
 import { color } from '@gds/token'
 import { JOB_CATEGORIES, JOB_GROUPS } from '@shared/model/job'
 import { Controller, UseFormReturn } from 'react-hook-form'
+import { controlMarginBox } from './style.css'
 
 interface Props {
    form: UseFormReturn<ProfileUpdateFormValues>
@@ -20,11 +21,10 @@ export function ProfileUpdateInputSection({ form }: Props) {
             name="jobGroup"
             control={form.control}
             rules={{
-               required: true,
+               required: false,
             }}
             render={({ field: { onChange, value } }) => (
                <Select
-                  required
                   items={JOB_GROUPS.map((group) => ({
                      label: group,
                      id: group,
@@ -41,31 +41,32 @@ export function ProfileUpdateInputSection({ form }: Props) {
                />
             )}
          />
-         <Controller
-            name="jobCategory"
-            control={form.control}
-            rules={{
-               required: true,
-            }}
-            render={({ field: { onChange, value } }) => (
-               <Select
-                  required
-                  items={JOB_CATEGORIES.map((category) => ({
-                     label: category,
-                     id: category,
-                  }))}
-                  inputProps={{
-                     placeholder: '해당 직렬을 선택해주세요',
-                     label: '직렬',
-                     required: true,
-                     icon: <IconCircleClose color={color['gray-600']} />,
-                  }}
-                  selected={value}
-                  variant="default"
-                  onSelect={(item) => onChange(item)}
-               />
-            )}
-         />
+         <div className={controlMarginBox}>
+            <Controller
+               name="jobCategory"
+               control={form.control}
+               rules={{
+                  required: false,
+               }}
+               render={({ field: { onChange, value } }) => (
+                  <Select
+                     items={JOB_CATEGORIES.map((category) => ({
+                        label: category,
+                        id: category,
+                     }))}
+                     inputProps={{
+                        placeholder: '해당 직렬을 선택해주세요',
+                        label: '직렬',
+                        required: true,
+                        icon: <IconCircleClose color={color['gray-600']} />,
+                     }}
+                     selected={value}
+                     variant="default"
+                     onSelect={(item) => onChange(item)}
+                  />
+               )}
+            />
+         </div>
       </div>
    )
 }
