@@ -12,7 +12,7 @@ function ClientProfileUpdate() {
          <ProfileUpdateInputSection form={updateForm} />
          <div className={marginBox}>
             <Button type="button" size="medium" variant="filled">
-               가입하기
+               수정 완료
             </Button>
          </div>
       </div>
