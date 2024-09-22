@@ -5,7 +5,7 @@ export const pageContainer = style([
    flexColumn,
    {
       padding: '0 16px 16px',
-      height: '800px',
+      height: '780px',
    },
 ])
 
