@@ -9,15 +9,19 @@ import { useFetchMemberInformation } from '@shared/api'
 import { useSendMessage, useWebSocketConnection } from '@features/chat'
 import { absolutePos } from './style.css'
 
-export function ClientChatDetailPage() {
+interface Prop {
+   chatRoomId: number
+}
+
+export function ClientChatDetailPage({ chatRoomId }: Prop) {
    const [chatInput, setChatInput] = useState('')
 
    const { data: userData } = useFetchMemberInformation()
    const { messageList, stompClientRef } = useWebSocketConnection({
-      chatRoomId: 1,
+      chatRoomId,
    })
 
-   const { sendMessage } = useSendMessage({ stompClientRef, chatRoomId: 1 })
+   const { sendMessage } = useSendMessage({ stompClientRef, chatRoomId })
 
    const onSubmit = (data: string) => {
       if (!data.trim()) return
