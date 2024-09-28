@@ -13,9 +13,10 @@ import {
 interface Props {
    input: string
    setChatInput: (input: string) => void
+   submitSendMessage: (data: string) => void
 }
 
-function ChatInput({ input, setChatInput }: Props) {
+function ChatInput({ input, setChatInput, submitSendMessage }: Props) {
    const [isFocused, setIsFocused] = useState(false)
 
    const handleOnChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -30,9 +31,14 @@ function ChatInput({ input, setChatInput }: Props) {
       setIsFocused(false)
    }
 
+   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+      event.preventDefault()
+      submitSendMessage(input)
+   }
+
    return (
       <div className={chatInputBottom}>
-         <div className={textInputContainerStyle}>
+         <form onSubmit={handleSubmit} className={textInputContainerStyle}>
             <div
                className={textInputWrapperStyle({
                   color: isFocused ? 'filled' : 'default',
@@ -51,12 +57,16 @@ function ChatInput({ input, setChatInput }: Props) {
                      color: isFocused ? 'filled' : 'default',
                   })}
                />
-               <IconSend
-                  size={28}
-                  color={isFocused ? color['primary-main'] : color['gray-400']}
-               />
+               <button type="submit" aria-label="send">
+                  <IconSend
+                     size={28}
+                     color={
+                        isFocused ? color['primary-main'] : color['gray-400']
+                     }
+                  />
+               </button>
             </div>
-         </div>
+         </form>
       </div>
    )
 }

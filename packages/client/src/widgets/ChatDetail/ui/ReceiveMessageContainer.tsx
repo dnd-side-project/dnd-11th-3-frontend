@@ -8,7 +8,11 @@ import {
    receiveContainer,
 } from './style.css'
 
-function ReceiveMessageContainer() {
+interface Props {
+   content: string
+}
+
+function ReceiveMessageContainer({ content }: Props) {
    return (
       <div className={receiveContainer}>
          <div className={profileBox}>
@@ -16,7 +20,7 @@ function ReceiveMessageContainer() {
          </div>
          <div className={nicknameBox}>
             <div className={nicknameTxt}>물먹는하마</div>
-            <ReceiveMessage />
+            <ReceiveMessage content={content} />
          </div>
       </div>
    )
