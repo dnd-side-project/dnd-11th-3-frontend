@@ -1,5 +1,6 @@
 'use client'
 
+import { BASE_PATH } from '@server-api/base'
 import { CompatClient, Stomp } from '@stomp/stompjs'
 import { useEffect, useRef, useState } from 'react'
 import SockJS from 'sockjs-client'
@@ -19,7 +20,7 @@ export const useWebSocketConnection = ({
    const [messageList, setMessageList] = useState<IMessage[]>([])
 
    useEffect(() => {
-      const socket = new SockJS(`${process.env.NEXT_PUBLIC_BASE_URL}/ws`)
+      const socket = new SockJS(`${BASE_PATH}/ws`)
       const stompClient = Stomp.over(socket)
       stompClientRef.current = stompClient
 
