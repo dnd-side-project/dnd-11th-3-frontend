@@ -167,9 +167,8 @@ export function ClientHomePage() {
                <div className={styles.DividerWrapper}>
                   <Divider />
                </div>
-
                <QuestionList
-                  data={questions ?? []}
+                  data={questions}
                   selectedAdGroup={selectedJobGroups}
                   setSelectedJobGroups={setSelectedJobGroups}
                />

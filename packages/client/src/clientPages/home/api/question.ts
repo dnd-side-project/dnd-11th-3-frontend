@@ -13,7 +13,7 @@ export const useFetchQuestions = (
       condition: QuestionPostSearchCondition
       pageable: Pageable
    },
-   options?: UseQueryOptions,
+   options?: UseQueryOptions<PageResponseQuestionPostSimpleResponse>,
 ) =>
    useQuery({
       ...options,
@@ -24,5 +24,5 @@ export const useFetchQuestions = (
                dto.condition,
                dto.pageable,
             )
-         ).data as PageResponseQuestionPostSimpleResponse,
+         ).data,
    })

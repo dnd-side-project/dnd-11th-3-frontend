@@ -1,14 +1,7 @@
-import React from 'react'
-import { data } from 'src/clientPages/home/ui/ClientHomePage'
-import AccountBookmarkClient from '@widgets/accountBookmark/ui'
-import * as styles from '../index.css'
+import { ClientAccountBookmark } from 'src/clientPages/accountScrap'
 
 function AccountBookmark() {
-   return (
-      <div className={styles.Wrapper}>
-         <AccountBookmarkClient QuestionData={data} />
-      </div>
-   )
+   return <ClientAccountBookmark />
 }
 
 export default AccountBookmark
