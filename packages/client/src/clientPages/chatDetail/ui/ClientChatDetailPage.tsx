@@ -7,8 +7,10 @@ import QuestionDetailContainer from '@widgets/ChatDetail/ui/QuestionDetailContai
 import { useState } from 'react'
 import { useFetchMemberInformation } from '@shared/api'
 import { useSendMessage, useWebSocketConnection } from '@features/chat'
+import { ChatMessageResponse } from '@server-api/api'
 import { absolutePos } from './style.css'
 import { useGetChatRoomInfo } from '../api/room'
+import { useGetChatMessages } from '../api/messages'
 
 interface Prop {
    chatRoomId: number
@@ -27,6 +29,22 @@ export function ClientChatDetailPage({ chatRoomId }: Prop) {
       isError: chatRoomDataIsError,
       error: chatRoomDataError,
    } = useGetChatRoomInfo({ chatRoomId })
+
+   const {
+      data: chatMessagesData,
+      isError: chatMessagesIsError,
+      error: chatMessagesError,
+   } = useGetChatMessages({
+      chatRoomId,
+      pageable: {
+         page: 0,
+         size: 10,
+      },
+   })
+
+   const [messages, setMessages] = useState<ChatMessageResponse[]>(
+      chatMessagesData?.content || [],
+   )
 
    const { sendMessage } = useSendMessage({ stompClientRef, chatRoomId })
 
@@ -53,7 +71,7 @@ export function ClientChatDetailPage({ chatRoomId }: Prop) {
                   questionPostId={chatRoomData?.questionPostId}
                />
                <ChatRoomContainer
-                  messageList={messageList}
+                  messageList={chatMessagesData?.content}
                   userId={userData?.memberId}
                />
             </div>

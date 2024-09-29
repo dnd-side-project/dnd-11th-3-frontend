@@ -9,7 +9,7 @@ import {
 } from './style.css'
 
 interface Props {
-   content: string
+   content?: string
 }
 
 function ReceiveMessageContainer({ content }: Props) {

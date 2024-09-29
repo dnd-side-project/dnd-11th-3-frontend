@@ -1,7 +1,7 @@
 import { messageBox, timeTxt } from './style.css'
 
 interface Props {
-   content: string
+   content?: string
 }
 
 function ReceiveMessage({ content }: Props) {

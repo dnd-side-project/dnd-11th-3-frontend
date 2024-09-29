@@ -2,7 +2,7 @@ import React from 'react'
 import { marginLeftAuto, messageBox, timeTxt } from './style.css'
 
 interface Props {
-   content: string
+   content?: string
 }
 
 function SendMessage({ content }: Props) {
