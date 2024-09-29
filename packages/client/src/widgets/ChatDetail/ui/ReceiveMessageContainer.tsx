@@ -10,9 +10,10 @@ import {
 
 interface Props {
    content?: string
+   time?: string
 }
 
-function ReceiveMessageContainer({ content }: Props) {
+function ReceiveMessageContainer({ content, time }: Props) {
    return (
       <div className={receiveContainer}>
          <div className={profileBox}>
@@ -20,7 +21,7 @@ function ReceiveMessageContainer({ content }: Props) {
          </div>
          <div className={nicknameBox}>
             <div className={nicknameTxt}>물먹는하마</div>
-            <ReceiveMessage content={content} />
+            <ReceiveMessage content={content} time={time} />
          </div>
       </div>
    )
