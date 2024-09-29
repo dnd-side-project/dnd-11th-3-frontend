@@ -42,6 +42,25 @@ import {
 /**
  *
  * @export
+ * @interface AcceptChatResponse
+ */
+export interface AcceptChatResponse {
+   /**
+    *
+    * @type {string}
+    * @memberof AcceptChatResponse
+    */
+   chatStatus?: string
+   /**
+    *
+    * @type {number}
+    * @memberof AcceptChatResponse
+    */
+   credit?: number
+}
+/**
+ *
+ * @export
  * @interface AdditionalInfoRequest
  */
 export interface AdditionalInfoRequest {
@@ -288,6 +307,136 @@ export interface BookmarksResponse {
 /**
  *
  * @export
+ * @interface ChatMessageResponse
+ */
+export interface ChatMessageResponse {
+   /**
+    *
+    * @type {number}
+    * @memberof ChatMessageResponse
+    */
+   senderId?: number
+   /**
+    *
+    * @type {string}
+    * @memberof ChatMessageResponse
+    */
+   content?: string
+   /**
+    *
+    * @type {string}
+    * @memberof ChatMessageResponse
+    */
+   type?: string
+   /**
+    *
+    * @type {boolean}
+    * @memberof ChatMessageResponse
+    */
+   isRead?: boolean
+   /**
+    *
+    * @type {string}
+    * @memberof ChatMessageResponse
+    */
+   createdAt?: string
+}
+/**
+ *
+ * @export
+ * @interface ChatRoomDetailResponse
+ */
+export interface ChatRoomDetailResponse {
+   /**
+    *
+    * @type {number}
+    * @memberof ChatRoomDetailResponse
+    */
+   questionPostId?: number
+   /**
+    *
+    * @type {string}
+    * @memberof ChatRoomDetailResponse
+    */
+   targetJobGroup?: string
+   /**
+    *
+    * @type {string}
+    * @memberof ChatRoomDetailResponse
+    */
+   title?: string
+   /**
+    *
+    * @type {MemberInfo}
+    * @memberof ChatRoomDetailResponse
+    */
+   receiverInfo?: MemberInfo
+   /**
+    *
+    * @type {string}
+    * @memberof ChatRoomDetailResponse
+    */
+   chatStatus?: string
+}
+/**
+ *
+ * @export
+ * @interface ChatRoomSimpleResponse
+ */
+export interface ChatRoomSimpleResponse {
+   /**
+    *
+    * @type {number}
+    * @memberof ChatRoomSimpleResponse
+    */
+   chatRoomId?: number
+   /**
+    *
+    * @type {MemberInfo}
+    * @memberof ChatRoomSimpleResponse
+    */
+   chatPartner?: MemberInfo
+   /**
+    *
+    * @type {string}
+    * @memberof ChatRoomSimpleResponse
+    */
+   latestMessage?: string
+   /**
+    *
+    * @type {string}
+    * @memberof ChatRoomSimpleResponse
+    */
+   messageType?: string
+   /**
+    *
+    * @type {string}
+    * @memberof ChatRoomSimpleResponse
+    */
+   messageCreatedAt?: string
+}
+/**
+ *
+ * @export
+ * @interface CreateChatRoomRequest
+ */
+export interface CreateChatRoomRequest {
+   /**
+    *
+    * @type {number}
+    * @memberof CreateChatRoomRequest
+    */
+   questionPostId: number
+   /**
+    *
+    * @type {number}
+    * @memberof CreateChatRoomRequest
+    */
+   answererId: number
+}
+/**
+ *
+ * @export
  * @interface CreditHistoryResponse
  */
 export interface CreditHistoryResponse {
@@ -315,6 +464,18 @@ export interface CreditHistoryResponse {
     * @memberof CreditHistoryResponse
     */
    amount?: number
+   /**
+    *
+    * @type {number}
+    * @memberof CreditHistoryResponse
+    */
+   profileImageNo?: number
+   /**
+    *
+    * @type {string}
+    * @memberof CreditHistoryResponse
+    */
+   createdAt?: string
 }
 /**
  *
@@ -531,6 +692,61 @@ export interface MemberProfileResponse {
 /**
  *
  * @export
+ * @interface NotificationResponse
+ */
+export interface NotificationResponse {
+   /**
+    *
+    * @type {number}
+    * @memberof NotificationResponse
+    */
+   notificationId?: number
+   /**
+    *
+    * @type {string}
+    * @memberof NotificationResponse
+    */
+   type?: string
+   /**
+    *
+    * @type {boolean}
+    * @memberof NotificationResponse
+    */
+   isRead?: boolean
+   /**
+    *
+    * @type {number}
+    * @memberof NotificationResponse
+    */
+   targetId?: number
+   /**
+    *
+    * @type {number}
+    * @memberof NotificationResponse
+    */
+   triggerMemberId?: number
+   /**
+    *
+    * @type {string}
+    * @memberof NotificationResponse
+    */
+   triggerMemberNickName?: string
+   /**
+    *
+    * @type {number}
+    * @memberof NotificationResponse
+    */
+   targetMemberId?: number
+   /**
+    *
+    * @type {string}
+    * @memberof NotificationResponse
+    */
+   createdAt?: string
+}
+/**
+ *
+ * @export
  * @interface PageResponseAnswerDetailResponse
  */
 export interface PageResponseAnswerDetailResponse {
@@ -606,6 +822,31 @@ export interface PageResponseBookmarksResponse {
 /**
  *
  * @export
+ * @interface PageResponseChatMessageResponse
+ */
+export interface PageResponseChatMessageResponse {
+   /**
+    *
+    * @type {Array<ChatMessageResponse>}
+    * @memberof PageResponseChatMessageResponse
+    */
+   content?: Array<ChatMessageResponse>
+   /**
+    *
+    * @type {number}
+    * @memberof PageResponseChatMessageResponse
+    */
+   size?: number
+   /**
+    *
+    * @type {boolean}
+    * @memberof PageResponseChatMessageResponse
+    */
+   hasNext?: boolean
+}
+/**
+ *
+ * @export
  * @interface PageResponseCreditHistoryResponse
  */
 export interface PageResponseCreditHistoryResponse {
@@ -625,6 +866,31 @@ export interface PageResponseCreditHistoryResponse {
     *
     * @type {boolean}
     * @memberof PageResponseCreditHistoryResponse
+    */
+   hasNext?: boolean
+}
+/**
+ *
+ * @export
+ * @interface PageResponseNotificationResponse
+ */
+export interface PageResponseNotificationResponse {
+   /**
+    *
+    * @type {Array<NotificationResponse>}
+    * @memberof PageResponseNotificationResponse
+    */
+   content?: Array<NotificationResponse>
+   /**
+    *
+    * @type {number}
+    * @memberof PageResponseNotificationResponse
+    */
+   size?: number
+   /**
+    *
+    * @type {boolean}
+    * @memberof PageResponseNotificationResponse
     */
    hasNext?: boolean
 }
@@ -957,6 +1223,38 @@ export interface QuestionPostsResponse {
 /**
  *
  * @export
+ * @interface ReadNotificationRequest
+ */
+export interface ReadNotificationRequest {
+   /**
+    *
+    * @type {number}
+    * @memberof ReadNotificationRequest
+    */
+   notificationId: number
+}
+/**
+ *
+ * @export
+ * @interface ReadNotificationResponse
+ */
+export interface ReadNotificationResponse {
+   /**
+    *
+    * @type {number}
+    * @memberof ReadNotificationResponse
+    */
+   notificationId?: number
+   /**
+    *
+    * @type {boolean}
+    * @memberof ReadNotificationResponse
+    */
+   isRead?: boolean
+}
+/**
+ *
+ * @export
  * @interface RecQuestionPostResponse
  */
 export interface RecQuestionPostResponse {
@@ -1118,6 +1416,19 @@ export interface ReissueResponse {
 /**
  *
  * @export
+ * @interface RejectChatResponse
+ */
+export interface RejectChatResponse {
+   /**
+    *
+    * @type {string}
+    * @memberof RejectChatResponse
+    */
+   chatStatus?: string
+}
+/**
+ *
+ * @export
  * @interface SendMailRequest
  */
 export interface SendMailRequest {
@@ -1166,6 +1477,19 @@ export interface TempSignInRequest {
     * @memberof TempSignInRequest
     */
    socialEmail?: string
+}
+/**
+ *
+ * @export
+ * @interface TempSignResponse
+ */
+export interface TempSignResponse {
+   /**
+    *
+    * @type {boolean}
+    * @memberof TempSignResponse
+    */
+   result?: boolean
 }
 /**
  *
@@ -1353,6 +1677,52 @@ export const APIApiAxiosParamCreator = function (
 ) {
    return {
       /**
+       * 채팅방에서 요청자와의 채팅을 수락한다.
+       * @summary 채팅 수락 API
+       * @param {number} chatRoomId
+       * @param {*} [options] Override http request option.
+       * @throws {RequiredError}
+       */
+      acceptChat: async (
+         chatRoomId: number,
+         options: RawAxiosRequestConfig = {},
+      ): Promise<RequestArgs> => {
+         // verify required parameter 'chatRoomId' is not null or undefined
+         assertParamExists('acceptChat', 'chatRoomId', chatRoomId)
+         const localVarPath = `/api/chat-rooms/{chatRoomId}/accept`.replace(
+            `{${'chatRoomId'}}`,
+            encodeURIComponent(String(chatRoomId)),
+         )
+         // use dummy base URL string because the URL constructor only accepts absolute URLs.
+         const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL)
+         let baseOptions
+         if (configuration) {
+            baseOptions = configuration.baseOptions
+         }
+
+         const localVarRequestOptions = {
+            method: 'PATCH',
+            ...baseOptions,
+            ...options,
+         }
+         const localVarHeaderParameter = {} as any
+         const localVarQueryParameter = {} as any
+
+         setSearchParams(localVarUrlObj, localVarQueryParameter)
+         let headersFromBaseOptions =
+            baseOptions && baseOptions.headers ? baseOptions.headers : {}
+         localVarRequestOptions.headers = {
+            ...localVarHeaderParameter,
+            ...headersFromBaseOptions,
+            ...options.headers,
+         }
+
+         return {
+            url: toPathString(localVarUrlObj),
+            options: localVarRequestOptions,
+         }
+      },
+      /**
        * 게시글을 추천하거나 북마크한다.
        * @summary 상호작용 등록 API
        * @param {number} questionPostId
@@ -1396,6 +1766,106 @@ export const APIApiAxiosParamCreator = function (
          if (type !== undefined) {
             localVarQueryParameter['type'] = type
          }
+
+         setSearchParams(localVarUrlObj, localVarQueryParameter)
+         let headersFromBaseOptions =
+            baseOptions && baseOptions.headers ? baseOptions.headers : {}
+         localVarRequestOptions.headers = {
+            ...localVarHeaderParameter,
+            ...headersFromBaseOptions,
+            ...options.headers,
+         }
+
+         return {
+            url: toPathString(localVarUrlObj),
+            options: localVarRequestOptions,
+         }
+      },
+      /**
+       * 요청자가 답변자와의 채팅방을 생성한다.
+       * @summary 채팅방 생성 API
+       * @param {CreateChatRoomRequest} createChatRoomRequest
+       * @param {*} [options] Override http request option.
+       * @throws {RequiredError}
+       */
+      createChatRoom: async (
+         createChatRoomRequest: CreateChatRoomRequest,
+         options: RawAxiosRequestConfig = {},
+      ): Promise<RequestArgs> => {
+         // verify required parameter 'createChatRoomRequest' is not null or undefined
+         assertParamExists(
+            'createChatRoom',
+            'createChatRoomRequest',
+            createChatRoomRequest,
+         )
+         const localVarPath = `/api/chat-rooms`
+         // use dummy base URL string because the URL constructor only accepts absolute URLs.
+         const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL)
+         let baseOptions
+         if (configuration) {
+            baseOptions = configuration.baseOptions
+         }
+
+         const localVarRequestOptions = {
+            method: 'POST',
+            ...baseOptions,
+            ...options,
+         }
+         const localVarHeaderParameter = {} as any
+         const localVarQueryParameter = {} as any
+
+         localVarHeaderParameter['Content-Type'] = 'application/json'
+
+         setSearchParams(localVarUrlObj, localVarQueryParameter)
+         let headersFromBaseOptions =
+            baseOptions && baseOptions.headers ? baseOptions.headers : {}
+         localVarRequestOptions.headers = {
+            ...localVarHeaderParameter,
+            ...headersFromBaseOptions,
+            ...options.headers,
+         }
+         localVarRequestOptions.data = serializeDataIfNeeded(
+            createChatRoomRequest,
+            localVarRequestOptions,
+            configuration,
+         )
+
+         return {
+            url: toPathString(localVarUrlObj),
+            options: localVarRequestOptions,
+         }
+      },
+      /**
+       * 채팅방 아이디로 채팅방을 조회한다.
+       * @summary 채팅방 조회 API
+       * @param {number} chatRoomId
+       * @param {*} [options] Override http request option.
+       * @throws {RequiredError}
+       */
+      createChatRoom1: async (
+         chatRoomId: number,
+         options: RawAxiosRequestConfig = {},
+      ): Promise<RequestArgs> => {
+         // verify required parameter 'chatRoomId' is not null or undefined
+         assertParamExists('createChatRoom1', 'chatRoomId', chatRoomId)
+         const localVarPath = `/api/chat-rooms/{chatRoomId}`.replace(
+            `{${'chatRoomId'}}`,
+            encodeURIComponent(String(chatRoomId)),
+         )
+         // use dummy base URL string because the URL constructor only accepts absolute URLs.
+         const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL)
+         let baseOptions
+         if (configuration) {
+            baseOptions = configuration.baseOptions
+         }
+
+         const localVarRequestOptions = {
+            method: 'GET',
+            ...baseOptions,
+            ...options,
+         }
+         const localVarHeaderParameter = {} as any
+         const localVarQueryParameter = {} as any
 
          setSearchParams(localVarUrlObj, localVarQueryParameter)
          let headersFromBaseOptions =
@@ -1493,6 +1963,157 @@ export const APIApiAxiosParamCreator = function (
          }
          const localVarHeaderParameter = {} as any
          const localVarQueryParameter = {} as any
+
+         setSearchParams(localVarUrlObj, localVarQueryParameter)
+         let headersFromBaseOptions =
+            baseOptions && baseOptions.headers ? baseOptions.headers : {}
+         localVarRequestOptions.headers = {
+            ...localVarHeaderParameter,
+            ...headersFromBaseOptions,
+            ...options.headers,
+         }
+
+         return {
+            url: toPathString(localVarUrlObj),
+            options: localVarRequestOptions,
+         }
+      },
+      /**
+       * 채팅방 메시지를 최신순으로 페이징한다.
+       * @summary 채팅방 메시지 조회 API
+       * @param {number} chatRoomId
+       * @param {Pageable} pageable
+       * @param {*} [options] Override http request option.
+       * @throws {RequiredError}
+       */
+      getChatMessages: async (
+         chatRoomId: number,
+         pageable: Pageable,
+         options: RawAxiosRequestConfig = {},
+      ): Promise<RequestArgs> => {
+         // verify required parameter 'chatRoomId' is not null or undefined
+         assertParamExists('getChatMessages', 'chatRoomId', chatRoomId)
+         // verify required parameter 'pageable' is not null or undefined
+         assertParamExists('getChatMessages', 'pageable', pageable)
+         const localVarPath = `/api/chat-messages/{chatRoomId}`.replace(
+            `{${'chatRoomId'}}`,
+            encodeURIComponent(String(chatRoomId)),
+         )
+         // use dummy base URL string because the URL constructor only accepts absolute URLs.
+         const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL)
+         let baseOptions
+         if (configuration) {
+            baseOptions = configuration.baseOptions
+         }
+
+         const localVarRequestOptions = {
+            method: 'GET',
+            ...baseOptions,
+            ...options,
+         }
+         const localVarHeaderParameter = {} as any
+         const localVarQueryParameter = {} as any
+
+         if (pageable !== undefined) {
+            for (const [key, value] of Object.entries(pageable)) {
+               localVarQueryParameter[key] = value
+            }
+         }
+
+         setSearchParams(localVarUrlObj, localVarQueryParameter)
+         let headersFromBaseOptions =
+            baseOptions && baseOptions.headers ? baseOptions.headers : {}
+         localVarRequestOptions.headers = {
+            ...localVarHeaderParameter,
+            ...headersFromBaseOptions,
+            ...options.headers,
+         }
+
+         return {
+            url: toPathString(localVarUrlObj),
+            options: localVarRequestOptions,
+         }
+      },
+      /**
+       * 회원의 채팅방 목록을 조회한다.
+       * @summary 채팅방 목록 조회 API
+       * @param {*} [options] Override http request option.
+       * @throws {RequiredError}
+       */
+      getChatRoomsByMember: async (
+         options: RawAxiosRequestConfig = {},
+      ): Promise<RequestArgs> => {
+         const localVarPath = `/api/chat-rooms`
+         // use dummy base URL string because the URL constructor only accepts absolute URLs.
+         const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL)
+         let baseOptions
+         if (configuration) {
+            baseOptions = configuration.baseOptions
+         }
+
+         const localVarRequestOptions = {
+            method: 'GET',
+            ...baseOptions,
+            ...options,
+         }
+         const localVarHeaderParameter = {} as any
+         const localVarQueryParameter = {} as any
+
+         setSearchParams(localVarUrlObj, localVarQueryParameter)
+         let headersFromBaseOptions =
+            baseOptions && baseOptions.headers ? baseOptions.headers : {}
+         localVarRequestOptions.headers = {
+            ...localVarHeaderParameter,
+            ...headersFromBaseOptions,
+            ...options.headers,
+         }
+
+         return {
+            url: toPathString(localVarUrlObj),
+            options: localVarRequestOptions,
+         }
+      },
+      /**
+       *
+       * @param {string} type
+       * @param {Pageable} pageable
+       * @param {*} [options] Override http request option.
+       * @throws {RequiredError}
+       */
+      getNotificationsByMember: async (
+         type: string,
+         pageable: Pageable,
+         options: RawAxiosRequestConfig = {},
+      ): Promise<RequestArgs> => {
+         // verify required parameter 'type' is not null or undefined
+         assertParamExists('getNotificationsByMember', 'type', type)
+         // verify required parameter 'pageable' is not null or undefined
+         assertParamExists('getNotificationsByMember', 'pageable', pageable)
+         const localVarPath = `/api/notifications`
+         // use dummy base URL string because the URL constructor only accepts absolute URLs.
+         const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL)
+         let baseOptions
+         if (configuration) {
+            baseOptions = configuration.baseOptions
+         }
+
+         const localVarRequestOptions = {
+            method: 'GET',
+            ...baseOptions,
+            ...options,
+         }
+         const localVarHeaderParameter = {} as any
+         const localVarQueryParameter = {} as any
+
+         if (type !== undefined) {
+            localVarQueryParameter['type'] = type
+         }
+
+         if (pageable !== undefined) {
+            for (const [key, value] of Object.entries(pageable)) {
+               localVarQueryParameter[key] = value
+            }
+         }
 
          setSearchParams(localVarUrlObj, localVarQueryParameter)
          let headersFromBaseOptions =
@@ -1609,7 +2230,7 @@ export const APIApiAxiosParamCreator = function (
       },
       /**
        * 게시글을 추천하거나 북마크 취소한다.
-       * @summary 상호작용 등록 API
+       * @summary 상호작용 취소 API
        * @param {number} questionPostId
        * @param {string} type
        * @param {*} [options] Override http request option.
@@ -1660,6 +2281,59 @@ export const APIApiAxiosParamCreator = function (
             ...headersFromBaseOptions,
             ...options.headers,
          }
+
+         return {
+            url: toPathString(localVarUrlObj),
+            options: localVarRequestOptions,
+         }
+      },
+      /**
+       *
+       * @param {ReadNotificationRequest} readNotificationRequest
+       * @param {*} [options] Override http request option.
+       * @throws {RequiredError}
+       */
+      readNotification: async (
+         readNotificationRequest: ReadNotificationRequest,
+         options: RawAxiosRequestConfig = {},
+      ): Promise<RequestArgs> => {
+         // verify required parameter 'readNotificationRequest' is not null or undefined
+         assertParamExists(
+            'readNotification',
+            'readNotificationRequest',
+            readNotificationRequest,
+         )
+         const localVarPath = `/api/notification/read`
+         // use dummy base URL string because the URL constructor only accepts absolute URLs.
+         const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL)
+         let baseOptions
+         if (configuration) {
+            baseOptions = configuration.baseOptions
+         }
+
+         const localVarRequestOptions = {
+            method: 'PATCH',
+            ...baseOptions,
+            ...options,
+         }
+         const localVarHeaderParameter = {} as any
+         const localVarQueryParameter = {} as any
+
+         localVarHeaderParameter['Content-Type'] = 'application/json'
+
+         setSearchParams(localVarUrlObj, localVarQueryParameter)
+         let headersFromBaseOptions =
+            baseOptions && baseOptions.headers ? baseOptions.headers : {}
+         localVarRequestOptions.headers = {
+            ...localVarHeaderParameter,
+            ...headersFromBaseOptions,
+            ...options.headers,
+         }
+         localVarRequestOptions.data = serializeDataIfNeeded(
+            readNotificationRequest,
+            localVarRequestOptions,
+            configuration,
+         )
 
          return {
             url: toPathString(localVarUrlObj),
@@ -1776,6 +2450,52 @@ export const APIApiAxiosParamCreator = function (
             localVarRequestOptions,
             configuration,
          )
+
+         return {
+            url: toPathString(localVarUrlObj),
+            options: localVarRequestOptions,
+         }
+      },
+      /**
+       * 채팅방에서 요청자와의 채팅을 거절한다.
+       * @summary 채팅 거절 API
+       * @param {number} chatRoomId
+       * @param {*} [options] Override http request option.
+       * @throws {RequiredError}
+       */
+      rejectChat: async (
+         chatRoomId: number,
+         options: RawAxiosRequestConfig = {},
+      ): Promise<RequestArgs> => {
+         // verify required parameter 'chatRoomId' is not null or undefined
+         assertParamExists('rejectChat', 'chatRoomId', chatRoomId)
+         const localVarPath = `/api/chat-rooms/{chatRoomId}/reject`.replace(
+            `{${'chatRoomId'}}`,
+            encodeURIComponent(String(chatRoomId)),
+         )
+         // use dummy base URL string because the URL constructor only accepts absolute URLs.
+         const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL)
+         let baseOptions
+         if (configuration) {
+            baseOptions = configuration.baseOptions
+         }
+
+         const localVarRequestOptions = {
+            method: 'PATCH',
+            ...baseOptions,
+            ...options,
+         }
+         const localVarHeaderParameter = {} as any
+         const localVarQueryParameter = {} as any
+
+         setSearchParams(localVarUrlObj, localVarQueryParameter)
+         let headersFromBaseOptions =
+            baseOptions && baseOptions.headers ? baseOptions.headers : {}
+         localVarRequestOptions.headers = {
+            ...localVarHeaderParameter,
+            ...headersFromBaseOptions,
+            ...options.headers,
+         }
 
          return {
             url: toPathString(localVarUrlObj),
@@ -1918,6 +2638,39 @@ export const APIApiFp = function (configuration?: Configuration) {
    const localVarAxiosParamCreator = APIApiAxiosParamCreator(configuration)
    return {
       /**
+       * 채팅방에서 요청자와의 채팅을 수락한다.
+       * @summary 채팅 수락 API
+       * @param {number} chatRoomId
+       * @param {*} [options] Override http request option.
+       * @throws {RequiredError}
+       */
+      async acceptChat(
+         chatRoomId: number,
+         options?: RawAxiosRequestConfig,
+      ): Promise<
+         (
+            axios?: AxiosInstance,
+            basePath?: string,
+         ) => AxiosPromise<AcceptChatResponse>
+      > {
+         const localVarAxiosArgs = await localVarAxiosParamCreator.acceptChat(
+            chatRoomId,
+            options,
+         )
+         const localVarOperationServerIndex = configuration?.serverIndex ?? 0
+         const localVarOperationServerBasePath =
+            operationServerMap['APIApi.acceptChat']?.[
+               localVarOperationServerIndex
+            ]?.url
+         return (axios, basePath) =>
+            createRequestFunction(
+               localVarAxiosArgs,
+               globalAxios,
+               BASE_PATH,
+               configuration,
+            )(axios, localVarOperationServerBasePath || basePath)
+      },
+      /**
        * 게시글을 추천하거나 북마크한다.
        * @summary 상호작용 등록 API
        * @param {number} questionPostId
@@ -1944,6 +2697,71 @@ export const APIApiFp = function (configuration?: Configuration) {
          const localVarOperationServerIndex = configuration?.serverIndex ?? 0
          const localVarOperationServerBasePath =
             operationServerMap['APIApi.activateInteraction']?.[
+               localVarOperationServerIndex
+            ]?.url
+         return (axios, basePath) =>
+            createRequestFunction(
+               localVarAxiosArgs,
+               globalAxios,
+               BASE_PATH,
+               configuration,
+            )(axios, localVarOperationServerBasePath || basePath)
+      },
+      /**
+       * 요청자가 답변자와의 채팅방을 생성한다.
+       * @summary 채팅방 생성 API
+       * @param {CreateChatRoomRequest} createChatRoomRequest
+       * @param {*} [options] Override http request option.
+       * @throws {RequiredError}
+       */
+      async createChatRoom(
+         createChatRoomRequest: CreateChatRoomRequest,
+         options?: RawAxiosRequestConfig,
+      ): Promise<
+         (
+            axios?: AxiosInstance,
+            basePath?: string,
+         ) => AxiosPromise<ChatRoomDetailResponse>
+      > {
+         const localVarAxiosArgs =
+            await localVarAxiosParamCreator.createChatRoom(
+               createChatRoomRequest,
+               options,
+            )
+         const localVarOperationServerIndex = configuration?.serverIndex ?? 0
+         const localVarOperationServerBasePath =
+            operationServerMap['APIApi.createChatRoom']?.[
+               localVarOperationServerIndex
+            ]?.url
+         return (axios, basePath) =>
+            createRequestFunction(
+               localVarAxiosArgs,
+               globalAxios,
+               BASE_PATH,
+               configuration,
+            )(axios, localVarOperationServerBasePath || basePath)
+      },
+      /**
+       * 채팅방 아이디로 채팅방을 조회한다.
+       * @summary 채팅방 조회 API
+       * @param {number} chatRoomId
+       * @param {*} [options] Override http request option.
+       * @throws {RequiredError}
+       */
+      async createChatRoom1(
+         chatRoomId: number,
+         options?: RawAxiosRequestConfig,
+      ): Promise<
+         (
+            axios?: AxiosInstance,
+            basePath?: string,
+         ) => AxiosPromise<ChatRoomDetailResponse>
+      > {
+         const localVarAxiosArgs =
+            await localVarAxiosParamCreator.createChatRoom1(chatRoomId, options)
+         const localVarOperationServerIndex = configuration?.serverIndex ?? 0
+         const localVarOperationServerBasePath =
+            operationServerMap['APIApi.createChatRoom1']?.[
                localVarOperationServerIndex
             ]?.url
          return (axios, basePath) =>
@@ -2012,6 +2830,108 @@ export const APIApiFp = function (configuration?: Configuration) {
          const localVarOperationServerIndex = configuration?.serverIndex ?? 0
          const localVarOperationServerBasePath =
             operationServerMap['APIApi.getAnswersByQuestionPostId1']?.[
+               localVarOperationServerIndex
+            ]?.url
+         return (axios, basePath) =>
+            createRequestFunction(
+               localVarAxiosArgs,
+               globalAxios,
+               BASE_PATH,
+               configuration,
+            )(axios, localVarOperationServerBasePath || basePath)
+      },
+      /**
+       * 채팅방 메시지를 최신순으로 페이징한다.
+       * @summary 채팅방 메시지 조회 API
+       * @param {number} chatRoomId
+       * @param {Pageable} pageable
+       * @param {*} [options] Override http request option.
+       * @throws {RequiredError}
+       */
+      async getChatMessages(
+         chatRoomId: number,
+         pageable: Pageable,
+         options?: RawAxiosRequestConfig,
+      ): Promise<
+         (
+            axios?: AxiosInstance,
+            basePath?: string,
+         ) => AxiosPromise<PageResponseChatMessageResponse>
+      > {
+         const localVarAxiosArgs =
+            await localVarAxiosParamCreator.getChatMessages(
+               chatRoomId,
+               pageable,
+               options,
+            )
+         const localVarOperationServerIndex = configuration?.serverIndex ?? 0
+         const localVarOperationServerBasePath =
+            operationServerMap['APIApi.getChatMessages']?.[
+               localVarOperationServerIndex
+            ]?.url
+         return (axios, basePath) =>
+            createRequestFunction(
+               localVarAxiosArgs,
+               globalAxios,
+               BASE_PATH,
+               configuration,
+            )(axios, localVarOperationServerBasePath || basePath)
+      },
+      /**
+       * 회원의 채팅방 목록을 조회한다.
+       * @summary 채팅방 목록 조회 API
+       * @param {*} [options] Override http request option.
+       * @throws {RequiredError}
+       */
+      async getChatRoomsByMember(
+         options?: RawAxiosRequestConfig,
+      ): Promise<
+         (
+            axios?: AxiosInstance,
+            basePath?: string,
+         ) => AxiosPromise<Array<ChatRoomSimpleResponse>>
+      > {
+         const localVarAxiosArgs =
+            await localVarAxiosParamCreator.getChatRoomsByMember(options)
+         const localVarOperationServerIndex = configuration?.serverIndex ?? 0
+         const localVarOperationServerBasePath =
+            operationServerMap['APIApi.getChatRoomsByMember']?.[
+               localVarOperationServerIndex
+            ]?.url
+         return (axios, basePath) =>
+            createRequestFunction(
+               localVarAxiosArgs,
+               globalAxios,
+               BASE_PATH,
+               configuration,
+            )(axios, localVarOperationServerBasePath || basePath)
+      },
+      /**
+       *
+       * @param {string} type
+       * @param {Pageable} pageable
+       * @param {*} [options] Override http request option.
+       * @throws {RequiredError}
+       */
+      async getNotificationsByMember(
+         type: string,
+         pageable: Pageable,
+         options?: RawAxiosRequestConfig,
+      ): Promise<
+         (
+            axios?: AxiosInstance,
+            basePath?: string,
+         ) => AxiosPromise<PageResponseNotificationResponse>
+      > {
+         const localVarAxiosArgs =
+            await localVarAxiosParamCreator.getNotificationsByMember(
+               type,
+               pageable,
+               options,
+            )
+         const localVarOperationServerIndex = configuration?.serverIndex ?? 0
+         const localVarOperationServerBasePath =
+            operationServerMap['APIApi.getNotificationsByMember']?.[
                localVarOperationServerIndex
             ]?.url
          return (axios, basePath) =>
@@ -2092,7 +3012,7 @@ export const APIApiFp = function (configuration?: Configuration) {
       },
       /**
        * 게시글을 추천하거나 북마크 취소한다.
-       * @summary 상호작용 등록 API
+       * @summary 상호작용 취소 API
        * @param {number} questionPostId
        * @param {string} type
        * @param {*} [options] Override http request option.
@@ -2117,6 +3037,39 @@ export const APIApiFp = function (configuration?: Configuration) {
          const localVarOperationServerIndex = configuration?.serverIndex ?? 0
          const localVarOperationServerBasePath =
             operationServerMap['APIApi.inactivateInteraction']?.[
+               localVarOperationServerIndex
+            ]?.url
+         return (axios, basePath) =>
+            createRequestFunction(
+               localVarAxiosArgs,
+               globalAxios,
+               BASE_PATH,
+               configuration,
+            )(axios, localVarOperationServerBasePath || basePath)
+      },
+      /**
+       *
+       * @param {ReadNotificationRequest} readNotificationRequest
+       * @param {*} [options] Override http request option.
+       * @throws {RequiredError}
+       */
+      async readNotification(
+         readNotificationRequest: ReadNotificationRequest,
+         options?: RawAxiosRequestConfig,
+      ): Promise<
+         (
+            axios?: AxiosInstance,
+            basePath?: string,
+         ) => AxiosPromise<ReadNotificationResponse>
+      > {
+         const localVarAxiosArgs =
+            await localVarAxiosParamCreator.readNotification(
+               readNotificationRequest,
+               options,
+            )
+         const localVarOperationServerIndex = configuration?.serverIndex ?? 0
+         const localVarOperationServerBasePath =
+            operationServerMap['APIApi.readNotification']?.[
                localVarOperationServerIndex
             ]?.url
          return (axios, basePath) =>
@@ -2188,6 +3141,39 @@ export const APIApiFp = function (configuration?: Configuration) {
          const localVarOperationServerIndex = configuration?.serverIndex ?? 0
          const localVarOperationServerBasePath =
             operationServerMap['APIApi.registerQuestionPost']?.[
+               localVarOperationServerIndex
+            ]?.url
+         return (axios, basePath) =>
+            createRequestFunction(
+               localVarAxiosArgs,
+               globalAxios,
+               BASE_PATH,
+               configuration,
+            )(axios, localVarOperationServerBasePath || basePath)
+      },
+      /**
+       * 채팅방에서 요청자와의 채팅을 거절한다.
+       * @summary 채팅 거절 API
+       * @param {number} chatRoomId
+       * @param {*} [options] Override http request option.
+       * @throws {RequiredError}
+       */
+      async rejectChat(
+         chatRoomId: number,
+         options?: RawAxiosRequestConfig,
+      ): Promise<
+         (
+            axios?: AxiosInstance,
+            basePath?: string,
+         ) => AxiosPromise<RejectChatResponse>
+      > {
+         const localVarAxiosArgs = await localVarAxiosParamCreator.rejectChat(
+            chatRoomId,
+            options,
+         )
+         const localVarOperationServerIndex = configuration?.serverIndex ?? 0
+         const localVarOperationServerBasePath =
+            operationServerMap['APIApi.rejectChat']?.[
                localVarOperationServerIndex
             ]?.url
          return (axios, basePath) =>
@@ -2287,6 +3273,21 @@ export const APIApiFactory = function (
    const localVarFp = APIApiFp(configuration)
    return {
       /**
+       * 채팅방에서 요청자와의 채팅을 수락한다.
+       * @summary 채팅 수락 API
+       * @param {number} chatRoomId
+       * @param {*} [options] Override http request option.
+       * @throws {RequiredError}
+       */
+      acceptChat(
+         chatRoomId: number,
+         options?: any,
+      ): AxiosPromise<AcceptChatResponse> {
+         return localVarFp
+            .acceptChat(chatRoomId, options)
+            .then((request) => request(axios, basePath))
+      },
+      /**
        * 게시글을 추천하거나 북마크한다.
        * @summary 상호작용 등록 API
        * @param {number} questionPostId
@@ -2301,6 +3302,36 @@ export const APIApiFactory = function (
       ): AxiosPromise<InteractionResponse> {
          return localVarFp
             .activateInteraction(questionPostId, type, options)
+            .then((request) => request(axios, basePath))
+      },
+      /**
+       * 요청자가 답변자와의 채팅방을 생성한다.
+       * @summary 채팅방 생성 API
+       * @param {CreateChatRoomRequest} createChatRoomRequest
+       * @param {*} [options] Override http request option.
+       * @throws {RequiredError}
+       */
+      createChatRoom(
+         createChatRoomRequest: CreateChatRoomRequest,
+         options?: any,
+      ): AxiosPromise<ChatRoomDetailResponse> {
+         return localVarFp
+            .createChatRoom(createChatRoomRequest, options)
+            .then((request) => request(axios, basePath))
+      },
+      /**
+       * 채팅방 아이디로 채팅방을 조회한다.
+       * @summary 채팅방 조회 API
+       * @param {number} chatRoomId
+       * @param {*} [options] Override http request option.
+       * @throws {RequiredError}
+       */
+      createChatRoom1(
+         chatRoomId: number,
+         options?: any,
+      ): AxiosPromise<ChatRoomDetailResponse> {
+         return localVarFp
+            .createChatRoom1(chatRoomId, options)
             .then((request) => request(axios, basePath))
       },
       /**
@@ -2331,6 +3362,52 @@ export const APIApiFactory = function (
       ): AxiosPromise<PageResponseAnswerDetailResponse> {
          return localVarFp
             .getAnswersByQuestionPostId1(questionPostId, options)
+            .then((request) => request(axios, basePath))
+      },
+      /**
+       * 채팅방 메시지를 최신순으로 페이징한다.
+       * @summary 채팅방 메시지 조회 API
+       * @param {number} chatRoomId
+       * @param {Pageable} pageable
+       * @param {*} [options] Override http request option.
+       * @throws {RequiredError}
+       */
+      getChatMessages(
+         chatRoomId: number,
+         pageable: Pageable,
+         options?: any,
+      ): AxiosPromise<PageResponseChatMessageResponse> {
+         return localVarFp
+            .getChatMessages(chatRoomId, pageable, options)
+            .then((request) => request(axios, basePath))
+      },
+      /**
+       * 회원의 채팅방 목록을 조회한다.
+       * @summary 채팅방 목록 조회 API
+       * @param {*} [options] Override http request option.
+       * @throws {RequiredError}
+       */
+      getChatRoomsByMember(
+         options?: any,
+      ): AxiosPromise<Array<ChatRoomSimpleResponse>> {
+         return localVarFp
+            .getChatRoomsByMember(options)
+            .then((request) => request(axios, basePath))
+      },
+      /**
+       *
+       * @param {string} type
+       * @param {Pageable} pageable
+       * @param {*} [options] Override http request option.
+       * @throws {RequiredError}
+       */
+      getNotificationsByMember(
+         type: string,
+         pageable: Pageable,
+         options?: any,
+      ): AxiosPromise<PageResponseNotificationResponse> {
+         return localVarFp
+            .getNotificationsByMember(type, pageable, options)
             .then((request) => request(axios, basePath))
       },
       /**
@@ -2365,7 +3442,7 @@ export const APIApiFactory = function (
       },
       /**
        * 게시글을 추천하거나 북마크 취소한다.
-       * @summary 상호작용 등록 API
+       * @summary 상호작용 취소 API
        * @param {number} questionPostId
        * @param {string} type
        * @param {*} [options] Override http request option.
@@ -2378,6 +3455,20 @@ export const APIApiFactory = function (
       ): AxiosPromise<InteractionResponse> {
          return localVarFp
             .inactivateInteraction(questionPostId, type, options)
+            .then((request) => request(axios, basePath))
+      },
+      /**
+       *
+       * @param {ReadNotificationRequest} readNotificationRequest
+       * @param {*} [options] Override http request option.
+       * @throws {RequiredError}
+       */
+      readNotification(
+         readNotificationRequest: ReadNotificationRequest,
+         options?: any,
+      ): AxiosPromise<ReadNotificationResponse> {
+         return localVarFp
+            .readNotification(readNotificationRequest, options)
             .then((request) => request(axios, basePath))
       },
       /**
@@ -2410,6 +3501,21 @@ export const APIApiFactory = function (
       ): AxiosPromise<RegisterQuestionPostResponse> {
          return localVarFp
             .registerQuestionPost(registerQuestionPostRequest, options)
+            .then((request) => request(axios, basePath))
+      },
+      /**
+       * 채팅방에서 요청자와의 채팅을 거절한다.
+       * @summary 채팅 거절 API
+       * @param {number} chatRoomId
+       * @param {*} [options] Override http request option.
+       * @throws {RequiredError}
+       */
+      rejectChat(
+         chatRoomId: number,
+         options?: any,
+      ): AxiosPromise<RejectChatResponse> {
+         return localVarFp
+            .rejectChat(chatRoomId, options)
             .then((request) => request(axios, basePath))
       },
       /**
@@ -2461,6 +3567,20 @@ export const APIApiFactory = function (
  */
 export class APIApi extends BaseAPI {
    /**
+    * 채팅방에서 요청자와의 채팅을 수락한다.
+    * @summary 채팅 수락 API
+    * @param {number} chatRoomId
+    * @param {*} [options] Override http request option.
+    * @throws {RequiredError}
+    * @memberof APIApi
+    */
+   public acceptChat(chatRoomId: number, options?: RawAxiosRequestConfig) {
+      return APIApiFp(this.configuration)
+         .acceptChat(chatRoomId, options)
+         .then((request) => request(this.axios, this.basePath))
+   }
+
+   /**
     * 게시글을 추천하거나 북마크한다.
     * @summary 상호작용 등록 API
     * @param {number} questionPostId
@@ -2476,6 +3596,37 @@ export class APIApi extends BaseAPI {
    ) {
       return APIApiFp(this.configuration)
          .activateInteraction(questionPostId, type, options)
+         .then((request) => request(this.axios, this.basePath))
+   }
+
+   /**
+    * 요청자가 답변자와의 채팅방을 생성한다.
+    * @summary 채팅방 생성 API
+    * @param {CreateChatRoomRequest} createChatRoomRequest
+    * @param {*} [options] Override http request option.
+    * @throws {RequiredError}
+    * @memberof APIApi
+    */
+   public createChatRoom(
+      createChatRoomRequest: CreateChatRoomRequest,
+      options?: RawAxiosRequestConfig,
+   ) {
+      return APIApiFp(this.configuration)
+         .createChatRoom(createChatRoomRequest, options)
+         .then((request) => request(this.axios, this.basePath))
+   }
+
+   /**
+    * 채팅방 아이디로 채팅방을 조회한다.
+    * @summary 채팅방 조회 API
+    * @param {number} chatRoomId
+    * @param {*} [options] Override http request option.
+    * @throws {RequiredError}
+    * @memberof APIApi
+    */
+   public createChatRoom1(chatRoomId: number, options?: RawAxiosRequestConfig) {
+      return APIApiFp(this.configuration)
+         .createChatRoom1(chatRoomId, options)
          .then((request) => request(this.axios, this.basePath))
    }
 
@@ -2510,6 +3661,56 @@ export class APIApi extends BaseAPI {
    ) {
       return APIApiFp(this.configuration)
          .getAnswersByQuestionPostId1(questionPostId, options)
+         .then((request) => request(this.axios, this.basePath))
+   }
+
+   /**
+    * 채팅방 메시지를 최신순으로 페이징한다.
+    * @summary 채팅방 메시지 조회 API
+    * @param {number} chatRoomId
+    * @param {Pageable} pageable
+    * @param {*} [options] Override http request option.
+    * @throws {RequiredError}
+    * @memberof APIApi
+    */
+   public getChatMessages(
+      chatRoomId: number,
+      pageable: Pageable,
+      options?: RawAxiosRequestConfig,
+   ) {
+      return APIApiFp(this.configuration)
+         .getChatMessages(chatRoomId, pageable, options)
+         .then((request) => request(this.axios, this.basePath))
+   }
+
+   /**
+    * 회원의 채팅방 목록을 조회한다.
+    * @summary 채팅방 목록 조회 API
+    * @param {*} [options] Override http request option.
+    * @throws {RequiredError}
+    * @memberof APIApi
+    */
+   public getChatRoomsByMember(options?: RawAxiosRequestConfig) {
+      return APIApiFp(this.configuration)
+         .getChatRoomsByMember(options)
+         .then((request) => request(this.axios, this.basePath))
+   }
+
+   /**
+    *
+    * @param {string} type
+    * @param {Pageable} pageable
+    * @param {*} [options] Override http request option.
+    * @throws {RequiredError}
+    * @memberof APIApi
+    */
+   public getNotificationsByMember(
+      type: string,
+      pageable: Pageable,
+      options?: RawAxiosRequestConfig,
+   ) {
+      return APIApiFp(this.configuration)
+         .getNotificationsByMember(type, pageable, options)
          .then((request) => request(this.axios, this.basePath))
    }
 
@@ -2549,7 +3750,7 @@ export class APIApi extends BaseAPI {
 
    /**
     * 게시글을 추천하거나 북마크 취소한다.
-    * @summary 상호작용 등록 API
+    * @summary 상호작용 취소 API
     * @param {number} questionPostId
     * @param {string} type
     * @param {*} [options] Override http request option.
@@ -2563,6 +3764,22 @@ export class APIApi extends BaseAPI {
    ) {
       return APIApiFp(this.configuration)
          .inactivateInteraction(questionPostId, type, options)
+         .then((request) => request(this.axios, this.basePath))
+   }
+
+   /**
+    *
+    * @param {ReadNotificationRequest} readNotificationRequest
+    * @param {*} [options] Override http request option.
+    * @throws {RequiredError}
+    * @memberof APIApi
+    */
+   public readNotification(
+      readNotificationRequest: ReadNotificationRequest,
+      options?: RawAxiosRequestConfig,
+   ) {
+      return APIApiFp(this.configuration)
+         .readNotification(readNotificationRequest, options)
          .then((request) => request(this.axios, this.basePath))
    }
 
@@ -2599,6 +3816,20 @@ export class APIApi extends BaseAPI {
    ) {
       return APIApiFp(this.configuration)
          .registerQuestionPost(registerQuestionPostRequest, options)
+         .then((request) => request(this.axios, this.basePath))
+   }
+
+   /**
+    * 채팅방에서 요청자와의 채팅을 거절한다.
+    * @summary 채팅 거절 API
+    * @param {number} chatRoomId
+    * @param {*} [options] Override http request option.
+    * @throws {RequiredError}
+    * @memberof APIApi
+    */
+   public rejectChat(chatRoomId: number, options?: RawAxiosRequestConfig) {
+      return APIApiFp(this.configuration)
+         .rejectChat(chatRoomId, options)
          .then((request) => request(this.axios, this.basePath))
    }
 
@@ -4467,7 +5698,10 @@ export const SocialLoginAPIApiFp = function (configuration?: Configuration) {
          tempSignInRequest: TempSignInRequest,
          options?: RawAxiosRequestConfig,
       ): Promise<
-         (axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>
+         (
+            axios?: AxiosInstance,
+            basePath?: string,
+         ) => AxiosPromise<TempSignResponse>
       > {
          const localVarAxiosArgs = await localVarAxiosParamCreator.tempSignIn(
             tempSignInRequest,
@@ -4497,7 +5731,10 @@ export const SocialLoginAPIApiFp = function (configuration?: Configuration) {
          tempSignUpRequest: TempSignUpRequest,
          options?: RawAxiosRequestConfig,
       ): Promise<
-         (axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>
+         (
+            axios?: AxiosInstance,
+            basePath?: string,
+         ) => AxiosPromise<TempSignResponse>
       > {
          const localVarAxiosArgs = await localVarAxiosParamCreator.tempSignUp(
             tempSignUpRequest,
@@ -4592,7 +5829,7 @@ export const SocialLoginAPIApiFactory = function (
       tempSignIn(
          tempSignInRequest: TempSignInRequest,
          options?: any,
-      ): AxiosPromise<string> {
+      ): AxiosPromise<TempSignResponse> {
          return localVarFp
             .tempSignIn(tempSignInRequest, options)
             .then((request) => request(axios, basePath))
@@ -4607,7 +5844,7 @@ export const SocialLoginAPIApiFactory = function (
       tempSignUp(
          tempSignUpRequest: TempSignUpRequest,
          options?: any,
-      ): AxiosPromise<string> {
+      ): AxiosPromise<TempSignResponse> {
          return localVarFp
             .tempSignUp(tempSignUpRequest, options)
             .then((request) => request(axios, basePath))
