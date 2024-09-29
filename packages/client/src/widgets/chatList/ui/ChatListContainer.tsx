@@ -1,8 +1,14 @@
+'use client'
+
+import { useRouter } from 'next/navigation'
+import { PageURL } from '@shared/model'
+import { use } from 'react'
 import * as styles from './style.css'
 import ChatListHeader from './ChatListHeader'
 import ChatInformation from './ChatInformation'
 
 export function ChatListContainer() {
+   const router = useRouter()
    const chatData = [
       {
          nickname: '물먹는 하마',
@@ -31,7 +37,10 @@ export function ChatListContainer() {
    ]
    return (
       <div className={styles.Wrapper}>
-         <ChatListHeader />
+         <ChatListHeader
+            title="채팅"
+            onAlarmClick={() => router.push(PageURL.NOTIFICATION)}
+         />
          <div className={styles.MainWrapper}>
             <div className={styles.ChatsListWrapper}>
                <span className={styles.DateTxt}>오늘</span>
