@@ -10,7 +10,7 @@ import {
 } from './style.css'
 
 interface Props {
-   title: string
+   title?: string
 }
 
 export function ChatHeader({ title }: Props) {
