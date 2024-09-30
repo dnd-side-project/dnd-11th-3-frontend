@@ -31,7 +31,7 @@ export function NotificationCard({ isRead }: Props) {
             </div>
          </div>
          <div className={styles.bottom}>
-            <span className={Typo.body3.md}>{new Date().toLocaleString()}</span>
+            <span className={Typo.body3.md}>new Date().toLocaleString()</span>
          </div>
       </div>
    )
