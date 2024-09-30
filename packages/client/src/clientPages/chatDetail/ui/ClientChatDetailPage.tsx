@@ -42,10 +42,6 @@ export function ClientChatDetailPage({ chatRoomId }: Prop) {
       },
    })
 
-   const [messages, setMessages] = useState<ChatMessageResponse[]>(
-      chatMessagesData?.content || [],
-   )
-
    const { sendMessage } = useSendMessage({ stompClientRef, chatRoomId })
 
    const onSubmit = (data: string) => {
