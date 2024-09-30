@@ -1,22 +1,38 @@
 import React from 'react'
 import { IconArrowRight, IconCreditFill } from '@gds/icon'
 import { color } from '@gds/token'
+import { formatNumberWithCommas } from '@shared/utils/formatNumberWithCommas'
+import { useRouter } from 'next/navigation'
+import { PageURL } from '@shared/model'
 import * as styles from './style.css'
 
-function CreditSection() {
-   // TODO: api 연결 필요
+interface Prop {
+   credit?: number
+}
+
+function CreditSection({ credit = 0 }: Prop) {
+   const router = useRouter()
    return (
       <div className={styles.CreditBox}>
-         <span className={styles.creditTitle}>크레딧</span>
+         <span className={styles.CreditTitle}>크레딧</span>
          <hr className={styles.Line} />
-         <div className={styles.creditBottomWrapper}>
+         <div className={styles.CreditBottomWrapper}>
             <div className={styles.AmountBox}>
-               {/** TODO: 콤마함수 적용하기 */}
-               <span className={styles.creditAmount}>10000</span>
+               <span className={styles.CreditAmount}>
+                  {formatNumberWithCommas(credit)}
+               </span>
                <IconCreditFill color={color['primary-main']} />
             </div>
-            <span className={styles.creditMore}>내역 보기</span>
-            <IconArrowRight color={color['primary-main']} />
+            <button
+               type="button"
+               className={styles.CreditMore}
+               onClick={() => {
+                  router.push(PageURL.ACCOUNT_CREDIT)
+               }}
+            >
+               <span>내역 보기</span>
+               <IconArrowRight color={color['primary-main']} size={18} />
+            </button>
          </div>
       </div>
    )
