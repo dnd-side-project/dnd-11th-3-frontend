@@ -24,14 +24,14 @@
     "url": "https://github.com/dnd-side-project/dnd-11th-3-frontend"
   },
   "scripts": {
-    "prepare": "if [ \"$NETLIFY\" != \"true\" ]; then husky install && chmod +x .husky/pre-commit; fi",
-    "build:gongmuin-client": "nx run gongmuin-client:build",
-    "dev-client": "nx run gongmuin-client:dev",
-    "gen-icon-client": "nx run gongmuin-client:gen-icon",
-    "gen-design-system": "nx run gongmuin-client:gen-design-system",
-    "gen-api": "nx run gongmuin-client:gen-api",
-    "storybook": "nx run gmi-design-system:storybook",
-    "build-storybook": "nx run gmi-design-system:build-storybook",
-    "build-design-system": "nx run gmi-design-system:build"
+    "prepare": "if [ \"$NETLIFY\" != \"true\" ] && [ \"$CLOUDFLARE_PAGES\" != \"true\" ]; then husky install && chmod +x .husky/pre-commit; fi",
+    "build:gongmuin-client": "npx nx run gongmuin-client:build",
+    "dev-client": "npx nx run gongmuin-client:dev",
+    "gen-icon-client": "npx nx run gongmuin-client:gen-icon",
+    "gen-design-system": "npx nx run gongmuin-client:gen-design-system",
+    "gen-api": "npx nx run gongmuin-client:gen-api",
+    "storybook": "npx nx run gmi-design-system:storybook",
+    "build-storybook": "npx nx run gmi-design-system:build-storybook",
+    "build-design-system": "npx nx run gmi-design-system:build"
   }
 }
