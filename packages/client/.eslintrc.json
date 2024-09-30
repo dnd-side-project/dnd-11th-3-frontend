@@ -55,7 +55,8 @@
       "@typescript-eslint/no-unused-vars": "warn", // @typescript-eslint/no-unused-vars 규칙 추가
       "react-hooks/rules-of-hooks": "warn", // 이 규칙을 비활성화
       "react/jsx-no-useless-fragment": "off", // 이 규칙을 비활성화
-      "react-hooks/exhaustive-deps": "off" // react-hooks/exhaustive-deps 규칙 비활성화
+      "react-hooks/exhaustive-deps": "off", // react-hooks/exhaustive-deps 규칙 비활성화
+      "react/no-array-index-key": "off" // react/no-array-index-key 규칙 비활성화
    },
    "settings": {
       "react": {

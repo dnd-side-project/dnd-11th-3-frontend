@@ -13,8 +13,15 @@ export function ClientNotificationPage() {
       <div className={styles.container}>
          <MainLoader loading={isFetchingNextPage} />
          {status === 'success' &&
-            data.pages.map((c, index) => (
-               <NotificationCard key={c.content[0]?.targetId} isRead={false} />
+            data.pages.map((page, pageIndex) => (
+               <div key={pageIndex}>
+                  {page.content.map((notification) => (
+                     <NotificationCard
+                        key={notification.notificationId}
+                        isRead={notification.isRead || false}
+                     />
+                  ))}
+               </div>
             ))}
       </div>
    )
