@@ -12,6 +12,7 @@ export function ClientNotificationPage() {
    return (
       <div className={styles.container}>
          <MainLoader loading={isFetchingNextPage} />
+         <NotificationCard isRead={false} />
          {status === 'success' &&
             data.pages.map((page, pageIndex) => (
                <div key={pageIndex}>
