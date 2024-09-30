@@ -1,11 +1,7 @@
 // TODO: useInfiniteScrollNotifictaion
 // 참고 https://oliveyoung.tech/blog/2023-10-04/useInfiniteQuery-scroll/
 
-import {
-   APIApi,
-   NotificationResponse,
-   PageResponseNotificationResponse,
-} from '@server-api/api'
+import { APIApi, NotificationResponse } from '@server-api/api'
 import { config } from '@shared/api'
 import { InfiniteData, useInfiniteQuery } from '@tanstack/react-query'
 import { useEffect } from 'react'
