@@ -7,4 +7,5 @@ export const container = style({
    justifyContent: 'flex-start',
 
    width: '100%',
+   gap: 8,
 })

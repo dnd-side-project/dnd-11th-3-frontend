@@ -12,6 +12,7 @@ import {
    useQuery,
    useQueryClient,
    UseQueryOptions,
+   UseQueryResult,
 } from '@tanstack/react-query'
 
 import { config } from '@shared/api'
@@ -22,18 +23,10 @@ export const useFetchNotifications = (
       page: number
       size: number
    },
-   options: Omit<
-      DefinedInitialDataInfiniteOptions<PageResponseNotificationResponse>,
-      'queryKey'
-   >, // <PageResponseNotificationResponse>,
-): DefinedUseInfiniteQueryResult<
-   InfiniteData<PageResponseNotificationResponse, unknown>,
-   Error
-> => {
-   const queryClient = useQueryClient()
-   return useInfiniteQuery({
+   options: Omit<UseQueryOptions<PageResponseNotificationResponse>, 'queryKey'>, // <PageResponseNotificationResponse>,
+): UseQueryResult => {
+   return useQuery({
       ...options,
-      // queryClient, // TODO: if you need queryClient, you can use it. or remove it.
       queryKey: [`/notifications`, dto.type, dto.page, dto.size],
       queryFn: async () =>
          (
@@ -44,24 +37,6 @@ export const useFetchNotifications = (
          ).data,
    })
 }
-
-// TODO: delete Best practice:
-// const { data, isLoading, isError, fetchNextPage, isFetchingNextPage } = useInfiniteQuery<TSearchProduct>(
-//    queryKey,
-//    queryFn,
-//    {
-//      getNextPageParam: (lastPage, allPages) => {
-//      const nextPage = allPages.length + 1;
-
-//      //상품이 0개이거나 rowsPerPage보다 작을 경우 마지막 페이지로 인식한다.
-//      return lastPage?.data.count === 0 || lastPage?.data.count < rowsPerPage ? undefined : nextPage;
-//    },
-//      retry: 0,
-//      refetchOnMount: false,
-//      refetchOnReconnect: false,
-//      refetchOnWindowFocus: false,
-//    }
-//  );
 
 export const usePatchNotification = () => {
    return useMutation({

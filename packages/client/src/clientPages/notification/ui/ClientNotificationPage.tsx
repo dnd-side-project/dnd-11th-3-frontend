@@ -1,19 +1,21 @@
 'use client'
 
 import { NotificationCard } from '@entities/notification'
-import { useState } from 'react'
+import { MainLoader } from '@shared/ui'
+import { useInfiniteScrollNotifictaion } from '../hook/useInfiniteScrollNotifictaion'
 import * as styles from './style.css'
 
-const ROWS_PER_PAGE = 40 // 한 페이지당 불러올 상품개수
-const SESSIONSTORAGE_KEY = 'clickedSearchProduct'
-
 export function ClientNotificationPage() {
-   const [sort, setSort] = useState('') // TODO: Implement sorting after ask be
-   const [isPrefetchData, setIsPrefetchData] = useState(false)
+   const { data, isFetchingNextPage, status } =
+      useInfiniteScrollNotifictaion(10)
 
    return (
       <div className={styles.container}>
-         <NotificationCard isRead={false} />
+         <MainLoader loading={isFetchingNextPage} />
+         {status === 'success' &&
+            data.pages.map((c, index) => (
+               <NotificationCard key={c.content[0]?.targetId} isRead={false} />
+            ))}
       </div>
    )
 }
