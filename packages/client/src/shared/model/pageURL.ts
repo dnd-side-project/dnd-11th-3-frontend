@@ -13,5 +13,5 @@ export enum PageURL {
    ACCOUNT_PROFILE_UPDATE = '/account/profile/update',
    CHAT = '/chat', // without common header
    // CHAT_DETAIL='/chat/{id}',
-   NOTIFY = '/notify',
+   NOTIFICATION = '/notification',
 }
