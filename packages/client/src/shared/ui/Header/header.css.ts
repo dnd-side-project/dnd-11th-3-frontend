@@ -10,6 +10,7 @@ export const headerWrapperStyle = style({
    height: '60px',
    backgroundColor: '#fff',
    position: 'sticky',
+   zIndex: 1001,
    top: 0,
 })
 

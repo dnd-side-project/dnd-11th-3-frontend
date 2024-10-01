@@ -6,9 +6,11 @@ import * as styles from './style.css'
 
 interface Props {
    isRead: boolean
+   notifyMessage: React.ReactNode
+   date?: React.ReactNode
 }
 
-export function NotificationCard({ isRead }: Props) {
+export function NotificationCard({ isRead, notifyMessage, date }: Props) {
    return (
       <div
          className={styles.container}
@@ -22,16 +24,11 @@ export function NotificationCard({ isRead }: Props) {
             </div>
             <span className={styles.circle} />
             <div className={styles.message}>
-               <span className={Typo.body3.md}>
-                  TODO: 누구누구님이 답변을 남겼습니다.TODO: 누구누구님이 답변을
-                  남겼습니다.TODO: 누구누구님이 답변을 남겼습니다.TODO:
-                  누구누구님이 답변을 남겼습니다.TODO: 누구누구님이 답변을
-                  남겼습니다.
-               </span>
+               <span className={Typo.body3.md}>{notifyMessage}</span>
             </div>
          </div>
          <div className={styles.bottom}>
-            <span className={Typo.body3.md}>new Date().toLocaleString()</span>
+            <span className={Typo.body3.md}>{date || '-'}</span>
          </div>
       </div>
    )

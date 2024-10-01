@@ -25,7 +25,6 @@ export const top = style({
    width: '100%',
    height: 'auto',
    minHeight: 32,
-   gap: 8,
 })
 
 export const profileWrapper = style({
@@ -62,4 +61,5 @@ export const circle = style({
 
    position: 'absolute',
    left: 59,
+   zIndex: 1,
 })
