@@ -5,6 +5,7 @@ import { MainLoader } from '@shared/ui'
 import { NotificationResponse } from '@server-api/api'
 import { useInfiniteScrollNotifictaion } from '../hook/useInfiniteScrollNotifictaion'
 import * as styles from './style.css'
+import { usePatchNotification } from '../api/notification'
 
 export function ClientNotificationPage() {
    const { data, isFetchingNextPage, status } =
@@ -40,6 +41,8 @@ export function ClientNotificationPage() {
       }
    }
 
+   const { mutate: patchNotification } = usePatchNotification()
+
    return (
       <div className={styles.container}>
          <MainLoader loading={isFetchingNextPage} />
@@ -50,6 +53,21 @@ export function ClientNotificationPage() {
                      const foramtted = formatdNotification(notification)
                      return (
                         <NotificationCard
+                           onClick={() => {
+                              if (notification.isRead) {
+                                 return
+                              }
+                              patchNotification(
+                                 {
+                                    notificationId: Number(
+                                       notification.notificationId,
+                                    ),
+                                 },
+                                 {
+                                    onError: (error) => alert(error.message),
+                                 },
+                              )
+                           }}
                            key={notification.notificationId}
                            notifyMessage={foramtted.message}
                            date={foramtted.date}

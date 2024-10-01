@@ -5,6 +5,7 @@ import { Typo } from '@gds/token'
 import * as styles from './style.css'
 
 interface Props {
+   onClick: () => void
    isRead: boolean
    notifyMessage: React.ReactNode
    date?: React.ReactNode

@@ -31,6 +31,7 @@ export const profileWrapper = style({
    width: 33,
    height: 36,
    paddingTop: 3,
+   paddingRight: 12,
 
    position: 'relative',
 })
