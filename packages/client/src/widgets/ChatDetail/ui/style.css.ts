@@ -93,6 +93,7 @@ export const messageBox = recipe({
       maxWidth: '272px',
       minWidth: 'auto',
       marginBottom: '8px',
+      marginTop: '5px',
    },
    variants: {
       type: {
@@ -123,6 +124,7 @@ export const marginLeftAuto = style({
 
 export const receiveContainer = style({
    display: 'flex',
+   marginTop: '5px',
 })
 
 export const profileBox = style({
