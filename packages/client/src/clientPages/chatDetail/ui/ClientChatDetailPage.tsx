@@ -4,7 +4,7 @@ import { ChatHeader } from '@widgets/ChatDetail'
 import ChatInput from '@widgets/ChatDetail/ui/ChatInput'
 import ChatRoomContainer from '@widgets/ChatDetail/ui/ChatRoomContainer'
 import QuestionDetailContainer from '@widgets/ChatDetail/ui/QuestionDetailContainer'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useFetchMemberInformation } from '@shared/api'
 import { useSendMessage, useWebSocketConnection } from '@features/chat'
 import { ChatMessageResponse } from '@server-api/api'
@@ -24,17 +24,8 @@ export function ClientChatDetailPage({ chatRoomId }: Prop) {
       chatRoomId,
    })
 
-   const {
-      data: chatRoomData,
-      isError: chatRoomDataIsError,
-      error: chatRoomDataError,
-   } = useGetChatRoomInfo({ chatRoomId })
-
-   const {
-      data: chatMessagesData,
-      isError: chatMessagesIsError,
-      error: chatMessagesError,
-   } = useGetChatMessages({
+   const { data: chatRoomData } = useGetChatRoomInfo({ chatRoomId })
+   const { data: chatMessagesData } = useGetChatMessages({
       chatRoomId,
       pageable: {
          page: 0,
@@ -43,18 +34,46 @@ export function ClientChatDetailPage({ chatRoomId }: Prop) {
    })
 
    const { sendMessage } = useSendMessage({ stompClientRef, chatRoomId })
+   const [updateMessage, setUpdateMessage] = useState<ChatMessageResponse[]>(
+      chatMessagesData?.content || [],
+   )
 
    const onSubmit = (data: string) => {
-      if (!data.trim()) return
+      if (!data.trim() || !userData?.memberId) return
 
       sendMessage({
          content: data,
-         senderId: userData?.memberId,
+         senderId: userData.memberId,
          type: '텍스트',
       })
 
       setChatInput('')
    }
+
+   useEffect(() => {
+      if (messageList) {
+         setUpdateMessage((prev) => {
+            const newMessages = Array.isArray(messageList)
+               ? messageList
+               : [messageList]
+
+            const uniqueNewMessages = newMessages.filter(
+               (newMsg) =>
+                  !prev.some(
+                     (prevMsg) => prevMsg.createdAt === newMsg.createdAt,
+                  ),
+            )
+
+            return [...prev, ...uniqueNewMessages]
+         })
+      }
+   }, [messageList])
+
+   useEffect(() => {
+      if (chatMessagesData?.content) {
+         setUpdateMessage(chatMessagesData.content)
+      }
+   }, [chatMessagesData])
 
    return (
       <>
@@ -67,7 +86,7 @@ export function ClientChatDetailPage({ chatRoomId }: Prop) {
                   questionPostId={chatRoomData?.questionPostId}
                />
                <ChatRoomContainer
-                  messageList={chatMessagesData?.content}
+                  messageList={updateMessage}
                   userId={userData?.memberId}
                />
             </div>
