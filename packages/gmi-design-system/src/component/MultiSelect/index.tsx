@@ -1,3 +1,5 @@
+'use client'
+
 import { useRef, cloneElement, CSSProperties, ReactElement, useState } from 'react'
 import {
   Select as AriaSelect,
@@ -284,5 +286,3 @@ function CustomListBoxItem({
     </ListBoxItem>
   )
 }
-
-export default MultiSelect

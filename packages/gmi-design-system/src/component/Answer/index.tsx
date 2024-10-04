@@ -3,8 +3,8 @@ import { IconEnter } from 'src/design-system/icon/default/IconEnter'
 import * as styles from './index.css'
 
 interface AnswerProps {
-  text: string
-  date: string
+  text?: string
+  date?: string
 }
 
 function AnswerBox({ text, date }: AnswerProps) {
@@ -20,7 +20,9 @@ function AnswerBox({ text, date }: AnswerProps) {
           </div>
         </div>
         <div className={styles.DateBox}>
-          <span>{date}</span>
+          <span>
+            {new Date(String(date))?.toLocaleDateString()} {date?.slice(11, 16)}
+          </span>
         </div>
       </div>
     </div>

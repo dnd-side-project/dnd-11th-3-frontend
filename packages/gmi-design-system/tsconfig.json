@@ -25,9 +25,9 @@
     "experimentalDecorators": true,
     "importHelpers": true,
     "paths": {
-      "@gds/component": ["./src/component/index.ts"],
-      "@gds/token": ["./src/token/index.ts"],
-      "@gds/icon": ["./src/icon/default"] //TODO: fix this
+      "@gds/component": ["src/component/index.ts"],
+      "@gds/token": ["src/token/index.ts"],
+      "@gds/icon": ["src/icon/default/index.ts"] //TODO: fix this
     }
   },
   "include": ["src/**/*", "eslint.config.js"],
