@@ -4,7 +4,7 @@ import { ChatHeader } from '@widgets/ChatDetail'
 import ChatInput from '@widgets/ChatDetail/ui/ChatInput'
 import ChatRoomContainer from '@widgets/ChatDetail/ui/ChatRoomContainer'
 import QuestionDetailContainer from '@widgets/ChatDetail/ui/QuestionDetailContainer'
-import { useEffect, useState, useCallback } from 'react'
+import { useEffect, useState, useCallback, useRef } from 'react'
 import { useFetchMemberInformation } from '@shared/api'
 import { useSendMessage, useWebSocketConnection } from '@features/chat'
 import { ChatMessageResponse } from '@server-api/api'
@@ -18,6 +18,7 @@ interface Prop {
 
 export function ClientChatDetailPage({ chatRoomId }: Prop) {
    const [chatInput, setChatInput] = useState('')
+   const messagesEndRef = useRef<HTMLDivElement>(null)
 
    const { data: userData } = useFetchMemberInformation()
    const { messageList, stompClientRef } = useWebSocketConnection({
@@ -35,6 +36,10 @@ export function ClientChatDetailPage({ chatRoomId }: Prop) {
 
    const { sendMessage } = useSendMessage({ stompClientRef, chatRoomId })
    const [updateMessage, setUpdateMessage] = useState<ChatMessageResponse[]>([])
+
+   const scrollToBottom = () => {
+      messagesEndRef.current?.scrollIntoView({ behavior: 'auto' })
+   }
 
    const onSubmit = useCallback(
       (data: string) => {
@@ -72,6 +77,7 @@ export function ClientChatDetailPage({ chatRoomId }: Prop) {
                   new Date(b.createdAt || '').getTime(),
             )
          })
+         scrollToBottom()
       }
    }, [messageList])
 
@@ -84,14 +90,25 @@ export function ClientChatDetailPage({ chatRoomId }: Prop) {
                   new Date(b.createdAt || '').getTime(),
             ),
          )
+         scrollToBottom()
       }
    }, [chatMessagesData])
+
+   useEffect(() => {
+      scrollToBottom()
+   }, [updateMessage])
 
    return (
       <>
          <div className={absolutePos}>
             <ChatHeader title={chatRoomData?.receiverInfo?.nickname} />
-            <div style={{ margin: '0 16px' }}>
+            <div
+               style={{
+                  margin: '0 16px',
+                  maxHeight: 'calc(100vh - 200px)',
+                  overflowY: 'auto',
+               }}
+            >
                <QuestionDetailContainer
                   jobGroup={chatRoomData?.targetJobGroup}
                   title={chatRoomData?.title}
@@ -101,6 +118,7 @@ export function ClientChatDetailPage({ chatRoomId }: Prop) {
                   messageList={updateMessage}
                   userId={userData?.memberId}
                />
+               <div ref={messagesEndRef} />
             </div>
          </div>
          <ChatInput
