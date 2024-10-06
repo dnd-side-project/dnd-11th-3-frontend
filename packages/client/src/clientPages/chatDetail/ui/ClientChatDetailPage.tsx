@@ -4,7 +4,7 @@ import { ChatHeader } from '@widgets/ChatDetail'
 import ChatInput from '@widgets/ChatDetail/ui/ChatInput'
 import ChatRoomContainer from '@widgets/ChatDetail/ui/ChatRoomContainer'
 import QuestionDetailContainer from '@widgets/ChatDetail/ui/QuestionDetailContainer'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { useFetchMemberInformation } from '@shared/api'
 import { useSendMessage, useWebSocketConnection } from '@features/chat'
 import { ChatMessageResponse } from '@server-api/api'
@@ -34,21 +34,22 @@ export function ClientChatDetailPage({ chatRoomId }: Prop) {
    })
 
    const { sendMessage } = useSendMessage({ stompClientRef, chatRoomId })
-   const [updateMessage, setUpdateMessage] = useState<ChatMessageResponse[]>(
-      chatMessagesData?.content || [],
+   const [updateMessage, setUpdateMessage] = useState<ChatMessageResponse[]>([])
+
+   const onSubmit = useCallback(
+      (data: string) => {
+         if (!data.trim() || !userData?.memberId) return
+
+         sendMessage({
+            content: data,
+            senderId: userData.memberId,
+            type: '텍스트',
+         })
+
+         setChatInput('')
+      },
+      [sendMessage, userData?.memberId],
    )
-
-   const onSubmit = (data: string) => {
-      if (!data.trim() || !userData?.memberId) return
-
-      sendMessage({
-         content: data,
-         senderId: userData.memberId,
-         type: '텍스트',
-      })
-
-      setChatInput('')
-   }
 
    useEffect(() => {
       if (messageList) {
@@ -64,14 +65,25 @@ export function ClientChatDetailPage({ chatRoomId }: Prop) {
                   ),
             )
 
-            return [...prev, ...uniqueNewMessages]
+            const updatedMessages = [...prev, ...uniqueNewMessages]
+            return updatedMessages.sort(
+               (a, b) =>
+                  new Date(a.createdAt || '').getTime() -
+                  new Date(b.createdAt || '').getTime(),
+            )
          })
       }
    }, [messageList])
 
    useEffect(() => {
       if (chatMessagesData?.content) {
-         setUpdateMessage(chatMessagesData.content)
+         setUpdateMessage(
+            chatMessagesData.content.sort(
+               (a, b) =>
+                  new Date(a.createdAt || '').getTime() -
+                  new Date(b.createdAt || '').getTime(),
+            ),
+         )
       }
    }, [chatMessagesData])
 
