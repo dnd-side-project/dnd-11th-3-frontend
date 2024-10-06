@@ -8,6 +8,7 @@ import { useEffect, useState, useCallback, useRef } from 'react'
 import { useFetchMemberInformation } from '@shared/api'
 import { useSendMessage, useWebSocketConnection } from '@features/chat'
 import { ChatMessageResponse } from '@server-api/api'
+import { useRouter } from 'next/navigation'
 import { absolutePos } from './style.css'
 import { useGetChatRoomInfo } from '../api/room'
 import { useGetChatMessages } from '../api/messages'
@@ -19,20 +20,38 @@ interface Prop {
 export function ClientChatDetailPage({ chatRoomId }: Prop) {
    const [chatInput, setChatInput] = useState('')
    const messagesEndRef = useRef<HTMLDivElement>(null)
-
+   const router = useRouter()
    const { data: userData } = useFetchMemberInformation()
    const { messageList, stompClientRef } = useWebSocketConnection({
       chatRoomId,
    })
 
-   const { data: chatRoomData } = useGetChatRoomInfo({ chatRoomId })
-   const { data: chatMessagesData } = useGetChatMessages({
+   const {
+      data: chatRoomData,
+      error: chatRoomDataError,
+      isError: chatRoomDataIsError,
+   } = useGetChatRoomInfo({ chatRoomId })
+   const {
+      data: chatMessagesData,
+      error: chatMessagesError,
+      isError: chatMessagesIsError,
+   } = useGetChatMessages({
       chatRoomId,
       pageable: {
          page: 0,
          size: 10,
       },
    })
+
+   if (chatRoomDataIsError) {
+      router.push('/chat')
+      // TODO: toast로 수정 필요
+      alert(chatRoomDataError.message || '서버 오류 발생')
+   } else if (chatMessagesIsError) {
+      router.push('/chat')
+      // TODO: toast로 수정 필요
+      alert(chatMessagesError.message || '서버 오류 발생')
+   }
 
    const { sendMessage } = useSendMessage({ stompClientRef, chatRoomId })
    const [updateMessage, setUpdateMessage] = useState<ChatMessageResponse[]>([])
