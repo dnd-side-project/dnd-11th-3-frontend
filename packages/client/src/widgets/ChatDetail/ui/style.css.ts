@@ -50,6 +50,9 @@ export const questionContainer = style([
       backgroundColor: color['gray-900'],
       borderRadius: '8px',
       padding: '16px',
+      margin: '0 16px',
+      position: 'fixed',
+      width: '358px',
    },
 ])
 
@@ -80,7 +83,7 @@ export const sendContainer = style([
    flexColumn,
    {
       width: '100%',
-      marginTop: '24px',
+      marginTop: '144px',
    },
 ])
 

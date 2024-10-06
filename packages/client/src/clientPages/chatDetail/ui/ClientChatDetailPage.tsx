@@ -102,18 +102,17 @@ export function ClientChatDetailPage({ chatRoomId }: Prop) {
       <>
          <div className={absolutePos}>
             <ChatHeader title={chatRoomData?.receiverInfo?.nickname} />
+            <QuestionDetailContainer
+               jobGroup={chatRoomData?.targetJobGroup}
+               title={chatRoomData?.title}
+               questionPostId={chatRoomData?.questionPostId}
+            />
             <div
                style={{
                   margin: '0 16px',
-                  maxHeight: 'calc(100vh - 200px)',
                   overflowY: 'auto',
                }}
             >
-               <QuestionDetailContainer
-                  jobGroup={chatRoomData?.targetJobGroup}
-                  title={chatRoomData?.title}
-                  questionPostId={chatRoomData?.questionPostId}
-               />
                <ChatRoomContainer
                   messageList={updateMessage}
                   userId={userData?.memberId}
