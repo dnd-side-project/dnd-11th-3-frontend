@@ -11,16 +11,17 @@ import {
 interface Props {
    content?: string
    time?: string
+   senderNickName?: string
 }
 
-function ReceiveMessageContainer({ content, time }: Props) {
+function ReceiveMessageContainer({ content, time, senderNickName }: Props) {
    return (
       <div className={receiveContainer}>
          <div className={profileBox}>
             <IconCharacter size={32} />
          </div>
          <div className={nicknameBox}>
-            <div className={nicknameTxt}>물먹는하마</div>
+            <div className={nicknameTxt}>{senderNickName}</div>
             <ReceiveMessage content={content} time={time} />
          </div>
       </div>

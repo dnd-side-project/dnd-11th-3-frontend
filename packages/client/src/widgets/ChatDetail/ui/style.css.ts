@@ -94,7 +94,6 @@ export const messageBox = recipe({
       fontWeight: '500',
       lineHeight: '21px',
       maxWidth: '272px',
-      minWidth: 'auto',
       marginBottom: '8px',
       marginTop: '5px',
    },

@@ -116,6 +116,7 @@ export function ClientChatDetailPage({ chatRoomId }: Prop) {
                <ChatRoomContainer
                   messageList={updateMessage}
                   userId={userData?.memberId}
+                  senderNickName={chatRoomData?.receiverInfo?.nickname}
                />
                <div ref={messagesEndRef} />
             </div>

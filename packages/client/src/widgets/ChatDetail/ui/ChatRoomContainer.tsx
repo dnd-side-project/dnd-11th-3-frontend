@@ -6,9 +6,10 @@ import ReceiveMessageContainer from './ReceiveMessageContainer'
 interface Props {
    messageList?: ChatMessageResponse[]
    userId?: number
+   senderNickName?: string
 }
 
-function ChatRoomContainer({ messageList, userId }: Props) {
+function ChatRoomContainer({ messageList, userId, senderNickName }: Props) {
    return (
       <div className={sendContainer}>
          {messageList?.map((item) => {
@@ -18,6 +19,7 @@ function ChatRoomContainer({ messageList, userId }: Props) {
                <ReceiveMessageContainer
                   content={item.content}
                   time={item.createdAt}
+                  senderNickName={senderNickName}
                />
             )
          })}
