@@ -81,6 +81,7 @@ export function ClientQuestionDetailPage() {
                      answerData={data}
                      key={data.answerId}
                      userId={userData?.memberId}
+                     questionPostId={Number(params.id)}
                   />
                ))}
             />

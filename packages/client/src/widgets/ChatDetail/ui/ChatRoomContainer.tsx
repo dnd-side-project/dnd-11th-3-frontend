@@ -1,12 +1,28 @@
+import { ChatMessageResponse } from '@server-api/api'
 import SendMessage from './SendMessage'
 import { sendContainer } from './style.css'
 import ReceiveMessageContainer from './ReceiveMessageContainer'
 
-function ChatRoomContainer() {
+interface Props {
+   messageList?: ChatMessageResponse[]
+   userId?: number
+   senderNickName?: string
+}
+
+function ChatRoomContainer({ messageList, userId, senderNickName }: Props) {
    return (
       <div className={sendContainer}>
-         <SendMessage />
-         <ReceiveMessageContainer />
+         {messageList?.map((item) => {
+            return userId === item.senderId ? (
+               <SendMessage content={item.content} time={item.createdAt} />
+            ) : (
+               <ReceiveMessageContainer
+                  content={item.content}
+                  time={item.createdAt}
+                  senderNickName={senderNickName}
+               />
+            )
+         })}
       </div>
    )
 }

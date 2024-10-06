@@ -27,14 +27,11 @@ export function ClientSigninPage() {
                </Link>
             </div>
             <div style={{ marginTop: '16px' }}>
-               <SNSButton
-                  socialLoginType="naver"
-                  onClick={() =>
-                     alert('네이버 소셜 로그인 서비스는 준비 중입니다.')
-                  }
-               >
-                  네이버로 시작하기
-               </SNSButton>
+               <Link href="https://gongmuin.site/oauth2/authorization/naver">
+                  <SNSButton socialLoginType="naver">
+                     네이버로 시작하기
+                  </SNSButton>
+               </Link>
             </div>
          </div>
       </div>

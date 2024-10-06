@@ -1,14 +1,19 @@
 import React from 'react'
 import { marginLeftAuto, messageBox, timeTxt } from './style.css'
 
-function SendMessage() {
+interface Props {
+   content?: string
+   time?: string
+}
+
+function SendMessage({ content, time }: Props) {
    return (
       <>
          <div className={messageBox({ type: 'send' })}>
-            <span>보낸메세지</span>
+            <span>{content}</span>
          </div>
          <div className={marginLeftAuto}>
-            <div className={timeTxt}>16:20</div>
+            <div className={timeTxt}>{time?.slice(11, 16)}</div>
          </div>
       </>
    )

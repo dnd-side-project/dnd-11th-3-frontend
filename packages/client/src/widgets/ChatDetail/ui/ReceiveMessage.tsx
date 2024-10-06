@@ -1,11 +1,18 @@
 import { messageBox, timeTxt } from './style.css'
 
-function ReceiveMessage() {
+interface Props {
+   content?: string
+   time?: string
+}
+
+function ReceiveMessage({ content, time }: Props) {
    return (
       <>
-         <div className={messageBox({ type: 'receive' })}>받은메세지</div>
+         <div className={messageBox({ type: 'receive' })}>
+            <span>{content}</span>
+         </div>
          <div>
-            <div className={timeTxt}>16:20</div>
+            <div className={timeTxt}>{time?.slice(11, 16)}</div>
          </div>
       </>
    )
