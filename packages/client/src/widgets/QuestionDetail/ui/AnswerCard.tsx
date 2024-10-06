@@ -4,6 +4,7 @@ import { Button } from '@gds/component'
 import { IconChat, IconCheck, IconCheckFilled } from '@gds/icon'
 import { color, Typo } from '@gds/token'
 import { AnswerDetailResponse } from '@server-api/api'
+import { usePostCreateChatRoom } from 'src/clientPages/questionDetail/api/chat'
 import {
    answerCardWrapper,
    answerMetaWrapper,
@@ -18,10 +19,27 @@ interface Props {
    answerSelectDone?: boolean
    answerData: AnswerDetailResponse
    userId?: number
+   questionPostId?: number
 }
 
-export function AnswerCard({ answerSelectDone, answerData, userId }: Props) {
+export function AnswerCard({
+   answerSelectDone,
+   answerData,
+   userId,
+   questionPostId,
+}: Props) {
    if (!answerData) return <></>
+   const {
+      mutate: createChatRoom,
+      isError: createChatRoomIsError,
+      error: createChatRoomError,
+   } = usePostCreateChatRoom()
+
+   if (createChatRoomIsError) {
+      // TODO: toast로 수정 필요
+      alert(createChatRoomError.message || '서버오류 발생')
+   }
+
    return (
       <div className={answerCardWrapper}>
          <div className={answerMetaWrapper}>
@@ -56,7 +74,14 @@ export function AnswerCard({ answerSelectDone, answerData, userId }: Props) {
          <div className={selectAnswerWrapper}>
             <div className={selectAnswerButtonWrapper}>
                <Button
-                  onClick={() => alert('서비스 준비중입니다.')}
+                  onClick={() => {
+                     if (questionPostId && answerData.answerId) {
+                        createChatRoom({
+                           questionPostId,
+                           answerId: answerData.answerId,
+                        })
+                     }
+                  }}
                   disabled={answerSelectDone}
                   variant={answerSelectDone ? 'filled' : 'outlined'}
                   size="small"

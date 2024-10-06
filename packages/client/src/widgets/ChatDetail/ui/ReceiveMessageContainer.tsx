@@ -9,18 +9,20 @@ import {
 } from './style.css'
 
 interface Props {
-   content: string
+   content?: string
+   time?: string
+   senderNickName?: string
 }
 
-function ReceiveMessageContainer({ content }: Props) {
+function ReceiveMessageContainer({ content, time, senderNickName }: Props) {
    return (
       <div className={receiveContainer}>
          <div className={profileBox}>
             <IconCharacter size={32} />
          </div>
          <div className={nicknameBox}>
-            <div className={nicknameTxt}>물먹는하마</div>
-            <ReceiveMessage content={content} />
+            <div className={nicknameTxt}>{senderNickName}</div>
+            <ReceiveMessage content={content} time={time} />
          </div>
       </div>
    )

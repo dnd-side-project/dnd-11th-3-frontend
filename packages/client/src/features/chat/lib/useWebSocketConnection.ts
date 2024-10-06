@@ -1,23 +1,18 @@
 'use client'
 
+import { ChatMessageResponse } from '@server-api/api'
 import { BASE_PATH } from '@server-api/base'
 import { CompatClient, Stomp } from '@stomp/stompjs'
 import { useEffect, useRef, useState } from 'react'
 import SockJS from 'sockjs-client'
 
-export interface IMessage {
-   chatRoomId: number
-   senderId: number
-   content: string
-   createdAt: Date
-}
 export const useWebSocketConnection = ({
    chatRoomId,
 }: {
    chatRoomId: number
 }) => {
    const stompClientRef = useRef<CompatClient>()
-   const [messageList, setMessageList] = useState<IMessage[]>([])
+   const [messageList, setMessageList] = useState<ChatMessageResponse[]>([])
 
    useEffect(() => {
       const socket = new SockJS(`${BASE_PATH}/ws`)
