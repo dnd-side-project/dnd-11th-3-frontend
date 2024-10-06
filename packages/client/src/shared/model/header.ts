@@ -43,6 +43,6 @@ export const COMMON_HEADER_META_DATA: {
    },
    {
       title: '알림',
-      url: PageURL.NOTIFY,
+      url: PageURL.NOTIFICATION,
    },
 ]

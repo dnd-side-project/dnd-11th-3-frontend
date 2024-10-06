@@ -1,33 +1,59 @@
-import React from 'react'
+'use client'
+
 import Image from 'next/image'
-import { IconEdit } from '@gds/icon'
+import { IconCharacter, IconEdit } from '@gds/icon'
 import { color } from '@gds/token'
 import ProfileBackground from 'public/asset/profileBackground.svg'
+import { useGetMemberProfile } from 'src/clientPages/account/api/profile'
+import { useRouter } from 'next/navigation'
 import * as styles from './style.css'
 import CreditSection from './CreditSection'
 
 function ProfileCard() {
+   const router = useRouter()
+   const {
+      data: memberData,
+      isError: memberDataIsError,
+      error: memberDataError,
+   } = useGetMemberProfile()
+
+   if (memberDataIsError) {
+      router.push('/home')
+      // TODO: toast로 수정 필요
+      alert(memberDataError.message || '서버 오류가 발생했습니다.')
+   }
    return (
       <div className={styles.ProfileWrapper}>
          <Image src={ProfileBackground} alt="profile background image" />
          <div className={styles.AbsoluteBox}>
             <div className={styles.ProfileInfoWrapper}>
-               <div>profile</div>
+               <div className={styles.ProfileImageWrapper}>
+                  <IconCharacter color={color['secondary-main']} size={48} />
+               </div>
                <div className={styles.TxtWrapper}>
                   <div>
-                     <span className={styles.NickNameTxt}>마라탕후루</span>
+                     <span className={styles.NickNameTxt}>
+                        {memberData?.nickname}
+                     </span>
                   </div>
                   <div>
                      <span className={styles.JobInfoTxt}>
-                        법원경비관리 | 관리
+                        {memberData?.jobGroup} | {memberData?.jobCategory}
                      </span>
                   </div>
                </div>
-               <div className={styles.EditBox}>
+               <button
+                  type="button"
+                  onClick={() => {
+                     router.push('/account/profile/update')
+                  }}
+                  className={styles.EditBox}
+                  aria-label="Edit profile"
+               >
                   <IconEdit color={color.white} />
-               </div>
+               </button>
             </div>
-            <CreditSection />
+            <CreditSection credit={memberData?.credit} />
          </div>
       </div>
    )
